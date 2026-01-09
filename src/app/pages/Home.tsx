@@ -97,7 +97,7 @@ export function Home() {
                   className="flex items-center justify-center lg:justify-start -ml-4"
                 >
                   <img 
-                    src="/Website/public/images/texibitionlogo.png" 
+                    src="/images/texibitionlogo.png" 
                     alt="TEXIBITION" 
                     className="h-48 md:h-64 w-auto object-contain drop-shadow-[0_0_15px_rgba(0,2,255,0.3)]"
                   />
@@ -117,7 +117,7 @@ export function Home() {
                    
                    <div className="flex items-center justify-center lg:justify-start gap-6">
                     <img 
-                       src="/Website/public/images/techclub-iic.png" 
+                       src="/images/techclub-iic.png" 
                        alt="Tech Club IIC" 
                        className="h-10 w-auto opacity-80 hover:opacity-100 transition-opacity"
                      />
@@ -744,7 +744,7 @@ export function Home() {
               {/* University Section */}
               <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4">
                   <img 
-                    src="/Website/public/images/bwulogo.png" 
+                    src="/images/bwulogo.png" 
                     alt="Brainware University" 
                     className="h-16 w-auto"
                   />
@@ -757,7 +757,7 @@ export function Home() {
               {/* Tech Club Section */}
               <div className="flex flex-col md:flex-row-reverse items-center justify-center md:justify-start gap-4">
                   <img 
-                    src="/Website/public/images/techclub-iic.png" 
+                    src="/images/techclub-iic.png" 
                     alt="Tech Club IIC" 
                     className="h-14 w-auto grayscale hover:grayscale-0 transition-all"
                   />
