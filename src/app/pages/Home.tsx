@@ -209,7 +209,7 @@ export function Home() {
       </section>
 
       {/* Countdown Section */}
-      <section className="py-36 relative">
+      <section className="py-10 relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -230,7 +230,7 @@ export function Home() {
       </section>
 
       {/* Highlights Section */}
-      <section id="events" className="py-36 relative">
+      <section id="events" className="py-10 relative">
         <div className="container mx-auto px-4">
 
           <motion.div
@@ -301,7 +301,7 @@ export function Home() {
       </section>
 
       {/* About Us Section */}
-      <section className="py-36 relative">
+      <section className="py-10 relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -391,7 +391,7 @@ export function Home() {
       </section>
 
       {/* Impact Statistics Section */}
-      <section className="py-36 relative">
+      <section className="py-10 relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -443,7 +443,7 @@ export function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-36 relative">
+      <section className="py-10 relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -516,7 +516,7 @@ export function Home() {
       </section>
 
       {/* Last Year Pictures Section */}
-      <section className="py-36 relative">
+      <section className="py-10 relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -566,7 +566,7 @@ export function Home() {
       </section>
 
       {/* Social Media Section */}
-      <section className="py-36 relative">
+      <section className="py-10 relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -620,7 +620,7 @@ export function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-36 relative">
+      <section className="py-10 relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -672,7 +672,7 @@ export function Home() {
 
 
       {/* Footer */}
-      <footer className="py-36 relative border-t border-[#00d4ff]/20">
+      <footer className="py-8 relative border-t border-[#00d4ff]/20">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div>
