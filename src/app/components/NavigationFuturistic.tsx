@@ -74,7 +74,7 @@ export function NavigationFuturistic() {
                   className="relative overflow-hidden"
                 >
                   <img 
-                    src="/Website/public/images/texibitionlogo.png" 
+                    src="/images/texibitionlogo.png" 
                     alt="Brainware University" 
                     className="h-16 w-auto"
                   />
