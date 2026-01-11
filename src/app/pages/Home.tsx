@@ -5,6 +5,8 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Star, Heart, Quote, Instagram, Twitter, Github, Youtube, Mail, MapPin } from 'lucide-react';
 import { CountdownTimer } from '../components/CountdownTimer';
+import Spline from '@splinetool/react-spline';
+
 
 export function Home() {
 
@@ -41,7 +43,7 @@ export function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white">
+    <div className="min-h-screen bg-[#0a0a0f] text-white p-10 pt-0">
       {/* Hero Section - Institutional Format */}
       <section className="relative min-h-screen flex items-center justify-start overflow-hidden">
         {/* Simple Background */}
@@ -50,7 +52,7 @@ export function Home() {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen py-20 pt-10">
-            
+
             {/* Left Column - Institutional Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -59,7 +61,7 @@ export function Home() {
               className="text-center lg:text-left space-y-8"
             >
               <div className="space-y-6">
-                
+
                 {/* Brainware University */}
                 <motion.div
                   initial={{ opacity: 0, letterSpacing: "0em" }}
@@ -96,9 +98,9 @@ export function Home() {
                   transition={{ delay: 0.6, type: "spring", stiffness: 100 }}
                   className="flex items-center justify-center lg:justify-start -ml-4"
                 >
-                  <img 
-                    src="/images/texibitionlogo.png" 
-                    alt="TEXIBITION" 
+                  <img
+                    src="/images/texibitionlogo.png"
+                    alt="TEXIBITION"
                     className="h-48 md:h-64 w-auto object-contain drop-shadow-[0_0_15px_rgba(0,2,255,0.3)]"
                   />
                 </motion.div>
@@ -110,18 +112,18 @@ export function Home() {
                   transition={{ delay: 0.8 }}
                   className="space-y-3"
                 >
-                   <div className="flex items-center justify-center lg:justify-start gap-2 text-white/60 font-['Rajdhani'] uppercase tracking-wider text-sm">
+                  <div className="flex items-center justify-center lg:justify-start gap-2 text-white/60 font-['Rajdhani'] uppercase tracking-wider text-sm">
                     <Sparkles className="size-3 text-[#ff6b35]" />
                     <span>Organised By</span>
-                   </div>
-                   
-                   <div className="flex items-center justify-center lg:justify-start gap-6">
-                    <img 
-                       src="/images/techclub-iic.png" 
-                       alt="Tech Club IIC" 
-                       className="h-10 w-auto opacity-80 hover:opacity-100 transition-opacity"
-                     />
-                   </div>
+                  </div>
+
+                  <div className="flex items-center justify-center lg:justify-start gap-6">
+                    <img
+                      src="/images/techclub-iic.png"
+                      alt="Tech Club IIC"
+                      className="h-10 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                  </div>
                 </motion.div>
 
                 {/* Date */}
@@ -167,7 +169,7 @@ export function Home() {
                     className="px-8 py-3 border border-white/20 rounded-none skew-x-[-10deg] font-['Space_Grotesk'] font-medium text-white/80 hover:text-[#a855f7] hover:bg-white/5 transition-all duration-300 backdrop-blur-sm cursor-pointer"
                   >
                     <div className="skew-x-[10deg] flex items-center gap-2">
-                       EXPLORE EVENTS
+                      EXPLORE EVENTS
                     </div>
                   </motion.button>
                 </motion.div>
@@ -179,14 +181,15 @@ export function Home() {
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.3, type: "spring"}}
+              transition={{ duration: 1, delay: 0.3, type: "spring" }}
               className="flex items-center justify-center"
             >
-              <div className="relative w-full h-96 md:h-[500px] bg-gradient-to-br from-[#00d4ff]/10 via-[#a855f7]/10 to-[#00ffff]/10 rounded-2xl border border-[#00d4ff]/30 backdrop-blur-sm flex items-center justify-center">
-                
+              <div className="relative w-full h-96 md:h-[500px] bg-gradient-to-br from-[#00d4ff]/10 via-[#a855f7]/10 to-[#00ffff]/10 rounded-2xl border border-[#00d4ff]/30 backdrop-blur-sm flex items-center justify-center overflow-hidden">
+
                 {/* Placeholder for 3D Element */}
-                <div className="text-center space-y-4">
-                  <div className="w-20 h-20 mx-auto bg-gradient-to-r from-[#00d4ff] to-[#a855f7] rounded-full flex items-center justify-center animate-pulse">
+                <div className="absolute inset-0">
+
+                  {/* <div className="w-20 h-20 mx-auto bg-gradient-to-r from-[#00d4ff] to-[#a855f7] rounded-full flex items-center justify-center animate-pulse">
                     <Code className="w-10 h-10 text-white" />
                   </div>
                   
@@ -196,7 +199,12 @@ export function Home() {
                   
                   <div className="text-white/60 text-sm">
                     Interactive 3D Model Area
-                  </div>
+                  </div> */}
+                <Spline scene="https://prod.spline.design/p53BqoL7wUiPF6WM/scene.splinecode"
+                
+                />
+
+
                 </div>
 
                 {/* Subtle grid pattern */}
@@ -224,7 +232,7 @@ export function Home() {
             </h2>
             <p className="text-white/60 text-lg">Don't miss the deadline - Register now!</p>
           </motion.div>
-          
+
           <CountdownTimer />
         </div>
       </section>
@@ -248,7 +256,7 @@ export function Home() {
             <div className="font-code text-white/60 text-lg">
               <span className="text-[#a855f7]">const</span> highlights = <span className="text-[#00ffff]">[
                 'innovation', 'gaming', 'hardware'
-              ]</span>
+                ]</span>
             </div>
           </motion.div>
 
@@ -276,15 +284,15 @@ export function Home() {
                         <span className="text-[#00ffff]">$</span> ./events/{highlight.title.toLowerCase().replace(/\s+/g, '_')}
                       </div>
                     </div>
-                    
+
                     <div className="relative z-10">
                       <div className={`inline-block p-3 rounded-lg bg-gradient-to-r ${highlight.gradient} mb-4`}>
                         <Icon className="size-6 text-white" />
                       </div>
-                      
+
                       <h3 className="text-xl font-bold mb-3 font-mono">{highlight.title}</h3>
                       <p className="text-white/70 leading-relaxed mb-4 text-sm">{highlight.description}</p>
-                      
+
                       {/* Code snippet */}
                       <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-4 font-code text-xs">
                         <div className="text-[#00d4ff] mb-1">// {highlight.title.toLowerCase().replace(/\s+/g, '_')}.js</div>
@@ -331,18 +339,18 @@ export function Home() {
                 <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-6 font-code text-sm">
                   <div className="text-[#a855f7]">const</div>
                   <div className="text-white/80 ml-4">
-                    mission = {'{'}<br/>
+                    mission = {'{'}<br />
                     <div className="ml-4">
-                      goal: <span className="text-[#fbbf24]">'foster_tech_innovation'</span>,<br/>
-                      focus: <span className="text-[#00ffff]">'collaborative_learning'</span>,<br/>
-                      community: <span className="text-[#a855f7]">'tech_enthusiasts'</span>,<br/>
+                      goal: <span className="text-[#fbbf24]">'foster_tech_innovation'</span>,<br />
+                      focus: <span className="text-[#00ffff]">'collaborative_learning'</span>,<br />
+                      community: <span className="text-[#a855f7]">'tech_enthusiasts'</span>,<br />
                       impact: <span className="text-[#00d4ff]">'empowering_future'</span>
                     </div>
                     {'}'};
                   </div>
                 </div>
                 <p className="text-white/70 mt-6 leading-relaxed">
-                  TechFest 2K26 is more than just a competition—it's a celebration of innovation, creativity, and technological advancement. 
+                  TechFest 2K26 is more than just a competition—it's a celebration of innovation, creativity, and technological advancement.
                   We bring together the brightest minds to collaborate, compete, and create the future of technology.
                 </p>
               </div>
@@ -391,7 +399,7 @@ export function Home() {
       </section>
 
       {/* Impact Statistics Section */}
-      <section className="py-10 relative">
+      {/* <section className="py-10 relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -440,10 +448,10 @@ export function Home() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials Section */}
-      <section className="py-10 relative">
+      {/* <section className="py-10 relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -513,7 +521,7 @@ export function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Last Year Pictures Section */}
       <section className="py-10 relative">
@@ -566,7 +574,7 @@ export function Home() {
       </section>
 
       {/* Social Media Section */}
-      <section className="py-10 relative">
+      {/* <section className="py-10 relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -617,7 +625,7 @@ export function Home() {
           </div>
         </div>
 
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-10 relative">
@@ -628,10 +636,10 @@ export function Home() {
             viewport={{ once: true }}
             className="relative p-1 md:p-1 rounded-3xl bg-gradient-to-br from-[#00d4ff]/30 to-[#a855f7]/30 backdrop-blur-md overflow-hidden"
           >
-             <div className="absolute inset-0 bg-[#0a0a0f] m-[1px] rounded-[23px] z-0" />
-            
+            <div className="absolute inset-0 bg-[#0a0a0f] m-[1px] rounded-[23px] z-0" />
+
             <div className="relative z-10 p-12 md:p-16 text-center">
-              
+
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-[#00d4ff]/30 bg-[#00d4ff]/10 mb-8">
                 <div className="w-2 h-2 bg-[#00ff9d] rounded-full animate-pulse" />
                 <span className="font-['Space_Grotesk'] text-[#00d4ff] text-xs tracking-widest uppercase">System Status: Online</span>
@@ -642,11 +650,11 @@ export function Home() {
                 READY_TO_JOIN?
                 <span className="text-[#00d4ff]">/&gt;</span>
               </h2>
-              
+
               <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto font-['Rajdhani'] font-medium tracking-wide">
                 Initialize your potential. Register now to access the mainframe and compete in the ultimate tech odyssey.
               </p>
-              
+
               <Link to="/code-of-conduct">
                 <motion.button
                   whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(168, 85, 247, 0.4)" }}
@@ -661,11 +669,11 @@ export function Home() {
                 </motion.button>
               </Link>
             </div>
-            
-             {/* Decorative Corner Lines */}
+
+            {/* Decorative Corner Lines */}
             <div className="absolute top-0 left-0 w-20 h-20 border-l-2 border-t-2 border-[#00d4ff]/50 rounded-tl-3xl" />
             <div className="absolute bottom-0 right-0 w-20 h-20 border-r-2 border-b-2 border-[#a855f7]/50 rounded-br-3xl" />
-            
+
           </motion.div>
         </div>
       </section>
@@ -684,7 +692,7 @@ export function Home() {
                 The ultimate tech experience bringing together innovation, gaming, and hardware challenges.
               </p>
             </div>
-            
+
             <div>
               <div className="font-mono text-[#00d4ff] mb-4">
                 <span className="text-[#00ffff]">//</span> quick_links
@@ -693,14 +701,14 @@ export function Home() {
                 {['Events', 'Register', 'Schedule', 'Team', 'FAQ'].map((link) => (
                   <li key={link}>
                     <Link to={`/${link.toLowerCase()}`} className="text-white/60 hover:text-[#00d4ff] transition-colors text-sm group flex items-center gap-2">
-                      <span className="text-[#00ffff] opacity-0 group-hover:opacity-100 transition-opacity">$</span> 
+                      <span className="text-[#00ffff] opacity-0 group-hover:opacity-100 transition-opacity">$</span>
                       <span className="group-hover:translate-x-1 transition-transform">{link.toLowerCase()}</span>
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
-            
+
             <div>
               <div className="font-mono text-[#00d4ff] mb-4">
                 <span className="text-[#00ffff]">//</span> event_info
@@ -720,7 +728,7 @@ export function Home() {
                 </div>
               </div>
             </div>
-            
+
             <div>
               <div className="font-mono text-[#00d4ff] mb-4">
                 <span className="text-[#00ffff]">//</span> contact
@@ -737,38 +745,38 @@ export function Home() {
               </div>
             </div>
           </div>
-          
+
           {/* University and Tech Club Section */}
           <div className="border-t border-[#00d4ff]/20 pt-8 mb-8">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               {/* University Section */}
               <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4">
-                  <img 
-                    src="/images/bwulogo.png" 
-                    alt="Brainware University" 
-                    className="h-16 w-auto"
-                  />
-                  <div className="text-center md:text-left">
-                    <p className="text-[#00d4ff] font-mono text-xs mb-1">PRESENTS</p>
-                    <p className="text-white font-bold tracking-widest">TEXIBITION 2K26</p>
-                  </div>
+                <img
+                  src="/images/bwulogo.png"
+                  alt="Brainware University"
+                  className="h-16 w-auto"
+                />
+                <div className="text-center md:text-left">
+                  <p className="text-[#00d4ff] font-mono text-xs mb-1">PRESENTS</p>
+                  <p className="text-white font-bold tracking-widest">TEXIBITION 2K26</p>
+                </div>
               </div>
-              
+
               {/* Tech Club Section */}
               <div className="flex flex-col md:flex-row-reverse items-center justify-center md:justify-start gap-4">
-                  <img 
-                    src="/images/techclub-iic.png" 
-                    alt="Tech Club IIC" 
-                    className="h-14 w-auto grayscale hover:grayscale-0 transition-all"
-                  />
-                   <div className="text-center md:text-right">
-                    <p className="text-[#00d4ff] font-mono text-xs mb-1">ORGANISED BY</p>
-                    <p className="text-white font-bold tracking-wide">TECH CLUB & IIC</p>
-                  </div>
+                <img
+                  src="/images/techclub-iic.png"
+                  alt="Tech Club IIC"
+                  className="h-14 w-auto grayscale hover:grayscale-0 transition-all"
+                />
+                <div className="text-center md:text-right">
+                  <p className="text-[#00d4ff] font-mono text-xs mb-1">ORGANISED BY</p>
+                  <p className="text-white font-bold tracking-wide">TECH CLUB & IIC</p>
+                </div>
               </div>
             </div>
           </div>
-          
+
           <div className="border-t border-[#00d4ff]/20 pt-8 text-center">
             <div className="font-mono text-[#00d4ff] mb-2 text-xs">
               <span className="text-[#00ffff]">//</span>  copyright_notice

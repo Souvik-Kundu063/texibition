@@ -8,7 +8,7 @@ import { EventDetails } from './pages/EventDetails';
 import { Schedule } from './pages/Schedule';
 import { CodeOfConduct } from './pages/CodeOfConduct';
 import { Sponsors } from './pages/Sponsors';
-import { Team } from './pages/Team';
+import Team from './pages/Team'; 
 import { FAQ } from './pages/FAQ';
 
 export default function App() {

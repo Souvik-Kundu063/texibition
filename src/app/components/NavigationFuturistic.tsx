@@ -12,7 +12,7 @@ export function NavigationFuturistic() {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Events', path: '/events' },
-    { name: 'Schedule', path: '/schedule' },
+    // { name: 'Schedule', path: '/schedule' },
     { name: 'Sponsors', path: '/sponsors' },
     { name: 'Team', path: '/team' },
     { name: 'FAQ', path: '/faq' },
@@ -61,7 +61,7 @@ export function NavigationFuturistic() {
             : 'bg-transparent'
         }`}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-10">
           <div className="flex items-center justify-between h-20">
 
             {/* Logo and University Logo */}
