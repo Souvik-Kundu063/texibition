@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Star, Heart, Quote, Instagram, Twitter, Github, Youtube, Mail, MapPin } from 'lucide-react';
 import { CountdownTimer } from '../components/CountdownTimer';
 import Spline from '@splinetool/react-spline';
+import Carousel from "react-spring-3d-carousel";
+import { config } from "react-spring";
+import { useEffect, useState } from "react";
+
 
 
 export function Home() {
@@ -41,6 +45,15 @@ export function Home() {
       codeSnippet: `const hardware = {\n  domains: ['IoT', 'Robotics', 'Embedded'],\n  build: 'Real hardware',\n  showcase: true\n};`,
     },
   ];
+  const [carouselIndex, setCarouselIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCarouselIndex(prev => (prev + 1) % highlights.length);
+    }, 1500);
+    return () => clearInterval(timer);
+  }, []);
+
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white p-10 pt-0">
@@ -67,7 +80,7 @@ export function Home() {
                   initial={{ opacity: 0, letterSpacing: "0em" }}
                   animate={{ opacity: 1, letterSpacing: "0.05em" }}
                   transition={{ duration: 1.5, ease: "easeOut" }}
-                  className="flex flex-col items-center lg:items-start"
+                  className="flex flex-col items-center lg:items-center"
                 >
                   <span className="text-white text-3xl md:text-5xl font-['Orbitron'] font-medium tracking-tight">
                     BRAINWARE
@@ -82,7 +95,7 @@ export function Home() {
                   initial={{ opacity: 0, scaleX: 0 }}
                   animate={{ opacity: 1, scaleX: 1 }}
                   transition={{ delay: 0.5, duration: 0.8 }}
-                  className="flex items-center justify-center lg:justify-start gap-4 py-2"
+                  className="flex items-center justify-center lg:justify-center gap-4 py-2"
                 >
                   <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#00d4ff]/50"></div>
                   <span className="text-[#00d4ff] font-['Rajdhani'] tracking-[0.3em] text-sm md:text-base font-semibold uppercase">
@@ -112,12 +125,12 @@ export function Home() {
                   transition={{ delay: 0.8 }}
                   className="space-y-3"
                 >
-                  <div className="flex items-center justify-center lg:justify-start gap-2 text-white/60 font-['Rajdhani'] uppercase tracking-wider text-sm">
+                  <div className="flex items-center justify-center lg:justify-center gap-2 text-white/60 font-['Rajdhani'] uppercase tracking-wider text-sm">
                     <Sparkles className="size-3 text-[#ff6b35]" />
                     <span>Organised By</span>
                   </div>
 
-                  <div className="flex items-center justify-center lg:justify-start gap-6">
+                  <div className="flex items-center justify-center lg:justify-center gap-6">
                     <img
                       src="/images/techclub-iic.png"
                       alt="Tech Club IIC"
@@ -134,7 +147,7 @@ export function Home() {
                   className="pt-6"
                 >
                   <div className="font-['Orbitron'] font-bold text-3xl md:text-5xl text-[#ff6b35] drop-shadow-lg">
-                    27-28 <span className="text-white/20 text-2xl duration-300">|</span> FEB '26
+                    14-15 <span className="text-white/20 text-2xl duration-300">|</span> MAR '26
                   </div>
                   <div className="text-white/40 font-['Rajdhani'] text-lg mt-1 tracking-widest uppercase">
                     The Ultimate Tech Odyssey
@@ -200,9 +213,9 @@ export function Home() {
                   <div className="text-white/60 text-sm">
                     Interactive 3D Model Area
                   </div> */}
-                <Spline scene="https://prod.spline.design/p53BqoL7wUiPF6WM/scene.splinecode"
-                
-                />
+                  <Spline scene="https://prod.spline.design/p53BqoL7wUiPF6WM/scene.splinecode"
+
+                  />
 
 
                 </div>
@@ -254,59 +267,49 @@ export function Home() {
               Event_Highlights
             </h2>
             <div className="font-code text-white/60 text-lg">
-              <span className="text-[#a855f7]">const</span> highlights = <span className="text-[#00ffff]">[
-                'innovation', 'gaming', 'hardware'
-                ]</span>
+              <span className="text-[#a855f7]">const</span> highlights ={" "}
+              <span className="text-[#00ffff]">['innovation','gaming','hardware']</span>
             </div>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-
-            {highlights.map((highlight, index) => {
-              const Icon = highlight.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                  whileHover={{ y: -5 }}
-                  className="group relative"
-                >
-                  <div className="relative p-6 rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden hover:border-[#00d4ff]/60 transition-all duration-300">
-                    {/* Terminal header */}
-                    <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#00d4ff]/20">
-                      <div className="w-3 h-3 rounded-full bg-[#f43f5e]"></div>
-                      <div className="w-3 h-3 rounded-full bg-[#fbbf24]"></div>
-                      <div className="w-3 h-3 rounded-full bg-[#10b981]"></div>
-                      <div className="font-mono text-xs text-[#00d4ff] ml-2">
-                        <span className="text-[#00ffff]">$</span> ./events/{highlight.title.toLowerCase().replace(/\s+/g, '_')}
+          {/* 🎢 3D Carousel */}
+          <div className="flex justify-center">
+            <div className="w-full max-w-5xl h-[420px]">
+              <Carousel
+                slides={highlights.map((item, i) => ({
+                  key: i,
+                  content: (
+                    <div className="bg-[#0a0a0f] border border-[#00d4ff]/30 rounded-xl p-8">
+                      <div className={`p-4 rounded-lg bg-gradient-to-r ${item.gradient} inline-block mb-5`}>
+                        <item.icon className="size-10 text-white" />
                       </div>
+
+                      <h3 className="text-2xl font-bold font-mono mb-3">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-white/70 mb-5">
+                        {item.description}
+                      </p>
+
+                      <pre className="text-sm font-code bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-4 text-white/80 whitespace-pre-wrap">
+                        {item.codeSnippet}
+                      </pre>
                     </div>
-
-                    <div className="relative z-10">
-                      <div className={`inline-block p-3 rounded-lg bg-gradient-to-r ${highlight.gradient} mb-4`}>
-                        <Icon className="size-6 text-white" />
-                      </div>
-
-                      <h3 className="text-xl font-bold mb-3 font-mono">{highlight.title}</h3>
-                      <p className="text-white/70 leading-relaxed mb-4 text-sm">{highlight.description}</p>
-
-                      {/* Code snippet */}
-                      <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-4 font-code text-xs">
-                        <div className="text-[#00d4ff] mb-1">// {highlight.title.toLowerCase().replace(/\s+/g, '_')}.js</div>
-                        <div className="text-white/80 whitespace-pre-line">{highlight.codeSnippet}</div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                  )
+                }))}
+                goToSlide={carouselIndex}
+                offsetRadius={2}
+                showNavigation={false}
+                animationConfig={config.gentle}
+                perspective={1200}
+              />
+            </div>
           </div>
-        </div>
 
+        </div>
       </section>
+
 
       {/* About Us Section */}
       <section className="py-10 relative">
@@ -716,7 +719,7 @@ export function Home() {
               <div className="space-y-3 text-sm text-white/60">
                 <div className="flex items-center gap-2">
                   <Calendar className="size-4 text-[#00d4ff]" />
-                  <span>Feb 27-28, 2026</span>
+                  <span>MAR 14-15, 2026</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="size-4 text-[#00d4ff]" />
