@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Code, Gamepad2, Cpu, Users, Clock, Trophy, ChevronRight, Terminal, Database, Zap, Monitor, Presentation, Settings, Lightbulb } from 'lucide-react';
+import { Code, Gamepad2, Cpu, Users, Clock, Trophy, ChevronRight, Terminal, Database, Zap, Monitor, Settings, Lightbulb } from 'lucide-react';
 
 interface Event {
   id: string;
@@ -12,7 +12,7 @@ interface Event {
   duration: string;
   teamSize: string;
   fee: string;
-  category: 'game' | 'coding' | 'hardware' | 'prompting' | 'presentation';
+  category: 'game' | 'coding' | 'hardware' | 'prompting';
   day: string;
   time: string;
   icon: any;
@@ -157,25 +157,12 @@ const events: Event[] = [
     icon: Lightbulb,
     gradient: 'from-[#fbbf24] to-[#00d4ff]',
   },
-  // Presentation Event
-  {
-    id: 'ideathon',
-    title: 'Ideathon',
-    description: 'Innovation presentation challenge. Present your innovative ideas to judges.',
-    duration: '6 hours',
-    teamSize: '3 members max',
-    fee: '100 per team',
-    category: 'presentation',
-    day: 'Day 2',
-    time: '10-4',
-    icon: Presentation,
-    gradient: 'from-[#00d4ff] to-[#fbbf24]',
-  },
+
 ];
 
 
 export function Events() {
-  const [activeTab, setActiveTab] = useState<'game' | 'coding' | 'hardware' | 'prompting' | 'presentation'>('game');
+  const [activeTab, setActiveTab] = useState<'game' | 'coding' | 'hardware' | 'prompting'>('game');
 
   const filteredEvents = events.filter(event => event.category === activeTab);
   const featuredEvent = events.find(e => e.featured);
@@ -199,7 +186,7 @@ export function Events() {
 
           <div className="font-code text-white/60 text-lg max-w-2xl mx-auto">
             <span className="text-[#a855f7]">const</span> events = <span className="text-[#00ffff]">[</span><br/>
-            <span className="ml-4 text-white/80">'game', 'coding', 'hardware', 'prompting', 'presentation'</span><br/>
+            <span className="ml-4 text-white/80">'game', 'coding', 'hardware', 'prompting'</span><br/>
             <span className="text-[#00ffff]">]</span>
           </div>
         </motion.div>
@@ -342,14 +329,7 @@ export function Events() {
             >
               <span className="text-[#fbbf24]">//</span> prompting
             </button>
-            <button
-              onClick={() => setActiveTab('presentation')}
-              className={`relative px-6 py-3 rounded-lg font-mono text-sm transition-colors ${
-                activeTab === 'presentation' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
-              }`}
-            >
-              <span className="text-[#fb923c]">//</span> presentation
-            </button>
+
           </div>
         </div>
 

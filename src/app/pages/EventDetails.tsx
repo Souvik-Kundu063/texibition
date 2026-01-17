@@ -388,42 +388,6 @@ const eventData: Record<string, EventData> = {
       { name: 'Madhavan Pillai', email: 'madhavan@techfest.com', phone: '+91 98765 43301' },
     ],
   },
-  'ideathon': {
-    title: 'Ideathon',
-    description: 'Innovation presentation challenge. Present your innovative ideas to judges and compete for the best startup concept.',
-    duration: '6 hours',
-    teamSize: '3 members max',
-    fee: '₹100 per team',
-    category: 'presentation',
-    day: 'Day 2',
-    time: '10-4',
-    rules: [
-      'Teams can have 1-3 members',
-      'Ideas must be original and feasible',
-      'Presentation time: 5-7 minutes per team',
-      'Q&A session: 3-5 minutes',
-      'Slides and prototypes encouraged',
-      'Market analysis and business model required',
-    ],
-    eligibility: [
-      { time: '', activity: 'Team-based innovation challenge' },
-      { time: '', activity: 'Idea generation and development' },
-      { time: '', activity: 'Pitch presentations to judges' },
-    ],
-    flow: [
-      { time: '10:00 AM', activity: 'Registration & Team Briefing' },
-      { time: '10:30 AM', activity: 'Idea Generation Session' },
-      { time: '11:30 AM', activity: 'Development & Preparation' },
-      { time: '01:00 PM', activity: 'Lunch Break' },
-      { time: '02:00 PM', activity: 'Pitch Presentations Begin' },
-      { time: '03:30 PM', activity: 'Q&A & Judging' },
-      { time: '04:00 PM', activity: 'Results & Prize Distribution' },
-    ],
-    coordinators: [
-      { name: 'Harish Babu', email: 'harish@techfest.com', phone: '+91 98765 43310' },
-      { name: 'Kavitha Raj', email: 'kavitha@techfest.com', phone: '+91 98765 43311' },
-    ],
-  },
 };
 
 export function EventDetails() {

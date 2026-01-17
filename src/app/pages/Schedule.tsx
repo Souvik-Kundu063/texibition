@@ -46,12 +46,7 @@ const day2Schedule: ScheduleItem[] = [
     time: '09:00 AM',
     events: [{ name: 'Xibit - Coding Challenge Registration (₹200/team)', type: 'technical', venue: 'Innovation Lab' }],
   },
-  {
-    time: '10:00 AM',
-    events: [
-      { name: 'Ideathon - Innovation Presentations (₹100/team)', type: 'technical', venue: 'Tech Lab' },
-    ],
-  },
+
   {
     time: '11:00 AM',
     events: [
@@ -74,10 +69,7 @@ const day2Schedule: ScheduleItem[] = [
     time: '04:00 PM',
     events: [{ name: 'Technical Events Submission Deadline', type: 'technical', venue: 'Lab Complex' }],
   },
-  {
-    time: '04:30 PM',
-    events: [{ name: 'Presentations & Final Judging', type: 'technical', venue: 'Main Stage' }],
-  },
+
   {
     time: '06:00 PM',
     events: [{ name: 'Grand Finale & Prize Distribution', type: 'technical', venue: 'Main Stage' }],
