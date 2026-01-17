@@ -344,7 +344,6 @@ export function Events() {
                   <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
                     <EventCardFront 
                       imagePath="/event/blitz.png" 
-                      terminalPath={`/events/${event.id}`} 
                     />
                   </div>
 
