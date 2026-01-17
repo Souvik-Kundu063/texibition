@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Code, Gamepad2, Cpu, Users, Clock, Trophy, ChevronRight, Terminal, Database, Zap, Monitor, Settings, Lightbulb } from 'lucide-react';
+import EventCardFront from '../components/EventCardFront';
 
 interface Event {
   id: string;
@@ -354,23 +355,10 @@ export function Events() {
                 <div className="relative w-full h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                   {/* Front Side: Placeholder */}
                   <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
-                    <div className="h-full rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden flex flex-col">
-                      <div className="flex items-center gap-2 px-4 py-3 border-b border-[#00d4ff]/20 bg-[#00d4ff]/5">
-                        <div className="w-2 h-2 rounded-full bg-[#f43f5e]"></div>
-                        <div className="w-2 h-2 rounded-full bg-[#fbbf24]"></div>
-                        <div className="w-2 h-2 rounded-full bg-[#10b981]"></div>
-                        <div className="font-mono text-xs text-[#00d4ff] ml-2">
-                          <span className="text-[#00ffff]">$</span> ./events/placeholder.sh
-                        </div>
-                      </div>
-                      <div className="flex-1 p-4 flex items-center justify-center bg-[#0a0a0f]">
-                        <img
-                          src="/event/blitz.png"
-                          alt="Placeholder"
-                          className="w-full h-full object-cover rounded opacity-80"
-                        />
-                      </div>
-                    </div>
+                    <EventCardFront 
+                      imagePath="/event/blitz.png" 
+                      terminalPath={`/events/${event.id}`} 
+                    />
                   </div>
 
                   {/* Back Side: Actual Content */}
