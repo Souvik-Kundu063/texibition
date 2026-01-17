@@ -350,7 +350,7 @@ export function Events() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ delay: index * 0.1 }}
-                className="group h-[500px] [perspective:1000px]"
+                className="group h-[480px] [perspective:1000px]"
               >
                 <div className="relative w-full h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                   {/* Front Side: Placeholder */}

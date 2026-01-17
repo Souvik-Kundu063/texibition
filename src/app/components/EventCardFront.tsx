@@ -20,19 +20,20 @@ const EventCardFront: React.FC<EventCardFrontProps> = ({ imagePath, terminalPath
       </div>
       
       {/* Image Container */}
-      <div className="flex-1 p-6 flex items-center justify-center bg-[#0a0a0f] overflow-hidden">
-        <div className="relative w-full h-full overflow-hidden rounded-lg border border-[#00d4ff]/10">
+      <div className="flex-1 p-2  flex items-center justify-center bg-[#0a0a0f] overflow-hidden">
+        <div className="relative w-full h-full overflow-hidden rounded-lg border border-[#00d4ff]/10 bg-[#000]/40">
           <img
             src={imagePath}
             alt="Event Preview"
-            className="w-full h-full object-cover opacity-70 scale-110 transition-all duration-700 group-hover/card:scale-100 group-hover/card:opacity-100"
+            // TODO: change image size to fix its height or change event card height or change image aspect ratio
+            className="w-full h-full object-cover opacity-80 scale-95 transition-all duration-700 group-hover/card:scale-105 group-hover/card:opacity-100"
           />
           {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent opacity-60"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/80 via-transparent to-transparent"></div>
           
           {/* Corner accents */}
-          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#00d4ff]/40"></div>
-          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#00d4ff]/40"></div>
+          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#00d4ff]/40 m-2"></div>
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#00d4ff]/40 m-2"></div>
         </div>
       </div>
     </div>
