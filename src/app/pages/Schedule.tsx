@@ -21,7 +21,6 @@ const day1Schedule: ScheduleItem[] = [
     events: [
       { name: 'The Blitz - Fast Gaming (₹50/person)', type: 'gaming', venue: 'Gaming Zone A' },
       { name: 'Valorant - 5v5 Matches (₹300/team)', type: 'gaming', venue: 'Gaming Zone B' },
-      { name: 'Robo Race - Setup (₹400/team)', type: 'technical', venue: 'Robotics Arena' },
     ],
   },
   {
@@ -31,7 +30,7 @@ const day1Schedule: ScheduleItem[] = [
   {
     time: '03:00 PM',
     events: [
-      { name: 'Gaming Finals & Robo Race Competition', type: 'gaming', venue: 'Main Stage' },
+      { name: 'Gaming Finals', type: 'gaming', venue: 'Main Stage' },
     ],
   },
   {
@@ -46,12 +45,7 @@ const day2Schedule: ScheduleItem[] = [
     time: '09:00 AM',
     events: [{ name: 'Xibit - Coding Challenge Registration (₹200/team)', type: 'technical', venue: 'Innovation Lab' }],
   },
-  {
-    time: '10:00 AM',
-    events: [
-      { name: 'Ideathon - Innovation Presentations (₹100/team)', type: 'technical', venue: 'Tech Lab' },
-    ],
-  },
+
   {
     time: '11:00 AM',
     events: [
@@ -74,10 +68,7 @@ const day2Schedule: ScheduleItem[] = [
     time: '04:00 PM',
     events: [{ name: 'Technical Events Submission Deadline', type: 'technical', venue: 'Lab Complex' }],
   },
-  {
-    time: '04:30 PM',
-    events: [{ name: 'Presentations & Final Judging', type: 'technical', venue: 'Main Stage' }],
-  },
+
   {
     time: '06:00 PM',
     events: [{ name: 'Grand Finale & Prize Distribution', type: 'technical', venue: 'Main Stage' }],

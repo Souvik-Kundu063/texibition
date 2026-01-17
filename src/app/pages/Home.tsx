@@ -147,7 +147,7 @@ export function Home() {
                   className="pt-6"
                 >
                   <div className="font-['Orbitron'] font-bold text-3xl md:text-5xl text-[#ff6b35] drop-shadow-lg">
-                    14-15 <span className="text-white/20 text-2xl duration-300">|</span> MAR '26
+                    11-12 <span className="text-white/20 text-2xl duration-300">|</span> MAR '26
                   </div>
                   <div className="text-white/40 font-['Rajdhani'] text-lg mt-1 tracking-widest uppercase">
                     The Ultimate Tech Odyssey
@@ -302,7 +302,6 @@ export function Home() {
                 offsetRadius={2}
                 showNavigation={false}
                 animationConfig={config.gentle}
-                perspective={1200}
               />
             </div>
           </div>
@@ -676,122 +675,9 @@ export function Home() {
             {/* Decorative Corner Lines */}
             <div className="absolute top-0 left-0 w-20 h-20 border-l-2 border-t-2 border-[#00d4ff]/50 rounded-tl-3xl" />
             <div className="absolute bottom-0 right-0 w-20 h-20 border-r-2 border-b-2 border-[#a855f7]/50 rounded-br-3xl" />
-
           </motion.div>
         </div>
       </section>
-
-
-      {/* Footer */}
-      <footer className="py-8 relative border-t border-[#00d4ff]/20">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div>
-              <div className="font-mono text-[#00d4ff] mb-4">
-                <span className="text-[#00ffff]">//</span>  brand_info
-              </div>
-              <h3 className="text-xl font-bold font-mono text-[#00d4ff] mb-4">TEXIBITION 2K26</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
-                The ultimate tech experience bringing together innovation, gaming, and hardware challenges.
-              </p>
-            </div>
-
-            <div>
-              <div className="font-mono text-[#00d4ff] mb-4">
-                <span className="text-[#00ffff]">//</span> quick_links
-              </div>
-              <ul className="space-y-2">
-                {['Events', 'Register', 'Schedule', 'Team', 'FAQ'].map((link) => (
-                  <li key={link}>
-                    <Link to={`/${link.toLowerCase()}`} className="text-white/60 hover:text-[#00d4ff] transition-colors text-sm group flex items-center gap-2">
-                      <span className="text-[#00ffff] opacity-0 group-hover:opacity-100 transition-opacity">$</span>
-                      <span className="group-hover:translate-x-1 transition-transform">{link.toLowerCase()}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <div className="font-mono text-[#00d4ff] mb-4">
-                <span className="text-[#00ffff]">//</span> event_info
-              </div>
-              <div className="space-y-3 text-sm text-white/60">
-                <div className="flex items-center gap-2">
-                  <Calendar className="size-4 text-[#00d4ff]" />
-                  <span>MAR 14-15, 2026</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="size-4 text-[#00d4ff]" />
-                  <span>Tech Campus</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Users className="size-4 text-[#00d4ff]" />
-                  <span>500+ Participants</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="font-mono text-[#00d4ff] mb-4">
-                <span className="text-[#00ffff]">//</span> contact
-              </div>
-              <div className="space-y-3 text-sm text-white/60">
-                <a href="mailto:contact@techfest.com" className="flex items-center gap-2 hover:text-[#00d4ff] transition-colors group">
-                  <Mail className="size-4 group-hover:animate-pulse" />
-                  <span>contact@techfest.com</span>
-                </a>
-                <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-[#00d4ff] transition-colors group">
-                  <span className="text-[#00d4ff] group-hover:text-white transition-colors">#</span>
-                  <span>+91 98765 43210</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* University and Tech Club Section */}
-          <div className="border-t border-[#00d4ff]/20 pt-8 mb-8">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* University Section */}
-              <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4">
-                <img
-                  src="/images/bwulogo.png"
-                  alt="Brainware University"
-                  className="h-16 w-auto"
-                />
-                <div className="text-center md:text-left">
-                  <p className="text-[#00d4ff] font-mono text-xs mb-1">PRESENTS</p>
-                  <p className="text-white font-bold tracking-widest">TEXIBITION 2K26</p>
-                </div>
-              </div>
-
-              {/* Tech Club Section */}
-              <div className="flex flex-col md:flex-row-reverse items-center justify-center md:justify-start gap-4">
-                <img
-                  src="/images/techclub-iic.png"
-                  alt="Tech Club IIC"
-                  className="h-14 w-auto grayscale hover:grayscale-0 transition-all"
-                />
-                <div className="text-center md:text-right">
-                  <p className="text-[#00d4ff] font-mono text-xs mb-1">ORGANISED BY</p>
-                  <p className="text-white font-bold tracking-wide">TECH CLUB & IIC</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-[#00d4ff]/20 pt-8 text-center">
-            <div className="font-mono text-[#00d4ff] mb-2 text-xs">
-              <span className="text-[#00ffff]">//</span>  copyright_notice
-            </div>
-            <p className="text-white/40 text-xs">
-              © 2026 TechFest. Built by the TechFest Team
-            </p>
-          </div>
-        </div>
-      </footer>
-
-
     </div>
   );
 }

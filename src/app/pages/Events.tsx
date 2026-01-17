@@ -3,7 +3,8 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Code, Gamepad2, Cpu, Users, Clock, Trophy, ChevronRight, Terminal, Database, Zap, Monitor, Presentation, Settings, Lightbulb } from 'lucide-react';
+import { Code, Gamepad2, Cpu, Users, Clock, Trophy, ChevronRight, Terminal, Database, Zap, Monitor, Settings, Lightbulb } from 'lucide-react';
+import EventCardFront from '../components/EventCardFront';
 
 interface Event {
   id: string;
@@ -12,7 +13,7 @@ interface Event {
   duration: string;
   teamSize: string;
   fee: string;
-  category: 'game' | 'coding' | 'hardware' | 'prompting' | 'presentation';
+  category: 'game' | 'coding' | 'hardware' | 'prompting';
   day: string;
   time: string;
   icon: any;
@@ -130,19 +131,6 @@ const events: Event[] = [
     icon: Cpu,
     gradient: 'from-[#a855f7] to-[#ec4899]',
   },
-  {
-    id: 'robo-race',
-    title: 'Robo Race',
-    description: 'Autonomous robot racing challenge. Test your robotics and programming skills.',
-    duration: '5 hours',
-    teamSize: '4 members max',
-    fee: '400 per team',
-    category: 'hardware',
-    day: 'Day 1',
-    time: '10-3',
-    icon: Cpu,
-    gradient: 'from-[#00d4ff] to-[#a855f7]',
-  },
   // Prompting Event
   {
     id: 'the-prompters',
@@ -157,25 +145,12 @@ const events: Event[] = [
     icon: Lightbulb,
     gradient: 'from-[#fbbf24] to-[#00d4ff]',
   },
-  // Presentation Event
-  {
-    id: 'ideathon',
-    title: 'Ideathon',
-    description: 'Innovation presentation challenge. Present your innovative ideas to judges.',
-    duration: '6 hours',
-    teamSize: '3 members max',
-    fee: '100 per team',
-    category: 'presentation',
-    day: 'Day 2',
-    time: '10-4',
-    icon: Presentation,
-    gradient: 'from-[#00d4ff] to-[#fbbf24]',
-  },
+
 ];
 
 
 export function Events() {
-  const [activeTab, setActiveTab] = useState<'game' | 'coding' | 'hardware' | 'prompting' | 'presentation'>('game');
+  const [activeTab, setActiveTab] = useState<'game' | 'coding' | 'hardware' | 'prompting'>('game');
 
   const filteredEvents = events.filter(event => event.category === activeTab);
   const featuredEvent = events.find(e => e.featured);
@@ -199,7 +174,7 @@ export function Events() {
 
           <div className="font-code text-white/60 text-lg max-w-2xl mx-auto">
             <span className="text-[#a855f7]">const</span> events = <span className="text-[#00ffff]">[</span><br/>
-            <span className="ml-4 text-white/80">'game', 'coding', 'hardware', 'prompting', 'presentation'</span><br/>
+            <span className="ml-4 text-white/80">'game', 'coding', 'hardware', 'prompting'</span><br/>
             <span className="text-[#00ffff]">]</span>
           </div>
         </motion.div>
@@ -342,14 +317,7 @@ export function Events() {
             >
               <span className="text-[#fbbf24]">//</span> prompting
             </button>
-            <button
-              onClick={() => setActiveTab('presentation')}
-              className={`relative px-6 py-3 rounded-lg font-mono text-sm transition-colors ${
-                activeTab === 'presentation' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
-              }`}
-            >
-              <span className="text-[#fb923c]">//</span> presentation
-            </button>
+
           </div>
         </div>
 
@@ -369,67 +337,78 @@ export function Events() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="group"
+                className="group h-[480px] [perspective:1000px]"
               >
-                <Link to={`/events/${event.id}`}>
-                  <div className="relative h-full rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden hover:border-[#00d4ff]/60 transition-all duration-300">
-                    {/* Terminal header */}
-                    <div className="flex items-center gap-2 px-4 py-3 border-b border-[#00d4ff]/20 bg-[#00d4ff]/5">
-                      <div className="w-2 h-2 rounded-full bg-[#f43f5e]"></div>
-                      <div className="w-2 h-2 rounded-full bg-[#fbbf24]"></div>
-                      <div className="w-2 h-2 rounded-full bg-[#10b981]"></div>
-                      <div className="font-mono text-xs text-[#00d4ff] ml-2">
-                        <span className="text-[#00ffff]">$</span> ./events/{event.id}
-                      </div>
-                    </div>
-                    
-                    <div className="relative z-10 p-6">
-                      <div className={`inline-block p-3 rounded-lg bg-gradient-to-r ${event.gradient} mb-4`}>
-                        <Icon className="size-6 text-white" />
-                      </div>
-                      
-                      <h3 className="text-lg font-bold mb-3 font-mono text-[#00d4ff]">{event.title}</h3>
-                      <p className="text-white/70 text-sm mb-6 leading-relaxed">{event.description}</p>
-                      
-                      {/* Code snippet */}
-                      <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-3 font-code text-xs mb-6">
-                        <div className="text-[#00d4ff] mb-2">// {event.id}.js</div>
-
-                        <div className="text-white/80">
-                          <span className="text-[#a855f7]">const</span> config = {'{'}<br/>
-                          <div className="ml-4">
-                            duration: <span className="text-[#00ffff]">'{event.duration}'</span>,<br/>
-                            fee: <span className="text-[#fbbf24]">'{event.fee}'</span>
-                          </div>
-                          {'}'};
-                        </div>
-                      </div>
-                      
-                      <div className="grid grid-cols-3 gap-2 mb-4">
-                        <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                          <Clock className="size-4 mx-auto mb-1 text-[#00d4ff]" />
-                          <div className="text-xs font-mono text-white/60">{event.duration}</div>
-                        </div>
-                        <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                          <Users className="size-4 mx-auto mb-1 text-[#00d4ff]" />
-                          <div className="text-xs font-mono text-white/60">{event.teamSize}</div>
-                        </div>
-
-                        <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                          <Trophy className="size-4 mx-auto mb-1 text-[#00d4ff]" />
-                          <div className="text-xs font-mono text-white/60">{event.fee}</div>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-center gap-2 text-[#00d4ff] font-mono text-sm group-hover:gap-3 transition-all">
-                        <span className="text-[#00ffff]">$</span>
-                        view_details()
-                        <ChevronRight className="size-4" />
-                      </div>
-                    </div>
+                <div className="relative w-full h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                  {/* Front Side: Placeholder */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
+                    <EventCardFront 
+                      imagePath="/event/blitz.png" 
+                    />
                   </div>
-                </Link>
+
+                  {/* Back Side: Actual Content */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <Link to={`/events/${event.id}`} className="block h-full">
+                      <div className="relative h-full rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden hover:border-[#00d4ff]/60 transition-all duration-300">
+                        {/* Terminal header */}
+                        <div className="flex items-center gap-2 px-4 py-3 border-b border-[#00d4ff]/20 bg-[#00d4ff]/5">
+                          <div className="w-2 h-2 rounded-full bg-[#f43f5e]"></div>
+                          <div className="w-2 h-2 rounded-full bg-[#fbbf24]"></div>
+                          <div className="w-2 h-2 rounded-full bg-[#10b981]"></div>
+                          <div className="font-mono text-xs text-[#00d4ff] ml-2">
+                            <span className="text-[#00ffff]">$</span> ./events/{event.id}
+                          </div>
+                        </div>
+
+                        <div className="relative z-10 p-6">
+                          <div className={`inline-block p-3 rounded-lg bg-gradient-to-r ${event.gradient} mb-4`}>
+                            <Icon className="size-6 text-white" />
+                          </div>
+
+                          <h3 className="text-lg font-bold mb-3 font-mono text-[#00d4ff]">{event.title}</h3>
+                          <p className="text-white/70 text-sm mb-6 leading-relaxed">{event.description}</p>
+
+                          {/* Code snippet */}
+                          <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-3 font-code text-xs mb-6">
+                            <div className="text-[#00d4ff] mb-2">// {event.id}.js</div>
+
+                            <div className="text-white/80">
+                              <span className="text-[#a855f7]">const</span> config = {'{'}<br/>
+                              <div className="ml-4">
+                                duration: <span className="text-[#00ffff]">'{event.duration}'</span>,<br/>
+                                fee: <span className="text-[#fbbf24]">'{event.fee}'</span>
+                              </div>
+                              {'}'};
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-3 gap-2 mb-4">
+                            <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                              <Clock className="size-4 mx-auto mb-1 text-[#00d4ff]" />
+                              <div className="text-xs font-mono text-white/60">{event.duration}</div>
+                            </div>
+                            <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                              <Users className="size-4 mx-auto mb-1 text-[#00d4ff]" />
+                              <div className="text-xs font-mono text-white/60">{event.teamSize}</div>
+                            </div>
+
+                            <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                              <Trophy className="size-4 mx-auto mb-1 text-[#00d4ff]" />
+                              <div className="text-xs font-mono text-white/60">{event.fee}</div>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-2 text-[#00d4ff] font-mono text-sm group-hover:gap-3 transition-all">
+                            <span className="text-[#00ffff]">$</span>
+                            view_details()
+                            <ChevronRight className="size-4" />
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
               </motion.div>
             );
           })}
