@@ -147,7 +147,7 @@ export function Home() {
                   className="pt-6"
                 >
                   <div className="font-['Orbitron'] font-bold text-3xl md:text-5xl text-[#ff6b35] drop-shadow-lg">
-                    14-15 <span className="text-white/20 text-2xl duration-300">|</span> MAR '26
+                    11-12 <span className="text-white/20 text-2xl duration-300">|</span> MAR '26
                   </div>
                   <div className="text-white/40 font-['Rajdhani'] text-lg mt-1 tracking-widest uppercase">
                     The Ultimate Tech Odyssey

@@ -131,19 +131,6 @@ const events: Event[] = [
     icon: Cpu,
     gradient: 'from-[#a855f7] to-[#ec4899]',
   },
-  {
-    id: 'robo-race',
-    title: 'Robo Race',
-    description: 'Autonomous robot racing challenge. Test your robotics and programming skills.',
-    duration: '5 hours',
-    teamSize: '4 members max',
-    fee: '400 per team',
-    category: 'hardware',
-    day: 'Day 1',
-    time: '10-3',
-    icon: Cpu,
-    gradient: 'from-[#00d4ff] to-[#a855f7]',
-  },
   // Prompting Event
   {
     id: 'the-prompters',

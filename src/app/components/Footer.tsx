@@ -46,7 +46,7 @@ export function Footer() {
             <div className="space-y-3 text-sm text-white/60">
               <div className="flex items-center gap-2">
                 <Calendar className="size-4 text-[#00d4ff]" />
-                <span>MAR 14-15, 2026</span>
+                <span>MAR 11-12, 2026</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="size-4 text-[#00d4ff]" />

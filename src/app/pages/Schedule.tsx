@@ -21,7 +21,6 @@ const day1Schedule: ScheduleItem[] = [
     events: [
       { name: 'The Blitz - Fast Gaming (₹50/person)', type: 'gaming', venue: 'Gaming Zone A' },
       { name: 'Valorant - 5v5 Matches (₹300/team)', type: 'gaming', venue: 'Gaming Zone B' },
-      { name: 'Robo Race - Setup (₹400/team)', type: 'technical', venue: 'Robotics Arena' },
     ],
   },
   {
@@ -31,7 +30,7 @@ const day1Schedule: ScheduleItem[] = [
   {
     time: '03:00 PM',
     events: [
-      { name: 'Gaming Finals & Robo Race Competition', type: 'gaming', venue: 'Main Stage' },
+      { name: 'Gaming Finals', type: 'gaming', venue: 'Main Stage' },
     ],
   },
   {
