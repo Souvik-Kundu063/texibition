@@ -349,67 +349,92 @@ export function Events() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="group"
+                className="group h-[500px] [perspective:1000px]"
               >
-                <Link to={`/events/${event.id}`}>
-                  <div className="relative h-full rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden hover:border-[#00d4ff]/60 transition-all duration-300">
-                    {/* Terminal header */}
-                    <div className="flex items-center gap-2 px-4 py-3 border-b border-[#00d4ff]/20 bg-[#00d4ff]/5">
-                      <div className="w-2 h-2 rounded-full bg-[#f43f5e]"></div>
-                      <div className="w-2 h-2 rounded-full bg-[#fbbf24]"></div>
-                      <div className="w-2 h-2 rounded-full bg-[#10b981]"></div>
-                      <div className="font-mono text-xs text-[#00d4ff] ml-2">
-                        <span className="text-[#00ffff]">$</span> ./events/{event.id}
-                      </div>
-                    </div>
-                    
-                    <div className="relative z-10 p-6">
-                      <div className={`inline-block p-3 rounded-lg bg-gradient-to-r ${event.gradient} mb-4`}>
-                        <Icon className="size-6 text-white" />
-                      </div>
-                      
-                      <h3 className="text-lg font-bold mb-3 font-mono text-[#00d4ff]">{event.title}</h3>
-                      <p className="text-white/70 text-sm mb-6 leading-relaxed">{event.description}</p>
-                      
-                      {/* Code snippet */}
-                      <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-3 font-code text-xs mb-6">
-                        <div className="text-[#00d4ff] mb-2">// {event.id}.js</div>
-
-                        <div className="text-white/80">
-                          <span className="text-[#a855f7]">const</span> config = {'{'}<br/>
-                          <div className="ml-4">
-                            duration: <span className="text-[#00ffff]">'{event.duration}'</span>,<br/>
-                            fee: <span className="text-[#fbbf24]">'{event.fee}'</span>
-                          </div>
-                          {'}'};
+                <div className="relative w-full h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                  {/* Front Side: Placeholder */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
+                    <div className="h-full rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden flex flex-col">
+                      <div className="flex items-center gap-2 px-4 py-3 border-b border-[#00d4ff]/20 bg-[#00d4ff]/5">
+                        <div className="w-2 h-2 rounded-full bg-[#f43f5e]"></div>
+                        <div className="w-2 h-2 rounded-full bg-[#fbbf24]"></div>
+                        <div className="w-2 h-2 rounded-full bg-[#10b981]"></div>
+                        <div className="font-mono text-xs text-[#00d4ff] ml-2">
+                          <span className="text-[#00ffff]">$</span> ./events/placeholder.sh
                         </div>
                       </div>
-                      
-                      <div className="grid grid-cols-3 gap-2 mb-4">
-                        <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                          <Clock className="size-4 mx-auto mb-1 text-[#00d4ff]" />
-                          <div className="text-xs font-mono text-white/60">{event.duration}</div>
-                        </div>
-                        <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                          <Users className="size-4 mx-auto mb-1 text-[#00d4ff]" />
-                          <div className="text-xs font-mono text-white/60">{event.teamSize}</div>
-                        </div>
-
-                        <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                          <Trophy className="size-4 mx-auto mb-1 text-[#00d4ff]" />
-                          <div className="text-xs font-mono text-white/60">{event.fee}</div>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-center gap-2 text-[#00d4ff] font-mono text-sm group-hover:gap-3 transition-all">
-                        <span className="text-[#00ffff]">$</span>
-                        view_details()
-                        <ChevronRight className="size-4" />
+                      <div className="flex-1 p-4 flex items-center justify-center bg-[#0a0a0f]">
+                        <img
+                          src="/event/blitz.png"
+                          alt="Placeholder"
+                          className="w-full h-full object-cover rounded opacity-80"
+                        />
                       </div>
                     </div>
                   </div>
-                </Link>
+
+                  {/* Back Side: Actual Content */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <Link to={`/events/${event.id}`} className="block h-full">
+                      <div className="relative h-full rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden hover:border-[#00d4ff]/60 transition-all duration-300">
+                        {/* Terminal header */}
+                        <div className="flex items-center gap-2 px-4 py-3 border-b border-[#00d4ff]/20 bg-[#00d4ff]/5">
+                          <div className="w-2 h-2 rounded-full bg-[#f43f5e]"></div>
+                          <div className="w-2 h-2 rounded-full bg-[#fbbf24]"></div>
+                          <div className="w-2 h-2 rounded-full bg-[#10b981]"></div>
+                          <div className="font-mono text-xs text-[#00d4ff] ml-2">
+                            <span className="text-[#00ffff]">$</span> ./events/{event.id}
+                          </div>
+                        </div>
+
+                        <div className="relative z-10 p-6">
+                          <div className={`inline-block p-3 rounded-lg bg-gradient-to-r ${event.gradient} mb-4`}>
+                            <Icon className="size-6 text-white" />
+                          </div>
+
+                          <h3 className="text-lg font-bold mb-3 font-mono text-[#00d4ff]">{event.title}</h3>
+                          <p className="text-white/70 text-sm mb-6 leading-relaxed">{event.description}</p>
+
+                          {/* Code snippet */}
+                          <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-3 font-code text-xs mb-6">
+                            <div className="text-[#00d4ff] mb-2">// {event.id}.js</div>
+
+                            <div className="text-white/80">
+                              <span className="text-[#a855f7]">const</span> config = {'{'}<br/>
+                              <div className="ml-4">
+                                duration: <span className="text-[#00ffff]">'{event.duration}'</span>,<br/>
+                                fee: <span className="text-[#fbbf24]">'{event.fee}'</span>
+                              </div>
+                              {'}'};
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-3 gap-2 mb-4">
+                            <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                              <Clock className="size-4 mx-auto mb-1 text-[#00d4ff]" />
+                              <div className="text-xs font-mono text-white/60">{event.duration}</div>
+                            </div>
+                            <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                              <Users className="size-4 mx-auto mb-1 text-[#00d4ff]" />
+                              <div className="text-xs font-mono text-white/60">{event.teamSize}</div>
+                            </div>
+
+                            <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                              <Trophy className="size-4 mx-auto mb-1 text-[#00d4ff]" />
+                              <div className="text-xs font-mono text-white/60">{event.fee}</div>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-2 text-[#00d4ff] font-mono text-sm group-hover:gap-3 transition-all">
+                            <span className="text-[#00ffff]">$</span>
+                            view_details()
+                            <ChevronRight className="size-4" />
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
               </motion.div>
             );
           })}
