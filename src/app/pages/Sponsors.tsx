@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Crown, Award, Star, Mail } from 'lucide-react';
+import { Crown, Award, Star, Mail, ArrowRight } from 'lucide-react';
 
 const sponsors = {
   title: [
@@ -122,27 +122,51 @@ export function Sponsors() {
         </motion.div>
 
         {/* Become a Sponsor CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="max-w-2xl mx-auto text-center p-12 rounded-3xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 backdrop-blur-sm"
-        >
-          <h2 className="text-3xl font-bold mb-4">Become a Sponsor</h2>
-          <p className="text-white/70 mb-8">
-            Partner with us to reach 500+ talented students and showcase your brand
-          </p>
-          <a href="mailto:sponsors@techfest.com">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] rounded-xl font-semibold flex items-center gap-2 mx-auto hover:shadow-2xl hover:shadow-[#00d4ff]/50 transition-shadow"
-            >
-              <Mail className="size-5" />
-              Contact Us
-            </motion.button>
-          </a>
-        </motion.div>
+        <section className="py-20 relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative p-1 md:p-1 rounded-3xl bg-gradient-to-br from-[#00d4ff]/30 to-[#a855f7]/30 backdrop-blur-md overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-[#0a0a0f] m-[1px] rounded-[23px] z-0" />
+
+            <div className="relative z-10 p-12 md:p-16 text-center">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-[#00d4ff]/30 bg-[#00d4ff]/10 mb-8">
+                <div className="w-2 h-2 bg-[#00ff9d] rounded-full animate-pulse" />
+                <span className="font-['Space_Grotesk'] text-[#00d4ff] text-xs tracking-widest uppercase">Sponsorship Status: Active</span>
+              </div>
+
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 font-['Orbitron'] text-white">
+                <span className="text-[#00d4ff]">&lt;</span>
+                WANT_TO_SPONSOR?
+                <span className="text-[#00d4ff]">/&gt;</span>
+              </h2>
+
+              <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto font-['Rajdhani'] font-medium tracking-wide">
+                Partner with us to reach 1500+ talented students and showcase your brand in the ultimate tech odyssey.
+              </p>
+
+              <a href="mailto:sponsors@techfest.com">
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0, 212, 255, 0.4)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-10 py-4 bg-[#00d4ff]/20 border border-[#00d4ff] rounded-none skew-x-[-10deg] font-['Space_Grotesk'] font-bold text-[#00d4ff] hover:bg-[#00d4ff]/30 transition-all duration-300 group inline-flex items-center gap-3"
+                >
+                  <div className="skew-x-[10deg] flex items-center gap-2">
+                    <Mail className="size-5" />
+                    <span>CONTACT_US</span>
+                    <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </motion.button>
+              </a>
+            </div>
+
+            {/* Decorative Corner Lines */}
+            <div className="absolute top-0 left-0 w-20 h-20 border-l-2 border-t-2 border-[#00d4ff]/50 rounded-tl-3xl" />
+            <div className="absolute bottom-0 right-0 w-20 h-20 border-r-2 border-b-2 border-[#a855f7]/50 rounded-br-3xl" />
+          </motion.div>
+        </section>
       </div>
     </div>
   );
