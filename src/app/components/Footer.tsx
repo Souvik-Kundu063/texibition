@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="font-mono text-[#00d4ff] mb-4">
-              <span className="text-[#00ffff]">//</span> brand_info
+              <span className="text-[#00ffff]">//</span> Fest_info
             </div>
             <h3 className="text-xl font-bold font-mono text-[#00d4ff] mb-4">TEXIBITION 2K26</h3>
             <p className="text-white/60 text-sm leading-relaxed">
@@ -19,7 +19,7 @@ export function Footer() {
 
           <div>
             <div className="font-mono text-[#00d4ff] mb-4">
-              <span className="text-[#00ffff]">//</span> quick_links
+              <span className="text-[#00ffff]">//</span> Quick_links
             </div>
             <ul className="space-y-2">
               {[
@@ -41,7 +41,7 @@ export function Footer() {
 
           <div>
             <div className="font-mono text-[#00d4ff] mb-4">
-              <span className="text-[#00ffff]">//</span> event_info
+              <span className="text-[#00ffff]">//</span> Event_info
             </div>
             <div className="space-y-3 text-sm text-white/60">
               <div className="flex items-center gap-2">
@@ -54,23 +54,27 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Users className="size-4 text-[#00d4ff]" />
-                <span>500+ Participants</span>
+                <span>5000+ Participants</span>
               </div>
             </div>
           </div>
 
           <div>
             <div className="font-mono text-[#00d4ff] mb-4">
-              <span className="text-[#00ffff]">//</span> contact
+              <span className="text-[#00ffff]">//</span> Contact
             </div>
             <div className="space-y-3 text-sm text-white/60">
               <a href="mailto:contact@techfest.com" className="flex items-center gap-2 hover:text-[#00d4ff] transition-colors group">
                 <Mail className="size-4 group-hover:animate-pulse" />
-                <span>contact@techfest.com</span>
+                <span>techclub@brainwareuniversity.ac.in</span>
               </a>
-              <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-[#00d4ff] transition-colors group">
+              <a href="mailto:contact@techfest.com" className="flex items-center gap-2 hover:text-[#00d4ff] transition-colors group">
+                <Mail className="size-4 group-hover:animate-pulse" />
+                <span>souvikkundu7718@gmail.com</span>
+              </a>
+              <a href="tel:+917718427880" className="flex items-center gap-2 hover:text-[#00d4ff] transition-colors group">
                 <span className="text-[#00d4ff] group-hover:text-white transition-colors">#</span>
-                <span>+91 98765 43210</span>
+                <span>+91 7718427880</span>
               </a>
             </div>
           </div>
@@ -86,10 +90,6 @@ export function Footer() {
                 alt="Brainware University"
                 className="h-16 w-auto"
               />
-              <div className="text-center md:text-left">
-                <p className="text-[#00d4ff] font-mono text-xs mb-1">PRESENTS</p>
-                <p className="text-white font-bold tracking-widest uppercase">Brainware University</p>
-              </div>
             </div>
 
             {/* Tech Club Section */}
@@ -97,11 +97,10 @@ export function Footer() {
               <img
                 src="/images/techclub-iic.png"
                 alt="Tech Club IIC"
-                className="h-14 w-auto grayscale hover:grayscale-0 transition-all"
+                className="h-14 w-auto "
               />
               <div className="text-center md:text-right">
                 <p className="text-[#00d4ff] font-mono text-xs mb-1">ORGANISED BY</p>
-                <p className="text-white font-bold tracking-wide">TECH CLUB & IIC</p>
               </div>
             </div>
           </div>

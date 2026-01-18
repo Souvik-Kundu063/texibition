@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
+import { FlippingDigit } from './FlippingDigit';
 
 interface TimeLeft {
   days: number;
@@ -56,23 +57,12 @@ export function CountdownTimer() {
           transition={{ delay: index * 0.1 }}
           className="relative group"
         >
-          <div className="relative overflow-hidden rounded-2xl p-6 md:p-8 bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 backdrop-blur-sm">
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/20 to-[#a855f7]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-            <div className="relative z-10 text-center">
-              <motion.div
-                key={unit.value}
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent mb-2"
-              >
-                {String(unit.value).padStart(2, '0')}
-              </motion.div>
-              <div className="text-sm md:text-base text-white/60 uppercase tracking-wider">
-                {unit.label}
-              </div>
+          <div className="relative text-center">
+            <div className="mb-2 flex justify-center">
+              <FlippingDigit value={unit.value} />
+            </div>
+            <div className="text-sm md:text-base text-white/60 uppercase tracking-wider">
+              {unit.label}
             </div>
           </div>
         </motion.div>
