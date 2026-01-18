@@ -16,7 +16,7 @@ export function NavigationFuturistic() {
     { name: 'Sponsors', path: '/sponsors' },
     { name: 'Team', path: '/team' },
     { name: 'FAQ', path: '/faq' },
-    { name: 'Code of Conduct', path: '/code-of-conduct' },
+    { name: 'Code', path: '/code-of-conduct' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -30,12 +30,20 @@ export function NavigationFuturistic() {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleResize);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -43,14 +51,14 @@ export function NavigationFuturistic() {
     <>
       {/* Glowing background effect */}
       <motion.div
-        className="fixed inset-0 pointer-events-none z-30"
+        className="fixed inset-0 pointer-events-none z-30 hidden sm:block"
         style={{
           background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 212, 255, 0.08) 0%, rgba(168, 85, 247, 0.04) 30%, transparent 70%)`,
         }}
       />
       
       {/* Spacer for fixed nav */}
-      <div className="h-20" />
+      <div className="h-16 sm:h-20" />
       
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
@@ -58,14 +66,14 @@ export function NavigationFuturistic() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? 'bg-[#0a0a0f]/95 backdrop-blur-xl border-b border-[#00d4ff]/30 shadow-2xl shadow-[#00d4ff]/10'
-            : 'bg-transparent'
+            : 'bg-[#0a0a0f]/90 backdrop-blur-md'
         }`}
       >
-        <div className="container mx-auto px-10">
-          <div className="flex items-center justify-between h-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="flex items-center justify-between h-16 sm:h-20">
 
             {/* Logo and University Logo */}
-            <Link to="/" className="flex items-center gap-4 group">
+            <Link to="/" className="flex items-center gap-2 sm:gap-4 group">
               {/* BWU Logo */}
               <div className="relative">
                 <motion.div
@@ -76,28 +84,25 @@ export function NavigationFuturistic() {
                   <img 
                     src="/images/texibitionlogo.png" 
                     alt="Brainware University" 
-                    className="h-16 w-auto"
+                    className="h-10 sm:h-12 md:h-16 w-auto"
                   />
-                  
-                  {/* Animated border effect */}
-                 
                 </motion.div>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-1 xl:gap-2">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.05 }}
                   className="relative"
                 >
                   <Link
                     to={link.path}
-                    className="relative group px-4 py-2 rounded-lg overflow-hidden"
+                    className="relative group px-2 xl:px-3 py-1.5 xl:py-2 rounded-lg overflow-hidden"
                   >
                     {/* Background glow effect */}
                     <motion.div
@@ -116,7 +121,7 @@ export function NavigationFuturistic() {
                     />
                     
                     <span
-                      className={`relative z-10 font-medium transition-colors ${
+                      className={`relative z-10 text-xs xl:text-sm font-medium transition-colors ${
                         isActive(link.path)
                           ? 'text-[#00d4ff]'
                           : 'text-white/70 group-hover:text-white'
@@ -129,7 +134,7 @@ export function NavigationFuturistic() {
                     {isActive(link.path) && (
                       <motion.div
                         layoutId="futuristicActive"
-                        className="absolute -bottom-1 left-1/2 w-2 h-2 bg-[#00d4ff] rounded-full transform -translate-x-1/2"
+                        className="absolute -bottom-1 left-1/2 w-1.5 h-1.5 bg-[#00d4ff] rounded-full transform -translate-x-1/2"
                         transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                       />
                     )}
@@ -142,14 +147,14 @@ export function NavigationFuturistic() {
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navLinks.length * 0.1 }}
+                transition={{ delay: navLinks.length * 0.05 }}
               >
                 <Link
                   to="/code-of-conduct"
-                  className="relative px-4 py-1.5 border border-[#00d4ff] bg-[#00d4ff]/10 rounded-lg skew-x-[-10deg] overflow-hidden group block hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-shadow duration-300"
+                  className="relative px-3 xl:px-4 py-1.5 border border-[#00d4ff] bg-[#00d4ff]/10 rounded-lg skew-x-[-10deg] overflow-hidden group block hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-shadow duration-300"
                 >
-                  <span className="relative z-10 font-['Space_Grotesk'] font-bold text-[#00d4ff] block skew-x-[10deg] uppercase tracking-wider">
-                    Register Now
+                  <span className="relative z-10 font-['Space_Grotesk'] font-bold text-[#00d4ff] block skew-x-[10deg] uppercase tracking-wider text-xs">
+                    Register
                   </span>
                 </Link>
               </motion.div>
@@ -160,7 +165,7 @@ export function NavigationFuturistic() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-3 text-white hover:text-[#00d4ff] transition-colors relative"
+              className="lg:hidden p-2 sm:p-3 text-white hover:text-[#00d4ff] transition-colors relative"
             >
               {/* Animated background */}
               <motion.div
@@ -192,9 +197,9 @@ export function NavigationFuturistic() {
             opacity: isOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden bg-[#0a0a0f]/98 backdrop-blur-xl border-t border-[#00d4ff]/20"
+          className="lg:hidden overflow-hidden bg-[#0a0a0f]/98 backdrop-blur-xl border-t border-[#00d4ff]/20"
         >
-          <div className="px-4 py-6 space-y-3">
+          <div className="px-4 py-4 space-y-2">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.path}
@@ -203,12 +208,12 @@ export function NavigationFuturistic() {
                   opacity: isOpen ? 1 : 0,
                   x: isOpen ? 0 : -20,
                 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05 }}
               >
                 <Link
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-2 rounded-lg transition-colors ${
+                  className={`block px-4 py-3 rounded-lg transition-colors text-base ${
                     isActive(link.path)
                       ? 'bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/30'
                       : 'text-white/70 hover:text-white hover:bg-white/5'
@@ -225,14 +230,14 @@ export function NavigationFuturistic() {
                 opacity: isOpen ? 1 : 0,
                 x: isOpen ? 0 : -20,
               }}
-              transition={{ delay: navLinks.length * 0.1 }}
+              transition={{ delay: navLinks.length * 0.05 }}
             >
               <Link
-                to="/register"
+                to="/code-of-conduct"
                 onClick={() => setIsOpen(false)}
-                className="block mt-4 px-3 py-2 bg-[#00d4ff]/10 border border-[#00d4ff] text-[#00d4ff] font-['Space_Grotesk'] font-bold text-center uppercase tracking-wider hover:bg-[#00d4ff]/20 transition-all"
+                className="block mt-4 px-4 py-3 bg-[#00d4ff]/10 border border-[#00d4ff] text-[#00d4ff] font-['Space_Grotesk'] font-bold text-center uppercase tracking-wider hover:bg-[#00d4ff]/20 transition-all"
               >
-                REGISTER_NOW
+                Register Now
               </Link>
             </motion.div>
           </div>
