@@ -197,7 +197,7 @@ export function Home() {
               transition={{ duration: 1, delay: 0.3, type: "spring" }}
               className="flex items-center justify-center"
             >
-              <div className="relative w-full h-96 md:h-[500px] bg-gradient-to-br from-[#00d4ff]/10 via-[#a855f7]/10 to-[#00ffff]/10 rounded-2xl border border-[#00d4ff]/30 backdrop-blur-sm flex items-center justify-center overflow-hidden">
+              <div className="relative w-full h-96 md:h-[500px] rounded-2xl border border-transparent backdrop-blur-sm flex items-center justify-center overflow-hidden">
 
                 {/* Placeholder for 3D Element */}
                 <div className="absolute inset-0">
@@ -243,7 +243,6 @@ export function Home() {
             <h2 className="text-4xl md:text-5xl pb-2 font-bold mb-4 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent">
               Registration Closes In
             </h2>
-            <p className="text-white/60 text-lg">Don't miss the deadline - Register now!</p>
           </motion.div>
 
           <CountdownTimer />

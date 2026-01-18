@@ -8,7 +8,7 @@ const faqs = [
     question: 'When is TEXIBITION 2K26?',
 
 
-    answer: 'TEXIBITION 2K26 will be held on February 27-28, 2026. Day 1 features gaming events, while Day 2 focuses on technical competitions.',
+    answer: 'TEXIBITION 2K26 will be held on March 11-12, 2026.',
   },
   {
     question: 'Who can participate?',
@@ -34,10 +34,6 @@ const faqs = [
   {
     question: 'Are there prizes for winners?',
     answer: 'Yes! We have exciting cash prizes and certificates for winners across all events. Prize details are mentioned on the Events page.',
-  },
-  {
-    question: 'Will food be provided?',
-    answer: 'Yes, lunch will be provided on both days. Snacks and refreshments will also be available throughout the event.',
   },
   {
     question: 'Can teams have members from different colleges?',
@@ -147,7 +143,7 @@ export function FAQ() {
                   </div>
                   <div>
                     <div className="text-sm text-white/60">Email</div>
-                    <div className="font-semibold">contact@techfest.com</div>
+                    <div className="font-semibold">techclub@brainwareuniversity.ac.in</div>
                   </div>
                 </a>
 
@@ -162,12 +158,12 @@ export function FAQ() {
                   </div>
                   <div>
                     <div className="text-sm text-white/60">WhatsApp</div>
-                    <div className="font-semibold">+91 98765 43210</div>
+                    <div className="font-semibold">+91 7718427880</div>
                   </div>
                 </a>
 
                 <a
-                  href="https://instagram.com/techfest2025"
+                  href="https://www.instagram.com/texibition2k26"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-4 rounded-xl bg-[#00d4ff]/5 border border-[#00d4ff]/20 hover:bg-[#00d4ff]/10 transition-colors"
@@ -177,7 +173,7 @@ export function FAQ() {
                   </div>
                   <div>
                     <div className="text-sm text-white/60">Instagram</div>
-                    <div className="font-semibold">@techfest2025</div>
+                    <div className="font-semibold">@texibition2k26</div>
                   </div>
                 </a>
               </div>
