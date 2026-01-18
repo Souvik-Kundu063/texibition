@@ -5,6 +5,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Star, Heart, Quote, Instagram, Twitter, Github, Youtube, Mail, MapPin } from 'lucide-react';
 import { CountdownTimer } from '../components/CountdownTimer';
+import { InteractiveBackground } from '../components/InteractiveBackground';
 import Spline from '@splinetool/react-spline';
 import Carousel from "react-spring-3d-carousel";
 import { config } from "react-spring";
@@ -62,6 +63,9 @@ export function Home() {
         {/* Simple Background */}
         <div className="absolute inset-0 bg-[#0a0a0f]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#00d4ff]/5 via-transparent to-transparent" />
+
+        {/* Interactive Background */}
+        <InteractiveBackground />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen py-20 pt-10">
@@ -310,91 +314,176 @@ export function Home() {
 
 
       {/* About Us Section */}
-      <section className="py-10 relative">
-        <div className="container mx-auto px-4">
+      <section className="py-20 relative overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/5 via-transparent to-[#a855f7]/5" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00d4ff]/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#a855f7]/10 rounded-full blur-3xl animate-pulse delay-1000" />
+
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
             <div className="font-mono text-[#00d4ff] mb-4">
               <span className="text-[#00ffff]">//</span> about_us.js
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent font-mono">
+            <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#00d4ff] via-[#a855f7] to-[#ec4899] bg-clip-text text-transparent font-['Orbitron'] tracking-tight">
               About_Us
             </h2>
+            <p className="text-xl text-white/60 max-w-3xl mx-auto font-['Rajdhani'] leading-relaxed">
+              Born from late-night coding sessions and coffee-fueled brainstorming at Brainware University. TEXIBITION is our way of saying: tech should be fun, chaotic, and utterly transformative.
+            </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <div className="bg-[#0a0a0f] border border-[#00d4ff]/30 rounded-lg p-8">
-                <div className="font-mono text-[#00d4ff] mb-4">
-                  <span className="text-[#00ffff]">//</span> mission_statement
-                </div>
-                <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-6 font-code text-sm">
-                  <div className="text-[#a855f7]">const</div>
-                  <div className="text-white/80 ml-4">
-                    mission = {'{'}<br />
-                    <div className="ml-4">
-                      goal: <span className="text-[#fbbf24]">'foster_tech_innovation'</span>,<br />
-                      focus: <span className="text-[#00ffff]">'collaborative_learning'</span>,<br />
-                      community: <span className="text-[#a855f7]">'tech_enthusiasts'</span>,<br />
-                      impact: <span className="text-[#00d4ff]">'empowering_future'</span>
-                    </div>
-                    {'}'};
-                  </div>
-                </div>
-                <p className="text-white/70 mt-6 leading-relaxed">
-                  TechFest 2K26 is more than just a competition—it's a celebration of innovation, creativity, and technological advancement.
-                  We bring together the brightest minds to collaborate, compete, and create the future of technology.
-                </p>
-              </div>
-            </motion.div>
+          {/* Mission Statement */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mb-20"
+          >
+            <div className="max-w-4xl mx-auto">
+              <div className="relative p-8 md:p-12 bg-gradient-to-br from-[#0a0a0f] to-[#1a1a2e] border border-[#00d4ff]/30 rounded-2xl backdrop-blur-sm overflow-hidden">
+                {/* Animated Border */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#00d4ff] via-[#a855f7] to-[#ec4899] rounded-2xl opacity-20 animate-pulse" />
+                <div className="absolute inset-[2px] bg-[#0a0a0f] rounded-2xl" />
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              <div className="space-y-6">
-                <div className="bg-[#0a0a0f] border border-[#00d4ff]/30 rounded-lg p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-lg bg-gradient-to-r from-[#00d4ff] to-[#a855f7]">
-                      <Star className="size-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold font-mono text-[#00d4ff]">Innovation Hub</h3>
-                  </div>
-                  <p className="text-white/70">A platform where ideas transform into reality through cutting-edge technology.</p>
-                </div>
+                <div className="relative z-10 text-center">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 }}
+                    className="mb-6"
+                  >
+                    <Heart className="size-12 mx-auto text-[#ff6b35] mb-4" />
+                    <h3 className="text-3xl font-bold font-['Orbitron'] text-white mb-4">Our Mission</h3>
+                  </motion.div>
 
-                <div className="bg-[#0a0a0f] border border-[#a855f7]/30 rounded-lg p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-lg bg-gradient-to-r from-[#a855f7] to-[#ec4899]">
-                      <Users className="size-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold font-mono text-[#a855f7]">Community</h3>
-                  </div>
-                  <p className="text-white/70">Building connections that last beyond the event, creating lifelong partnerships.</p>
-                </div>
-
-                <div className="bg-[#0a0a0f] border border-[#ec4899]/30 rounded-lg p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-lg bg-gradient-to-r from-[#ec4899] to-[#f43f5e]">
-                      <Trophy className="size-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold font-mono text-[#ec4899]">Excellence</h3>
-                  </div>
-                  <p className="text-white/70">Recognizing and rewarding outstanding talent and innovative solutions.</p>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6 }}
+                    className="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto"
+                  >
+                    TEXIBITION is Brainware University's premier inter-college technology festival, organized by the Tech Club IIC.
+                    We bring together the brightest minds from across colleges to compete, collaborate, and innovate in an environment
+                    that fosters creativity, learning, and technological excellence. Join us for an unforgettable journey into the future of technology.
+                  </motion.p>
                 </div>
               </div>
-            </motion.div>
+            </div>
+          </motion.div>
+
+          {/* What Makes Us Different - Organic Layout */}
+          <div className="relative">
+            {/* Floating Elements */}
+            <div className="absolute top-10 left-10 w-20 h-20 bg-[#00d4ff]/20 rounded-full blur-xl animate-pulse" />
+            <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#a855f7]/15 rounded-full blur-2xl animate-pulse delay-1000" />
+            <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-[#ec4899]/25 rounded-full blur-lg animate-pulse delay-500" />
+
+            {/* Organic Text Blocks */}
+            <div className="space-y-16">
+              {/* First Row */}
+              <div className="flex flex-col lg:flex-row gap-8 items-start">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.8 }}
+                  className="flex-1"
+                >
+                  <div className="bg-[#0a0a0f]/80 backdrop-blur-sm border border-[#00d4ff]/30 rounded-2xl p-8 transform rotate-1 hover:rotate-0 transition-transform duration-300">
+                    <div className="text-[#00d4ff] font-mono text-sm mb-3">// innovation_driven</div>
+                    <h3 className="text-2xl font-bold font-['Orbitron'] text-white mb-4">Innovation Driven</h3>
+                    <p className="text-white/80 leading-relaxed">
+                      We believe in pushing boundaries and encouraging bold experimentation. Innovation requires taking risks,
+                      learning from failures, and persisting until breakthrough moments happen.
+                    </p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 1.0 }}
+                  className="flex-1 lg:mt-12"
+                >
+                  <div className="bg-[#0a0a0f]/80 backdrop-blur-sm border border-[#a855f7]/30 rounded-2xl p-8 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+                    <div className="text-[#a855f7] font-mono text-sm mb-3">// community_focused</div>
+                    <h3 className="text-2xl font-bold font-['Orbitron'] text-white mb-4">Community Focused</h3>
+                    <p className="text-white/80 leading-relaxed">
+                      We create meaningful connections between students, educators, and industry professionals.
+                      TEXIBITION is where you'll build lasting relationships and find your place in the tech community.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Second Row */}
+              <div className="flex flex-col lg:flex-row gap-8 items-start">
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 1.2 }}
+                  className="flex-1"
+                >
+                  <div className="bg-[#0a0a0f]/80 backdrop-blur-sm border border-[#ec4899]/30 rounded-2xl p-8 transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                    <div className="text-[#ec4899] font-mono text-sm mb-3">// excellence_rewarded</div>
+                    <h3 className="text-2xl font-bold font-['Orbitron'] text-white mb-4">Excellence Rewarded</h3>
+                    <p className="text-white/80 leading-relaxed">
+                      Outstanding achievements are recognized and celebrated. Winners receive substantial prizes,
+                      certificates, and the satisfaction of being acknowledged by the tech community.
+                    </p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 1.4 }}
+                  className="flex-1 lg:mt-8"
+                >
+                  <div className="bg-[#0a0a0f]/80 backdrop-blur-sm border border-[#00ffff]/30 rounded-2xl p-8 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+                    <div className="text-[#00ffff] font-mono text-sm mb-3">// hands_on_learning</div>
+                    <h3 className="text-2xl font-bold font-['Orbitron'] text-white mb-4">Hands-On Learning</h3>
+                    <p className="text-white/80 leading-relaxed">
+                      Theory meets practice at TEXIBITION. Participants engage in real-world projects,
+                      from coding challenges to hardware prototyping, gaining practical skills that matter.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Third Row - Single Centered */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 1.6 }}
+                className="max-w-2xl mx-auto"
+              >
+                <div className="bg-gradient-to-br from-[#0a0a0f] to-[#1a1a2e] backdrop-blur-sm border border-[#fb923c]/30 rounded-2xl p-8 text-center">
+                  <div className="text-[#fb923c] font-mono text-sm mb-3">// future_focused</div>
+                  <h3 className="text-3xl font-bold font-['Orbitron'] text-white mb-4">Future Focused</h3>
+                  <p className="text-white/80 leading-relaxed text-lg">
+                    TEXIBITION prepares participants for the technology landscape of tomorrow. Through exposure to
+                    emerging technologies and industry trends, we empower the next generation of innovators.
+                  </p>
+                  <div className="mt-6 flex justify-center">
+                    <Heart className="size-8 text-[#ff6b35] animate-pulse" />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
