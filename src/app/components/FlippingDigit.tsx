@@ -41,10 +41,14 @@ export class FlippingDigit extends React.Component<FlippingDigitProps> {
       <>
         <style>{`
           .tick-credits { display: none !important; }
-          .tick { font-size: 5rem; }
-          @media (min-width: 768px) { .tick { font-size: 6rem; } }
-          .tick-flip { transform: scale(1.5); margin: 0 0.5rem; }
-          .tick-flip-card { width: 1.2em; height: 1.5em; }
+          .tick { font-size: 2.5rem; }
+          @media (min-width: 640px) { .tick { font-size: 3.5rem; } }
+          @media (min-width: 768px) { .tick { font-size: 5rem; } }
+          @media (min-width: 1024px) { .tick { font-size: 6rem; } }
+          .tick-flip { transform: scale(1.2); margin: 0 0.25rem; }
+          @media (min-width: 768px) { .tick-flip { transform: scale(1.5); margin: 0 0.5rem; } }
+          .tick-flip-card { width: 1em; height: 1.2em; }
+          @media (min-width: 768px) { .tick-flip-card { width: 1.2em; height: 1.5em; } }
         `}</style>
         <div ref={this._tickRef} className="tick">
           <div data-repeat="true" aria-hidden="true">

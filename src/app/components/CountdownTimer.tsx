@@ -48,20 +48,20 @@ export function CountdownTimer() {
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+    <div className="flex flex-wrap justify-center gap-3 sm:gap-4 xl:gap-16">
       {timeUnits.map((unit, index) => (
         <motion.div
           key={unit.label}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.1 }}
-          className="relative group"
+          className="relative group flex flex-col items-center"
         >
           <div className="relative text-center">
-            <div className="mb-2 flex justify-center">
+            <div className="mb-1 sm:mb-2 flex justify-center">
               <FlippingDigit value={unit.value} />
             </div>
-            <div className="text-sm md:text-base text-white/60 uppercase tracking-wider">
+            <div className="text-xs sm:text-sm text-white/60 uppercase tracking-wider">
               {unit.label}
             </div>
           </div>

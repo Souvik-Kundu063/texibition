@@ -156,25 +156,25 @@ export function Events() {
   const featuredEvent = events.find(e => e.featured);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white pt-24 pb-20">
+    <div className="min-h-screen bg-[#0a0a0f] text-white pt-20 sm:pt-24 pb-12 sm:pb-20">
       <div className="container mx-auto px-4">
 
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <div className="font-mono text-[#00d4ff] mb-4">
+          <div className="font-mono text-[#00d4ff] mb-3 sm:mb-4 text-xs sm:text-sm">
             <span className="text-[#00ffff]">$</span> ls events/
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent font-mono">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent font-mono">
             events.json
           </h1>
 
-          <div className="font-code text-white/60 text-lg max-w-2xl mx-auto">
+          <div className="font-code text-white/60 text-base sm:text-lg max-w-2xl mx-auto px-4">
             <span className="text-[#a855f7]">const</span> events = <span className="text-[#00ffff]">[</span><br/>
-            <span className="ml-4 text-white/80">'game', 'coding', 'hardware', 'prompting'</span><br/>
+            <span className="ml-2 sm:ml-4 text-white/80">'game', 'coding', 'hardware', 'prompting'</span><br/>
             <span className="text-[#00ffff]">]</span>
           </div>
         </motion.div>
@@ -283,11 +283,11 @@ export function Events() {
 
 
         {/* Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex p-1 rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30">
+        <div className="flex justify-center mb-8 sm:mb-12 overflow-x-auto px-2">
+          <div className="inline-flex p-1 rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 min-w-max">
             <button
               onClick={() => setActiveTab('game')}
-              className={`relative px-6 py-3 rounded-lg font-mono text-sm transition-colors ${
+              className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm transition-colors whitespace-nowrap ${
                 activeTab === 'game' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
               }`}
             >
@@ -295,7 +295,7 @@ export function Events() {
             </button>
             <button
               onClick={() => setActiveTab('coding')}
-              className={`relative px-6 py-3 rounded-lg font-mono text-sm transition-colors ${
+              className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm transition-colors whitespace-nowrap ${
                 activeTab === 'coding' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
               }`}
             >
@@ -303,7 +303,7 @@ export function Events() {
             </button>
             <button
               onClick={() => setActiveTab('hardware')}
-              className={`relative px-6 py-3 rounded-lg font-mono text-sm transition-colors ${
+              className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm transition-colors whitespace-nowrap ${
                 activeTab === 'hardware' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
               }`}
             >
@@ -311,7 +311,7 @@ export function Events() {
             </button>
             <button
               onClick={() => setActiveTab('prompting')}
-              className={`relative px-6 py-3 rounded-lg font-mono text-sm transition-colors ${
+              className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm transition-colors whitespace-nowrap ${
                 activeTab === 'prompting' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
               }`}
             >
@@ -325,7 +325,7 @@ export function Events() {
         {/* Event Cards */}
         <motion.div
           layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
         >
           {filteredEvents.map((event, index) => {
             const Icon = event.icon;
@@ -337,7 +337,7 @@ export function Events() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ delay: index * 0.1 }}
-                className="group h-[480px] [perspective:1000px]"
+                className="group min-h-[400px] sm:min-h-[450px] md:min-h-[480px] [perspective:1000px]"
               >
                 <div className="relative w-full h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                   {/* Front Side: Placeholder */}

@@ -20,23 +20,23 @@ const sponsors = {
 
 export function Sponsors() {
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white pt-24 pb-20">
+    <div className="min-h-screen bg-[#0a0a0f] text-white pt-20 sm:pt-24 pb-12 sm:pb-20">
       <div className="container mx-auto px-4">
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <div className="font-mono text-[#00d4ff] mb-4">
+          <div className="font-mono text-[#00d4ff] mb-3 sm:mb-4 text-xs sm:text-sm">
             <span className="text-[#00ffff]">$</span> ls sponsors/
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent font-mono">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent font-mono">
             sponsors.json
           </h1>
-          <div className="font-code text-white/60 text-lg max-w-2xl mx-auto">
+          <div className="font-code text-white/60 text-base sm:text-lg max-w-2xl mx-auto px-4">
             <span className="text-[#a855f7]">const</span> sponsors = <span className="text-[#00ffff]">[</span><br/>
-            <span className="ml-4 text-white/80">'title', 'gold', 'silver'</span><br/>
+            <span className="ml-2 sm:ml-4 text-white/80">'title', 'gold', 'silver'</span><br/>
             <span className="text-[#00ffff]">]</span>
           </div>
         </motion.div>
@@ -46,20 +46,20 @@ export function Sponsors() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="mb-20"
+          className="mb-8 sm:mb-12 lg:mb-20"
         >
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <Crown className="size-8 text-[#fbbf24]" />
-            <h2 className="text-3xl font-bold">Title Sponsor</h2>
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+            <Crown className="size-5 sm:size-8 text-[#fbbf24]" />
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Title Sponsor</h2>
           </div>
           
           {sponsors.title.map((sponsor, index) => (
-            <div key={index} className="max-w-md mx-auto">
-              <div className="p-12 rounded-3xl bg-gradient-to-br from-[#fbbf24]/10 to-[#f59e0b]/10 border-2 border-[#fbbf24]/50 backdrop-blur-sm">
-                <div className="size-32 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#fbbf24] to-[#f59e0b] flex items-center justify-center">
-                  <span className="text-4xl font-bold text-white">{sponsor.logo}</span>
+            <div key={index} className="max-w-xs sm:max-w-sm md:max-w-md mx-auto">
+              <div className="p-6 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#fbbf24]/10 to-[#f59e0b]/10 border-2 border-[#fbbf24]/50 backdrop-blur-sm">
+                <div className="size-20 sm:size-24 md:size-32 mx-auto mb-4 sm:mb-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#fbbf24] to-[#f59e0b] flex items-center justify-center">
+                  <span className="text-xl sm:text-2xl md:text-4xl font-bold text-white">{sponsor.logo}</span>
                 </div>
-                <h3 className="text-3xl font-bold text-center">{sponsor.name}</h3>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-center">{sponsor.name}</h3>
               </div>
             </div>
           ))}
@@ -70,24 +70,24 @@ export function Sponsors() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mb-16"
+          className="mb-8 sm:mb-12 lg:mb-16"
         >
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <Award className="size-7 text-[#fbbf24]" />
-            <h2 className="text-2xl font-bold">Gold Sponsors</h2>
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+            <Award className="size-5 sm:size-7 text-[#fbbf24]" />
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold">Gold Sponsors</h2>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {sponsors.gold.map((sponsor, index) => (
               <motion.div
                 key={index}
-                whileHover={{ y: -10 }}
-                className="p-8 rounded-2xl bg-gradient-to-br from-[#fbbf24]/5 to-[#f59e0b]/5 border border-[#fbbf24]/30 backdrop-blur-sm"
+                whileHover={{ y: -5 }}
+                className="p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#fbbf24]/5 to-[#f59e0b]/5 border border-[#fbbf24]/30 backdrop-blur-sm"
               >
-                <div className="size-24 mx-auto mb-4 rounded-xl bg-gradient-to-br from-[#fbbf24] to-[#f59e0b] flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white">{sponsor.logo}</span>
+                <div className="size-16 sm:size-20 md:size-24 mx-auto mb-3 sm:mb-4 rounded-lg sm:rounded-xl bg-gradient-to-br from-[#fbbf24] to-[#f59e0b] flex items-center justify-center">
+                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">{sponsor.logo}</span>
                 </div>
-                <h3 className="text-xl font-bold text-center">{sponsor.name}</h3>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-center">{sponsor.name}</h3>
               </motion.div>
             ))}
           </div>
@@ -98,24 +98,24 @@ export function Sponsors() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="mb-16"
+          className="mb-8 sm:mb-12 lg:mb-16"
         >
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <Star className="size-6 text-[#9ca3af]" />
-            <h2 className="text-2xl font-bold">Silver Sponsors</h2>
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+            <Star className="size-4 sm:size-6 text-[#9ca3af]" />
+            <h2 className="text-lg sm:text-xl font-bold">Silver Sponsors</h2>
           </div>
           
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {sponsors.silver.map((sponsor, index) => (
               <motion.div
                 key={index}
-                whileHover={{ y: -10 }}
-                className="p-6 rounded-xl bg-gradient-to-br from-[#9ca3af]/5 to-[#6b7280]/5 border border-[#9ca3af]/30 backdrop-blur-sm"
+                whileHover={{ y: -5 }}
+                className="p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl bg-gradient-to-br from-[#9ca3af]/5 to-[#6b7280]/5 border border-[#9ca3af]/30 backdrop-blur-sm"
               >
-                <div className="size-16 mx-auto mb-3 rounded-lg bg-gradient-to-br from-[#9ca3af] to-[#6b7280] flex items-center justify-center">
-                  <span className="text-lg font-bold text-white">{sponsor.logo}</span>
+                <div className="size-12 sm:size-14 md:size-16 mx-auto mb-2 sm:mb-3 rounded-lg bg-gradient-to-br from-[#9ca3af] to-[#6b7280] flex items-center justify-center">
+                  <span className="text-sm sm:text-base md:text-lg font-bold text-white">{sponsor.logo}</span>
                 </div>
-                <h3 className="text-sm font-bold text-center">{sponsor.name}</h3>
+                <h3 className="text-xs sm:text-sm md:text-base font-bold text-center">{sponsor.name}</h3>
               </motion.div>
             ))}
           </div>
