@@ -9,7 +9,6 @@ import { config } from "react-spring";
 import { useEffect, useState, useRef } from "react";
 
 
-
 export function Home() {
 
 
@@ -264,11 +263,11 @@ export function Home() {
               transition={{ duration: 1, delay: 0.3, type: "spring" }}
               className="flex items-center justify-center order-1 lg:order-2 hidden sm:flex"
             >
-              <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl sm:rounded-2xl border border-transparent backdrop-blur-sm flex items-center justify-center overflow-hidden">
+              <div className="relative w-120 h-44 sm:h-80 md:h-96 lg:h-[500px] rounded-xl sm:rounded-2xl border border-transparent  flex items-center justify-center ">
 
                 {/* 3D Spline Element */}
                 <div className="absolute inset-0">
-                  <Spline scene="https://prod.spline.design/p53BqoL7wUiPF6WM/scene.splinecode" />
+                  <Spline scene="https://prod.spline.design/8waoK8Yzk7ZTbMiR/scene.splinecode" />
                 </div>
 
               </div>
