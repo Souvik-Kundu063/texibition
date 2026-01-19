@@ -438,7 +438,7 @@ export function Events() {
                     />
                     {/* Tap to flip hint - only show on mobile */}
                     <div className="absolute bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 text-white text-[10px] font-mono md:hidden">
-                      Tap to flip
+                      Tap
                     </div>
                   </div>
 
