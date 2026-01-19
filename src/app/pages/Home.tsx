@@ -1,12 +1,12 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Star, Heart, Quote, Instagram, Twitter, Github, Youtube, Mail, MapPin } from 'lucide-react';
+import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Star, Heart, Quote, Instagram, Twitter, Github, Youtube, Mail, MapPin, Crown, Award } from 'lucide-react';
 import { CountdownTimer } from '../components/CountdownTimer';
 import { InteractiveBackground } from '../components/InteractiveBackground';
 import Spline from '@splinetool/react-spline';
 import Carousel from "react-spring-3d-carousel";
 import { config } from "react-spring";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 
 
@@ -93,6 +93,23 @@ export function Home() {
       image: '/event/blitz.png'
     },
   ];
+
+  // Sponsor data for marquee
+  const sponsors = [
+    { name: 'TechCorp', logo: 'TC', tier: 'title', color: 'from-[#fbbf24] to-[#f59e0b]' },
+    { name: 'CloudTech', logo: 'CT', tier: 'gold', color: 'from-[#fbbf24] to-[#f59e0b]' },
+    { name: 'DataSync', logo: 'DS', tier: 'gold', color: 'from-[#fbbf24] to-[#f59e0b]' },
+    { name: 'InnovateLab', logo: 'IL', tier: 'gold', color: 'from-[#fbbf24] to-[#f59e0b]' },
+    { name: 'StartupHub', logo: 'SH', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
+    { name: 'CodeNest', logo: 'CN', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
+    { name: 'DevZone', logo: 'DZ', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
+    { name: 'TechFlow', logo: 'TF', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
+    { name: 'ByteCraft', logo: 'BC', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
+    { name: 'PixelPress', logo: 'PP', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
+    { name: 'NeuralNet', logo: 'NN', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
+    { name: 'QuantumQ', logo: 'QQ', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
+  ];
+
   const [carouselIndex, setCarouselIndex] = useState(0);
 
   useEffect(() => {
@@ -126,19 +143,18 @@ export function Home() {
             >
               <div className="space-y-4 sm:space-y-6">
 
-                {/* Brainware University */}
+                {/* Brainware University Logo */}
                 <motion.div
-                  initial={{ opacity: 0, letterSpacing: "0em" }}
-                  animate={{ opacity: 1, letterSpacing: "0.05em" }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 1.5, ease: "easeOut" }}
-                  className="flex flex-col items-center lg:items-center"
+                  className="flex items-center justify-center"
                 >
-                  <span className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-['Orbitron'] font-medium tracking-tight">
-                    BRAINWARE
-                  </span>
-                  <span className="text-white/90 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-['Orbitron'] font-light block mt-1">
-                    UNIVERSITY
-                  </span>
+                  <img
+                    src="/images/bwulogo.png"
+                    alt="Brainware University"
+                    className="h-10 sm:h-14 md:h-16 lg:h-20 w-auto object-contain"
+                  />
                 </motion.div>
 
                 {/* Presents */}
@@ -165,7 +181,7 @@ export function Home() {
                   <img
                     src="/images/texibitionlogo.png"
                     alt="TEXIBITION"
-                    className="h-24 sm:h-32 md:h-48 lg:h-64 w-auto object-contain drop-shadow-[0_0_15px_rgba(0,2,255,0.3)]"
+                    className="h-28 sm:h-36 md:h-48 lg:h-64 w-auto object-contain drop-shadow-[0_0_15px_rgba(0,2,255,0.3)]"
                   />
                 </motion.div>
 
@@ -325,6 +341,31 @@ export function Home() {
               />
             </div>
           </div>
+
+          {/* Explore Events Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="flex justify-center mt-8 sm:mt-10 lg:mt-12"
+          >
+            <Link to="/events">
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(0, 212, 255, 0.35)" }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative px-8 sm:px-10 py-3 sm:py-4 bg-[#00d4ff]/10 border border-[#00d4ff] rounded-none skew-x-[-10deg] font-['Space_Grotesk'] font-bold text-[#00d4ff] hover:bg-[#00d4ff]/20 transition-all duration-300 flex items-center gap-3"
+              >
+                <div className="skew-x-[10deg] flex items-center gap-3">
+                  <span className="text-[#00ffff] text-sm sm:text-base">$</span>
+                  <span className="text-sm sm:text-lg tracking-wide">EXPLORE_EVENTS</span>
+                  <ArrowRight className="size-5 sm:size-6 text-[#00d4ff] group-hover:translate-x-2 transition-transform duration-300" />
+                </div>
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#00d4ff]/20 via-[#a855f7]/10 to-[#00d4ff]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
+              </motion.button>
+            </Link>
+          </motion.div>
 
         </div>
       </section>
@@ -502,6 +543,92 @@ export function Home() {
               </motion.div>
             </div>
           </div>
+
+          {/* Sponsor Marquee */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-16 sm:mt-20 lg:mt-24"
+          >
+            <div className="text-center mb-6 sm:mb-8">
+              <div className="font-mono text-[#00d4ff] mb-2 sm:mb-3 text-xs sm:text-sm">
+                <span className="text-[#00ffff]">//</span> our_sponsors.js
+              </div>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold font-['Orbitron'] text-white">
+                Our <span className="text-[#00d4ff]">Sponsors</span>
+              </h3>
+              <p className="text-white/60 text-xs sm:text-sm mt-2 font-['Rajdhani']">
+                Proudly supported by industry leaders
+              </p>
+            </div>
+
+            {/* Marquee Container */}
+            <div className="relative overflow-hidden">
+              {/* Gradient Masks */}
+              <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-r from-[#0a0a0f] to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-l from-[#0a0a0f] to-transparent z-10" />
+
+              {/* Marquee Track */}
+              <div className="flex items-center py-4 sm:py-6">
+                {/* Duplicate the sponsors array for seamless infinite scroll */}
+                <div className="flex animate-marquee whitespace-nowrap">
+                  {[...sponsors, ...sponsors, ...sponsors].map((sponsor, index) => (
+                    <motion.div
+                      key={`sponsor-${index}`}
+                      className="flex-shrink-0 mx-2 sm:mx-3 lg:mx-4"
+                      whileHover={{ scale: 1.05, y: -5 }}
+                    >
+                      <div className="group relative">
+                        {/* Logo Container */}
+                        <div className={`
+                          w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 
+                          rounded-lg sm:rounded-xl 
+                          bg-gradient-to-br ${sponsor.color}
+                          flex items-center justify-center
+                          border border-white/20
+                          shadow-lg
+                          group-hover:shadow-[0_0_20px_rgba(0,212,255,0.3)]
+                          transition-all duration-300
+                        `}>
+                          <span className="text-white font-bold text-xs sm:text-sm lg:text-lg">
+                            {sponsor.logo}
+                          </span>
+                        </div>
+
+                        {/* Tooltip */}
+                        <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 
+                          opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                          px-2 py-1 bg-[#0a0a0f] border border-[#00d4ff]/30 rounded
+                          whitespace-nowrap z-20">
+                          <span className="text-white text-xs">{sponsor.name}</span>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* View All Sponsors Link */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="text-center mt-6 sm:mt-8"
+            >
+              <Link 
+                to="/sponsors"
+                className="inline-flex items-center gap-2 text-[#00d4ff] hover:text-[#00ffff] 
+                  font-['Space_Grotesk'] text-xs sm:text-sm transition-colors duration-300"
+              >
+                <span>VIEW_ALL_SPONSORS</span>
+                <ArrowRight className="size-3 sm:size-4" />
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -522,15 +649,66 @@ export function Home() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
-            {/* Mobile visible items (3 cards) */}
+          {/* Mobile: Horizontal Scroll Snap Gallery */}
+          <div className="lg:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4">
+            <div className="flex gap-3">
+              {[
+                { title: 'Hackathon Finals', desc: 'Teams presenting solutions', icon: Terminal },
+                { title: 'Gaming Arena', desc: 'Valorant championships', icon: Gamepad2 },
+                { title: 'Hardware Lab', desc: 'Robotics challenge', icon: Cpu },
+                { title: 'Award Ceremony', desc: 'Celebrating winners', icon: Trophy },
+                { title: 'Team Collab', desc: 'Coding together', icon: Users },
+                { title: 'Innovation', desc: 'Cutting-edge projects', icon: Sparkles },
+              ].map((item, index) => (
+                <motion.div
+                  key={`gallery-${index}`}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  snap-center
+                  className="snap-center flex-shrink-0 w-[280px] group relative rounded-xl overflow-hidden border border-[#00d4ff]/30 bg-[#0a0a0f]"
+                >
+                  {/* Card Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/10 via-[#0a0a0f] to-[#a855f7]/10" />
+                  
+                  {/* Card Content */}
+                  <div className="relative p-4">
+                    {/* Icon */}
+                    <div className="mb-3">
+                      <div className="inline-flex items-center justify-center size-12 rounded-lg bg-[#00d4ff]/10 border border-[#00d4ff]/30">
+                        <item.icon className="size-6 text-[#00d4ff]" />
+                      </div>
+                    </div>
+                    
+                    {/* Text */}
+                    <div className="space-y-1">
+                      <div className="font-mono text-sm text-[#00d4ff]">{item.title}</div>
+                      <div className="text-xs text-white/60">{item.desc}</div>
+                    </div>
+                  </div>
+
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-[#00d4ff]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Grid Layout */}
+          <div className="hidden lg:grid grid-cols-3 gap-5">
             {[
-              { title: 'Hackathon Finals', desc: 'Teams presenting their innovative solutions' },
-              { title: 'Gaming Arena', desc: 'Intense Valorant championship matches' },
-              { title: 'Hardware Lab', desc: 'Robotics challenge in action' },
+              { title: 'Hackathon Finals', desc: 'Teams presenting their innovative solutions', icon: Terminal },
+              { title: 'Gaming Arena', desc: 'Intense Valorant championship matches', icon: Gamepad2 },
+              { title: 'Hardware Lab', desc: 'Robotics challenge in action', icon: Cpu },
+              { title: 'Award Ceremony', desc: 'Celebrating winners and achievements', icon: Trophy },
+              { title: 'Team Collaboration', desc: 'Working together on coding challenges', icon: Users },
+              { title: 'Innovation Showcase', desc: 'Displaying cutting-edge projects', icon: Sparkles },
             ].map((image, index) => (
               <motion.div
-                key={`mobile-${index}`}
+                key={`desktop-${index}`}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -539,35 +717,9 @@ export function Home() {
                 className="group relative aspect-video rounded-lg overflow-hidden border border-[#00d4ff]/30"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/20 to-[#a855f7]/20" />
-                <div className="absolute inset-0 flex items-center justify-center p-3 sm:p-4">
-                  <div className="text-center">
-                    <Terminal className="size-6 sm:8 md:10 mx-auto mb-1 sm:mb-2 text-[#00d4ff]" />
-                    <div className="font-mono text-xs sm:text-sm text-[#00d4ff]">{image.title}</div>
-                    <div className="text-[10px] sm:text-sm text-white/60">{image.desc}</div>
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300" />
-              </motion.div>
-            ))}
-            {/* Desktop only items (3 more cards - hidden on mobile) */}
-            {[
-              { title: 'Award Ceremony', desc: 'Celebrating winners and achievements' },
-              { title: 'Team Collaboration', desc: 'Working together on coding challenges' },
-              { title: 'Innovation Showcase', desc: 'Displaying cutting-edge projects' }
-            ].map((image, index) => (
-              <motion.div
-                key={`desktop-${index}`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: (index + 3) * 0.1 }}
-                whileHover={{ scale: 1.02 }}
-                className="group relative aspect-video rounded-lg overflow-hidden border border-[#00d4ff]/30 hidden lg:block"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/20 to-[#a855f7]/20" />
                 <div className="absolute inset-0 flex items-center justify-center p-4">
                   <div className="text-center">
-                    <Terminal className="size-8 sm:10 mx-auto mb-2 text-[#00d4ff]" />
+                    <image.icon className="size-10 mx-auto mb-2 text-[#00d4ff]" />
                     <div className="font-mono text-sm text-[#00d4ff]">{image.title}</div>
                     <div className="text-sm text-white/60">{image.desc}</div>
                   </div>

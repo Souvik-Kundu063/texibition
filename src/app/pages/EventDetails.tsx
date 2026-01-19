@@ -390,111 +390,42 @@ export function EventDetails() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-12"
+          className="mb-8 md:mb-12"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent">
             {event.title}
           </h1>
-          <p className="text-xl text-white/70 mb-8">{event.description}</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
-              <Clock className="size-6 text-[#00d4ff] mb-2" />
-              <div className="text-sm text-white/60">Duration</div>
-              <div className="text-xl font-bold">{event.duration}</div>
-            </div>
-            <div className="p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
-              <Users className="size-6 text-[#00d4ff] mb-2" />
-              <div className="text-sm text-white/60">Team Size</div>
-              <div className="text-xl font-bold">{event.teamSize}</div>
-            </div>
+          <p className="text-lg md:text-xl text-white/70 mb-6 md:mb-8">{event.description}</p>
 
-            <div className="p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
-              <Trophy className="size-6 text-[#00d4ff] mb-2" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            {event.title === 'Xibit' && (
+              <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
+                <div className="text-sm text-white/60">Duration</div>
+                <div className="text-lg md:text-xl font-bold">{event.duration}</div>
+              </div>
+            )}
+            <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
+              <div className="text-sm text-white/60">Team Size</div>
+              <div className="text-lg md:text-xl font-bold">{event.teamSize}</div>
+            </div>
+            <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
               <div className="text-sm text-white/60">Fee</div>
-              <div className="text-xl font-bold">{event.fee}</div>
+              <div className="text-lg md:text-xl font-bold">{event.fee}</div>
             </div>
           </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-8">
-            {/* Rules */}
-            <motion.section
+        <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="lg:col-span-2 space-y-6 md:space-y-8">
+            {/* Register CTA */}
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="p-8 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
+              className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 backdrop-blur-sm"
             >
-              <h2 className="text-2xl font-bold mb-6">Rules & Guidelines</h2>
-              <ul className="space-y-3">
-                {event.rules.map((rule: string, index: number) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-[#00d4ff] shrink-0 mt-0.5" />
-                    <span className="text-white/70">{rule}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.section>
-
-            {/* Event Format */}
-            <motion.section
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="p-8 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
-            >
-              <h2 className="text-2xl font-bold mb-6">Event Format</h2>
-              <ul className="space-y-3">
-                {event.eligibility.map((item: EventFlowItem, index: number) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-[#00d4ff] shrink-0 mt-0.5" />
-                    <span className="text-white/70">{item.activity}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.section>
-
-            {/* Event Flow */}
-            <motion.section
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="p-8 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
-            >
-              <h2 className="text-2xl font-bold mb-6">Event Flow</h2>
-              <div className="space-y-4">
-                {event.flow.map((item: EventFlowItem, index: number) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="flex flex-col items-center">
-                      <div className="size-10 rounded-full bg-gradient-to-r from-[#00d4ff] to-[#a855f7] flex items-center justify-center font-bold text-sm">
-                        {index + 1}
-                      </div>
-                      {index < event.flow.length - 1 && (
-                        <div className="w-0.5 h-12 bg-gradient-to-b from-[#00d4ff] to-[#a855f7] my-2" />
-                      )}
-                    </div>
-                    <div className="flex-1 pb-8">
-                      <div className="text-sm text-[#00d4ff] font-semibold mb-1">{item.time}</div>
-                      <div className="text-white/70">{item.activity}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.section>
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Register CTA */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="sticky top-24 p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 backdrop-blur-sm"
-            >
-              <h3 className="text-xl font-bold mb-4">Ready to Participate?</h3>
-              <p className="text-white/70 mb-6">Register now via Google Forms</p>
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Ready to Participate?</h3>
+              <p className="text-sm md:text-base text-white/70 mb-4 md:mb-6">Register now via Google Forms</p>
               <a
                 href="https://forms.google.com"
                 target="_blank"
@@ -503,38 +434,74 @@ export function EventDetails() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] rounded-xl font-semibold hover:shadow-xl hover:shadow-[#00d4ff]/50 transition-shadow"
+                  className="w-full px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] rounded-xl font-semibold text-sm md:text-base hover:shadow-xl hover:shadow-[#00d4ff]/50 transition-shadow"
                 >
                   Register via Google Form
                 </motion.button>
               </a>
             </motion.div>
 
-            {/* Coordinators */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
+            {/* Event Format */}
+            <motion.section
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="p-4 md:p-8 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
             >
-              <h3 className="text-xl font-bold mb-4">Event Coordinators</h3>
-              <div className="space-y-4">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Event Format</h2>
+              <ul className="space-y-2 md:space-y-3">
+                {event.eligibility.map((item: EventFlowItem, index: number) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle2 className="size-4 md:size-5 text-[#00d4ff] shrink-0 mt-0.5" />
+                    <span className="text-sm md:text-base text-white/70">{item.activity}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.section>
+
+            {/* Rules */}
+            <motion.section
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="p-4 md:p-8 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
+            >
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Rules & Guidelines</h2>
+              <ul className="space-y-2 md:space-y-3">
+                {event.rules.map((rule: string, index: number) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle2 className="size-4 md:size-5 text-[#00d4ff] shrink-0 mt-0.5" />
+                    <span className="text-sm md:text-base text-white/70">{rule}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.section>
+
+            {/* Event Coordinators */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
+            >
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Event Coordinators</h3>
+              <div className="space-y-3 md:space-y-4">
                 {event.coordinators.map((coordinator: Coordinator, index: number) => (
-                  <div key={index} className="p-4 rounded-xl bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                    <div className="font-semibold mb-2">{coordinator.name}</div>
+                  <div key={index} className="p-3 md:p-4 rounded-xl bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                    <div className="font-semibold text-sm md:text-base mb-2">{coordinator.name}</div>
                     <div className="space-y-1">
                       <a
                         href={`mailto:${coordinator.email}`}
-                        className="flex items-center gap-2 text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
+                        className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
                       >
-                        <Mail className="size-4" />
+                        <Mail className="size-3 md:size-4" />
                         {coordinator.email}
                       </a>
                       <a
                         href={`tel:${coordinator.phone}`}
-                        className="flex items-center gap-2 text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
+                        className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
                       >
-                        <Phone className="size-4" />
+                        <Phone className="size-3 md:size-4" />
                         {coordinator.phone}
                       </a>
                     </div>
@@ -542,6 +509,39 @@ export function EventDetails() {
                 ))}
               </div>
             </motion.div>
+
+            {/* Event Flow */}
+            <motion.section
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="p-4 md:p-8 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
+            >
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Event Flow</h2>
+              <div className="space-y-3 md:space-y-4">
+                {event.flow.map((item: EventFlowItem, index: number) => (
+                  <div key={index} className="flex gap-3 md:gap-4">
+                    <div className="flex flex-col items-center">
+                      <div className="size-8 md:size-10 rounded-full bg-gradient-to-r from-[#00d4ff] to-[#a855f7] flex items-center justify-center font-bold text-xs md:text-sm">
+                        {index + 1}
+                      </div>
+                      {index < event.flow.length - 1 && (
+                        <div className="w-0.5 h-8 md:h-12 bg-gradient-to-b from-[#00d4ff] to-[#a855f7] my-2" />
+                      )}
+                    </div>
+                    <div className="flex-1 pb-6 md:pb-8">
+                      <div className="text-xs md:text-sm text-[#00d4ff] font-semibold mb-1">{item.time}</div>
+                      <div className="text-sm md:text-base text-white/70">{item.activity}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.section>
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-4 md:space-y-6">
+            {/* Sidebar is now empty - coordinators moved to main content */}
           </div>
         </div>
       </div>
