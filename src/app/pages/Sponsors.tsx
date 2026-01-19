@@ -54,7 +54,7 @@ export function Sponsors() {
           </div>
           
           {sponsors.title.map((sponsor, index) => (
-            <div key={index} className="max-w-xs sm:max-w-sm md:max-w-md mx-auto">
+            <div key={index} className="max-w-sm sm:max-w-md md:max-w-lg mx-auto">
               <div className="p-6 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#fbbf24]/10 to-[#f59e0b]/10 border-2 border-[#fbbf24]/50 backdrop-blur-sm">
                 <div className="size-20 sm:size-24 md:size-32 mx-auto mb-4 sm:mb-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#fbbf24] to-[#f59e0b] flex items-center justify-center">
                   <span className="text-xl sm:text-2xl md:text-4xl font-bold text-white">{sponsor.logo}</span>
@@ -131,27 +131,27 @@ export function Sponsors() {
           >
             <div className="absolute inset-0 bg-[#0a0a0f] m-[1px] rounded-[23px] z-0" />
 
-            <div className="relative z-10 p-12 md:p-16 text-center">
+            <div className="relative z-10 p-6 md:p-12 lg:p-16 text-center">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-[#00d4ff]/30 bg-[#00d4ff]/10 mb-8">
                 <div className="w-2 h-2 bg-[#00ff9d] rounded-full animate-pulse" />
                 <span className="font-['Space_Grotesk'] text-[#00d4ff] text-xs tracking-widest uppercase">Sponsorship Status: Active</span>
               </div>
 
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 font-['Orbitron'] text-white">
+              <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-6 font-['Orbitron'] text-white">
                 <span className="text-[#00d4ff]">&lt;</span>
                 WANT_TO_SPONSOR?
                 <span className="text-[#00d4ff]">/&gt;</span>
               </h2>
 
-              <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto font-['Rajdhani'] font-medium tracking-wide">
-                Partner with us to reach 1500+ talented students and showcase your brand in the ultimate tech odyssey.
+              <p className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto font-['Rajdhani'] font-medium tracking-wide">
+                Partner with us to reach 8000+ talented students and showcase your brand in the ultimate tech odyssey.
               </p>
 
-              <a href="mailto:sponsors@techfest.com">
+              <a href="mailto:souvikkundu7718@gmail.com">
                 <motion.button
                   whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0, 212, 255, 0.4)" }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-[#00d4ff]/20 border border-[#00d4ff] rounded-none skew-x-[-10deg] font-['Space_Grotesk'] font-bold text-[#00d4ff] hover:bg-[#00d4ff]/30 transition-all duration-300 group inline-flex items-center gap-3"
+                  className="px-6 md:px-10 py-3 md:py-4 bg-[#00d4ff]/20 border border-[#00d4ff] rounded-none md:skew-x-[-10deg] font-['Space_Grotesk'] font-bold text-[#00d4ff] hover:bg-[#00d4ff]/30 transition-all duration-300 group inline-flex items-center gap-2 md:gap-3"
                 >
                   <div className="skew-x-[10deg] flex items-center gap-2">
                     <Mail className="size-5" />

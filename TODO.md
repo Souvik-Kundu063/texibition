@@ -1,20 +1,8 @@
-# Sponsor Marquee Implementation Plan
+# Sponsors Mobile Responsiveness Tasks
 
-## Steps:
-1. [x] Read Home.tsx and understand the structure
-2. [x] Read Sponsors.tsx to get sponsor data
-3. [x] Add sponsor data array to Home.tsx
-4. [x] Create SponsorMarquee component with automatic horizontal scrolling
-5. [x] Insert the component into About Us section
-6. [x] Add CSS animation for marquee effect
-7. [ ] Verify build works
-
-## Implementation Details:
-- Used CSS animation for smooth continuous scrolling
-- Created infinite marquee effect with duplicated logos (3x repetition)
-- Made it responsive for mobile, tablet, and desktop
-- Matches the cyberpunk/tech aesthetic of the site
-- Added hover effects on sponsor logos with tooltips
-- Animation pauses on hover for better UX
-- Respects reduced motion preferences
-
+- [x] Adjust Silver Sponsors grid to use 1 column on mobile instead of 2: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-4`
+- [x] Reduce CTA section padding on mobile: `p-6 md:p-12 lg:p-16`
+- [x] Scale down CTA heading text size: `text-2xl md:text-4xl lg:text-6xl`
+- [x] Adjust CTA description text size for better mobile readability
+- [x] Fine-tune title sponsor max-width for mobile
+- [x] Fix "Want to Sponsor?" CTA section for mobile: reduce heading size, adjust button styling

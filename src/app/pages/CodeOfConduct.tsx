@@ -14,7 +14,7 @@ export function CodeOfConduct() {
           <div className="font-mono text-[#00d4ff] mb-4">
             <span className="text-[#00ffff]">$</span> cat code_of_conduct.md
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent font-mono">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent font-mono">
             Code of Conduct
           </h1>
           <div className="font-code text-white/60 text-lg max-w-2xl mx-auto">

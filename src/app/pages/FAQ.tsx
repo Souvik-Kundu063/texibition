@@ -72,7 +72,7 @@ export function FAQ() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* FAQ Section */}
-          <div className="lg:col-span-2 order-2 lg:order-1">
+          <div className="lg:col-span-2 order-1 lg:order-1">
 
             <div className="font-mono text-[#00d4ff] mb-4 sm:mb-6 text-xs sm:text-sm">
               <span className="text-[#00ffff]">//</span> faq_questions.js
