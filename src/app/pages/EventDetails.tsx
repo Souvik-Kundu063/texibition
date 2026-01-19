@@ -374,7 +374,7 @@ export function EventDetails() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white pt-24 pb-20">
+    <div className="min-h-screen bg-[#0a0a0f] text-white pt-10 md:pt-24 pb-20">
       <div className="container mx-auto px-4">
         {/* Back Button */}
         <Link to="/events">
