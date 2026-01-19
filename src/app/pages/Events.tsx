@@ -1,10 +1,7 @@
-
-
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Code, Gamepad2, Cpu, Users, Clock, Trophy, ChevronRight, Terminal, Database, Zap, Monitor, Settings, Lightbulb } from 'lucide-react';
-import EventCardFront from '../components/EventCardFront';
 
 interface Event {
   id: string;
@@ -19,6 +16,7 @@ interface Event {
   icon: any;
   gradient: string;
   featured?: boolean;
+  imagePath?: string;
 }
 
 const events: Event[] = [
@@ -148,14 +146,34 @@ const events: Event[] = [
 
 ];
 
-
 export function Events() {
   const [activeTab, setActiveTab] = useState<'game' | 'coding' | 'hardware' | 'prompting'>('game');
+  const [flippedCard, setFlippedCard] = useState<string | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   const filteredEvents = events.filter(event => event.category === activeTab);
   const featuredEvent = events.find(e => e.featured);
 
+  const toggleFlip = (eventId: string) => {
+    setFlippedCard(prev => prev === eventId ? null : eventId);
+  };
+
+  const handleMouseEnter = (eventId: string) => {
+    // Only flip on hover for desktop (screens larger than md)
+    if (window.innerWidth >= 768) {
+      setHoveredCard(eventId);
+    }
+  };
+
+  const handleMouseLeave = (eventId: string) => {
+    // Only unflip on mouse leave for desktop
+    if (window.innerWidth >= 768) {
+      setHoveredCard(null);
+    }
+  };
+
   return (
+
     <div className="min-h-screen bg-[#0a0a0f] text-white pt-20 sm:pt-24 pb-12 sm:pb-20">
       <div className="container mx-auto px-4">
 
@@ -163,18 +181,18 @@ export function Events() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
+          className="text-center mb-6 sm:mb-12 lg:mb-16"
         >
-          <div className="font-mono text-[#00d4ff] mb-3 sm:mb-4 text-xs sm:text-sm">
+          <div className="font-mono text-[#00d4ff] mb-2 sm:mb-4 text-xs sm:text-sm">
             <span className="text-[#00ffff]">$</span> ls events/
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent font-mono">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent font-mono">
             events.json
           </h1>
 
-          <div className="font-code text-white/60 text-base sm:text-lg max-w-2xl mx-auto px-4">
-            <span className="text-[#a855f7]">const</span> events = <span className="text-[#00ffff]">[</span><br/>
-            <span className="ml-2 sm:ml-4 text-white/80">'game', 'coding', 'hardware', 'prompting'</span><br/>
+          <div className="font-code text-white/60 text-xs sm:text-lg max-w-2xl mx-auto px-2 sm:px-4">
+            <span className="text-[#a855f7]">const</span> events = <span className="text-[#00ffff]">[</span>
+            <span className="ml-2 sm:ml-4 text-white/80">'game', 'coding', 'hardware', 'prompting'</span>
             <span className="text-[#00ffff]">]</span>
           </div>
         </motion.div>
@@ -185,93 +203,150 @@ export function Events() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="mb-16"
+            className="mb-12 md:mb-16"
           >
-            <div className="relative rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden">
-              {/* Terminal header */}
-              <div className="flex items-center gap-2 px-6 py-4 bg-[#00d4ff]/10 border-b border-[#00d4ff]/30">
-                <div className="w-3 h-3 rounded-full bg-[#f43f5e]"></div>
-                <div className="w-3 h-3 rounded-full bg-[#fbbf24]"></div>
-                <div className="w-3 h-3 rounded-full bg-[#10b981]"></div>
-                <div className="font-mono text-sm text-[#00d4ff] ml-4">
-                  <span className="text-[#00ffff]">$</span> ./events/featured.js --highlight
-                </div>
-                <div className="ml-auto px-3 py-1 bg-[#00d4ff] text-[#0a0a0f] text-xs font-mono rounded">
+            {/* Mobile Layout */}
+            <div className="md:hidden">
+              <div className="relative rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 overflow-hidden">
+                {/* Featured Badge */}
+                <div className="absolute top-3 right-3 px-2 py-1 bg-[#00d4ff] text-[#0a0a0f] text-xs font-mono rounded-full z-10">
                   FEATURED
                 </div>
-              </div>
-              
-              <div className="p-8">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <div className="font-mono text-[#00d4ff] mb-4">
-                      <span className="text-[#00ffff]">//</span> event_config
-                    </div>
-                    
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 font-mono text-[#00d4ff]">
-                      {featuredEvent.title}
-                    </h2>
-                    
 
-                    <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-4 font-code text-sm mb-6">
-                      <div className="text-[#a855f7]">const</div>
-                      <div className="text-white/80 ml-4">
-                        event = {'{'}<br/>
-                        <div className="ml-4">
-                          type: <span className="text-[#00ffff]">'coding'</span>,<br/>
-                          description: <span className="text-[#fbbf24]">'The ultimate coding challenge'</span>,<br/>
-                          difficulty: <span className="text-[#00d4ff]">'intermediate'</span>
-                        </div>
-                        {'}'};
-                      </div>
+                <div className="p-4">
+                  {/* Terminal-style header */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-2 h-2 rounded-full bg-[#f43f5e]"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#fbbf24]"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#10b981]"></div>
+                    <div className="font-mono text-xs text-[#00d4ff] ml-2">
+                      <span className="text-[#00ffff]">$</span> ./events/featured
                     </div>
-                    
-                    <div className="grid grid-cols-3 gap-3 mb-8">
-                      <div className="text-center p-3 rounded-lg bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                        <Clock className="size-5 mx-auto mb-2 text-[#00d4ff]" />
-                        <div className="text-xs font-mono text-white/60 uppercase tracking-wider">Duration</div>
-                        <div className="font-mono font-semibold">{featuredEvent.duration}</div>
-                      </div>
-                      <div className="text-center p-3 rounded-lg bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                        <Users className="size-5 mx-auto mb-2 text-[#00d4ff]" />
-                        <div className="text-xs font-mono text-white/60 uppercase tracking-wider">Team Size</div>
-                        <div className="font-mono font-semibold">{featuredEvent.teamSize}</div>
-                      </div>
-
-                      <div className="text-center p-3 rounded-lg bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                        <Trophy className="size-5 mx-auto mb-2 text-[#00d4ff]" />
-                        <div className="text-xs font-mono text-white/60 uppercase tracking-wider">Fee</div>
-                        <div className="font-mono font-semibold">{featuredEvent.fee}</div>
-                      </div>
-                    </div>
-                    
-                    <Link to={`/events/${featuredEvent.id}`}>
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="px-6 py-3 bg-[#00d4ff]/10 border border-[#00d4ff] rounded-lg font-mono text-[#00d4ff] hover:bg-[#00d4ff]/20 transition-all duration-300 flex items-center gap-2 group"
-                      >
-                        <span className="text-[#00ffff]">$</span>
-                        view_details()
-                        <ChevronRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                      </motion.button>
-                    </Link>
                   </div>
-                  
-                  <div className="relative h-64">
-                    <motion.div
-                      animate={{
-                        rotate: [0, 360],
-                        scale: [1, 1.05, 1],
-                      }}
-                      transition={{
-                        rotate: { duration: 15, repeat: Infinity, ease: 'linear' },
-                        scale: { duration: 2, repeat: Infinity },
-                      }}
-                      className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/20 to-[#a855f7]/20 rounded-lg blur-xl"
-                    />
-                    <div className="relative h-full flex items-center justify-center bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg">
-                      <Terminal className="size-20 text-[#00d4ff]" />
+
+                  {/* Title */}
+                  <h2 className="text-xl font-bold mb-3 font-mono text-[#00d4ff]">
+                    {featuredEvent.title}
+                  </h2>
+
+                  {/* Description */}
+                  <p className="text-sm text-white/80 mb-4 leading-relaxed">
+                    {featuredEvent.description}
+                  </p>
+
+                  {/* Stats in a compact horizontal layout */}
+                  <div className="flex justify-between items-center mb-4 p-3 bg-[#0a0a0a]/50 rounded-lg border border-[#00d4ff]/20">
+                    <div className="text-center flex-1">
+                      <div className="text-xs font-mono text-white/60 uppercase tracking-wider">Duration</div>
+                      <div className="font-mono font-semibold text-sm text-[#00d4ff]">{featuredEvent.duration}</div>
+                    </div>
+                    <div className="w-px h-8 bg-[#00d4ff]/20 mx-3"></div>
+                    <div className="text-center flex-1">
+                      <div className="text-xs font-mono text-white/60 uppercase tracking-wider">Team Size</div>
+                      <div className="font-mono font-semibold text-sm text-[#00d4ff]">{featuredEvent.teamSize}</div>
+                    </div>
+                    <div className="w-px h-8 bg-[#00d4ff]/20 mx-3"></div>
+                    <div className="text-center flex-1">
+                      <div className="text-xs font-mono text-white/60 uppercase tracking-wider">Fee</div>
+                      <div className="font-mono font-semibold text-sm text-[#00d4ff]">{featuredEvent.fee}</div>
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <Link to={`/events/${featuredEvent.id}`}>
+                    <motion.button
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full py-3 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] rounded-lg font-mono text-[#0a0a0f] font-semibold text-sm hover:shadow-lg hover:shadow-[#00d4ff]/50 transition-all duration-300"
+                    >
+                      <span className="text-[#0a0a0f]">$</span> view_details()
+                    </motion.button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden md:block">
+              <div className="relative rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden">
+                {/* Terminal header */}
+                <div className="flex items-center gap-2 px-6 py-4 bg-[#00d4ff]/10 border-b border-[#00d4ff]/30">
+                  <div className="w-3 h-3 rounded-full bg-[#f43f5e]"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#fbbf24]"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#10b981]"></div>
+                  <div className="font-mono text-sm text-[#00d4ff] ml-4">
+                    <span className="text-[#00ffff]">$</span> ./events/featured.js --highlight
+                  </div>
+                  <div className="ml-auto px-3 py-1 bg-[#00d4ff] text-[#0a0a0f] text-xs font-mono rounded">
+                    FEATURED
+                  </div>
+                </div>
+
+                <div className="p-4 sm:p-6 md:p-8">
+                  <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
+                    <div>
+                      <div className="font-mono text-[#00d4ff] mb-3 sm:mb-4 text-xs sm:text-sm">
+                        <span className="text-[#00ffff]">//</span> event_config
+                      </div>
+
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 font-mono text-[#00d4ff]">
+                        {featuredEvent.title}
+                      </h2>
+
+
+                      <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-3 sm:p-4 font-code text-xs sm:text-sm mb-4 sm:mb-6">
+                        <div className="text-[#a855f7]">const</div>
+                        <div className="text-white/80 ml-2 sm:ml-4">
+                          event = {'{'} type: <span className="text-[#00ffff]">'coding'</span>, description: <span className="text-[#fbbf24]">'The ultimate coding challenge'</span>, difficulty: <span className="text-[#00d4ff]">'intermediate'</span> {'}'};
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 sm:mb-6">
+                        <div className="text-center p-2 sm:p-3 rounded-lg bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                          <Clock className="size-4 sm:size-5 mx-auto mb-1 sm:mb-2 text-[#00d4ff]" />
+                          <div className="text-[10px] sm:text-xs font-mono text-white/60 uppercase tracking-wider">Duration</div>
+                          <div className="font-mono font-semibold text-xs sm:text-sm">{featuredEvent.duration}</div>
+                        </div>
+                        <div className="text-center p-2 sm:p-3 rounded-lg bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                          <Users className="size-4 sm:size-5 mx-auto mb-1 sm:mb-2 text-[#00d4ff]" />
+                          <div className="text-[10px] sm:text-xs font-mono text-white/60 uppercase tracking-wider">Team Size</div>
+                          <div className="font-mono font-semibold text-xs sm:text-sm">{featuredEvent.teamSize}</div>
+                        </div>
+
+                        <div className="text-center p-2 sm:p-3 rounded-lg bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                          <Trophy className="size-4 sm:size-5 mx-auto mb-1 sm:mb-2 text-[#00d4ff]" />
+                          <div className="text-[10px] sm:text-xs font-mono text-white/60 uppercase tracking-wider">Fee</div>
+                          <div className="font-mono font-semibold text-xs sm:text-sm">{featuredEvent.fee}</div>
+                        </div>
+                      </div>
+
+                      <Link to={`/events/${featuredEvent.id}`}>
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="px-6 py-3 bg-[#00d4ff]/10 border border-[#00d4ff] rounded-lg font-mono text-[#00d4ff] hover:bg-[#00d4ff]/20 transition-all duration-300 flex items-center gap-2 group"
+                        >
+                          <span className="text-[#00ffff]">$</span>
+                          view_details()
+                          <ChevronRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                        </motion.button>
+                      </Link>
+                    </div>
+
+                    <div className="relative h-48 sm:h-64">
+                      <motion.div
+                        animate={{
+                          rotate: [0, 360],
+                          scale: [1, 1.05, 1],
+                        }}
+                        transition={{
+                          rotate: { duration: 15, repeat: Infinity, ease: 'linear' },
+                          scale: { duration: 2, repeat: Infinity },
+                        }}
+                        className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/20 to-[#a855f7]/20 rounded-lg blur-xl"
+                      />
+                      <div className="relative h-full flex items-center justify-center bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg">
+                        <Terminal className="size-12 sm:size-20 text-[#00d4ff]" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -322,10 +397,10 @@ export function Events() {
         </div>
 
 
-        {/* Event Cards */}
+        {/* Event Cards Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6"
         >
           {filteredEvents.map((event, index) => {
             const Icon = event.icon;
@@ -333,81 +408,103 @@ export function Events() {
               <motion.div
                 key={event.id}
                 layout
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30 }}
-                transition={{ delay: index * 0.1 }}
-                className="group min-h-[400px] sm:min-h-[450px] md:min-h-[480px] [perspective:1000px]"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ delay: index * 0.05 }}
+
+                className="relative aspect-[3/4] sm:aspect-[3/4] [perspective:1000px] cursor-pointer"
+                onClick={() => toggleFlip(event.id)}
+                onMouseEnter={() => handleMouseEnter(event.id)}
+                onMouseLeave={() => handleMouseLeave(event.id)}
+                style={{
+                  transformStyle: 'preserve-3d',
+                  transform: (flippedCard === event.id || hoveredCard === event.id) ? 'rotateY(180deg)' : undefined,
+                }}
               >
-                <div className="relative w-full h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                  {/* Front Side: Placeholder */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
-                    <EventCardFront 
-                      imagePath="/event/blitz.png" 
+                <div
+                  className="relative w-full h-full transition-transform duration-500"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    transform: (flippedCard === event.id || hoveredCard === event.id) ? 'rotateY(180deg)' : undefined,
+                  }}
+                >
+                  {/* Front Side: Event Poster */}
+                  <div className="absolute inset-0 w-full h-full rounded-lg overflow-hidden bg-[#0a0a0f]" style={{ backfaceVisibility: 'hidden' }}>
+                    <img
+                      src={event.imagePath || "/event/blitz.png"}
+                      alt={event.title}
+                      className="w-full h-full object-contain object-center bg-[#0a0a0f] transition-transform duration-500"
                     />
+                    {/* Tap to flip hint - only show on mobile */}
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 text-white text-[10px] font-mono md:hidden">
+                      Tap to flip
+                    </div>
                   </div>
 
-                  {/* Back Side: Actual Content */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                    <Link to={`/events/${event.id}`} className="block h-full">
-                      <div className="relative h-full rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden hover:border-[#00d4ff]/60 transition-all duration-300">
-                        {/* Terminal header */}
-                        <div className="flex items-center gap-2 px-4 py-3 border-b border-[#00d4ff]/20 bg-[#00d4ff]/5">
-                          <div className="w-2 h-2 rounded-full bg-[#f43f5e]"></div>
-                          <div className="w-2 h-2 rounded-full bg-[#fbbf24]"></div>
-                          <div className="w-2 h-2 rounded-full bg-[#10b981]"></div>
-                          <div className="font-mono text-xs text-[#00d4ff] ml-2">
-                            <span className="text-[#00ffff]">$</span> ./events/{event.id}
-                          </div>
-                        </div>
 
-                        <div className="relative z-10 p-6">
-                          <div className={`inline-block p-3 rounded-lg bg-gradient-to-r ${event.gradient} mb-4`}>
-                            <Icon className="size-6 text-white" />
-                          </div>
-
-                          <h3 className="text-lg font-bold mb-3 font-mono text-[#00d4ff]">{event.title}</h3>
-                          <p className="text-white/70 text-sm mb-6 leading-relaxed">{event.description}</p>
-
-                          {/* Code snippet */}
-                          <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-3 font-code text-xs mb-6">
-                            <div className="text-[#00d4ff] mb-2">// {event.id}.js</div>
-
-                            <div className="text-white/80">
-                              <span className="text-[#a855f7]">const</span> config = {'{'}<br/>
-                              <div className="ml-4">
-                                duration: <span className="text-[#00ffff]">'{event.duration}'</span>,<br/>
-                                fee: <span className="text-[#fbbf24]">'{event.fee}'</span>
-                              </div>
-                              {'}'};
-                            </div>
-                          </div>
-
-                          <div className="grid grid-cols-3 gap-2 mb-4">
-                            <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                              <Clock className="size-4 mx-auto mb-1 text-[#00d4ff]" />
-                              <div className="text-xs font-mono text-white/60">{event.duration}</div>
-                            </div>
-                            <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                              <Users className="size-4 mx-auto mb-1 text-[#00d4ff]" />
-                              <div className="text-xs font-mono text-white/60">{event.teamSize}</div>
-                            </div>
-
-                            <div className="text-center p-2 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                              <Trophy className="size-4 mx-auto mb-1 text-[#00d4ff]" />
-                              <div className="text-xs font-mono text-white/60">{event.fee}</div>
-                            </div>
-                          </div>
-
-                          <div className="flex items-center gap-2 text-[#00d4ff] font-mono text-sm group-hover:gap-3 transition-all">
-                            <span className="text-[#00ffff]">$</span>
-                            view_details()
-                            <ChevronRight className="size-4" />
-                          </div>
+                  {/* Back Side: Event Details */}
+                  <div 
+                    className="absolute inset-0 w-full h-full rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden"
+                    style={{ 
+                      backfaceVisibility: 'hidden',
+                      transform: 'rotateY(180deg)',
+                    }}
+                  >
+                      {/* Terminal header */}
+                      <div className="flex items-center gap-1 px-3 py-2 border-b border-[#00d4ff]/20 bg-[#00d4ff]/5 hidden md:flex">
+                        <div className="w-2 h-2 rounded-full bg-[#f43f5e]"></div>
+                        <div className="w-2 h-2 rounded-full bg-[#fbbf24]"></div>
+                        <div className="w-2 h-2 rounded-full bg-[#10b981]"></div>
+                        <div className="font-mono text-[10px] text-[#00d4ff] ml-2 truncate">
+                          <span className="text-[#00ffff]">$</span> ./events/{event.id}
                         </div>
                       </div>
-                    </Link>
+
+                      <div className="p-3 sm:p-4 overflow-y-auto h-[calc(100%-40px)]">
+                        <div className={`inline-flex p-2 rounded-lg bg-gradient-to-r ${event.gradient} mb-2 hidden md:inline-flex`}>
+                          <Icon className="size-4 sm:size-5 text-white" />
+                        </div>
+
+                        <h3 className="text-sm sm:text-base font-bold mb-1 font-mono text-[#00d4ff]">{event.title}</h3>
+                        <p className="text-white/70 text-[10px] sm:text-xs mb-3 leading-tight line-clamp-2">{event.description}</p>
+
+                        {/* Quick stats */}
+                        <div className="grid grid-cols-3 gap-1 mb-3 hidden md:grid">
+                          <div className="text-center p-1 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                            <Clock className="size-3 mx-auto mb-0.5 text-[#00d4ff]" />
+                            <div className="text-[9px] font-mono text-white/60">{event.duration}</div>
+                          </div>
+                          <div className="text-center p-1 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                            <Users className="size-3 mx-auto mb-0.5 text-[#00d4ff]" />
+                            <div className="text-[9px] font-mono text-white/60">{event.teamSize}</div>
+                          </div>
+                          <div className="text-center p-1 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                            <Trophy className="size-3 mx-auto mb-0.5 text-[#00d4ff]" />
+                            <div className="text-[9px] font-mono text-white/60">{event.fee}</div>
+                          </div>
+                        </div>
+
+                        {/* View Details Button */}
+                        <Link 
+                          to={`/events/${event.id}`}
+                          className="block w-full py-2 px-3 bg-[#00d4ff]/10 border border-[#00d4ff] rounded-lg text-center"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <span className="text-[#00d4ff] font-mono text-xs flex items-center justify-center gap-1">
+                            <span className="text-[#00ffff]">$</span>
+                            view_details()
+                            <ChevronRight className="size-3 md:inline hidden" />
+                          </span>
+                        </Link>
+
+                        {/* Tap to flip back hint */}
+                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-white/40 text-[9px]">
+                          Tap to flip back
+                        </div>
+                      </div>
                   </div>
+
                 </div>
               </motion.div>
             );
