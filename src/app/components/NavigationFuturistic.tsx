@@ -16,7 +16,7 @@ export function NavigationFuturistic() {
     { name: 'Sponsors', path: '/sponsors' },
     { name: 'Team', path: '/team' },
     { name: 'FAQ', path: '/faq' },
-    { name: 'Code', path: '/code-of-conduct' },
+    { name: 'Code of Conduct', path: '/code-of-conduct' },
   ];
 
   const isActive = (path: string) => location.pathname === path;

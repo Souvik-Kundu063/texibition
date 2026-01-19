@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Clock, Users, Trophy, CheckCircle2, Mail, Phone } from 'lucide-react';
+import { Button } from '../components/ui/button';
 
 interface EventFlowItem {
   time: string;
@@ -434,11 +435,44 @@ export function EventDetails() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] rounded-xl font-semibold text-sm md:text-base hover:shadow-xl hover:shadow-[#00d4ff]/50 transition-shadow"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 w-full px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] rounded-xl font-semibold text-sm md:text-base hover:shadow-xl hover:shadow-[#00d4ff]/50 transition-shadow"
                 >
                   Register via Google Form
                 </motion.button>
               </a>
+            </motion.div>
+
+            {/* Event Coordinators - Mobile */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="lg:hidden p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
+            >
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Event Coordinators</h3>
+              <div className="space-y-3 md:space-y-4">
+                {event.coordinators.map((coordinator: Coordinator, index: number) => (
+                  <div key={index} className="p-3 md:p-4 rounded-xl bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                    <div className="font-semibold text-sm md:text-base mb-2">{coordinator.name}</div>
+                    <div className="space-y-1">
+                      <a
+                        href={`mailto:${coordinator.email}`}
+                        className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
+                      >
+                        <Mail className="size-3 md:size-4" />
+                        {coordinator.email}
+                      </a>
+                      <a
+                        href={`tel:${coordinator.phone}`}
+                        className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
+                      >
+                        <Phone className="size-3 md:size-4" />
+                        {coordinator.phone}
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </motion.div>
 
             {/* Event Format */}
@@ -477,39 +511,6 @@ export function EventDetails() {
               </ul>
             </motion.section>
 
-            {/* Event Coordinators */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
-            >
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Event Coordinators</h3>
-              <div className="space-y-3 md:space-y-4">
-                {event.coordinators.map((coordinator: Coordinator, index: number) => (
-                  <div key={index} className="p-3 md:p-4 rounded-xl bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                    <div className="font-semibold text-sm md:text-base mb-2">{coordinator.name}</div>
-                    <div className="space-y-1">
-                      <a
-                        href={`mailto:${coordinator.email}`}
-                        className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
-                      >
-                        <Mail className="size-3 md:size-4" />
-                        {coordinator.email}
-                      </a>
-                      <a
-                        href={`tel:${coordinator.phone}`}
-                        className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
-                      >
-                        <Phone className="size-3 md:size-4" />
-                        {coordinator.phone}
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
             {/* Event Flow */}
             <motion.section
               initial={{ opacity: 0, y: 30 }}
@@ -541,8 +542,40 @@ export function EventDetails() {
 
           {/* Sidebar */}
           <div className="space-y-4 md:space-y-6">
-            {/* Sidebar is now empty - coordinators moved to main content */}
+            {/* Event Coordinators - Desktop */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="hidden lg:block p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
+            >
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Event Coordinators</h3>
+              <div className="space-y-3 md:space-y-4">
+                {event.coordinators.map((coordinator: Coordinator, index: number) => (
+                  <div key={index} className="p-3 md:p-4 rounded-xl bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                    <div className="font-semibold text-sm md:text-base mb-2">{coordinator.name}</div>
+                    <div className="space-y-1">
+                      <a
+                        href={`mailto:${coordinator.email}`}
+                        className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
+                      >
+                        <Mail className="size-3 md:size-4" />
+                        {coordinator.email}
+                      </a>
+                      <a
+                        href={`tel:${coordinator.phone}`}
+                        className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
+                      >
+                        <Phone className="size-3 md:size-4" />
+                        {coordinator.phone}
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
+
         </div>
       </div>
     </div>
