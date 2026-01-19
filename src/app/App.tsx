@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-
+import ScrollToTop from './components/ScrollToTop';
 import { NavigationFuturistic } from './components/NavigationFuturistic';
 import { Home } from './pages/Home';
 import { Events } from './pages/Events';
@@ -15,6 +15,7 @@ import { Footer } from './components/Footer';
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="min-h-screen bg-[#0a0a0f]">
 
 
