@@ -37,8 +37,8 @@ const eventData: Record<string, EventData> = {
     teamSize: '4 members max',
     fee: 'Free',
     category: 'coding',
-    day: 'Day 1',
-    time: '9-5',
+    day: '11th March 2026',
+    time: '9-4',
     rules: [
       'Teams must consist of 2-4 members',
       'All team members must be college students',
@@ -65,7 +65,7 @@ const eventData: Record<string, EventData> = {
     teamSize: '5 members max',
     fee: '₹300 per team',
     category: 'game',
-    day: 'Day 1',
+    day: '11th March 2026',
     time: '9-4',
     rules: [
       'Each squad must have exactly 5 members',
@@ -93,7 +93,7 @@ const eventData: Record<string, EventData> = {
     teamSize: '5 members max',
     fee: '₹300 per team',
     category: 'game',
-    day: 'Day 1',
+    day: '11th March 2026',
     time: '9-4',
     rules: [
       'Each squad must have exactly 5 members',
@@ -119,9 +119,9 @@ const eventData: Record<string, EventData> = {
     description: 'PES is a 1v1 football gaming championship designed for players who want to showcase their virtual football skills. Participants compete in fast-paced matches where tactical awareness, precise controls, and quick reactions determine the outcome. Each match tests a player\'s ability to adapt strategies on the fly, making the competition intense, exciting, and highly engaging.',
     duration: '7 hours',
     teamSize: '1 person',
-    fee: '₹50 per team',
+    fee: '₹50 per person',
     category: 'game',
-    day: 'Day 1',
+    day: '11th March 2026',
     time: '9-4',
     rules: [
       'Each match is played in 1v1 format',
@@ -149,7 +149,7 @@ const eventData: Record<string, EventData> = {
     teamSize: '1 person',
     fee: '₹50 per person',
     category: 'game',
-    day: 'Day 1',
+    day: '12th March 2026',
     time: '10-3',
     rules: [
       'Individual participation only',
@@ -177,7 +177,7 @@ const eventData: Record<string, EventData> = {
     teamSize: '5 members max',
     fee: '₹300 per team',
     category: 'game',
-    day: 'Day 1',
+    day: '11th March 2026',
     time: '10-3',
     rules: [
       'Each team must have minimum 5 players',
@@ -203,9 +203,9 @@ const eventData: Record<string, EventData> = {
     description: 'The Blusters is an individual coding competition that focuses on logical thinking and programming fundamentals. Participants will solve a series of coding challenges within a fixed time frame using any programming language of their choice. The event rewards clarity of thought, accuracy, and efficient problem-solving, making it perfect for solo coders who want to test and prove their skills independently.',
     duration: '2 hours',
     teamSize: '1 person',
-    fee: '₹100 per student',
+    fee: 'Free',
     category: 'coding',
-    day: 'Day 2',
+    day: '12th March 2026',
     time: '11-1',
     rules: [
       'Individual participation only',
@@ -233,7 +233,7 @@ const eventData: Record<string, EventData> = {
     teamSize: '5 members max',
     fee: '₹500 per team',
     category: 'hardware',
-    day: 'Day 2',
+    day: '12th March 2026',
     time: '11-2',
     rules: [
       'Teams can have 2-5 members',
@@ -261,7 +261,7 @@ const eventData: Record<string, EventData> = {
     teamSize: '2 members max',
     fee: '₹120 per team',
     category: 'prompting',
-    day: 'Day 2',
+    day: '12th March 2026',
     time: '11-2',
     rules: [
       'Teams can have 1-2 members',
@@ -349,6 +349,10 @@ export function EventDetails() {
                     <div className="text-lg md:text-xl font-bold">{event.duration}</div>
                   </div>
                 )}
+                <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
+                  <div className="text-sm text-white/60">Date</div>
+                  <div className="text-lg md:text-xl font-bold">{event.day}</div>
+                </div>
                 <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
                   <div className="text-sm text-white/60">Team Size</div>
                   <div className="text-lg md:text-xl font-bold">{event.teamSize}</div>
