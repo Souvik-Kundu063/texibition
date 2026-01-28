@@ -304,7 +304,7 @@ export function Events() {
                       <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-3 sm:p-4 font-code text-xs sm:text-sm mb-4 sm:mb-6">
                         <div className="text-[#a855f7]">const</div>
                         <div className="text-white/80 ml-2 sm:ml-4">
-                          event = {'{'} type: <span className="text-[#00ffff]">'coding'</span>, description: <span className="text-[#fbbf24]">'The ultimate coding challenge'</span>, difficulty: <span className="text-[#00d4ff]">'intermediate'</span> {'}'};
+                          event = {'{'} type: <span className="text-[#00ffff]">'coding'</span>, description: <span className="text-[#fbbf24]">'{featuredEvent.description}'</span>, difficulty: <span className="text-[#00d4ff]">'intermediate'</span> {'}'};
                         </div>
                       </div>
 
