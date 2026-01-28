@@ -24,10 +24,10 @@ const events: Event[] = [
   {
     id: 'xibit',
     title: 'Xibit',
-    description: 'Xibit is a time-bound hackathon where teams are challenged with real-world problem statements revealed on the spot. Participants must brainstorm innovative ideas, plan their solution, and build a working prototype within the given time limit. The event focuses on creativity, problem-solving approach, feasibility, impact, and execution rather than pure coding complexity. Teams are free to choose their own tech stack and methodology, making Xibit ideal for developers, designers, and innovators who thrive under pressure and enjoy building practical solutions.',
-    duration: '7 hours',
+    description: 'The Ultimate Hackathon',
+    duration: '8 hours',
     teamSize: '4 members max',
-    fee: '200 per team',
+    fee: 'Free',
     category: 'coding',
     day: 'Day 2',
     time: '9-4',
