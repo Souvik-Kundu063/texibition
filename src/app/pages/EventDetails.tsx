@@ -323,7 +323,20 @@ export function EventDetails() {
           className="mb-8 md:mb-12"
         >
           <div className="flex flex-col lg:flex-row gap-8 items-start">
-            <div className="flex-1">
+            {/* Event Poster - On top for mobile, right side for desktop */}
+            <div className="order-1 lg:order-2 w-full lg:w-1/3">
+              <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-[#00d4ff]/30 shadow-lg shadow-[#00d4ff]/10 group">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 z-10" />
+                <img
+                  src={event.imagePath || '/event/EVENTPOSTER.jpeg'}
+                  alt={event.title}
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+
+            {/* Text Content - Below poster for mobile, left side for desktop */}
+            <div className="order-2 lg:order-1 flex-1">
               <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent">
                 {event.title}
               </h1>
@@ -344,18 +357,6 @@ export function EventDetails() {
                   <div className="text-sm text-white/60">Fee</div>
                   <div className="text-lg md:text-xl font-bold">{event.fee}</div>
                 </div>
-              </div>
-            </div>
-
-            {/* Event Poster */}
-            <div className="w-full lg:w-1/3">
-              <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-[#00d4ff]/30 shadow-lg shadow-[#00d4ff]/10 group">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 z-10" />
-                <img
-                  src={event.imagePath || '/event/EVENTPOSTER.jpeg'}
-                  alt={event.title}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                />
               </div>
             </div>
           </div>
