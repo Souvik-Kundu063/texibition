@@ -22,7 +22,7 @@ export function Home() {
     
     {
       title: 'Xibit',
-      description: 'The ultimate coding challenge where teams compete to solve complex algorithmic problems.',
+      description: 'Xibit is a time-bound hackathon where teams work together to solve real-world problem statements provided on the spot. Participants are expected to brainstorm innovative ideas, design practical solutions, and build a working prototype within the given time limit. The focus is on creativity, problem understanding, feasibility, and execution, rather than just coding complexity. Teams are free to choose their tech stack and approach, making this event ideal for innovators, developers, and designers who enjoy turning ideas into impactful solutions under pressure.',
       icon: Code,
       gradient: 'from-[#00d4ff] to-[#00ffff]',
       codeSnippet: `const xibit = {\n  type: 'coding',\n  team: '4 max',\n  duration: '7h'\n};`,

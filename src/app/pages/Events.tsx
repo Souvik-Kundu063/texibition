@@ -24,7 +24,7 @@ const events: Event[] = [
   {
     id: 'xibit',
     title: 'Xibit',
-    description: 'The ultimate coding challenge where teams compete to solve complex algorithmic problems under time pressure.',
+    description: 'Xibit is a time-bound hackathon where teams are challenged with real-world problem statements revealed on the spot. Participants must brainstorm innovative ideas, plan their solution, and build a working prototype within the given time limit. The event focuses on creativity, problem-solving approach, feasibility, impact, and execution rather than pure coding complexity. Teams are free to choose their own tech stack and methodology, making Xibit ideal for developers, designers, and innovators who thrive under pressure and enjoy building practical solutions.',
     duration: '7 hours',
     teamSize: '4 members max',
     fee: '200 per team',
@@ -40,7 +40,7 @@ const events: Event[] = [
   {
     id: 'free-fire',
     title: 'Free Fire',
-    description: 'Battle royale gaming at its finest. Compete in squads for ultimate victory.',
+    description: 'Free Fire is an action-packed battle royale tournament where squads compete for survival and dominance. Teams will drop into the battlefield, loot resources, and engage in intense combat while coordinating strategies in real time. Smart positioning, teamwork, and quick decision-making are crucial to reaching the final zone. Only the most tactical and disciplined squads will emerge victorious in this high-adrenaline gaming showdown.',
     duration: '7 hours',
     teamSize: '5 members max',
     fee: '300 per team',
@@ -54,7 +54,7 @@ const events: Event[] = [
   {
     id: 'bgmi',
     title: 'BGMI',
-    description: 'Battle royale gaming at its finest. Compete in squads for ultimate victory.',
+    description: 'BGMI is a competitive battle royale gaming event where squads fight for the ultimate Chicken Dinner. Played on classic maps like Erangel, this event emphasizes team coordination, strategy, map awareness, and clutch gameplay. Every match demands smart rotations, effective communication, and calm execution under pressure, making it a must-participate event for serious mobile gamers.',
     duration: '7 hours',
     teamSize: '5 members max',
     fee: '300 per team',
@@ -68,7 +68,7 @@ const events: Event[] = [
   {
     id: 'pes',
     title: 'PES',
-    description: 'Pro Evolution Soccer championship. Show your football gaming skills in 1v1 matches.',
+    description: 'PES is a 1v1 football gaming championship designed for players who want to showcase their virtual football skills. Participants compete in fast-paced matches where tactical awareness, precise controls, and quick reactions determine the outcome. Each match tests a player\'s ability to adapt strategies on the fly, making the competition intense, exciting, and highly engaging.',
     duration: '7 hours',
     teamSize: '1 person',
     fee: '50 per team',
@@ -82,7 +82,7 @@ const events: Event[] = [
   {
     id: 'the-blitz',
     title: 'The Blitz',
-    description: 'Fast-paced gaming tournament. Quick reflexes and strategy win the day.',
+    description: 'The Blitz is a fast-paced chess tournament where players compete under strict time constraints. With limited time on the clock, participants must rely on instinct, strategy, and sharp tactical awareness. This event tests both chess knowledge and mental agility, rewarding players who can think fast, stay focused, and capitalize on opponents\' mistakes.',
     duration: '5 hours',
     teamSize: '1 person',
     fee: '50 per person',
@@ -96,7 +96,7 @@ const events: Event[] = [
   {
     id: 'valorant',
     title: 'Valorant',
-    description: 'Tactical FPS action. Show your aim and strategy in intense 5v5 matches.',
+    description: 'Valorant is a 5v5 tactical FPS tournament that blends precise gunplay with strategic agent abilities. Teams must coordinate attacks, defend sites, and execute well-planned strategies to outplay their opponents. Communication, map control, and teamwork are critical for success. From clutch rounds to coordinated team plays, this event delivers high-intensity competitive action.',
     duration: '5 hours',
     teamSize: '5 members max',
     fee: '300 per team',
@@ -111,7 +111,7 @@ const events: Event[] = [
   {
     id: 'the-blusters',
     title: 'The Blusters',
-    description: 'Individual coding challenge. Solve programming problems and showcase your logical thinking.',
+    description: 'The Blusters is an individual coding competition that focuses on logical thinking and programming fundamentals. Participants will solve a series of coding challenges within a fixed time frame using any programming language of their choice. The event rewards clarity of thought, accuracy, and efficient problem-solving, making it perfect for solo coders who want to test and prove their skills independently.',
     duration: '2 hours',
     teamSize: '1 person',
     fee: '100 per student',
@@ -126,7 +126,7 @@ const events: Event[] = [
   {
     id: 'the-architect',
     title: 'The Architect',
-    description: 'Hardware design and build challenge. Create innovative hardware solutions.',
+    description: 'The Architect is an open-innovation hardware challenge where participants design and present their own hardware models or prototypes. There is no fixed problem statement, allowing complete creative freedom. Participants must explain the concept, working principle, and real-world application of their design. This event encourages hands-on engineering, innovation, and practical thinking.',
     duration: '3 hours',
     teamSize: '5 members max',
     fee: '500 per team',
@@ -141,7 +141,7 @@ const events: Event[] = [
   {
     id: 'the-prompters',
     title: 'The Prompters',
-    description: 'AI prompting challenge. Create the most effective prompts for AI systems.',
+    description: 'The Prompters is an AI prompt-engineering challenge where participants craft precise and creative prompts to guide AI models toward accurate outputs. Given a task or reference image, participants must design prompts that produce the closest possible result. This event tests creativity, clarity of instruction, and understanding of how AI systems interpret and respond to prompts.',
     duration: '3 hours',
     teamSize: '2 members max',
     fee: '120 per team',

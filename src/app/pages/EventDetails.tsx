@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Clock, Users, Trophy, CheckCircle2, Mail, Phone } from 'lucide-react';
-import { Button } from '../components/ui/button';
+import { ArrowLeft, CheckCircle2, Mail, Phone } from 'lucide-react';
 
 interface EventFlowItem {
   time: string;
@@ -25,7 +24,7 @@ interface EventData {
   time: string;
   rules: string[];
   eligibility: EventFlowItem[];
-  flow: EventFlowItem[];
+  flow?: EventFlowItem[];
   coordinators: Coordinator[];
   imagePath?: string;
 }
@@ -33,13 +32,13 @@ interface EventData {
 const eventData: Record<string, EventData> = {
   'xibit': {
     title: 'Xibit',
-    description: 'The ultimate coding challenge where teams compete to solve complex algorithmic problems under time pressure.',
-    duration: '7 hours',
+    description: 'Xibit is a time-bound hackathon where teams are challenged with real-world problem statements revealed on the spot. Participants must brainstorm innovative ideas, plan their solution, and build a working prototype within the given time limit. The event focuses on creativity, problem-solving approach, feasibility, impact, and execution rather than pure coding complexity. Teams are free to choose their own tech stack and methodology, making Xibit ideal for developers, designers, and innovators who thrive under pressure and enjoy building practical solutions.',
+    duration: '8 hours',
     teamSize: '4 members max',
-    fee: '₹200 per team',
+    fee: 'Free',
     category: 'coding',
-    day: 'Day 2',
-    time: '9-4',
+    day: 'Day 1',
+    time: '9-5',
     rules: [
       'Teams must consist of 2-4 members',
       'All team members must be college students',
@@ -53,15 +52,6 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Multiple algorithmic problems to solve' },
       { time: '', activity: 'Time-based evaluation and judging' },
     ],
-    flow: [
-      { time: '09:00 AM', activity: 'Registration & Team Formation' },
-      { time: '09:30 AM', activity: 'Problem Statement Release' },
-      { time: '10:00 AM', activity: 'Coding Challenge Begins' },
-      { time: '01:00 PM', activity: 'Lunch Break' },
-      { time: '04:00 PM', activity: 'Submission Deadline' },
-      { time: '04:30 PM', activity: 'Code Review & Judging' },
-      { time: '06:00 PM', activity: 'Results & Prize Distribution' },
-    ],
     coordinators: [
       { name: 'Rahul Sharma', email: 'rahul@techfest.com', phone: '+91 98765 43210' },
       { name: 'Priya Patel', email: 'priya@techfest.com', phone: '+91 98765 43211' },
@@ -70,7 +60,7 @@ const eventData: Record<string, EventData> = {
   },
   'free-fire': {
     title: 'Free Fire',
-    description: 'Battle royale gaming at its finest. Compete in squads for ultimate victory in the most intense gaming tournament.',
+    description: 'Free Fire is an action-packed battle royale tournament where squads compete for survival and dominance. Teams will drop into the battlefield, loot resources, and engage in intense combat while coordinating strategies in real time. Smart positioning, teamwork, and quick decision-making are crucial to reaching the final zone. Only the most tactical and disciplined squads will emerge victorious in this high-adrenaline gaming showdown.',
     duration: '7 hours',
     teamSize: '5 members max',
     fee: '₹300 per team',
@@ -90,15 +80,6 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Multiple rounds to decide finalists' },
       { time: '', activity: 'Room ID & password shared before matches' },
     ],
-    flow: [
-      { time: '09:00 AM', activity: 'Team Registration & Verification' },
-      { time: '09:30 AM', activity: 'Warm-up Matches' },
-      { time: '10:00 AM', activity: 'Group Stage Matches Begin' },
-      { time: '12:30 PM', activity: 'Lunch Break' },
-      { time: '01:30 PM', activity: 'Semi-Finals' },
-      { time: '03:00 PM', activity: 'Grand Finals' },
-      { time: '04:00 PM', activity: 'Prize Distribution' },
-    ],
     coordinators: [
       { name: 'Amit Kumar', email: 'amit@techfest.com', phone: '+91 98765 43220' },
       { name: 'Sneha Gupta', email: 'sneha@techfest.com', phone: '+91 98765 43221' },
@@ -107,7 +88,7 @@ const eventData: Record<string, EventData> = {
   },
   'bgmi': {
     title: 'BGMI',
-    description: 'Battle royale gaming at its finest. Compete in squads for ultimate victory in this tactical shooter championship.',
+    description: 'BGMI is a competitive battle royale gaming event where squads fight for the ultimate Chicken Dinner. Played on classic maps like Erangel, this event emphasizes team coordination, strategy, map awareness, and clutch gameplay. Every match demands smart rotations, effective communication, and calm execution under pressure, making it a must-participate event for serious mobile gamers.',
     duration: '7 hours',
     teamSize: '5 members max',
     fee: '₹300 per team',
@@ -127,15 +108,6 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Multiple rounds to decide finalists' },
       { time: '', activity: 'Room ID & password shared before matches' },
     ],
-    flow: [
-      { time: '09:00 AM', activity: 'Team Registration & Account Verification' },
-      { time: '09:30 AM', activity: 'Practice Session' },
-      { time: '10:00 AM', activity: 'Group Stage Matches' },
-      { time: '12:30 PM', activity: 'Lunch Break' },
-      { time: '01:30 PM', activity: 'Knockout Stage' },
-      { time: '03:00 PM', activity: 'Finals' },
-      { time: '04:00 PM', activity: 'Prize Distribution' },
-    ],
     coordinators: [
       { name: 'Rohan Singh', email: 'rohan@techfest.com', phone: '+91 98765 43230' },
       { name: 'Anjali Verma', email: 'anjali@techfest.com', phone: '+91 98765 43231' },
@@ -144,7 +116,7 @@ const eventData: Record<string, EventData> = {
   },
   'pes': {
     title: 'PES',
-    description: 'Pro Evolution Soccer championship. Show your football gaming skills in intense 1v1 matches and prove you are the ultimate champion.',
+    description: 'PES is a 1v1 football gaming championship designed for players who want to showcase their virtual football skills. Participants compete in fast-paced matches where tactical awareness, precise controls, and quick reactions determine the outcome. Each match tests a player\'s ability to adapt strategies on the fly, making the competition intense, exciting, and highly engaging.',
     duration: '7 hours',
     teamSize: '1 person',
     fee: '₹50 per team',
@@ -164,15 +136,6 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Multiple rounds to decide finalists' },
       { time: '', activity: 'Room ID & password shared before matches' },
     ],
-    flow: [
-      { time: '09:00 AM', activity: 'Player Registration' },
-      { time: '09:30 AM', activity: 'Group Stage Matches Begin' },
-      { time: '12:00 PM', activity: 'Lunch Break' },
-      { time: '01:00 PM', activity: 'Quarter Finals' },
-      { time: '02:30 PM', activity: 'Semi Finals' },
-      { time: '03:30 PM', activity: 'Grand Finals' },
-      { time: '04:00 PM', activity: 'Prize Distribution' },
-    ],
     coordinators: [
       { name: 'Vikram Patel', email: 'vikram@techfest.com', phone: '+91 98765 43240' },
       { name: 'Meera Reddy', email: 'meera@techfest.com', phone: '+91 98765 43241' },
@@ -181,7 +144,7 @@ const eventData: Record<string, EventData> = {
   },
   'the-blitz': {
     title: 'The Blitz',
-    description: 'Fast-paced gaming tournament that tests your reflexes and strategy. Quick thinking wins the day in this adrenaline-pumping challenge.',
+    description: 'The Blitz is a fast-paced chess tournament where players compete under strict time constraints. With limited time on the clock, participants must rely on instinct, strategy, and sharp tactical awareness. This event tests both chess knowledge and mental agility, rewarding players who can think fast, stay focused, and capitalize on opponents\' mistakes.',
     duration: '5 hours',
     teamSize: '1 person',
     fee: '₹50 per person',
@@ -201,15 +164,6 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Multiple rounds to decide winner' },
       { time: '', activity: 'Room ID & password shared before matches' },
     ],
-    flow: [
-      { time: '10:00 AM', activity: 'Player Registration' },
-      { time: '10:30 AM', activity: 'Round 1 - Quick Fire Matches' },
-      { time: '11:30 AM', activity: 'Round 2 - Quarter Finals' },
-      { time: '12:30 PM', activity: 'Lunch Break' },
-      { time: '01:00 PM', activity: 'Semi Finals' },
-      { time: '02:00 PM', activity: 'Grand Finals' },
-      { time: '03:00 PM', activity: 'Prize Distribution' },
-    ],
     coordinators: [
       { name: 'Arjun Nair', email: 'arjun@techfest.com', phone: '+91 98765 43250' },
       { name: 'Pooja Sharma', email: 'pooja@techfest.com', phone: '+91 98765 43251' },
@@ -218,7 +172,7 @@ const eventData: Record<string, EventData> = {
   },
   'valorant': {
     title: 'Valorant',
-    description: 'Tactical FPS action. Show your aim and strategy in intense 5v5 matches. Precision and teamwork are the keys to victory.',
+    description: 'Valorant is a 5v5 tactical FPS tournament that blends precise gunplay with strategic agent abilities. Teams must coordinate attacks, defend sites, and execute well-planned strategies to outplay their opponents. Communication, map control, and teamwork are critical for success. From clutch rounds to coordinated team plays, this event delivers high-intensity competitive action.',
     duration: '5 hours',
     teamSize: '5 members max',
     fee: '₹300 per team',
@@ -238,15 +192,6 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Multiple rounds to decide finalists' },
       { time: '', activity: 'Room ID & password shared before matches' },
     ],
-    flow: [
-      { time: '10:00 AM', activity: 'Team Registration & Setup' },
-      { time: '10:30 AM', activity: 'Map Selection & Warm-up' },
-      { time: '11:00 AM', activity: 'Group Stage Matches' },
-      { time: '12:30 PM', activity: 'Lunch Break' },
-      { time: '01:00 PM', activity: 'Semi Finals' },
-      { time: '02:00 PM', activity: 'Grand Finals' },
-      { time: '03:00 PM', activity: 'Prize Distribution' },
-    ],
     coordinators: [
       { name: 'Karthik Menon', email: 'karthik@techfest.com', phone: '+91 98765 43260' },
       { name: 'Riya Kapoor', email: 'riya@techfest.com', phone: '+91 98765 43261' },
@@ -255,7 +200,7 @@ const eventData: Record<string, EventData> = {
   },
   'the-blusters': {
     title: 'The Blusters',
-    description: 'Individual coding challenge. Solve programming problems and showcase your logical thinking in this intense solo competition.',
+    description: 'The Blusters is an individual coding competition that focuses on logical thinking and programming fundamentals. Participants will solve a series of coding challenges within a fixed time frame using any programming language of their choice. The event rewards clarity of thought, accuracy, and efficient problem-solving, making it perfect for solo coders who want to test and prove their skills independently.',
     duration: '2 hours',
     teamSize: '1 person',
     fee: '₹100 per student',
@@ -275,14 +220,6 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Multiple problem sets to solve' },
       { time: '', activity: 'Results announced after evaluation' },
     ],
-    flow: [
-      { time: '11:00 AM', activity: 'Registration & System Setup' },
-      { time: '11:15 AM', activity: 'Problem Statement Distribution' },
-      { time: '11:30 AM', activity: 'Coding Challenge Begins' },
-      { time: '12:30 PM', activity: 'Submission Deadline' },
-      { time: '12:45 PM', activity: 'Code Review' },
-      { time: '01:00 PM', activity: 'Results & Prize Distribution' },
-    ],
     coordinators: [
       { name: 'Sanjay Rao', email: 'sanjay@techfest.com', phone: '+91 98765 43270' },
       { name: 'Lakshmi Iyer', email: 'lakshmi@techfest.com', phone: '+91 98765 43271' },
@@ -291,7 +228,7 @@ const eventData: Record<string, EventData> = {
   },
   'the-architect': {
     title: 'The Architect',
-    description: 'Hardware design and build challenge. Create innovative hardware solutions and bring your engineering concepts to life.',
+    description: 'The Architect is an open-innovation hardware challenge where participants design and present their own hardware models or prototypes. There is no fixed problem statement, allowing complete creative freedom. Participants must explain the concept, working principle, and real-world application of their design. This event encourages hands-on engineering, innovation, and practical thinking.',
     duration: '3 hours',
     teamSize: '5 members max',
     fee: '₹500 per team',
@@ -311,15 +248,6 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Build and test prototype' },
       { time: '', activity: 'Demonstration and evaluation' },
     ],
-    flow: [
-      { time: '11:00 AM', activity: 'Team Registration & Kit Distribution' },
-      { time: '11:30 AM', activity: 'Problem Statement & Design Brief' },
-      { time: '12:00 PM', activity: 'Hardware Building Begins' },
-      { time: '01:00 PM', activity: 'Lunch Break' },
-      { time: '01:30 PM', activity: 'Testing & Refinement' },
-      { time: '02:00 PM', activity: 'Final Demonstration' },
-      { time: '02:30 PM', activity: 'Results & Prize Distribution' },
-    ],
     coordinators: [
       { name: 'Pradeep Krishnan', email: 'pradeep@techfest.com', phone: '+91 98765 43280' },
       { name: 'Anitha Das', email: 'anitha@techfest.com', phone: '+91 98765 43281' },
@@ -328,7 +256,7 @@ const eventData: Record<string, EventData> = {
   },
   'the-prompters': {
     title: 'The Prompters',
-    description: 'AI prompting challenge. Create the most effective prompts for AI systems and showcase the art of human-AI collaboration.',
+    description: 'The Prompters is an AI prompt-engineering challenge where participants craft precise and creative prompts to guide AI models toward accurate outputs. Given a task or reference image, participants must design prompts that produce the closest possible result. This event tests creativity, clarity of instruction, and understanding of how AI systems interpret and respond to prompts.',
     duration: '3 hours',
     teamSize: '2 members max',
     fee: '₹120 per team',
@@ -347,15 +275,6 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Team-based AI prompting challenge' },
       { time: '', activity: 'Multiple challenge rounds' },
       { time: '', activity: 'Presentations and evaluation' },
-    ],
-    flow: [
-      { time: '11:00 AM', activity: 'Registration & Tool Introduction' },
-      { time: '11:30 AM', activity: 'Challenge 1: Basic Prompting' },
-      { time: '12:00 PM', activity: 'Challenge 2: Creative Optimization' },
-      { time: '12:30 PM', activity: 'Lunch Break' },
-      { time: '01:00 PM', activity: 'Final Challenge: Complex Scenarios' },
-      { time: '01:45 PM', activity: 'Presentations' },
-      { time: '02:00 PM', activity: 'Results & Prize Distribution' },
     ],
     coordinators: [
       { name: 'Shreya Ghosh', email: 'shreya@techfest.com', phone: '+91 98765 43300' },
@@ -535,34 +454,6 @@ export function EventDetails() {
                   </li>
                 ))}
               </ul>
-            </motion.section>
-
-            {/* Event Flow */}
-            <motion.section
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="p-4 md:p-8 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
-            >
-              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Event Flow</h2>
-              <div className="space-y-3 md:space-y-4">
-                {event.flow.map((item: EventFlowItem, index: number) => (
-                  <div key={index} className="flex gap-3 md:gap-4">
-                    <div className="flex flex-col items-center">
-                      <div className="size-8 md:size-10 rounded-full bg-gradient-to-r from-[#00d4ff] to-[#a855f7] flex items-center justify-center font-bold text-xs md:text-sm">
-                        {index + 1}
-                      </div>
-                      {index < event.flow.length - 1 && (
-                        <div className="w-0.5 h-8 md:h-12 bg-gradient-to-b from-[#00d4ff] to-[#a855f7] my-2" />
-                      )}
-                    </div>
-                    <div className="flex-1 pb-6 md:pb-8">
-                      <div className="text-xs md:text-sm text-[#00d4ff] font-semibold mb-1">{item.time}</div>
-                      <div className="text-sm md:text-base text-white/70">{item.activity}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </motion.section>
           </div>
 
