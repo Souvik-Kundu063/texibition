@@ -1,22 +1,5 @@
 import { motion } from 'motion/react';
-import { Crown, Award, Star, Mail, ArrowRight } from 'lucide-react';
-
-const sponsors = {
-  title: [
-    { name: 'TechCorp', logo: 'TC', tier: 'Title Sponsor' },
-  ],
-  gold: [
-    { name: 'CloudTech Solutions', logo: 'CS' },
-    { name: 'DataSync Pro', logo: 'DP' },
-    { name: 'InnovateLab', logo: 'IL' },
-  ],
-  silver: [
-    { name: 'StartupHub', logo: 'SH' },
-    { name: 'CodeNest', logo: 'CN' },
-    { name: 'DevZone', logo: 'DZ' },
-    { name: 'TechFlow', logo: 'TF' },
-  ],
-};
+import { Mail, ArrowRight, Clock } from 'lucide-react';
 
 export function Sponsors() {
   return (
@@ -41,7 +24,7 @@ export function Sponsors() {
           </div>
         </motion.div>
 
-        {/* Title Sponsor */}
+        {/* Coming Soon Message */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -49,80 +32,27 @@ export function Sponsors() {
           className="mb-8 sm:mb-12 lg:mb-20"
         >
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-            <Crown className="size-5 sm:size-8 text-[#fbbf24]" />
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Title Sponsor</h2>
+            <Clock className="size-5 sm:size-8 text-[#fbbf24]" />
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Our Sponsors</h2>
           </div>
           
-          {sponsors.title.map((sponsor, index) => (
-            <div key={index} className="max-w-sm sm:max-w-md md:max-w-lg mx-auto">
-              <div className="p-6 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#fbbf24]/10 to-[#f59e0b]/10 border-2 border-[#fbbf24]/50 backdrop-blur-sm">
-                <div className="size-20 sm:size-24 md:size-32 mx-auto mb-4 sm:mb-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#fbbf24] to-[#f59e0b] flex items-center justify-center">
-                  <span className="text-xl sm:text-2xl md:text-4xl font-bold text-white">{sponsor.logo}</span>
-                </div>
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-center">{sponsor.name}</h3>
+          <div className="max-w-sm sm:max-w-md md:max-w-lg mx-auto">
+            <div className="p-6 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 backdrop-blur-sm">
+              <div className="size-20 sm:size-24 md:size-32 mx-auto mb-4 sm:mb-6 rounded-xl sm:rounded-2xl bg-[#0a0a0f]/50 border border-[#00d4ff]/30 flex items-center justify-center">
+                <span className="text-xl sm:text-2xl md:text-4xl font-bold text-[#00d4ff]">COMING SOON</span>
               </div>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-2">
+                Sponsors Announcement
+              </h3>
+              <p className="text-white/60 text-center text-sm sm:text-base">
+                Our amazing sponsors will be announced soon. Stay tuned!
+              </p>
             </div>
-          ))}
-        </motion.div>
-
-        {/* Gold Sponsors */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mb-8 sm:mb-12 lg:mb-16"
-        >
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-            <Award className="size-5 sm:size-7 text-[#fbbf24]" />
-            <h2 className="text-lg sm:text-xl md:text-2xl font-bold">Gold Sponsors</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {sponsors.gold.map((sponsor, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -5 }}
-                className="p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#fbbf24]/5 to-[#f59e0b]/5 border border-[#fbbf24]/30 backdrop-blur-sm"
-              >
-                <div className="size-16 sm:size-20 md:size-24 mx-auto mb-3 sm:mb-4 rounded-lg sm:rounded-xl bg-gradient-to-br from-[#fbbf24] to-[#f59e0b] flex items-center justify-center">
-                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">{sponsor.logo}</span>
-                </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-center">{sponsor.name}</h3>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Silver Sponsors */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mb-8 sm:mb-12 lg:mb-16"
-        >
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-            <Star className="size-4 sm:size-6 text-[#9ca3af]" />
-            <h2 className="text-lg sm:text-xl font-bold">Silver Sponsors</h2>
-          </div>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-            {sponsors.silver.map((sponsor, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -5 }}
-                className="p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl bg-gradient-to-br from-[#9ca3af]/5 to-[#6b7280]/5 border border-[#9ca3af]/30 backdrop-blur-sm"
-              >
-                <div className="size-12 sm:size-14 md:size-16 mx-auto mb-2 sm:mb-3 rounded-lg bg-gradient-to-br from-[#9ca3af] to-[#6b7280] flex items-center justify-center">
-                  <span className="text-sm sm:text-base md:text-lg font-bold text-white">{sponsor.logo}</span>
-                </div>
-                <h3 className="text-xs sm:text-sm md:text-base font-bold text-center">{sponsor.name}</h3>
-              </motion.div>
-            ))}
           </div>
         </motion.div>
 
         {/* Become a Sponsor CTA */}
-        <section className="py-20 relative">
+        <section className="py-10 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -134,13 +64,13 @@ export function Sponsors() {
             <div className="relative z-10 p-6 md:p-12 lg:p-16 text-center">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-[#00d4ff]/30 bg-[#00d4ff]/10 mb-8">
                 <div className="w-2 h-2 bg-[#00ff9d] rounded-full animate-pulse" />
-                <span className="font-['Space_Grotesk'] text-[#00d4ff] text-xs tracking-widest uppercase">Sponsorship Status: Active</span>
+                <span className="font-['Space_Grotesk'] text-[#00d4ff] text-xs tracking-widest uppercase">Sponsorship Status: Open</span>
               </div>
 
               <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-6 font-['Orbitron'] text-white">
-                <span className="text-[#00d4ff]">&lt;</span>
+                <span className="text-[#00d4ff]">{"<"}</span>
                 WANT_TO_SPONSOR?
-                <span className="text-[#00d4ff]">/&gt;</span>
+                <span className="text-[#00d4ff]">{">"}</span>
               </h2>
 
               <p className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto font-['Rajdhani'] font-medium tracking-wide">
@@ -171,3 +101,4 @@ export function Sponsors() {
     </div>
   );
 }
+

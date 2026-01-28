@@ -544,7 +544,8 @@ export function Home() {
             </div>
           </div>
 
-          {/* Sponsor Marquee */}
+          {/* Sponsor Marquee - Commented Out */}
+          {/*
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -564,15 +565,11 @@ export function Home() {
               </p>
             </div>
 
-            {/* Marquee Container */}
             <div className="relative overflow-hidden">
-              {/* Gradient Masks */}
               <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-r from-[#0a0a0f] to-transparent z-10" />
               <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-l from-[#0a0a0f] to-transparent z-10" />
 
-              {/* Marquee Track */}
               <div className="flex items-center py-4 sm:py-6">
-                {/* Duplicate the sponsors array for seamless infinite scroll */}
                 <div className="flex animate-marquee whitespace-nowrap">
                   {[...sponsors, ...sponsors, ...sponsors].map((sponsor, index) => (
                     <motion.div
@@ -581,7 +578,6 @@ export function Home() {
                       whileHover={{ scale: 1.05, y: -5 }}
                     >
                       <div className="group relative">
-                        {/* Logo Container */}
                         <div className={`
                           w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 
                           rounded-lg sm:rounded-xl 
@@ -597,7 +593,6 @@ export function Home() {
                           </span>
                         </div>
 
-                        {/* Tooltip */}
                         <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 
                           opacity-0 group-hover:opacity-100 transition-opacity duration-300
                           px-2 py-1 bg-[#0a0a0f] border border-[#00d4ff]/30 rounded
@@ -611,7 +606,6 @@ export function Home() {
               </div>
             </div>
 
-            {/* View All Sponsors Link */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -629,6 +623,8 @@ export function Home() {
               </Link>
             </motion.div>
           </motion.div>
+          */}
+
         </div>
       </section>
 
