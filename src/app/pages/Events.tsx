@@ -34,6 +34,7 @@ const events: Event[] = [
     icon: Code,
     gradient: 'from-[#00d4ff] to-[#00ffff]',
     featured: true,
+    imagePath: '/event/xihibit.jpg'
   },
   // Gaming Events
   {
@@ -48,6 +49,7 @@ const events: Event[] = [
     time: '9-4',
     icon: Gamepad2,
     gradient: 'from-[#ec4899] to-[#f43f5e]',
+    imagePath: '/event/freefire.jpg'
   },
   {
     id: 'bgmi',
@@ -61,6 +63,7 @@ const events: Event[] = [
     time: '9-4',
     icon: Gamepad2,
     gradient: 'from-[#ec4899] to-[#f43f5e]',
+    imagePath: '/event/pubg.jpg'
   },
   {
     id: 'pes',
@@ -74,6 +77,7 @@ const events: Event[] = [
     time: '9-4',
     icon: Gamepad2,
     gradient: 'from-[#fb923c] to-[#fbbf24]',
+    imagePath: '/event/pes.jpg'
   },
   {
     id: 'the-blitz',
@@ -87,6 +91,7 @@ const events: Event[] = [
     time: '10-3',
     icon: Zap,
     gradient: 'from-[#f43f5e] to-[#fb923c]',
+    imagePath: '/event/chess.jpg'
   },
   {
     id: 'valorant',
@@ -100,6 +105,7 @@ const events: Event[] = [
     time: '10-3',
     icon: Gamepad2,
     gradient: 'from-[#f43f5e] to-[#fb923c]',
+    imagePath: '/event/valorant.jpg'
   },
   // Coding Events
   {
@@ -114,6 +120,7 @@ const events: Event[] = [
     time: '11-1',
     icon: Code,
     gradient: 'from-[#00ffff] to-[#a855f7]',
+    imagePath: '/event/bluster.jpg'
   },
   // Hardware Events
   {
@@ -128,6 +135,7 @@ const events: Event[] = [
     time: '11-2',
     icon: Cpu,
     gradient: 'from-[#a855f7] to-[#ec4899]',
+    imagePath: '/event/architect.jpg'
   },
   // Prompting Event
   {
@@ -142,8 +150,8 @@ const events: Event[] = [
     time: '11-2',
     icon: Lightbulb,
     gradient: 'from-[#fbbf24] to-[#00d4ff]',
+    imagePath: '/event/prompters.jpg'
   },
-
 ];
 
 export function Events() {
@@ -362,33 +370,29 @@ export function Events() {
           <div className="inline-flex p-1 rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 min-w-max">
             <button
               onClick={() => setActiveTab('game')}
-              className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm transition-colors whitespace-nowrap ${
-                activeTab === 'game' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
-              }`}
+              className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm transition-colors whitespace-nowrap ${activeTab === 'game' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
+                }`}
             >
               <span className="text-[#00ffff]">//</span> game
             </button>
             <button
               onClick={() => setActiveTab('coding')}
-              className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm transition-colors whitespace-nowrap ${
-                activeTab === 'coding' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
-              }`}
+              className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm transition-colors whitespace-nowrap ${activeTab === 'coding' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
+                }`}
             >
               <span className="text-[#a855f7]">//</span> coding
             </button>
             <button
               onClick={() => setActiveTab('hardware')}
-              className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm transition-colors whitespace-nowrap ${
-                activeTab === 'hardware' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
-              }`}
+              className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm transition-colors whitespace-nowrap ${activeTab === 'hardware' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
+                }`}
             >
               <span className="text-[#ec4899]">//</span> hardware
             </button>
             <button
               onClick={() => setActiveTab('prompting')}
-              className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm transition-colors whitespace-nowrap ${
-                activeTab === 'prompting' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
-              }`}
+              className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-mono text-xs sm:text-sm transition-colors whitespace-nowrap ${activeTab === 'prompting' ? 'text-[#00d4ff] bg-[#00d4ff]/10' : 'text-white/60 hover:text-white'
+                }`}
             >
               <span className="text-[#fbbf24]">//</span> prompting
             </button>
@@ -444,65 +448,65 @@ export function Events() {
 
 
                   {/* Back Side: Event Details */}
-                  <div 
+                  <div
                     className="absolute inset-0 w-full h-full rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden"
-                    style={{ 
+                    style={{
                       backfaceVisibility: 'hidden',
                       transform: 'rotateY(180deg)',
                     }}
                   >
-                      {/* Terminal header */}
-                      <div className="flex items-center gap-1 px-3 py-2 border-b border-[#00d4ff]/20 bg-[#00d4ff]/5 hidden md:flex">
-                        <div className="w-2 h-2 rounded-full bg-[#f43f5e]"></div>
-                        <div className="w-2 h-2 rounded-full bg-[#fbbf24]"></div>
-                        <div className="w-2 h-2 rounded-full bg-[#10b981]"></div>
-                        <div className="font-mono text-[10px] text-[#00d4ff] ml-2 truncate">
-                          <span className="text-[#00ffff]">$</span> ./events/{event.id}
+                    {/* Terminal header */}
+                    <div className="flex items-center gap-1 px-3 py-2 border-b border-[#00d4ff]/20 bg-[#00d4ff]/5 hidden md:flex">
+                      <div className="w-2 h-2 rounded-full bg-[#f43f5e]"></div>
+                      <div className="w-2 h-2 rounded-full bg-[#fbbf24]"></div>
+                      <div className="w-2 h-2 rounded-full bg-[#10b981]"></div>
+                      <div className="font-mono text-[10px] text-[#00d4ff] ml-2 truncate">
+                        <span className="text-[#00ffff]">$</span> ./events/{event.id}
+                      </div>
+                    </div>
+
+                    <div className="p-3 sm:p-4 overflow-y-auto h-[calc(100%-40px)]">
+                      <div className={`inline-flex p-2 rounded-lg bg-gradient-to-r ${event.gradient} mb-2 hidden md:inline-flex`}>
+                        <Icon className="size-4 sm:size-5 text-white" />
+                      </div>
+
+                      <h3 className="text-sm sm:text-base font-bold mb-1 font-mono text-[#00d4ff]">{event.title}</h3>
+                      <p className="text-white/70 text-[10px] sm:text-xs mb-3 leading-tight line-clamp-2">{event.description}</p>
+
+                      {/* Quick stats */}
+                      <div className="grid grid-cols-3 gap-1 mb-3 hidden md:grid">
+                        <div className="text-center p-1 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                          <Clock className="size-3 mx-auto mb-0.5 text-[#00d4ff]" />
+                          <div className="text-[9px] font-mono text-white/60">{event.duration}</div>
+                        </div>
+                        <div className="text-center p-1 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                          <Users className="size-3 mx-auto mb-0.5 text-[#00d4ff]" />
+                          <div className="text-[9px] font-mono text-white/60">{event.teamSize}</div>
+                        </div>
+                        <div className="text-center p-1 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
+                          <Trophy className="size-3 mx-auto mb-0.5 text-[#00d4ff]" />
+                          <div className="text-[9px] font-mono text-white/60">{event.fee}</div>
                         </div>
                       </div>
 
-                      <div className="p-3 sm:p-4 overflow-y-auto h-[calc(100%-40px)]">
-                        <div className={`inline-flex p-2 rounded-lg bg-gradient-to-r ${event.gradient} mb-2 hidden md:inline-flex`}>
-                          <Icon className="size-4 sm:size-5 text-white" />
-                        </div>
+                      {/* View Details Button */}
+                      <Link
+                        to={`/events/${event.id}`}
+                        className="block w-full py-2 px-3 bg-[#00d4ff]/10 border border-[#00d4ff] rounded-lg text-center"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <span className="text-[#00d4ff] font-mono text-xs flex items-center justify-center gap-1">
+                          <span className="text-[#00ffff]">$</span>
+                          view_details()
+                          <ChevronRight className="size-3 md:inline hidden" />
+                        </span>
+                      </Link>
 
-                        <h3 className="text-sm sm:text-base font-bold mb-1 font-mono text-[#00d4ff]">{event.title}</h3>
-                        <p className="text-white/70 text-[10px] sm:text-xs mb-3 leading-tight line-clamp-2">{event.description}</p>
-
-                        {/* Quick stats */}
-                        <div className="grid grid-cols-3 gap-1 mb-3 hidden md:grid">
-                          <div className="text-center p-1 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                            <Clock className="size-3 mx-auto mb-0.5 text-[#00d4ff]" />
-                            <div className="text-[9px] font-mono text-white/60">{event.duration}</div>
-                          </div>
-                          <div className="text-center p-1 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                            <Users className="size-3 mx-auto mb-0.5 text-[#00d4ff]" />
-                            <div className="text-[9px] font-mono text-white/60">{event.teamSize}</div>
-                          </div>
-                          <div className="text-center p-1 rounded bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                            <Trophy className="size-3 mx-auto mb-0.5 text-[#00d4ff]" />
-                            <div className="text-[9px] font-mono text-white/60">{event.fee}</div>
-                          </div>
-                        </div>
-
-                        {/* View Details Button */}
-                        <Link 
-                          to={`/events/${event.id}`}
-                          className="block w-full py-2 px-3 bg-[#00d4ff]/10 border border-[#00d4ff] rounded-lg text-center"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <span className="text-[#00d4ff] font-mono text-xs flex items-center justify-center gap-1">
-                            <span className="text-[#00ffff]">$</span>
-                            view_details()
-                            <ChevronRight className="size-3 md:inline hidden" />
-                          </span>
-                        </Link>
-
-                        {/* Tap to flip back hint */}
-                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-white/40 text-[9px]">
-                          Tap to flip back
-                        </div>
+                      {/* Tap to flip back hint */}
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-white/40 text-[9px]">
+                        Tap to flip back
                       </div>
+                    </div>
                   </div>
 
                 </div>
