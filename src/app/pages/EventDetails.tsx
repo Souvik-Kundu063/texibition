@@ -27,6 +27,7 @@ interface EventData {
   eligibility: EventFlowItem[];
   flow: EventFlowItem[];
   coordinators: Coordinator[];
+  imagePath?: string;
 }
 
 const eventData: Record<string, EventData> = {
@@ -65,6 +66,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Rahul Sharma', email: 'rahul@techfest.com', phone: '+91 98765 43210' },
       { name: 'Priya Patel', email: 'priya@techfest.com', phone: '+91 98765 43211' },
     ],
+    imagePath: '/event/xihibit.jpg'
   },
   'free-fire': {
     title: 'Free Fire',
@@ -101,6 +103,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Amit Kumar', email: 'amit@techfest.com', phone: '+91 98765 43220' },
       { name: 'Sneha Gupta', email: 'sneha@techfest.com', phone: '+91 98765 43221' },
     ],
+    imagePath: '/event/freefire.jpg'
   },
   'bgmi': {
     title: 'BGMI',
@@ -137,6 +140,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Rohan Singh', email: 'rohan@techfest.com', phone: '+91 98765 43230' },
       { name: 'Anjali Verma', email: 'anjali@techfest.com', phone: '+91 98765 43231' },
     ],
+    imagePath: '/event/pubg.jpg'
   },
   'pes': {
     title: 'PES',
@@ -173,6 +177,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Vikram Patel', email: 'vikram@techfest.com', phone: '+91 98765 43240' },
       { name: 'Meera Reddy', email: 'meera@techfest.com', phone: '+91 98765 43241' },
     ],
+    imagePath: '/event/pes.jpg'
   },
   'the-blitz': {
     title: 'The Blitz',
@@ -209,6 +214,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Arjun Nair', email: 'arjun@techfest.com', phone: '+91 98765 43250' },
       { name: 'Pooja Sharma', email: 'pooja@techfest.com', phone: '+91 98765 43251' },
     ],
+    imagePath: '/event/chess.jpg'
   },
   'valorant': {
     title: 'Valorant',
@@ -245,6 +251,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Karthik Menon', email: 'karthik@techfest.com', phone: '+91 98765 43260' },
       { name: 'Riya Kapoor', email: 'riya@techfest.com', phone: '+91 98765 43261' },
     ],
+    imagePath: '/event/valorant.jpg'
   },
   'the-blusters': {
     title: 'The Blusters',
@@ -280,6 +287,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Sanjay Rao', email: 'sanjay@techfest.com', phone: '+91 98765 43270' },
       { name: 'Lakshmi Iyer', email: 'lakshmi@techfest.com', phone: '+91 98765 43271' },
     ],
+    imagePath: '/event/bluster.jpg'
   },
   'the-architect': {
     title: 'The Architect',
@@ -316,6 +324,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Pradeep Krishnan', email: 'pradeep@techfest.com', phone: '+91 98765 43280' },
       { name: 'Anitha Das', email: 'anitha@techfest.com', phone: '+91 98765 43281' },
     ],
+    imagePath: '/event/architect.jpg'
   },
   'the-prompters': {
     title: 'The Prompters',
@@ -352,6 +361,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Shreya Ghosh', email: 'shreya@techfest.com', phone: '+91 98765 43300' },
       { name: 'Madhavan Pillai', email: 'madhavan@techfest.com', phone: '+91 98765 43301' },
     ],
+    imagePath: '/event/prompters.jpg'
   },
 };
 
@@ -393,25 +403,41 @@ export function EventDetails() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8 md:mb-12"
         >
-          <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent">
-            {event.title}
-          </h1>
-          <p className="text-lg md:text-xl text-white/70 mb-6 md:mb-8">{event.description}</p>
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
+            <div className="flex-1">
+              <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent">
+                {event.title}
+              </h1>
+              <p className="text-lg md:text-xl text-white/70 mb-6 md:mb-8">{event.description}</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-            {event.title === 'Xibit' && (
-              <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
-                <div className="text-sm text-white/60">Duration</div>
-                <div className="text-lg md:text-xl font-bold">{event.duration}</div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                {event.title === 'Xibit' && (
+                  <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
+                    <div className="text-sm text-white/60">Duration</div>
+                    <div className="text-lg md:text-xl font-bold">{event.duration}</div>
+                  </div>
+                )}
+                <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
+                  <div className="text-sm text-white/60">Team Size</div>
+                  <div className="text-lg md:text-xl font-bold">{event.teamSize}</div>
+                </div>
+                <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
+                  <div className="text-sm text-white/60">Fee</div>
+                  <div className="text-lg md:text-xl font-bold">{event.fee}</div>
+                </div>
               </div>
-            )}
-            <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
-              <div className="text-sm text-white/60">Team Size</div>
-              <div className="text-lg md:text-xl font-bold">{event.teamSize}</div>
             </div>
-            <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
-              <div className="text-sm text-white/60">Fee</div>
-              <div className="text-lg md:text-xl font-bold">{event.fee}</div>
+
+            {/* Event Poster */}
+            <div className="w-full lg:w-1/3">
+              <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-[#00d4ff]/30 shadow-lg shadow-[#00d4ff]/10 group">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 z-10" />
+                <img
+                  src={event.imagePath || '/event/EVENTPOSTER.jpeg'}
+                  alt={event.title}
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
             </div>
           </div>
         </motion.div>
