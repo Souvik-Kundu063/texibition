@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Star, Heart, Quote, Instagram, Twitter, Github, Youtube, Mail, MapPin, Crown, Award } from 'lucide-react';
+import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Star, Heart, Quote, Instagram, Twitter, Github, Youtube, Mail, MapPin, Crown, Award, Lightbulb } from 'lucide-react';
 import { CountdownTimer } from '../components/CountdownTimer';
 import { InteractiveBackground } from '../components/InteractiveBackground';
 import Spline from '@splinetool/react-spline';
@@ -13,83 +13,91 @@ export function Home() {
 
 
   const stats = [
-    { label: 'Events', value: '6', icon: Terminal },
+    { label: 'Events', value: '9', icon: Terminal },
     { label: 'Participants', value: '3500+', icon: Database },
     { label: 'Days', value: '2', icon: Calendar },
   ];
 
   const highlights = [
     {
-      title: '8-Hour Hackathon',
-      description: 'Build innovative solutions to real-world problems using cutting-edge technologies.',
-      icon: Terminal,
+      title: 'All event',
+      description: 'Ultimate showdown is here.',
+      icon: Code,
       gradient: 'from-[#00d4ff] to-[#00ffff]',
-      codeSnippet: `const hackathon = {\n  duration: '6 hours',\n  stack: ['React', 'Node.js', 'AI/ML'],\n  prize: '₹50,000'\n};`,
-      image: '/event/blitz.png'
+      codeSnippet: `const xibit = {\n  type: 'coding',\n  team: '4 max',\n  duration: '7h'\n};`,
+      image: '/event/EVENTPOSTER.jpeg'
     },
     {
-      title: 'Gaming Championships',
-      description: 'Compete in the ultimate gaming tournaments with cutting-edge gameplay.',
-      icon: Zap,
-      gradient: 'from-[#a855f7] to-[#ec4899]',
-      codeSnippet: `const gaming = {\n  tournaments: ['BGMI', 'Valorant', 'FIFA'],\n  players: '500+',\n  level: 'competitive'\n};`,
-      image: '/event/blitz.png'
-    },
-    {
-      title: 'Hardware Competition',
-      description: 'Dive deep into IoT, robotics, and embedded systems with hands-on projects.',
-      icon: Cpu,
-      gradient: 'from-[#00ffff] to-[#a855f7]',
-      codeSnippet: `const hardware = {\n  domains: ['IoT', 'Robotics', 'Embedded'],\n  build: 'Real hardware',\n  showcase: true\n};`,
-      image: '/event/blitz.png'
-    },
-    {
-      title: '8-Hour Hackathon',
-      description: 'Build innovative solutions to real-world problems using cutting-edge technologies.',
-      icon: Terminal,
+      title: 'Xibit',
+      description: 'The ultimate coding challenge where teams compete to solve complex algorithmic problems.',
+      icon: Code,
       gradient: 'from-[#00d4ff] to-[#00ffff]',
-      codeSnippet: `const hackathon = {\n  duration: '6 hours',\n  stack: ['React', 'Node.js', 'AI/ML'],\n  prize: '₹50,000'\n};`,
-      image: '/event/blitz.png'
+      codeSnippet: `const xibit = {\n  type: 'coding',\n  team: '4 max',\n  duration: '7h'\n};`,
+      image: '/event/xihibit.jpg'
     },
     {
-      title: 'Gaming Championships',
-      description: 'Compete in the ultimate gaming tournaments with cutting-edge gameplay.',
+      title: 'Free Fire',
+      description: 'Battle royale gaming at its finest. Compete in squads for ultimate victory.',
+      icon: Gamepad2,
+      gradient: 'from-[#ec4899] to-[#f43f5e]',
+      codeSnippet: `const freeFire = {\n  type: 'battle-royale',\n  squad: 5,\n  mode: 'survival'\n};`,
+      image: '/event/freefire.jpg'
+    },
+    {
+      title: 'BGMI',
+      description: 'Battle royale gaming at its finest. Compete in squads for ultimate victory.',
+      icon: Gamepad2,
+      gradient: 'from-[#ec4899] to-[#f43f5e]',
+      codeSnippet: `const bgmi = {\n  map: 'Erangel',\n  squad: 5,\n  chicken_dinner: true\n};`,
+      image: '/event/pubg.jpg'
+    },
+    {
+      title: 'PES',
+      description: 'Pro Evolution Soccer championship. Show your football gaming skills in 1v1 matches.',
+      icon: Gamepad2,
+      gradient: 'from-[#fb923c] to-[#fbbf24]',
+      codeSnippet: `const pes = {\n  match: '1v1',\n  half_time: '5min',\n  controller: true\n};`,
+      image: '/event/pes.jpg'
+    },
+    {
+      title: 'The Blitz',
+      description: 'Fast-paced gaming tournament. Quick reflexes and strategy win the day.',
       icon: Zap,
-      gradient: 'from-[#a855f7] to-[#ec4899]',
-      codeSnippet: `const gaming = {\n  tournaments: ['BGMI', 'Valorant', 'FIFA'],\n  players: '500+',\n  level: 'competitive'\n};`,
-      image: '/event/blitz.png'
+      gradient: 'from-[#f43f5e] to-[#fb923c]',
+      codeSnippet: `const blitz = {\n  speed: 'max',\n  reflexes: 'required',\n  win: 'fast'\n};`,
+      image: '/event/chess.jpg'
     },
     {
-      title: 'Hardware Competition',
-      description: 'Dive deep into IoT, robotics, and embedded systems with hands-on projects.',
-      icon: Cpu,
+      title: 'Valorant',
+      description: 'Tactical FPS action. Show your aim and strategy in intense 5v5 matches.',
+      icon: Gamepad2,
+      gradient: 'from-[#f43f5e] to-[#fb923c]',
+      codeSnippet: `const valorant = {\n  agent: 'Jett',\n  weapon: 'Vandal',\n  plant: 'Spike'\n};`,
+      image: '/event/valorant.jpg'
+    },
+    {
+      title: 'The Blusters',
+      description: 'Individual coding challenge. Solve programming problems and showcase your logical thinking.',
+      icon: Code,
       gradient: 'from-[#00ffff] to-[#a855f7]',
-      codeSnippet: `const hardware = {\n  domains: ['IoT', 'Robotics', 'Embedded'],\n  build: 'Real hardware',\n  showcase: true\n};`,
-      image: '/event/blitz.png'
+      codeSnippet: `const blusters = {\n  lang: 'any',\n  solo: true,\n  logic: '100%'\n};`,
+      image: '/event/bluster.jpg'
     },
     {
-      title: '8-Hour Hackathon',
-      description: 'Build innovative solutions to real-world problems using cutting-edge technologies.',
-      icon: Terminal,
-      gradient: 'from-[#00d4ff] to-[#00ffff]',
-      codeSnippet: `const hackathon = {\n  duration: '6 hours',\n  stack: ['React', 'Node.js', 'AI/ML'],\n  prize: '₹50,000'\n};`,
-      image: '/event/blitz.png'
-    },
-    {
-      title: 'Gaming Championships',
-      description: 'Compete in the ultimate gaming tournaments with cutting-edge gameplay.',
-      icon: Zap,
-      gradient: 'from-[#a855f7] to-[#ec4899]',
-      codeSnippet: `const gaming = {\n  tournaments: ['BGMI', 'Valorant', 'FIFA'],\n  players: '500+',\n  level: 'competitive'\n};`,
-      image: '/event/blitz.png'
-    },
-    {
-      title: 'Hardware Competition',
-      description: 'Dive deep into IoT, robotics, and embedded systems with hands-on projects.',
+      title: 'The Architect',
+      description: 'Hardware design and build challenge. Create innovative hardware solutions.',
       icon: Cpu,
-      gradient: 'from-[#00ffff] to-[#a855f7]',
-      codeSnippet: `const hardware = {\n  domains: ['IoT', 'Robotics', 'Embedded'],\n  build: 'Real hardware',\n  showcase: true\n};`,
-      image: '/event/blitz.png'
+      gradient: 'from-[#a855f7] to-[#ec4899]',
+      codeSnippet: `const architect = {\n  build: 'hardware',\n  components: 'provided',\n  innovate: true\n};`,
+      image: '/event/architect.jpg'
+    },
+    {
+      title: 'The Prompters',
+      description: 'AI prompting challenge. Create the most effective prompts for AI systems.',
+      icon: Lightbulb,
+      gradient: 'from-[#fbbf24] to-[#00d4ff]',
+      codeSnippet: `const prompters = {\n  model: 'GPT-4',\n  input: 'creative',\n  output: 'art'\n};`,
+      image: '/event/prompters.jpg'
     },
   ];
 
@@ -618,7 +626,7 @@ export function Home() {
               transition={{ delay: 0.4 }}
               className="text-center mt-6 sm:mt-8"
             >
-              <Link 
+              <Link
                 to="/sponsors"
                 className="inline-flex items-center gap-2 text-[#00d4ff] hover:text-[#00ffff] 
                   font-['Space_Grotesk'] text-xs sm:text-sm transition-colors duration-300"
@@ -672,7 +680,7 @@ export function Home() {
                 >
                   {/* Card Background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/10 via-[#0a0a0f] to-[#a855f7]/10" />
-                  
+
                   {/* Card Content */}
                   <div className="relative p-4">
                     {/* Icon */}
@@ -681,7 +689,7 @@ export function Home() {
                         <item.icon className="size-6 text-[#00d4ff]" />
                       </div>
                     </div>
-                    
+
                     {/* Text */}
                     <div className="space-y-1">
                       <div className="font-mono text-sm text-[#00d4ff]">{item.title}</div>
