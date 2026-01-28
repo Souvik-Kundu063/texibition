@@ -19,14 +19,7 @@ export function Home() {
   ];
 
   const highlights = [
-    {
-      title: 'All event',
-      description: 'Ultimate showdown is here.',
-      icon: Code,
-      gradient: 'from-[#00d4ff] to-[#00ffff]',
-      codeSnippet: `const xibit = {\n  type: 'coding',\n  team: '4 max',\n  duration: '7h'\n};`,
-      image: '/event/EVENTPOSTER.jpeg'
-    },
+    
     {
       title: 'Xibit',
       description: 'The ultimate coding challenge where teams compete to solve complex algorithmic problems.',
