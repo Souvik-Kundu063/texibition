@@ -10,5 +10,6 @@
 ### Status:
 - [x] Create FloatingMerchButton.tsx component
 - [x] Update App.tsx to include the floating button
-- [ ] Verify responsive behavior
+- [x] Verify responsive behavior (opens URL in same tab)
+
 
