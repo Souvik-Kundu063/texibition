@@ -1,15 +1,54 @@
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingBag, ArrowRight, Gift, Github } from 'lucide-react';
 
 // Sponsor product page URL
 const SPONSOR_PRODUCT_URL = 'https://cozzon.in/shop/product/cozzon-duo-snack-match-tee';
 
+// Constants for popup control
+const MAX_EXIT_INTENT = 3;
+const TIME_GAP_MS = 40000; // 40 seconds
+
 interface MerchPopupProps {
   delay?: number; // Custom delay in milliseconds
   pageType?: 'home' | 'event-details';
 }
+
+// Get exit intent count from localStorage
+const getExitIntentCount = (): number => {
+  try {
+    return parseInt(localStorage.getItem('merchPopupExitCount') || '0', 10);
+  } catch {
+    return 0;
+  }
+};
+
+// Get last shown timestamp from localStorage
+const getLastShownTime = (): number => {
+  try {
+    return parseInt(localStorage.getItem('merchPopupLastShown') || '0', 10);
+  } catch {
+    return 0;
+  }
+};
+
+// Check if popup should be shown via exit intent
+const shouldShowViaExitIntent = (pageType: 'home' | 'event-details', count: number, lastShown: number): boolean => {
+  // Check if we've exceeded max exit intent count
+  if (count >= MAX_EXIT_INTENT) {
+    return false;
+  }
+
+  // For home and event-details pages, no time gap required
+  if (pageType === 'home' || pageType === 'event-details') {
+    return true;
+  }
+
+  // For other pages, check if 40 seconds have passed
+  const now = Date.now();
+  return now - lastShown >= TIME_GAP_MS;
+};
 
 // Animated Background Particles
 function ParticleBackground() {
@@ -55,6 +94,11 @@ function ParticleBackground() {
 export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHoveringCTA, setIsHoveringCTA] = useState(false);
+  const [exitIntentRemaining, setExitIntentRemaining] = useState(MAX_EXIT_INTENT);
+  
+  // Use refs to track state across renders
+  const hasShownRef = useRef(false);
+  const hasUpdatedRef = useRef(false);
 
   const handleClose = useCallback(() => {
     setIsVisible(false);
@@ -62,6 +106,18 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
 
   const handleRedirect = useCallback(() => {
     window.location.href = SPONSOR_PRODUCT_URL;
+  }, []);
+
+  // Update localStorage only when shown via exit intent
+  const updateStorageOnExitIntent = useCallback(() => {
+    if (hasUpdatedRef.current) return;
+    hasUpdatedRef.current = true;
+
+    const newCount = getExitIntentCount() + 1;
+    localStorage.setItem('merchPopupExitCount', newCount.toString());
+    localStorage.setItem('merchPopupLastShown', Date.now().toString());
+    
+    setExitIntentRemaining(Math.max(0, MAX_EXIT_INTENT - newCount));
   }, []);
 
   // Handle ESC key to close
@@ -76,26 +132,72 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isVisible, handleClose]);
 
-  // Exit intent detection
+  // Exit intent detection - THIS IS LIMITED TO 3 TIMES
   useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0 && !isVisible) {
-        setIsVisible(true);
+      if (e.clientY <= 0 && !isVisible && !hasShownRef.current) {
+        const count = getExitIntentCount();
+        const lastShown = getLastShownTime();
+        
+        if (shouldShowViaExitIntent(pageType, count, lastShown)) {
+          hasShownRef.current = true;
+          setIsVisible(true);
+          updateStorageOnExitIntent();
+        }
       }
     };
 
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
-  }, [isVisible]);
+  }, [isVisible, pageType, updateStorageOnExitIntent]);
 
-  // Show popup after delay
+  // Show popup after delay (page navigation) - UNLIMITED for home/event-details
   useEffect(() => {
+    if (hasShownRef.current) return;
+
+    // For home and event-details, always show popup on page navigation (unlimited)
+    // For other pages, check exit intent limits
+    const isHomeOrEventDetails = pageType === 'home' || pageType === 'event-details';
+    
+    if (isHomeOrEventDetails) {
+      // Home and Event Details: unlimited times, no restrictions
+      const timer = setTimeout(() => {
+        if (!hasShownRef.current) {
+          hasShownRef.current = true;
+          setIsVisible(true);
+          // Don't update localStorage for home/event-details page navigation
+        }
+      }, delay);
+      return () => clearTimeout(timer);
+    }
+
+    // For other pages, apply exit intent limits
+    const count = getExitIntentCount();
+    const lastShown = getLastShownTime();
+    
+    const shouldShow = shouldShowViaExitIntent(pageType, count, lastShown);
+    
+    if (!shouldShow) {
+      setExitIntentRemaining(Math.max(0, MAX_EXIT_INTENT - count));
+      return;
+    }
+
     const timer = setTimeout(() => {
-      setIsVisible(true);
+      if (!hasShownRef.current) {
+        hasShownRef.current = true;
+        setIsVisible(true);
+        updateStorageOnExitIntent();
+      }
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [delay]);
+  }, [delay, pageType, updateStorageOnExitIntent]);
+
+  // Initialize remaining count display
+  useEffect(() => {
+    const count = getExitIntentCount();
+    setExitIntentRemaining(Math.max(0, MAX_EXIT_INTENT - count));
+  }, []);
 
   return (
     <AnimatePresence>

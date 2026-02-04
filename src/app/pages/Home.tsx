@@ -6,7 +6,7 @@ import { CountdownTimer } from '../components/CountdownTimer';
 import { InteractiveBackground } from '../components/InteractiveBackground';
 import Spline from '@splinetool/react-spline';
 import useEmblaCarousel from 'embla-carousel-react';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 // Optimized Embla Carousel Component - Performance Improved
 function EmblaCarousel({ highlights }: { highlights: typeof highlightsData }) {
@@ -14,12 +14,22 @@ function EmblaCarousel({ highlights }: { highlights: typeof highlightsData }) {
     loop: true, 
     align: 'center',
     slidesToScroll: 1,
-    duration: 45,
+    duration: 30,
     skipSnaps: false,
-  });
+    containScroll: 'trimSnaps',
+    dragFree: false,
+    watchDrag: true,
+  }, []);
   
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  // Memoized auto-scroll to prevent unnecessary re-renders
+  const autoScroll = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+    }
+  }, [emblaApi]);
 
   // Auto-scroll with efficient state updates
   useEffect(() => {
@@ -40,12 +50,15 @@ function EmblaCarousel({ highlights }: { highlights: typeof highlightsData }) {
     onInit();
     setSelectedIndex(emblaApi.selectedScrollSnap());
     
-    // Auto-advance timer
-    const interval = setInterval(() => {
-      if (emblaApi) {
-        emblaApi.scrollNext();
-      }
-    }, 5000);
+    // Auto-advance timer - optimized with ref to prevent closure issues
+    let interval: ReturnType<typeof setInterval>;
+    if (emblaApi) {
+      interval = setInterval(() => {
+        if (emblaApi) {
+          emblaApi.scrollNext();
+        }
+      }, 5000);
+    }
     
     return () => {
       emblaApi.off('init', onInit);
@@ -57,14 +70,15 @@ function EmblaCarousel({ highlights }: { highlights: typeof highlightsData }) {
 
   return (
     <div className="embla relative" ref={emblaRef}>
-      <div className="embla__container flex">
+      <div className="embla__container flex touch-pan-y">
         {highlights.map((item, index) => (
           <div 
             key={index} 
             className="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] pl-2 sm:pl-3 lg:pl-4"
           >
-            <motion.div
-              className="bg-[#0a0a0f] border border-[#00d4ff]/30 rounded-xl overflow-hidden mx-1 sm:mx-2 will-change-transform"
+            <div
+              className="bg-[#0a0a0f] border border-[#00d4ff]/30 rounded-xl overflow-hidden mx-1 sm:mx-2 transition-transform duration-300 hover:scale-[1.02]"
+              style={{ transform: 'translateZ(0)' }}
             >
               <Link to="#">
                 <div className="h-auto min-h-0 overflow-hidden">
@@ -72,11 +86,12 @@ function EmblaCarousel({ highlights }: { highlights: typeof highlightsData }) {
                     src={item.image} 
                     alt={item.title} 
                     loading="lazy"
-                    className="w-full h-auto object-cover transform-gpu will-change-transform transition-transform duration-300 hover:scale-105"
+                    decoding="async"
+                    className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
               </Link>
-            </motion.div>
+            </div>
           </div>
         ))}
       </div>
