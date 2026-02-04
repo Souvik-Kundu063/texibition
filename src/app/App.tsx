@@ -13,6 +13,7 @@ import Team from './pages/Team';
 import { FAQ } from './pages/FAQ';
 import { Footer } from './components/Footer';
 import { MerchPopup } from './components/MerchPopup';
+import { FloatingMerchButton } from './components/FloatingMerchButton';
 
 // Component to handle MerchPopup visibility based on current route
 function MerchPopupManager() {
@@ -63,6 +64,7 @@ export default function App() {
         </Routes>
         <Footer />
         <MerchPopupManager />
+        <FloatingMerchButton />
       </div>
     </BrowserRouter>
   );

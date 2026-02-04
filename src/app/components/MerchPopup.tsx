@@ -8,7 +8,7 @@ const SPONSOR_PRODUCT_URL = 'https://cozzon.in/shop/product/cozzon-duo-snack-mat
 
 // Constants for popup control
 const MAX_EXIT_INTENT = 3;
-const TIME_GAP_MS = 40000; // 40 seconds
+const TIME_GAP_MS = 30000; // 30 seconds
 
 interface MerchPopupProps {
   delay?: number; // Custom delay in milliseconds
