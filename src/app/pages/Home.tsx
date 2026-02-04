@@ -14,7 +14,7 @@ function EmblaCarousel({ highlights }: { highlights: typeof highlightsData }) {
     loop: true, 
     align: 'center',
     slidesToScroll: 1,
-    duration: 60,
+    duration: 45,
     skipSnaps: false,
   });
   
@@ -45,7 +45,7 @@ function EmblaCarousel({ highlights }: { highlights: typeof highlightsData }) {
       if (emblaApi) {
         emblaApi.scrollNext();
       }
-    }, 4000);
+    }, 5000);
     
     return () => {
       emblaApi.off('init', onInit);
@@ -64,17 +64,15 @@ function EmblaCarousel({ highlights }: { highlights: typeof highlightsData }) {
             className="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] pl-2 sm:pl-3 lg:pl-4"
           >
             <motion.div
-              className="bg-[#0a0a0f] border border-[#00d4ff]/30 rounded-xl overflow-hidden mx-1 sm:mx-2"
-              whileHover={{ scale: 1.02, y: -5 }}
-              transition={{ duration: 0.3 }}
+              className="bg-[#0a0a0f] border border-[#00d4ff]/30 rounded-xl overflow-hidden mx-1 sm:mx-2 will-change-transform"
             >
               <Link to="#">
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className="h-auto min-h-0 overflow-hidden">
                   <img 
                     src={item.image} 
                     alt={item.title} 
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    className="w-full h-auto object-cover transform-gpu will-change-transform transition-transform duration-300 hover:scale-105"
                   />
                 </div>
               </Link>
@@ -89,7 +87,7 @@ function EmblaCarousel({ highlights }: { highlights: typeof highlightsData }) {
           <button
             key={index}
             onClick={() => emblaApi?.scrollTo(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-200 ${
               index === selectedIndex 
                 ? 'bg-[#00d4ff] w-6' 
                 : 'bg-white/20 hover:bg-white/40'
