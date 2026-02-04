@@ -47,13 +47,26 @@ export function Footer() {
                 { label: 'Schedule', path: '/schedule' },
                 { label: 'Team', path: '/team' },
                 { label: 'FAQ', path: '/faq' },
+                { label: 'Official Merch', path: 'https://cozzon.in/shop/product/cozzon-duo-snack-match-tee', isExternal: true },
                 { label: 'Code of Conduct', path: '/code-of-conduct' },
               ].map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-white/60 hover:text-[#00d4ff] transition-colors text-[10px] sm:text-sm group flex items-center justify-center sm:justify-start gap-1 sm:gap-2">
-                    <span className="text-[#00ffff] opacity-0 group-hover:opacity-100 transition-opacity">$</span>
-                    <span className="group-hover:translate-x-1 transition-transform">{link.label.toLowerCase().replace(/ /g, '_')}</span>
-                  </Link>
+                  {link.isExternal ? (
+                    <a
+                      href={link.path}
+                      target="_self"
+                      rel="noopener noreferrer"
+                      className="text-[#a855f7] hover:text-[#ec4899] transition-colors text-[10px] sm:text-sm group flex items-center justify-center sm:justify-start gap-1 sm:gap-2"
+                    >
+                      <span className="text-[#ec4899] opacity-100 transition-opacity">$</span>
+                      <span className="group-hover:translate-x-1 transition-transform">{link.label.toLowerCase().replace(/ /g, '_')}</span>
+                    </a>
+                  ) : (
+                    <Link to={link.path} className="text-white/60 hover:text-[#00d4ff] transition-colors text-[10px] sm:text-sm group flex items-center justify-center sm:justify-start gap-1 sm:gap-2">
+                      <span className="text-[#00ffff] opacity-0 group-hover:opacity-100 transition-opacity">$</span>
+                      <span className="group-hover:translate-x-1 transition-transform">{link.label.toLowerCase().replace(/ /g, '_')}</span>
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

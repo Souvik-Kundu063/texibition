@@ -1,140 +1,203 @@
+
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Star, Heart, Quote, Instagram, Twitter, Github, Youtube, Mail, MapPin, Crown, Award, Lightbulb } from 'lucide-react';
+import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Heart, Lightbulb } from 'lucide-react';
 import { CountdownTimer } from '../components/CountdownTimer';
 import { InteractiveBackground } from '../components/InteractiveBackground';
 import Spline from '@splinetool/react-spline';
-import Carousel from "react-spring-3d-carousel";
-import { config } from "react-spring";
-import { useEffect, useState, useRef } from "react";
+import useEmblaCarousel from 'embla-carousel-react';
+import { useEffect, useState } from "react";
 
+// Optimized Embla Carousel Component - Performance Improved
+function EmblaCarousel({ highlights }: { highlights: typeof highlightsData }) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true, 
+    align: 'center',
+    slidesToScroll: 1,
+    duration: 60,
+    skipSnaps: false,
+  });
+  
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  // Auto-scroll with efficient state updates
+  useEffect(() => {
+    if (!emblaApi) return;
+    
+    const onInit = () => {
+      setScrollSnaps(emblaApi.scrollSnapList());
+    };
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+    
+    emblaApi.on('init', onInit);
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onInit);
+    
+    // Initial setup
+    onInit();
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+    
+    // Auto-advance timer
+    const interval = setInterval(() => {
+      if (emblaApi) {
+        emblaApi.scrollNext();
+      }
+    }, 4000);
+    
+    return () => {
+      emblaApi.off('init', onInit);
+      emblaApi.off('select', onSelect);
+      emblaApi.off('reInit', onInit);
+      clearInterval(interval);
+    };
+  }, [emblaApi]);
+
+  return (
+    <div className="embla relative" ref={emblaRef}>
+      <div className="embla__container flex">
+        {highlights.map((item, index) => (
+          <div 
+            key={index} 
+            className="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] pl-2 sm:pl-3 lg:pl-4"
+          >
+            <motion.div
+              className="bg-[#0a0a0f] border border-[#00d4ff]/30 rounded-xl overflow-hidden mx-1 sm:mx-2"
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Link to="#">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+              </Link>
+            </motion.div>
+          </div>
+        ))}
+      </div>
+      
+      {/* Dots Navigation */}
+      <div className="flex justify-center gap-2 mt-6">
+        {scrollSnaps.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => emblaApi?.scrollTo(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === selectedIndex 
+                ? 'bg-[#00d4ff] w-6' 
+                : 'bg-white/20 hover:bg-white/40'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Event highlights data
+const highlightsData = [
+  {
+    title: 'Xibit',
+    description: 'Xibit is a time-bound hackathon where teams work together to solve real-world problem statements provided on the spot.',
+    icon: Code,
+    gradient: 'from-[#00d4ff] to-[#00ffff]',
+    codeSnippet: `const xibit = {\n  type: 'coding',\n  team: '4 max',\n  duration: '7h'\n};`,
+    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844817/bw_xihibit_fucc1x.jpg'
+  },
+  {
+    title: 'Free Fire',
+    description: 'Battle royale gaming at its finest. Compete in squads for ultimate victory.',
+    icon: Gamepad2,
+    gradient: 'from-[#ec4899] to-[#f43f5e]',
+    codeSnippet: `const freeFire = {\n  type: 'battle-royale',\n  squad: 5,\n  mode: 'survival'\n};`,
+    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844800/free_fire_bw_v3pdyq.jpg'
+  },
+  {
+    title: 'BGMI',
+    description: 'Battle royale gaming at its finest. Compete in squads for ultimate victory.',
+    icon: Gamepad2,
+    gradient: 'from-[#ec4899] to-[#f43f5e]',
+    codeSnippet: `const bgmi = {\n  map: 'Erangel',\n  squad: 5,\n  chicken_dinner: true\n};`,
+    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844623/bw_pubg_iuev64.jpg'
+  },
+  {
+    title: 'PES',
+    description: 'Pro Evolution Soccer championship. Show your football gaming skills in 1v1 matches.',
+    icon: Gamepad2,
+    gradient: 'from-[#fb923c] to-[#fbbf24]',
+    codeSnippet: `const pes = {\n  match: '1v1',\n  half_time: '5min',\n  controller: true\n};`,
+    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844799/pes_bw_w9ni0j.jpg'
+  },
+  {
+    title: 'The Blitz',
+    description: 'Fast-paced gaming tournament. Quick reflexes and strategy win the day.',
+    icon: Zap,
+    gradient: 'from-[#f43f5e] to-[#fb923c]',
+    codeSnippet: `const blitz = {\n  speed: 'max',\n  reflexes: 'required',\n  win: 'fast'\n};`,
+    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844807/chess_bw_g8zmqd.jpg'
+  },
+  {
+    title: 'Valorant',
+    description: 'Tactical FPS action. Show your aim and strategy in intense 5v5 matches.',
+    icon: Gamepad2,
+    gradient: 'from-[#f43f5e] to-[#fb923c]',
+    codeSnippet: `const valorant = {\n  agent: 'Jett',\n  weapon: 'Vandal',\n  plant: 'Spike'\n};`,
+    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844689/bw_valorant_fbeamm.jpg'
+  },
+  {
+    title: 'The Blusters',
+    description: 'Individual coding challenge. Solve programming problems and showcase your logical thinking.',
+    icon: Code,
+    gradient: 'from-[#00ffff] to-[#a855f7]',
+    codeSnippet: `const blusters = {\n  lang: 'any',\n  solo: true,\n  logic: '100%'\n};`,
+    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844546/bw_bluster_exkmrn.jpg'
+  },
+  {
+    title: 'The Architect',
+    description: 'Hardware design and build challenge. Create innovative hardware solutions.',
+    icon: Cpu,
+    gradient: 'from-[#a855f7] to-[#ec4899]',
+    codeSnippet: `const architect = {\n  build: 'hardware',\n  components: 'provided',\n  innovate: true\n};`,
+    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844463/architect_bw_dqvjij.jpg'
+  },
+  {
+    title: 'The Prompters',
+    description: 'AI prompting challenge. Create the most effective prompts for AI systems.',
+    icon: Lightbulb,
+    gradient: 'from-[#fbbf24] to-[#00d4ff]',
+    codeSnippet: `const prompters = {\n  model: 'GPT-4',\n  input: 'creative',\n  output: 'art'\n};`,
+    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844643/bw_prompters_daozhg.jpg'
+  },
+];
 
 export function Home() {
-
-
   const stats = [
     { label: 'Events', value: '9', icon: Terminal },
     { label: 'Participants', value: '3500+', icon: Database },
     { label: 'Days', value: '2', icon: Calendar },
   ];
 
-  const highlights = [
-    
-    {
-      title: 'Xibit',
-      description: 'Xibit is a time-bound hackathon where teams work together to solve real-world problem statements provided on the spot. Participants are expected to brainstorm innovative ideas, design practical solutions, and build a working prototype within the given time limit. The focus is on creativity, problem understanding, feasibility, and execution, rather than just coding complexity. Teams are free to choose their tech stack and approach, making this event ideal for innovators, developers, and designers who enjoy turning ideas into impactful solutions under pressure.',
-      icon: Code,
-      gradient: 'from-[#00d4ff] to-[#00ffff]',
-      codeSnippet: `const xibit = {\n  type: 'coding',\n  team: '4 max',\n  duration: '7h'\n};`,
-      image: '/event/xihibit.jpg'
-    },
-    {
-      title: 'Free Fire',
-      description: 'Battle royale gaming at its finest. Compete in squads for ultimate victory.',
-      icon: Gamepad2,
-      gradient: 'from-[#ec4899] to-[#f43f5e]',
-      codeSnippet: `const freeFire = {\n  type: 'battle-royale',\n  squad: 5,\n  mode: 'survival'\n};`,
-      image: '/event/freefire.jpg'
-    },
-    {
-      title: 'BGMI',
-      description: 'Battle royale gaming at its finest. Compete in squads for ultimate victory.',
-      icon: Gamepad2,
-      gradient: 'from-[#ec4899] to-[#f43f5e]',
-      codeSnippet: `const bgmi = {\n  map: 'Erangel',\n  squad: 5,\n  chicken_dinner: true\n};`,
-      image: '/event/pubg.jpg'
-    },
-    {
-      title: 'PES',
-      description: 'Pro Evolution Soccer championship. Show your football gaming skills in 1v1 matches.',
-      icon: Gamepad2,
-      gradient: 'from-[#fb923c] to-[#fbbf24]',
-      codeSnippet: `const pes = {\n  match: '1v1',\n  half_time: '5min',\n  controller: true\n};`,
-      image: '/event/pes.jpg'
-    },
-    {
-      title: 'The Blitz',
-      description: 'Fast-paced gaming tournament. Quick reflexes and strategy win the day.',
-      icon: Zap,
-      gradient: 'from-[#f43f5e] to-[#fb923c]',
-      codeSnippet: `const blitz = {\n  speed: 'max',\n  reflexes: 'required',\n  win: 'fast'\n};`,
-      image: '/event/chess.jpg'
-    },
-    {
-      title: 'Valorant',
-      description: 'Tactical FPS action. Show your aim and strategy in intense 5v5 matches.',
-      icon: Gamepad2,
-      gradient: 'from-[#f43f5e] to-[#fb923c]',
-      codeSnippet: `const valorant = {\n  agent: 'Jett',\n  weapon: 'Vandal',\n  plant: 'Spike'\n};`,
-      image: '/event/valorant.jpg'
-    },
-    {
-      title: 'The Blusters',
-      description: 'Individual coding challenge. Solve programming problems and showcase your logical thinking.',
-      icon: Code,
-      gradient: 'from-[#00ffff] to-[#a855f7]',
-      codeSnippet: `const blusters = {\n  lang: 'any',\n  solo: true,\n  logic: '100%'\n};`,
-      image: '/event/bluster.jpg'
-    },
-    {
-      title: 'The Architect',
-      description: 'Hardware design and build challenge. Create innovative hardware solutions.',
-      icon: Cpu,
-      gradient: 'from-[#a855f7] to-[#ec4899]',
-      codeSnippet: `const architect = {\n  build: 'hardware',\n  components: 'provided',\n  innovate: true\n};`,
-      image: '/event/architect.jpg'
-    },
-    {
-      title: 'The Prompters',
-      description: 'AI prompting challenge. Create the most effective prompts for AI systems.',
-      icon: Lightbulb,
-      gradient: 'from-[#fbbf24] to-[#00d4ff]',
-      codeSnippet: `const prompters = {\n  model: 'GPT-4',\n  input: 'creative',\n  output: 'art'\n};`,
-      image: '/event/prompters.jpg'
-    },
-  ];
-
-  // Sponsor data for marquee
-  const sponsors = [
-    { name: 'TechCorp', logo: 'TC', tier: 'title', color: 'from-[#fbbf24] to-[#f59e0b]' },
-    { name: 'CloudTech', logo: 'CT', tier: 'gold', color: 'from-[#fbbf24] to-[#f59e0b]' },
-    { name: 'DataSync', logo: 'DS', tier: 'gold', color: 'from-[#fbbf24] to-[#f59e0b]' },
-    { name: 'InnovateLab', logo: 'IL', tier: 'gold', color: 'from-[#fbbf24] to-[#f59e0b]' },
-    { name: 'StartupHub', logo: 'SH', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
-    { name: 'CodeNest', logo: 'CN', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
-    { name: 'DevZone', logo: 'DZ', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
-    { name: 'TechFlow', logo: 'TF', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
-    { name: 'ByteCraft', logo: 'BC', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
-    { name: 'PixelPress', logo: 'PP', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
-    { name: 'NeuralNet', logo: 'NN', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
-    { name: 'QuantumQ', logo: 'QQ', tier: 'silver', color: 'from-[#9ca3af] to-[#6b7280]' },
-  ];
-
-  const [carouselIndex, setCarouselIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCarouselIndex(prev => (prev + 1) % highlights.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
-
+  const highlights = highlightsData;
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
-      {/* Hero Section - Institutional Format */}
+      {/* Hero Section */}
       <section className="relative flex items-center justify-start overflow-hidden pt-16 sm:pt-20">
-        {/* Simple Background */}
         <div className="absolute inset-0 bg-[#0a0a0f]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#00d4ff]/5 via-transparent to-transparent" />
 
-        {/* Interactive Background */}
         <InteractiveBackground />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
-
-            {/* Left Column - Institutional Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -142,8 +205,6 @@ export function Home() {
               className="text-center lg:text-left space-y-4 sm:space-y-6 lg:space-y-8 order-2 lg:order-1"
             >
               <div className="space-y-4 sm:space-y-6">
-
-                {/* Brainware University Logo */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -157,7 +218,6 @@ export function Home() {
                   />
                 </motion.div>
 
-                {/* Presents */}
                 <motion.div
                   initial={{ opacity: 0, scaleX: 0 }}
                   animate={{ opacity: 1, scaleX: 1 }}
@@ -171,7 +231,6 @@ export function Home() {
                   <div className="h-[1px] w-16 sm:w-24 lg:w-32 bg-gradient-to-l from-transparent to-[#00d4ff]/50"></div>
                 </motion.div>
 
-                {/* TEXIBITION Logo */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
                   animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -185,7 +244,6 @@ export function Home() {
                   />
                 </motion.div>
 
-                {/* Organised by */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -196,7 +254,6 @@ export function Home() {
                     <Sparkles className="size-3 sm:size-4 text-[#ff6b35]" />
                     <span>Organised By</span>
                   </div>
-
                   <div className="flex items-center justify-center lg:justify-center gap-4 sm:gap-6">
                     <img
                       src="/images/techclub-iic.png"
@@ -206,7 +263,6 @@ export function Home() {
                   </div>
                 </motion.div>
 
-                {/* Date */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -221,7 +277,6 @@ export function Home() {
                   </div>
                 </motion.div>
 
-                {/* Buttons */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -253,27 +308,21 @@ export function Home() {
                     </div>
                   </motion.button>
                 </motion.div>
-
               </div>
             </motion.div>
 
-            {/* Right Column - Space for 3D Element */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.3, type: "spring" }}
               className="flex items-center justify-center order-1 lg:order-2 hidden sm:flex"
             >
-              <div className="relative w-120 h-44 sm:h-80 md:h-96 lg:h-[500px] rounded-xl sm:rounded-2xl border border-transparent  flex items-center justify-center ">
-
-                {/* 3D Spline Element */}
+              <div className="relative w-120 h-44 sm:h-80 md:h-96 lg:h-[500px] rounded-xl sm:rounded-2xl border border-transparent flex items-center justify-center">
                 <div className="absolute inset-0">
                   <Spline scene="https://prod.spline.design/8waoK8Yzk7ZTbMiR/scene.splinecode" />
                 </div>
-
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -288,12 +337,10 @@ export function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-
             <h2 className="text-4xl md:text-5xl pb-2 font-bold mb-4 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent">
               Registration Closes In
             </h2>
           </motion.div>
-
           <CountdownTimer />
         </div>
       </section>
@@ -301,7 +348,6 @@ export function Home() {
       {/* Highlights Section */}
       <section id="events" className="py-10 relative">
         <div className="container mx-auto px-4">
-
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -320,29 +366,13 @@ export function Home() {
             </div>
           </motion.div>
 
-          {/* 🎢 3D Carousel */}
+          {/* Optimized Carousel */}
           <div className="flex justify-center px-2 sm:px-4">
-            <div className="w-full max-w-6xl h-[200px] sm:h-[280px] md:h-[400px] lg:h-[420px]">
-              <Carousel
-                slides={highlights.map((item, i) => ({
-                  key: i,
-                  content: (
-                    <div className="bg-[#0a0a0f] border border-[#00d4ff]/30 rounded-xl mx-2 sm:mx-4 overflow-hidden">
-                      <Link to="#">
-                        <img src={item.image} alt={item.title} className="w-full object-cover h-[220px] sm:h-[350px] md:h-[380px] lg:h-[500px]" />
-                      </Link>
-                    </div>
-                  )
-                }))}
-                goToSlide={carouselIndex}
-                offsetRadius={1}
-                showNavigation={false}
-                animationConfig={config.gentle}
-              />
+            <div className="w-full max-w-6xl overflow-hidden">
+              <EmblaCarousel highlights={highlights} />
             </div>
           </div>
 
-          {/* Explore Events Button */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -361,17 +391,14 @@ export function Home() {
                   <span className="text-sm sm:text-lg tracking-wide">EXPLORE_EVENTS</span>
                   <ArrowRight className="size-5 sm:size-6 text-[#00d4ff] group-hover:translate-x-2 transition-transform duration-300" />
                 </div>
-                {/* Glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#00d4ff]/20 via-[#a855f7]/10 to-[#00d4ff]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
               </motion.button>
             </Link>
           </motion.div>
-
         </div>
       </section>
 
-
-      {/* About Us Section */}
+ {/* About Us Section */}
       <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/5 via-transparent to-[#a855f7]/5" />

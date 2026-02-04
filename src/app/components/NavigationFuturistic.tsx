@@ -16,6 +16,7 @@ export function NavigationFuturistic() {
     { name: 'Sponsors', path: '/sponsors' },
     { name: 'Team', path: '/team' },
     { name: 'FAQ', path: '/faq' },
+    { name: 'Merch', path: 'https://cozzon.in/shop/product/cozzon-duo-snack-match-tee', isExternal: true },
     { name: 'Code of Conduct', path: '/code-of-conduct' },
   ];
 
@@ -100,45 +101,76 @@ export function NavigationFuturistic() {
                   transition={{ delay: index * 0.05 }}
                   className="relative"
                 >
-                  <Link
-                    to={link.path}
-                    className="relative group px-2 xl:px-3 py-1.5 xl:py-2 rounded-lg overflow-hidden"
-                  >
-                    {/* Background glow effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-[#00d4ff]/5 to-[#a855f7]/5"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                    
-                    {/* Border effect */}
-                    <motion.div
-                      className="absolute inset-0 border border-[#00d4ff]/20 rounded-lg"
-                      whileHover={{ 
-                        borderColor: '#00d4ff',
-                        boxShadow: '0 0 20px rgba(0, 212, 255, 0.4)'
-                      }}
-                    />
-                    
-                    <span
-                      className={`relative z-10 text-xs xl:text-sm font-medium transition-colors ${
-                        isActive(link.path)
-                          ? 'text-[#00d4ff]'
-                          : 'text-white/70 group-hover:text-white'
-                      }`}
+                  {link.isExternal ? (
+                    <a
+                      href={link.path}
+                      target="_self"
+                      rel="noopener noreferrer"
+                      className="relative group px-2 xl:px-3 py-1.5 xl:py-2 rounded-lg overflow-hidden cursor-pointer"
                     >
-                      {link.name}
-                    </span>
-                    
-                    {/* Active indicator */}
-                    {isActive(link.path) && (
+                      {/* Background glow effect */}
                       <motion.div
-                        layoutId="futuristicActive"
-                        className="absolute -bottom-1 left-1/2 w-1.5 h-1.5 bg-[#00d4ff] rounded-full transform -translate-x-1/2"
-                        transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                        className="absolute inset-0 bg-gradient-to-r from-[#a855f7]/10 to-[#ec4899]/10"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
                       />
-                    )}
-                  </Link>
+                      
+                      {/* Border effect */}
+                      <motion.div
+                        className="absolute inset-0 border border-[#a855f7]/40 rounded-lg"
+                        whileHover={{ 
+                          borderColor: '#a855f7',
+                          boxShadow: '0 0 20px rgba(168, 85, 247, 0.4)'
+                        }}
+                      />
+                      
+                      <span
+                        className={`relative z-10 text-xs xl:text-sm font-medium transition-colors text-[#a855f7] group-hover:text-[#ec4899]`}
+                      >
+                        {link.name}
+                      </span>
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.path}
+                      className="relative group px-2 xl:px-3 py-1.5 xl:py-2 rounded-lg overflow-hidden"
+                    >
+                      {/* Background glow effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-[#00d4ff]/5 to-[#a855f7]/5"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                      
+                      {/* Border effect */}
+                      <motion.div
+                        className="absolute inset-0 border border-[#00d4ff]/20 rounded-lg"
+                        whileHover={{ 
+                          borderColor: '#00d4ff',
+                          boxShadow: '0 0 20px rgba(0, 212, 255, 0.4)'
+                        }}
+                      />
+                      
+                      <span
+                        className={`relative z-10 text-xs xl:text-sm font-medium transition-colors ${
+                          isActive(link.path)
+                            ? 'text-[#00d4ff]'
+                            : 'text-white/70 group-hover:text-white'
+                        }`}
+                      >
+                        {link.name}
+                      </span>
+                      
+                      {/* Active indicator */}
+                      {isActive(link.path) && (
+                        <motion.div
+                          layoutId="futuristicActive"
+                          className="absolute -bottom-1 left-1/2 w-1.5 h-1.5 bg-[#00d4ff] rounded-full transform -translate-x-1/2"
+                          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                        />
+                      )}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
               
@@ -210,17 +242,29 @@ export function NavigationFuturistic() {
                 }}
                 transition={{ delay: index * 0.05 }}
               >
-                <Link
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 rounded-lg transition-colors text-base ${
-                    isActive(link.path)
-                      ? 'bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/30'
-                      : 'text-white/70 hover:text-white hover:bg-white/5'
-                  }`}
-                >
-                  {link.name}
-                </Link>
+                {link.isExternal ? (
+                  <a
+                    href={link.path}
+                    target="_self"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className="block px-4 py-3 rounded-lg transition-colors text-base text-[#a855f7] hover:text-[#ec4899] hover:bg-[#a855f7]/10"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-3 rounded-lg transition-colors text-base ${
+                      isActive(link.path)
+                        ? 'bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/30'
+                        : 'text-white/70 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                )}
               </motion.div>
             ))}
             
