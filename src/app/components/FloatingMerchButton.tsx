@@ -10,8 +10,8 @@ interface FloatingMerchButtonProps {
 
 export function FloatingMerchButton({ onClick }: FloatingMerchButtonProps) {
   const handleClick = () => {
-    // Open the merch link in a new tab
-    window.open(SPONSOR_PRODUCT_URL, '_blank');
+    // Open the merch link in the same tab
+    window.location.href = SPONSOR_PRODUCT_URL;
   };
 
   return (
