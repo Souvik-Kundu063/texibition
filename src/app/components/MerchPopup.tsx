@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingBag, ArrowRight, Gift, Github } from 'lucide-react';
 
 // Sponsor product page URL
-const SPONSOR_PRODUCT_URL = 'https://cozzon.in/shop/product/cozzon-duo-snack-match-tee';
+const SPONSOR_PRODUCT_URL = 'https://cozzon.in/shop/product/texibition-2k26-official-polo-tee';
 
 // Constants for popup control
 const MAX_EXIT_INTENT = 3;
@@ -52,12 +52,12 @@ const shouldShowViaExitIntent = (pageType: 'home' | 'event-details', count: numb
 
 // Animated Background Particles
 function ParticleBackground() {
-  const particles = Array.from({ length: 10 }, (_, i) => ({
+  const particles = Array.from({ length: 6 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    duration: Math.random() * 4 + 3,
+    size: Math.random() * 2 + 1,
+    duration: Math.random() * 3 + 4,
     delay: Math.random() * 2,
   }));
 
@@ -66,7 +66,7 @@ function ParticleBackground() {
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full bg-gradient-to-r from-[#a855f7] to-[#00d4ff]"
+          className="absolute rounded-full bg-[#2563eb]"
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,
@@ -75,9 +75,8 @@ function ParticleBackground() {
             opacity: 0.4,
           }}
           animate={{
-            y: [0, -30, 0],
-            x: [0, Math.random() * 10 - 5, 0],
-            opacity: [0.4, 0.7, 0.4],
+            y: [0, -20, 0],
+            opacity: [0.3, 0.5, 0.3],
           }}
           transition={{
             duration: particle.duration,
@@ -95,6 +94,14 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
   const [isVisible, setIsVisible] = useState(false);
   const [isHoveringCTA, setIsHoveringCTA] = useState(false);
   const [exitIntentRemaining, setExitIntentRemaining] = useState(MAX_EXIT_INTENT);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  // Merchandise images for slideshow
+  const merchImages = [
+    '/images/tshirt.jpg',
+    '/images/tshirt.jpg',
+    '/images/tshirt.jpg',
+  ];
   
   // Use refs to track state across renders
   const hasShownRef = useRef(false);
@@ -199,6 +206,15 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
     setExitIntentRemaining(Math.max(0, MAX_EXIT_INTENT - count));
   }, []);
 
+  // Auto-rotate slideshow every 3 seconds
+  useEffect(() => {
+    if (!isVisible) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % merchImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [isVisible, merchImages.length]);
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -226,9 +242,9 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
               className="pointer-events-auto w-full max-w-xs sm:max-w-sm cursor-auto"
             >
               {/* Main Card with Glassmorphism */}
-              <div className="relative overflow-hidden bg-gradient-to-br from-[#0a0a0f]/95 via-[#0d1117]/95 to-[#161b22]/95 border border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl shadow-[#a855f7]/20">
+              <div className="relative overflow-hidden bg-[#0a0a0f]/95 border border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl shadow-[#2563eb]/20">
                 {/* Glass overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#a855f7]/5 via-[#00d4ff]/5 to-transparent -z-10" />
+                <div className="absolute inset-0 bg-[#2563eb]/5 -z-10" />
                 
                 {/* Particle Background */}
                 <ParticleBackground />
@@ -242,9 +258,9 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
                     transition={{ delay: 0.15 }}
                     className="flex justify-center mb-2 sm:mb-3"
                   >
-                    <div className="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-[#ff6b35]/20 to-[#f43f5e]/20 border border-[#ff6b35]/40 rounded-full">
-                      <Gift className="size-2.5 sm:size-3 text-[#ff6b35]" />
-                      <span className="text-[10px] sm:text-xs font-bold text-[#ff6b35] uppercase tracking-wider">Limited Edition</span>
+                    <div className="inline-flex items-center gap-1 px-3 py-1 bg-[#2563eb]/20 border border-[#f97316]/40 rounded-full">
+                      <Gift className="size-2.5 sm:size-3 text-[#f97316]" />
+                      <span className="text-[10px] sm:text-xs font-bold text-[#f97316] uppercase tracking-wider">Limited Edition</span>
                     </div>
                   </motion.div>
 
@@ -255,7 +271,7 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
                     transition={{ delay: 0.2 }}
                     className="text-sm sm:text-lg font-bold text-white mb-1 text-center font-['Orbitron'] leading-tight"
                   >
-                    <span className="bg-gradient-to-r from-[#00d4ff] via-[#a855f7] to-[#ec4899] bg-clip-text text-transparent">
+                    <span className="text-[#2563eb]">
                       Limited Edition
                     </span>
                     <br />
@@ -269,12 +285,12 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
                     transition={{ delay: 0.25 }}
                     className="text-center text-white/50 text-[10px] sm:text-xs mb-2 sm:mb-3"
                   >
-                    <span className="text-[#a855f7] font-semibold">CoZzon × Texibition</span>
+                    <span className="text-[#f97316] font-semibold">CoZzon × Texibition</span>
                     <span className="mx-1.5">•</span>
                     <span className="text-white/60">Official Clothing Partner</span>
                   </motion.p>
 
-                  {/* T-Shirt Image - Transparent bg, no border */}
+                  {/* T-Shirt Image Slideshow */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -282,16 +298,34 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
                     className="relative mb-2 sm:mb-3"
                   >
                     <div className="relative aspect-[4/3] rounded-lg sm:rounded-xl overflow-hidden group">
-                      {/* T-Shirt Image */}
-                      <img
-                        src="/images/tshirt.jpg"
-                        alt="Official Texibition Merchandise"
-                        className="w-full h-full object-contain p-2 sm:p-3 transition-transform duration-300 group-hover:scale-105"
-                      />
+                      <AnimatePresence mode="wait">
+                        <motion.img
+                          key={currentSlide}
+                          src={merchImages[currentSlide]}
+                          alt={`Texibition Merchandise ${currentSlide + 1}`}
+                          className="w-full h-full object-contain p-2 sm:p-3"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.5 }}
+                        />
+                      </AnimatePresence>
 
-                      {/* Animated gradient overlay */}
+                      {/* Slideshow indicators */}
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                        {merchImages.map((_, index) => (
+                          <div
+                            key={index}
+                            className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                              index === currentSlide ? 'bg-[#2563eb]' : 'bg-white/30'
+                            }`}
+                          />
+                        ))}
+                      </div>
+
+                      {/* Animated overlay */}
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-tr from-[#00d4ff]/5 via-[#a855f7]/5 to-[#ec4899]/5"
+                        className="absolute inset-0 bg-[#2563eb]/5"
                         animate={{
                           opacity: [0.3, 0.5, 0.3],
                         }}
@@ -309,13 +343,13 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.35 }}
-                    className="relative mb-2 p-2 sm:p-2.5 bg-gradient-to-r from-[#a855f7]/10 via-[#00d4ff]/10 to-[#a855f7]/10 border border-[#a855f7]/30 rounded-lg sm:rounded-xl overflow-hidden"
+                    className="relative mb-2 p-2 sm:p-2.5 bg-[#2563eb]/10 border border-[#f97316]/30 rounded-lg sm:rounded-xl overflow-hidden"
                   >
                     {/* Glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#a855f7]/20 via-transparent to-[#00d4ff]/20 opacity-50" />
+                    <div className="absolute inset-0 bg-[#2563eb]/20 opacity-50" />
                     
                     <div className="relative flex items-start gap-2 sm:gap-3">
-                      <div className="flex-shrink-0 p-1.5 sm:p-2 bg-[#a855f7]/20 rounded-lg">
+                      <div className="flex-shrink-0 p-1.5 sm:p-2 bg-[#f97316]/20 rounded-lg">
                         <Github className="size-3 sm:size-4 text-white" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -348,24 +382,10 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
                     {/* Primary CTA */}
                     <motion.button
                       onClick={handleRedirect}
-                      onMouseEnter={() => setIsHoveringCTA(true)}
-                      onMouseLeave={() => setIsHoveringCTA(false)}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="group relative w-full py-2.5 sm:py-3 px-3 sm:px-4 bg-gradient-to-r from-[#a855f7] via-[#c084fc] to-[#ec4899] rounded-lg sm:rounded-xl font-bold text-white shadow-lg shadow-[#a855f7]/30 overflow-hidden"
+                      className="group relative w-full py-2.5 sm:py-3 px-3 sm:px-4 bg-[#2563eb] rounded-lg sm:rounded-xl font-bold text-white shadow-lg shadow-[#2563eb]/30 overflow-hidden"
                     >
-                      {/* Animated gradient background */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-[#ec4899] via-[#a855f7] to-[#00d4ff]"
-                        animate={{
-                          x: isHoveringCTA ? ['0%', '100%'] : ['-100%', '0%'],
-                        }}
-                        transition={{
-                          duration: 0.5,
-                          ease: "easeInOut",
-                        }}
-                        style={{ opacity: 0.3 }}
-                      />
 
                       {/* Button content */}
                       <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
@@ -392,7 +412,7 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
 
                 {/* Decorative bottom line */}
                 <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-0.5 sm:h-1 bg-gradient-to-r from-[#00d4ff] via-[#a855f7] to-[#ec4899]"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 sm:h-1 bg-[#2563eb]"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
