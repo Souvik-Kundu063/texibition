@@ -7,8 +7,9 @@ import { ShoppingBag, ArrowRight, Gift, Github } from 'lucide-react';
 const SPONSOR_PRODUCT_URL = 'https://cozzon.in/shop/product/texibition-2k26-official-polo-tee';
 
 // Constants for popup control
-const MAX_EXIT_INTENT = 3;
-const TIME_GAP_MS = 30000; // 30 seconds
+const MAX_TRIGGERS = 3; // Total triggers capped at 3
+const TIME_GAP_MS = 30000; // 30 seconds between shows
+const CLOSE_COOLDOWN_MS = 30000; // 30 seconds cooldown after close to prevent immediate re-trigger
 
 interface MerchPopupProps {
   delay?: number; // Custom delay in milliseconds
@@ -33,21 +34,30 @@ const getLastShownTime = (): number => {
   }
 };
 
-// Check if popup should be shown via exit intent
-const shouldShowViaExitIntent = (pageType: 'home' | 'event-details', count: number, lastShown: number): boolean => {
-  // Check if we've exceeded max exit intent count
-  if (count >= MAX_EXIT_INTENT) {
+// Get last closed timestamp from localStorage
+const getLastClosedTime = (): number => {
+  try {
+    return parseInt(localStorage.getItem('merchPopupLastClosed') || '0', 10);
+  } catch {
+    return 0;
+  }
+};
+
+// Check if popup should be shown (for both exit intent and auto-show)
+// Behavior change: Removed unlimited popup on home/event-details; now capped at 3 total triggers with time gap and cooldown after close
+const shouldShowPopup = (count: number, lastShown: number, lastClosed: number): boolean => {
+  // Check if we've exceeded max total triggers
+  if (count >= MAX_TRIGGERS) {
     return false;
   }
 
-  // For home and event-details pages, no time gap required
-  if (pageType === 'home' || pageType === 'event-details') {
-    return true;
-  }
-
-  // For other pages, check if 40 seconds have passed
   const now = Date.now();
-  return now - lastShown >= TIME_GAP_MS;
+  // Check time gap since last shown
+  const timeGapPassed = now - lastShown >= TIME_GAP_MS;
+  // Check cooldown after close to prevent immediate re-trigger
+  const cooldownPassed = now - lastClosed >= CLOSE_COOLDOWN_MS;
+
+  return timeGapPassed && cooldownPassed;
 };
 
 // Animated Background Particles
@@ -90,10 +100,10 @@ function ParticleBackground() {
   );
 }
 
-export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps) {
+export function MerchPopup({ delay = 5000, pageType = 'home' }: MerchPopupProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHoveringCTA, setIsHoveringCTA] = useState(false);
-  const [exitIntentRemaining, setExitIntentRemaining] = useState(MAX_EXIT_INTENT);
+  const [exitIntentRemaining, setExitIntentRemaining] = useState(MAX_TRIGGERS);
   const [currentSlide, setCurrentSlide] = useState(0);
   
   // Merchandise images for slideshow
@@ -109,22 +119,24 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
 
   const handleClose = useCallback(() => {
     setIsVisible(false);
+    // Record close time to prevent immediate re-trigger
+    localStorage.setItem('merchPopupLastClosed', Date.now().toString());
   }, []);
 
   const handleRedirect = useCallback(() => {
     window.location.href = SPONSOR_PRODUCT_URL;
   }, []);
 
-  // Update localStorage only when shown via exit intent
-  const updateStorageOnExitIntent = useCallback(() => {
+  // Update localStorage when popup is shown
+  const updateStorageOnShow = useCallback(() => {
     if (hasUpdatedRef.current) return;
     hasUpdatedRef.current = true;
 
     const newCount = getExitIntentCount() + 1;
     localStorage.setItem('merchPopupExitCount', newCount.toString());
     localStorage.setItem('merchPopupLastShown', Date.now().toString());
-    
-    setExitIntentRemaining(Math.max(0, MAX_EXIT_INTENT - newCount));
+
+    setExitIntentRemaining(Math.max(0, MAX_TRIGGERS - newCount));
   }, []);
 
   // Handle ESC key to close
@@ -139,53 +151,38 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isVisible, handleClose]);
 
-  // Exit intent detection - THIS IS LIMITED TO 3 TIMES
+  // Exit intent detection - capped at 3 total triggers with time gap and cooldown
+  // Behavior change: Maintain exit intent but ensure it respects total trigger limit and cooldown
   useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0 && !isVisible && !hasShownRef.current) {
         const count = getExitIntentCount();
         const lastShown = getLastShownTime();
-        
-        if (shouldShowViaExitIntent(pageType, count, lastShown)) {
+        const lastClosed = getLastClosedTime();
+
+        if (shouldShowPopup(count, lastShown, lastClosed)) {
           hasShownRef.current = true;
           setIsVisible(true);
-          updateStorageOnExitIntent();
+          updateStorageOnShow();
         }
       }
     };
 
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
-  }, [isVisible, pageType, updateStorageOnExitIntent]);
+  }, [isVisible, updateStorageOnShow]);
 
-  // Show popup after delay (page navigation) - UNLIMITED for home/event-details
+  // Show popup after delay (page navigation) - now capped at 3 total triggers with time gap and cooldown
+  // Behavior change: Removed unlimited behavior on home/event-details; increased default delay to 5 seconds
   useEffect(() => {
     if (hasShownRef.current) return;
 
-    // For home and event-details, always show popup on page navigation (unlimited)
-    // For other pages, check exit intent limits
-    const isHomeOrEventDetails = pageType === 'home' || pageType === 'event-details';
-    
-    if (isHomeOrEventDetails) {
-      // Home and Event Details: unlimited times, no restrictions
-      const timer = setTimeout(() => {
-        if (!hasShownRef.current) {
-          hasShownRef.current = true;
-          setIsVisible(true);
-          // Don't update localStorage for home/event-details page navigation
-        }
-      }, delay);
-      return () => clearTimeout(timer);
-    }
-
-    // For other pages, apply exit intent limits
     const count = getExitIntentCount();
     const lastShown = getLastShownTime();
-    
-    const shouldShow = shouldShowViaExitIntent(pageType, count, lastShown);
-    
-    if (!shouldShow) {
-      setExitIntentRemaining(Math.max(0, MAX_EXIT_INTENT - count));
+    const lastClosed = getLastClosedTime();
+
+    if (!shouldShowPopup(count, lastShown, lastClosed)) {
+      setExitIntentRemaining(Math.max(0, MAX_TRIGGERS - count));
       return;
     }
 
@@ -193,17 +190,17 @@ export function MerchPopup({ delay = 3000, pageType = 'home' }: MerchPopupProps)
       if (!hasShownRef.current) {
         hasShownRef.current = true;
         setIsVisible(true);
-        updateStorageOnExitIntent();
+        updateStorageOnShow();
       }
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [delay, pageType, updateStorageOnExitIntent]);
+  }, [delay, updateStorageOnShow]);
 
   // Initialize remaining count display
   useEffect(() => {
     const count = getExitIntentCount();
-    setExitIntentRemaining(Math.max(0, MAX_EXIT_INTENT - count));
+    setExitIntentRemaining(Math.max(0, MAX_TRIGGERS - count));
   }, []);
 
   // Auto-rotate slideshow every 3 seconds

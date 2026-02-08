@@ -27,6 +27,7 @@ interface EventData {
   flow?: EventFlowItem[];
   coordinators: Coordinator[];
   imagePath?: string;
+  registerLink: string;
 }
 
 const eventData: Record<string, EventData> = {
@@ -56,7 +57,8 @@ const eventData: Record<string, EventData> = {
       { name: 'Rahul Sharma', email: 'rahul@techfest.com', phone: '+91 98765 43210' },
       { name: 'Priya Patel', email: 'priya@techfest.com', phone: '+91 98765 43211' },
     ],
-    imagePath: '/event/xihibit.jpg'
+    imagePath: '/event/xihibit.jpg',
+    registerLink: 'https://forms.google.com/xibit'
   },
   'free-fire': {
     title: 'Free Fire',
@@ -84,7 +86,8 @@ const eventData: Record<string, EventData> = {
       { name: 'Amit Kumar', email: 'amit@techfest.com', phone: '+91 98765 43220' },
       { name: 'Sneha Gupta', email: 'sneha@techfest.com', phone: '+91 98765 43221' },
     ],
-    imagePath: '/event/freefire.jpg'
+    imagePath: '/event/freefire.jpg',
+    registerLink: 'https://forms.google.com/freefire'
   },
   'bgmi': {
     title: 'BGMI',
@@ -112,7 +115,8 @@ const eventData: Record<string, EventData> = {
       { name: 'Rohan Singh', email: 'rohan@techfest.com', phone: '+91 98765 43230' },
       { name: 'Anjali Verma', email: 'anjali@techfest.com', phone: '+91 98765 43231' },
     ],
-    imagePath: '/event/pubg.jpg'
+    imagePath: '/event/pubg.jpg',
+    registerLink: 'https://forms.google.com/bgmi'
   },
   'pes': {
     title: 'PES',
@@ -140,7 +144,8 @@ const eventData: Record<string, EventData> = {
       { name: 'Vikram Patel', email: 'vikram@techfest.com', phone: '+91 98765 43240' },
       { name: 'Meera Reddy', email: 'meera@techfest.com', phone: '+91 98765 43241' },
     ],
-    imagePath: '/event/pes.jpg'
+    imagePath: '/event/pes.jpg',
+    registerLink: 'https://forms.google.com/pes'
   },
   'the-blitz': {
     title: 'The Blitz',
@@ -168,7 +173,8 @@ const eventData: Record<string, EventData> = {
       { name: 'Arjun Nair', email: 'arjun@techfest.com', phone: '+91 98765 43250' },
       { name: 'Pooja Sharma', email: 'pooja@techfest.com', phone: '+91 98765 43251' },
     ],
-    imagePath: '/event/chess.jpg'
+    imagePath: '/event/chess.jpg',
+    registerLink: 'https://forms.google.com/theblitz'
   },
   'valorant': {
     title: 'Valorant',
@@ -196,7 +202,8 @@ const eventData: Record<string, EventData> = {
       { name: 'Karthik Menon', email: 'karthik@techfest.com', phone: '+91 98765 43260' },
       { name: 'Riya Kapoor', email: 'riya@techfest.com', phone: '+91 98765 43261' },
     ],
-    imagePath: '/event/valorant.jpg'
+    imagePath: '/event/valorant.jpg',
+    registerLink: 'https://forms.google.com/valorant'
   },
   'the-blusters': {
     title: 'The Blusters',
@@ -224,7 +231,8 @@ const eventData: Record<string, EventData> = {
       { name: 'Sanjay Rao', email: 'sanjay@techfest.com', phone: '+91 98765 43270' },
       { name: 'Lakshmi Iyer', email: 'lakshmi@techfest.com', phone: '+91 98765 43271' },
     ],
-    imagePath: '/event/bluster.jpg'
+    imagePath: '/event/bluster.jpg',
+    registerLink: 'https://forms.google.com/theblusters'
   },
   'the-architect': {
     title: 'The Architect',
@@ -252,7 +260,8 @@ const eventData: Record<string, EventData> = {
       { name: 'Pradeep Krishnan', email: 'pradeep@techfest.com', phone: '+91 98765 43280' },
       { name: 'Anitha Das', email: 'anitha@techfest.com', phone: '+91 98765 43281' },
     ],
-    imagePath: '/event/architect.jpg'
+    imagePath: '/event/architect.jpg',
+    registerLink: 'https://forms.google.com/thearchitect'
   },
   'the-prompters': {
     title: 'The Prompters',
@@ -280,14 +289,15 @@ const eventData: Record<string, EventData> = {
       { name: 'Shreya Ghosh', email: 'shreya@techfest.com', phone: '+91 98765 43300' },
       { name: 'Madhavan Pillai', email: 'madhavan@techfest.com', phone: '+91 98765 43301' },
     ],
-    imagePath: '/event/prompters.jpg'
+    imagePath: '/event/prompters.jpg',
+    registerLink: 'https://forms.google.com/theprompters'
   },
 };
 
 export function EventDetails() {
   const { id } = useParams();
 
-  const event = eventData[id as string] || {
+const event = eventData[id as string] || {
     title: 'Event Not Found',
     description: 'The requested event could not be found.',
     duration: 'N/A',
@@ -300,6 +310,7 @@ export function EventDetails() {
     eligibility: [],
     flow: [],
     coordinators: [],
+    registerLink: 'https://forms.google.com',
   };
 
   return (
@@ -369,7 +380,7 @@ export function EventDetails() {
         <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
           <div className="lg:col-span-2 space-y-6 md:space-y-8">
             {/* Register CTA */}
-            <motion.div
+<motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -378,7 +389,7 @@ export function EventDetails() {
               <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Ready to Participate?</h3>
               <p className="text-sm md:text-base text-white/70 mb-4 md:mb-6">Register now via Google Forms</p>
               <a
-                href="https://forms.google.com"
+                href={event.registerLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
