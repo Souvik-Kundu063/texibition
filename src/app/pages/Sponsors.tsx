@@ -32,7 +32,7 @@ export function Sponsors() {
           className="mb-8 sm:mb-12 lg:mb-20"
         >
           <div className='flex justify-end'>
-            <img src="/images/Devfolio.png" alt="DEVFOLIO LOGO" className='w-10 h-5'/>
+            <img src="https://image2url.com/r2/default/images/1770632698912-e37b393c-df0c-4c17-bf4d-ad8341708869.png" alt="DEVFOLIO LOGO" className='w-10 h-5'/>
 
           </div>
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
