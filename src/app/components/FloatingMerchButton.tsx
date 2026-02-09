@@ -30,30 +30,11 @@ export function FloatingMerchButton({ onClick }: FloatingMerchButtonProps) {
     >
       <motion.button
         onClick={onClick || handleClick}
-        className="group relative flex items-center gap-2 sm:gap-3 px-4 py-3 sm:px-5 sm:py-3.5 bg-gradient-to-r from-[#a855f7] via-[#c084fc] to-[#ec4899] rounded-full shadow-lg shadow-[#a855f7]/40 overflow-hidden cursor-pointer"
+        className="group relative flex items-center gap-2 sm:gap-3 px-4 py-3 sm:px-5 sm:py-3.5 bg-gradient-to-r from-[#00d4ff] to-[#0ea5e9] rounded-full shadow-lg shadow-[#00d4ff]/25 hover:shadow-[#00d4ff]/40 transition-shadow duration-300 overflow-hidden cursor-pointer"
         aria-label="Buy Merchandise"
       >
-        {/* Animated gradient background */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-[#ec4899] via-[#a855f7] to-[#00d4ff]"
-          animate={{
-            x: ['-100%', '100%'],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          style={{ opacity: 0 }}
-        />
-        
-        {/* Hover gradient overlay */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-[#00d4ff] via-[#a855f7] to-[#ec4899]"
-          style={{ opacity: 0 }}
-          whileHover={{ opacity: 0.3 }}
-          transition={{ duration: 0.3 }}
-        />
+        {/* Subtle texture overlay */}
+        <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
         {/* Icon */}
         <span className="relative z-10">
@@ -62,27 +43,10 @@ export function FloatingMerchButton({ onClick }: FloatingMerchButtonProps) {
 
         {/* Text label - hidden on mobile, visible on larger screens */}
         <span className="relative z-10 hidden sm:block">
-          <span className="text-white font-bold text-sm whitespace-nowrap">
+          <span className="text-white font-bold text-sm whitespace-nowrap tracking-wide">
             Merch
           </span>
         </span>
-
-        {/* Glow effect */}
-        <motion.div
-          className="absolute inset-0 rounded-full"
-          animate={{
-            boxShadow: [
-              '0 0 20px rgba(168, 85, 247, 0.4)',
-              '0 0 40px rgba(168, 85, 247, 0.6)',
-              '0 0 20px rgba(168, 85, 247, 0.4)',
-            ],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
       </motion.button>
 
       {/* Pulse indicator */}
