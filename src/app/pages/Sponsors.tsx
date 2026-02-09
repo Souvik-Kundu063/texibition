@@ -31,11 +31,14 @@ export function Sponsors() {
           transition={{ delay: 0.1 }}
           className="mb-8 sm:mb-12 lg:mb-20"
         >
+          <div className='flex justify-end'>
+            <img src="/images/Devfolio.png" alt="DEVFOLIO LOGO" className='w-10 h-5'/>
+
+          </div>
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
             <Clock className="size-5 sm:size-8 text-[#fbbf24]" />
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Our Sponsors</h2>
           </div>
-            <img src="" alt="DEVFOLIO LOGO" />
           <div className="max-w-sm sm:max-w-md md:max-w-lg mx-auto">
             <div className="p-6 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 backdrop-blur-sm">
               <div className="size-20 sm:size-24 md:size-32 mx-auto mb-4 sm:mb-6 rounded-xl sm:rounded-2xl bg-[#0a0a0f]/50 border border-[#00d4ff]/30 flex items-center justify-center">
