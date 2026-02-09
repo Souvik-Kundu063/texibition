@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, Mail, Phone } from 'lucide-react';
 
@@ -297,7 +298,22 @@ const eventData: Record<string, EventData> = {
 export function EventDetails() {
   const { id } = useParams();
 
-const event = eventData[id as string] || {
+  const isXibit = id === 'xibit';
+
+  useEffect(() => {
+    if (isXibit) {
+      const script = document.createElement('script');
+      script.src = 'https://apply.devfolio.co/v2/sdk.js';
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+      return () => {
+        document.body.removeChild(script);
+      }
+    }
+  }, [isXibit]);
+
+  const event = eventData[id as string] || {
     title: 'Event Not Found',
     description: 'The requested event could not be found.',
     duration: 'N/A',
@@ -380,27 +396,38 @@ const event = eventData[id as string] || {
         <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
           <div className="lg:col-span-2 space-y-6 md:space-y-8">
             {/* Register CTA */}
-<motion.div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 backdrop-blur-sm"
             >
               <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Ready to Participate?</h3>
-              <p className="text-sm md:text-base text-white/70 mb-4 md:mb-6">Register now via Google Forms</p>
-              <a
-                href={event.registerLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 w-full px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] rounded-xl font-semibold text-sm md:text-base hover:shadow-xl hover:shadow-[#00d4ff]/50 transition-shadow"
-                >
-                  Register via Google Form
-                </motion.button>
-              </a>
+              {isXibit ? (
+                <div
+                  className="apply-button w-full"
+                  data-hackathon-slug="the-xibit"
+                  data-button-theme="dark"
+                  style={{ height: '44px' }}
+                ></div> 
+              ) : (
+                <>
+                  <p className="text-sm md:text-base text-white/70 mb-4 md:mb-6">Register now via Google Forms</p>
+                  <a
+                    href={event.registerLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 w-full px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] rounded-xl font-semibold text-sm md:text-base hover:shadow-xl hover:shadow-[#00d4ff]/50 transition-shadow"
+                    >
+                      Register via Google Form
+                    </motion.button>
+                  </a>
+                </>
+              )}
             </motion.div>
 
             {/* Event Coordinators - Mobile */}
