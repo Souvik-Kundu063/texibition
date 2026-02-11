@@ -277,7 +277,7 @@ export function NavigationFuturistic() {
               transition={{ delay: navLinks.length * 0.05 }}
             >
               <Link
-                to="/code-of-conduct"
+                to="/events"
                 onClick={() => setIsOpen(false)}
                 className="block mt-4 px-4 py-3 bg-[#00d4ff]/10 border border-[#00d4ff] text-[#00d4ff] font-['Space_Grotesk'] font-bold text-center uppercase tracking-wider hover:bg-[#00d4ff]/20 transition-all"
               >

@@ -182,8 +182,8 @@ const eventData: Record<string, EventData> = {
     teamSize: '5 members max',
     fee: '₹300 per team',
     category: 'game',
-    day: '11th March 2026',
-    time: '10-3',
+    day: '11th & 12th March 2026',
+    time: '9-4',
     rules: [
       'Each team must have minimum 5 players',
       'Official competitive ruleset will be followed',
