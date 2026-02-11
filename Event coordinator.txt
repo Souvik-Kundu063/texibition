@@ -1,49 +1,77 @@
-Blitz coordinator:
+1. Blitz coordinator:
         NAME: SOHAM GHOSH
         PH NUMBER: +91 6290187678
         EMAIL ID: sohamghosh1762@gmail.com
 
-Pes coordinator:
-        Name: Avirup Ghosh 
+2. Pes coordinator:
+        Name: AVIRUP GHOSH 
         E-mail: avirupghosh751@gmail.com
-        Phone number: 7003357906
+        Phone number: +91 7003357906
 
-BGMI coordinator:
-        Name: Avirup Ghosh 
-        E-mail: avirupghosh751@gmail.com
-        Phone number: 7003357906
+3. BGMI coordinator:
+        Name: ABHIK CHATTERJEE
+        E-mail: abhikchatterjee879@gmail.com
+        Phone number: +91 9733549955
 
-Free Fire coordinator:
+        Name: PRITAM GHORAI
+        E-mail: pritamghorai2006@gmail.com
+        Phone number: +91 9382932972
+
+
+4. Free Fire coordinator:
         Name - Ankush Khan 
         Email - khanankush483@gmail.com
         Ph - 9064336298
 
-Valorant coordinator:
-        Name: Avirup Ghosh 
-        E-mail: avirupghosh751@gmail.com
-        Phone number: 7003357906
+        Name: PRABHAT KR ROUTH 
+        E-mail: prabhatkrrouth@gmail.com
+        Phone number: +91 9332165957
 
-Prompters coordinator:
-        Senjuti Mondal 
-        senjutim3@gmail.com 
-        7501558111
+5. Valorant coordinator:
+        Name: DEEP CHATTERJEE 
+        E-mail: deeparduino@gmail.com
+        Phone number:+91 6291661608
 
-        Neel Das
-        neeldas0032@gmail.com
-        7384007265
+        Name: ABHISHEK BANERJEE
+        E-mail: abhishekbaner5@gmail.com
+        Phone number: +91 8642019746 
 
-Xibit coordinator:
-        NAME: SOHAM GHOSH
-        PH NUMBER: +91 6290187678
-        EMAIL ID: sohamghosh1762@gmail.com
+6. Prompters coordinator:
+        NAME: SENJUTI MONDAL 
+        EMAIL ID: senjutim3@gmail.com 
+        PH NUMBER:+91 7501558111
 
-Bluster coordinator:
-        NAME: SOHAM GHOSH
-        PH NUMBER: +91 6290187678
-        EMAIL ID: sohamghosh1762@gmail.com
+        NAME: NEEL DAS
+        EMAIL ID: neeldas0032@gmail.com
+        PH NUMBER:+91 7384007265
 
-Architect coordinator:
-        Senjuti Mondal 
-        senjutim3@gmail.com 
-        7501558111
+7. Xibit coordinator:
+        NAME: SAYANTANI DUTTA
+        PH NUMBER:+91 9477518897
+        EMAIL ID: sayantanidutta.work@gmail.com
+
+        NAME: DEBASIS KHAMARI
+        PH NUMBER: +91 9064906396
+        EMAIL ID: debasiskhamari7@gmail.com
+
+8. Bluster coordinator:
+        NAME: SANCHITA KANDAR
+        PH NUMBER: +91 9339483883
+        EMAIL ID: sanchita.kandar1971@gmail.com
+
+        NAME: RITESH SINGH
+        PH NUMBER: 8905485844
+        EMAIL ID: muqadarkasikandar03@gmail.com
+
+
+9. Architect coordinator:
+        NAME: MOUPRIYA KUNDU
+        PH NUMBER: +91 9832986918
+        EMAIL ID: moupriyakundu139@gmail.com
+
+
+        NAME: ROUNAK BHANJA
+        PH NUMBER: 9830052068
+        EMAIL ID: rounak2002bhanja@gmail.com
+
 
