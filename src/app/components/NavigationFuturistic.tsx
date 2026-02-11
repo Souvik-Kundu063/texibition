@@ -182,7 +182,7 @@ export function NavigationFuturistic() {
                 transition={{ delay: navLinks.length * 0.05 }}
               >
                 <Link
-                  to="/code-of-conduct"
+                  to="/events"
                   className="relative px-3 xl:px-4 py-1.5 border border-[#00d4ff] bg-[#00d4ff]/10 rounded-lg skew-x-[-10deg] overflow-hidden group block hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-shadow duration-300"
                 >
                   <span className="relative z-10 font-['Space_Grotesk'] font-bold text-[#00d4ff] block skew-x-[10deg] uppercase tracking-wider text-xs">
