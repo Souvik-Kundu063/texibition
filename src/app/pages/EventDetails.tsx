@@ -55,8 +55,8 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Time-based evaluation and judging' },
     ],
     coordinators: [
-      { name: 'Rahul Sharma', email: 'rahul@techfest.com', phone: '+91 98765 43210' },
-      { name: 'Priya Patel', email: 'priya@techfest.com', phone: '+91 98765 43211' },
+      { name: 'SAYANTANI DUTTA', email: 'sayantanidutta.work@gmail.com', phone: '+91 9477518897' },
+      { name: 'DEBASIS KHAMARI', email: 'debasiskhamari7@gmail.com', phone: '+91 9064906396' },
     ],
     imagePath: '/event/xihibit.jpg',
     registerLink: 'https://the-xibit.devfolio.co/'
@@ -84,8 +84,8 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Room ID & password shared before matches' },
     ],
     coordinators: [
-      { name: 'Amit Kumar', email: 'amit@techfest.com', phone: '+91 98765 43220' },
-      { name: 'Sneha Gupta', email: 'sneha@techfest.com', phone: '+91 98765 43221' },
+      { name: 'Ankush Khan', email: 'khanankush483@gmail.com', phone: '+91 9064336298' },
+      { name: 'PRABHAT KR ROUTH', email: 'prabhatkrrouth@gmail.com', phone: '+91 9332165957' },
     ],
     imagePath: '/event/freefire.jpg',
     registerLink: 'https://forms.gle/7uAwujMWLzXVqX519'
@@ -113,8 +113,8 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Room ID & password shared before matches' },
     ],
     coordinators: [
-      { name: 'Rohan Singh', email: 'rohan@techfest.com', phone: '+91 98765 43230' },
-      { name: 'Anjali Verma', email: 'anjali@techfest.com', phone: '+91 98765 43231' },
+      { name: 'ABHIK CHATTERJEE', email: 'abhikchatterjee879@gmail.com', phone: '+91 9733549955' },
+      { name: 'PRITAM GHORAI', email: 'pritamghorai2006@gmail.com', phone: '+91 9382932972' },
     ],
     imagePath: '/event/pubg.jpg',
     registerLink: 'https://forms.gle/LHJmfoF3U9LUmtwB6'
@@ -142,8 +142,7 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Room ID & password shared before matches' },
     ],
     coordinators: [
-      { name: 'Vikram Patel', email: 'vikram@techfest.com', phone: '+91 98765 43240' },
-      { name: 'Meera Reddy', email: 'meera@techfest.com', phone: '+91 98765 43241' },
+      { name: 'AVIRUP GHOSH', email: 'avirupghosh751@gmail.com', phone: '+91 7003357906' },
     ],
     imagePath: '/event/pes.jpg',
     registerLink: 'https://forms.gle/eAU9gmLh7xAWevQi8'
@@ -171,8 +170,7 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Room ID & password shared before matches' },
     ],
     coordinators: [
-      { name: 'Arjun Nair', email: 'arjun@techfest.com', phone: '+91 98765 43250' },
-      { name: 'Pooja Sharma', email: 'pooja@techfest.com', phone: '+91 98765 43251' },
+      { name: 'SOHAM GHOSH', email: 'sohamghosh1762@gmail.com', phone: '+91 6290187678' },
     ],
     imagePath: '/event/chess.jpg',
     registerLink: 'https://forms.gle/Z9eGfvSSxYrKFVTC9'
@@ -184,8 +182,8 @@ const eventData: Record<string, EventData> = {
     teamSize: '5 members max',
     fee: '₹300 per team',
     category: 'game',
-    day: '11th March 2026',
-    time: '10-3',
+    day: '11th & 12th March 2026',
+    time: '9-4',
     rules: [
       'Each team must have minimum 5 players',
       'Official competitive ruleset will be followed',
@@ -200,8 +198,8 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Room ID & password shared before matches' },
     ],
     coordinators: [
-      { name: 'Karthik Menon', email: 'karthik@techfest.com', phone: '+91 98765 43260' },
-      { name: 'Riya Kapoor', email: 'riya@techfest.com', phone: '+91 98765 43261' },
+      { name: 'DEEP CHATTERJEE', email: 'deeparduino@gmail.com', phone: '+91 6291661608' },
+      { name: 'ABHISHEK BANERJEE', email: 'abhishekbaner5@gmail.com', phone: '+91 8642019746' },
     ],
     imagePath: '/event/valorant.jpg',
     registerLink: 'https://forms.gle/RzqZLTttyhC9xN3Z8'
@@ -229,8 +227,8 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Results announced after evaluation' },
     ],
     coordinators: [
-      { name: 'Sanjay Rao', email: 'sanjay@techfest.com', phone: '+91 98765 43270' },
-      { name: 'Lakshmi Iyer', email: 'lakshmi@techfest.com', phone: '+91 98765 43271' },
+      { name: 'SANCHITA KANDAR', email: 'sanchita.kandar1971@gmail.com', phone: '+91 9339483883' },
+      { name: 'RITESH SINGH', email: 'muqadarkasikandar03@gmail.com', phone: '+91 8905485844' },
     ],
     imagePath: '/event/bluster.jpg',
     registerLink: 'https://forms.gle/CW46TPXuBZXPiwUy9'
@@ -258,8 +256,8 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Demonstration and evaluation' },
     ],
     coordinators: [
-      { name: 'Pradeep Krishnan', email: 'pradeep@techfest.com', phone: '+91 98765 43280' },
-      { name: 'Anitha Das', email: 'anitha@techfest.com', phone: '+91 98765 43281' },
+      { name: 'MOUPRIYA KUNDU', email: 'moupriyakundu139@gmail.com', phone: '+91 9832986918' },
+      { name: 'ROUNAK BHANJA', email: 'rounak2002bhanja@gmail.com', phone: '+91 9830052068' },
     ],
     imagePath: '/event/architect.jpg',
     registerLink: 'https://forms.gle/AVxpiBS2BYVh6bv96'
@@ -287,8 +285,8 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Presentations and evaluation' },
     ],
     coordinators: [
-      { name: 'Shreya Ghosh', email: 'shreya@techfest.com', phone: '+91 98765 43300' },
-      { name: 'Madhavan Pillai', email: 'madhavan@techfest.com', phone: '+91 98765 43301' },
+      { name: 'SENJUTI MONDAL', email: 'senjutim3@gmail.com', phone: '+91 7501558111' },
+      { name: 'NEEL DAS', email: 'neeldas0032@gmail.com', phone: '+91 7384007265' },
     ],
     imagePath: '/event/prompters.jpg',
     registerLink: 'https://forms.gle/7zf3BnWwPMoNCiba8'

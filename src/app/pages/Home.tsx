@@ -297,7 +297,7 @@ export function Home() {
                   transition={{ delay: 1.2, type: "spring", stiffness: 120 }}
                   className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start pt-4 sm:pt-6"
                 >
-                  <Link to="/code-of-conduct">
+                  <Link to="/events">
                     <motion.button
                       whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(0, 212, 255, 0.4)" }}
                       whileTap={{ scale: 0.95 }}
