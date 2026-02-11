@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, CheckCircle2, Mail, Phone } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
 
 interface EventFlowItem {
   time: string;
@@ -409,22 +409,29 @@ export function EventDetails() {
                   style={{ height: '44px' }}
                 ></div> 
               ) : ( */}
-                <>
-                  <p className="text-sm md:text-base text-white/70 mb-4 md:mb-6">Register now via Google Forms</p>
-                  <a
-                    href={event.registerLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+              <>
+                <p className="text-sm md:text-base text-white/70 mb-4 md:mb-6">Register now via Google Forms</p>
+                <a
+                  href={event.registerLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full"
+                >
+                  <button
+                    className="relative w-full px-6 md:px-8 lg:px-10 py-3 md:py-4 bg-[#a855f7]/20 border border-[#a855f7] font-['Space_Grotesk'] font-bold text-[#a855f7] hover:bg-[#a855f7]/30 transition-colors duration-300 group inline-flex items-center justify-center gap-2 md:gap-3"
+                    style={{
+                      clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
+                      transform: 'translateZ(0)',
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden'
+                    }}
                   >
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 w-full px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] rounded-xl font-semibold text-sm md:text-base hover:shadow-xl hover:shadow-[#00d4ff]/50 transition-shadow"
-                    >
-                      Register via Google Form
-                    </motion.button>
-                  </a>
-                </>
+
+                    <span className="text-sm md:text-base tracking-wider">REGISTER_NOW</span>
+                    <ArrowRight className="size-4 md:size-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </a>
+              </>
               {/* )} */}
             </motion.div>
 
