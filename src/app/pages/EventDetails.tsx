@@ -59,7 +59,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Priya Patel', email: 'priya@techfest.com', phone: '+91 98765 43211' },
     ],
     imagePath: '/event/xihibit.jpg',
-    registerLink: 'https://forms.google.com/xibit'
+    registerLink: 'https://the-xibit.devfolio.co/'
   },
   'free-fire': {
     title: 'Free Fire',
@@ -88,7 +88,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Sneha Gupta', email: 'sneha@techfest.com', phone: '+91 98765 43221' },
     ],
     imagePath: '/event/freefire.jpg',
-    registerLink: 'https://forms.google.com/freefire'
+    registerLink: 'https://forms.gle/7uAwujMWLzXVqX519'
   },
   'bgmi': {
     title: 'BGMI',
@@ -117,7 +117,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Anjali Verma', email: 'anjali@techfest.com', phone: '+91 98765 43231' },
     ],
     imagePath: '/event/pubg.jpg',
-    registerLink: 'https://forms.google.com/bgmi'
+    registerLink: 'https://forms.gle/LHJmfoF3U9LUmtwB6'
   },
   'pes': {
     title: 'PES',
@@ -146,7 +146,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Meera Reddy', email: 'meera@techfest.com', phone: '+91 98765 43241' },
     ],
     imagePath: '/event/pes.jpg',
-    registerLink: 'https://forms.google.com/pes'
+    registerLink: 'https://forms.gle/eAU9gmLh7xAWevQi8'
   },
   'the-blitz': {
     title: 'The Blitz',
@@ -175,7 +175,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Pooja Sharma', email: 'pooja@techfest.com', phone: '+91 98765 43251' },
     ],
     imagePath: '/event/chess.jpg',
-    registerLink: 'https://forms.google.com/theblitz'
+    registerLink: 'https://forms.gle/Z9eGfvSSxYrKFVTC9'
   },
   'valorant': {
     title: 'Valorant',
@@ -204,7 +204,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Riya Kapoor', email: 'riya@techfest.com', phone: '+91 98765 43261' },
     ],
     imagePath: '/event/valorant.jpg',
-    registerLink: 'https://forms.google.com/valorant'
+    registerLink: 'https://forms.gle/RzqZLTttyhC9xN3Z8'
   },
   'the-blusters': {
     title: 'The Blusters',
@@ -233,7 +233,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Lakshmi Iyer', email: 'lakshmi@techfest.com', phone: '+91 98765 43271' },
     ],
     imagePath: '/event/bluster.jpg',
-    registerLink: 'https://forms.google.com/theblusters'
+    registerLink: 'https://forms.gle/CW46TPXuBZXPiwUy9'
   },
   'the-architect': {
     title: 'The Architect',
@@ -262,7 +262,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Anitha Das', email: 'anitha@techfest.com', phone: '+91 98765 43281' },
     ],
     imagePath: '/event/architect.jpg',
-    registerLink: 'https://forms.google.com/thearchitect'
+    registerLink: 'https://forms.gle/AVxpiBS2BYVh6bv96'
   },
   'the-prompters': {
     title: 'The Prompters',
@@ -291,7 +291,7 @@ const eventData: Record<string, EventData> = {
       { name: 'Madhavan Pillai', email: 'madhavan@techfest.com', phone: '+91 98765 43301' },
     ],
     imagePath: '/event/prompters.jpg',
-    registerLink: 'https://forms.google.com/theprompters'
+    registerLink: 'https://forms.gle/7zf3BnWwPMoNCiba8'
   },
 };
 
