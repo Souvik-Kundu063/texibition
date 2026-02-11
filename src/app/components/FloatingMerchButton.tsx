@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { ShoppingBag } from 'lucide-react';
 
 // Sponsor product page URL
-const SPONSOR_PRODUCT_URL = 'https://cozzon.in/shop/product/cozzon-duo-snack-match-tee';
+const SPONSOR_PRODUCT_URL = 'https://cozzon.in/shop/product/texibition-2k26-official-tee';
 
 interface FloatingMerchButtonProps {
   onClick?: () => void;

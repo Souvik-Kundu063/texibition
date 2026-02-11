@@ -16,7 +16,7 @@ export function NavigationFuturistic() {
     { name: 'Sponsors', path: '/sponsors' },
     { name: 'Team', path: '/team' },
     { name: 'FAQ', path: '/faq' },
-    { name: 'Merch', path: 'https://cozzon.in/shop/product/cozzon-duo-snack-match-tee', isExternal: true },
+    { name: 'Merch', path: 'https://cozzon.in/shop/product/texibition-2k26-official-tee', isExternal: true },
     { name: 'Code of Conduct', path: '/code-of-conduct' },
   ];
 

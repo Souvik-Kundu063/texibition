@@ -47,7 +47,7 @@ export function Footer() {
                 { label: 'Schedule', path: '/schedule' },
                 { label: 'Team', path: '/team' },
                 { label: 'FAQ', path: '/faq' },
-                { label: 'Official Merch', path: 'https://cozzon.in/shop/product/cozzon-duo-snack-match-tee', isExternal: true },
+                { label: 'Official Merch', path: 'https://cozzon.in/shop/product/texibition-2k26-official-tee', isExternal: true },
                 { label: 'Code of Conduct', path: '/code-of-conduct' },
               ].map((link) => (
                 <li key={link.path}>
