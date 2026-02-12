@@ -19,8 +19,24 @@ interface Event {
   imagePath?: string;
 }
 
+
 const events: Event[] = [
   // Gaming Events
+   {
+    id: 'xibit',
+    title: 'Xibit',
+    description: 'The Ultimate Hackathon',
+    duration: '8 hours',
+    teamSize: '4 members max',
+    fee: 'Free',
+    category: 'coding',
+    day: '11th March 2026',
+    time: '9-4',
+    icon: Code,
+    gradient: 'from-[#00d4ff] to-[#00ffff]',
+    featured: true,
+    imagePath: '/event/xihibit.jpg'
+  },
   {
     id: 'free-fire',
     title: 'Free Fire',
@@ -191,161 +207,7 @@ export function Events() {
 
 
         {/* Featured Event */}
-        {featuredEvent && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="mb-12 md:mb-16"
-          >
-            {/* Mobile Layout */}
-            <div className="md:hidden">
-              <div className="relative rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 overflow-hidden">
-                {/* Featured Badge */}
-                <div className="absolute top-3 right-3 px-2 py-1 bg-[#00d4ff] text-[#0a0a0f] text-xs font-mono rounded-full z-10">
-                  FEATURED
-                </div>
-
-                <div className="p-4">
-                  {/* Terminal-style header */}
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-2 h-2 rounded-full bg-[#f43f5e]"></div>
-                    <div className="w-2 h-2 rounded-full bg-[#fbbf24]"></div>
-                    <div className="w-2 h-2 rounded-full bg-[#10b981]"></div>
-                    <div className="font-mono text-xs text-[#00d4ff] ml-2">
-                      <span className="text-[#00ffff]">$</span> ./events/featured
-                    </div>
-                  </div>
-
-                  {/* Title */}
-                  <h2 className="text-xl font-bold mb-3 font-mono text-[#00d4ff]">
-                    {featuredEvent.title}
-                  </h2>
-
-                  {/* Description */}
-                  <p className="text-sm text-white/80 mb-4 leading-relaxed">
-                    {featuredEvent.description}
-                  </p>
-
-                  {/* Stats in a compact horizontal layout */}
-                  <div className="flex justify-between items-center mb-4 p-3 bg-[#0a0a0a]/50 rounded-lg border border-[#00d4ff]/20">
-                    <div className="text-center flex-1">
-                      <div className="text-xs font-mono text-white/60 uppercase tracking-wider">Duration</div>
-                      <div className="font-mono font-semibold text-sm text-[#00d4ff]">{featuredEvent.duration}</div>
-                    </div>
-                    <div className="w-px h-8 bg-[#00d4ff]/20 mx-3"></div>
-                    <div className="text-center flex-1">
-                      <div className="text-xs font-mono text-white/60 uppercase tracking-wider">Team Size</div>
-                      <div className="font-mono font-semibold text-sm text-[#00d4ff]">{featuredEvent.teamSize}</div>
-                    </div>
-                    <div className="w-px h-8 bg-[#00d4ff]/20 mx-3"></div>
-                    <div className="text-center flex-1">
-                      <div className="text-xs font-mono text-white/60 uppercase tracking-wider">Fee</div>
-                      <div className="font-mono font-semibold text-sm text-[#00d4ff]">{featuredEvent.fee}</div>
-                    </div>
-                  </div>
-
-                  {/* CTA Button */}
-                  <Link to={`/events/${featuredEvent.id}`}>
-                    <motion.button
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full py-3 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] rounded-lg font-mono text-[#0a0a0f] font-semibold text-sm hover:shadow-lg hover:shadow-[#00d4ff]/50 transition-all duration-300"
-                    >
-                      <span className="text-[#0a0a0f]">$</span> view_details()
-                    </motion.button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Desktop Layout */}
-            <div className="hidden md:block">
-              <div className="relative rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/30 overflow-hidden">
-                {/* Terminal header */}
-                <div className="flex items-center gap-2 px-6 py-4 bg-[#00d4ff]/10 border-b border-[#00d4ff]/30">
-                  <div className="w-3 h-3 rounded-full bg-[#f43f5e]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#fbbf24]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#10b981]"></div>
-                  <div className="font-mono text-sm text-[#00d4ff] ml-4">
-                    <span className="text-[#00ffff]">$</span> ./events/featured.js --highlight
-                  </div>
-                  <div className="ml-auto px-3 py-1 bg-[#00d4ff] text-[#0a0a0f] text-xs font-mono rounded">
-                    FEATURED
-                  </div>
-                </div>
-
-                <div className="p-4 sm:p-6 md:p-8">
-                  <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
-                    <div>
-                      <div className="font-mono text-[#00d4ff] mb-3 sm:mb-4 text-xs sm:text-sm">
-                        <span className="text-[#00ffff]">//</span> event_config
-                      </div>
-
-                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 font-mono text-[#00d4ff]">
-                        {featuredEvent.title}
-                      </h2>
-
-
-                      <div className="bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg p-3 sm:p-4 font-code text-xs sm:text-sm mb-4 sm:mb-6">
-                        <div className="text-[#a855f7]">const</div>
-                        <div className="text-white/80 ml-2 sm:ml-4">
-                          event = {'{'} type: <span className="text-[#00ffff]">'coding'</span>, description: <span className="text-[#fbbf24]">'{featuredEvent.description}'</span>, difficulty: <span className="text-[#00d4ff]">'intermediate'</span> {'}'};
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 sm:mb-6">
-                        <div className="text-center p-2 sm:p-3 rounded-lg bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                          <Clock className="size-4 sm:size-5 mx-auto mb-1 sm:mb-2 text-[#00d4ff]" />
-                          <div className="text-[10px] sm:text-xs font-mono text-white/60 uppercase tracking-wider">Duration</div>
-                          <div className="font-mono font-semibold text-xs sm:text-sm">{featuredEvent.duration}</div>
-                        </div>
-                        <div className="text-center p-2 sm:p-3 rounded-lg bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                          <Users className="size-4 sm:size-5 mx-auto mb-1 sm:mb-2 text-[#00d4ff]" />
-                          <div className="text-[10px] sm:text-xs font-mono text-white/60 uppercase tracking-wider">Team Size</div>
-                          <div className="font-mono font-semibold text-xs sm:text-sm">{featuredEvent.teamSize}</div>
-                        </div>
-
-                        <div className="text-center p-2 sm:p-3 rounded-lg bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                          <Trophy className="size-4 sm:size-5 mx-auto mb-1 sm:mb-2 text-[#00d4ff]" />
-                          <div className="text-[10px] sm:text-xs font-mono text-white/60 uppercase tracking-wider">Fee</div>
-                          <div className="font-mono font-semibold text-xs sm:text-sm">{featuredEvent.fee}</div>
-                        </div>
-                      </div>
-
-                      <Link to={`/events/${featuredEvent.id}`}>
-                        <motion.button
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="px-6 py-3 bg-[#00d4ff]/10 border border-[#00d4ff] rounded-lg font-mono text-[#00d4ff] hover:bg-[#00d4ff]/20 transition-all duration-300 flex items-center gap-2 group"
-                        >
-                          <span className="text-[#00ffff]">$</span>
-                          view_details()
-                          <ChevronRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                        </motion.button>
-                      </Link>
-                    </div>
-
-                    <div className="relative h-48 sm:h-64">
-                      <motion.div
-                        animate={{
-                          rotate: [0, 360],
-                          scale: [1, 1.05, 1],
-                        }}
-                        transition={{
-                          rotate: { duration: 15, repeat: Infinity, ease: 'linear' },
-                          scale: { duration: 2, repeat: Infinity },
-                        }}
-                        className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/20 to-[#a855f7]/20 rounded-lg blur-xl"
-                      />
-                      <div className="relative h-full flex items-center justify-center bg-[#0a0a0a] border border-[#00d4ff]/20 rounded-lg">
-                        <Terminal className="size-12 sm:size-20 text-[#00d4ff]" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
+      
 
 
 
