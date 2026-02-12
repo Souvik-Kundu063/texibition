@@ -410,7 +410,6 @@ export function EventDetails() {
                 ></div> 
               ) : ( */}
               <>
-                <p className="text-sm md:text-base text-white/70 mb-4 md:mb-6">Register now via Google Forms</p>
                 <a
                   href={event.registerLink}
                   target="_blank"

@@ -73,19 +73,43 @@ export function CodeOfConduct() {
               <ul className="space-y-3 text-white/80">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />
-                  <span>Participants must carry a valid college ID card at all times.</span>
+                  <span>Each participant must carry valid proof of identity.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />
+                  <span>On-spot entries will not be accepted.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />
+                  <span>Use of abusive language, obscene content, or inappropriate attire will result in disqualification.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />
+                  <span>Smoking, drinking, or using prohibited substances is strictly banned.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />
+                  <span>The judge’s decisions will be final.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />
+                  <span>For team participation, the team leader must register on behalf of the team via the official website.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />
+                  <span>For individual participation, the form must be submitted individually.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />
+                  <span>Any duplicate/multiple registrations from the same team may lead to disqualification.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />
+                  <span>Attractive prizes for winners and participation certificates for all.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />
                   <span>Respect fellow participants, volunteers, judges, organizers, and college property.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />
-                  <span>Any form of harassment, discrimination, abusive language, or misconduct will not be tolerated.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />
-                  <span>Follow instructions given by event coordinators and volunteers at all times.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="size-5 text-[#00d4ff] mt-0.5 flex-shrink-0" />

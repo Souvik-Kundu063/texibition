@@ -20,22 +20,6 @@ interface Event {
 }
 
 const events: Event[] = [
-  // Featured Event
-  {
-    id: 'xibit',
-    title: 'Xibit',
-    description: 'The Ultimate Hackathon',
-    duration: '8 hours',
-    teamSize: '4 members max',
-    fee: 'Free',
-    category: 'coding',
-    day: '11th March 2026',
-    time: '9-4',
-    icon: Code,
-    gradient: 'from-[#00d4ff] to-[#00ffff]',
-    featured: true,
-    imagePath: '/event/xihibit.jpg'
-  },
   // Gaming Events
   {
     id: 'free-fire',

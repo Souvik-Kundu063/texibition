@@ -147,7 +147,7 @@ export function FAQ() {
                 </a>
 
                 <a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/917718427880"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-[#00d4ff]/5 border border-[#00d4ff]/20 hover:bg-[#00d4ff]/10 transition-colors"

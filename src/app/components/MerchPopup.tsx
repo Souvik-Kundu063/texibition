@@ -7,7 +7,7 @@ import { ShoppingBag, ArrowRight, Gift, Github } from 'lucide-react';
 const SPONSOR_PRODUCT_URL = 'https://cozzon.in/shop/product/texibition-2k26-official-polo-tee';
 
 // Constants for popup control
-const MAX_TRIGGERS = 3; // Total triggers capped at 3
+const MAX_TRIGGERS = 0; // Total triggers capped at 3
 const TIME_GAP_MS = 30000; // 30 seconds between shows
 const CLOSE_COOLDOWN_MS = 30000; // 30 seconds cooldown after close to prevent immediate re-trigger
 
