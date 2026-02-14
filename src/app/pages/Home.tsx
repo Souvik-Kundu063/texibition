@@ -116,6 +116,15 @@ function EmblaCarousel({ highlights }: { highlights: typeof highlightsData }) {
   );
 }
 
+// Sponsors data for marquee
+const sponsors = [
+  { name: 'Cozzon', logo: '/sponsors/cozzon.png', color: 'from-[#ff6b6b] to-[#ff8e8e]', category: 'Clothing Partner' },
+  { name: 'GeeksforGeeks', logo: '/sponsors/gfg.png', color: 'from-[#00d4ff] to-[#00ff88]', category: 'Coding Competition Partner' },
+  { name: 'GDG', logo: '/sponsors/GDG.png', color: 'from-[#4285f4] to-[#34a853]', category: 'Community Partner' },
+  { name: 'Prepverse', logo: '/sponsors/Prepverse.png', color: 'from-[#a855f7] to-[#ec4899]', category: 'Career Partner' },
+  { name: 'Devfolio', logo: '/sponsors/Devfolio.png', color: 'from-[#00ff88] to-[#00d4ff]', category: 'Hackathon Platform' },
+];
+
 // Event highlights data
 const highlightsData = [
   {
@@ -585,8 +594,7 @@ export function Home() {
             </div>
           </div>
 
-          {/* Sponsor Marquee - Commented Out */}
-          {/*
+          {/* Sponsor Marquee */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -615,24 +623,15 @@ export function Home() {
                   {[...sponsors, ...sponsors, ...sponsors].map((sponsor, index) => (
                     <motion.div
                       key={`sponsor-${index}`}
-                      className="flex-shrink-0 mx-2 sm:mx-3 lg:mx-4"
+                      className="flex-shrink-0 mx-4 sm:mx-6 lg:mx-8"
                       whileHover={{ scale: 1.05, y: -5 }}
                     >
-                      <div className="group relative">
-                        <div className={`
-                          w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 
-                          rounded-lg sm:rounded-xl 
-                          bg-gradient-to-br ${sponsor.color}
-                          flex items-center justify-center
-                          border border-white/20
-                          shadow-lg
-                          group-hover:shadow-[0_0_20px_rgba(0,212,255,0.3)]
-                          transition-all duration-300
-                        `}>
-                          <span className="text-white font-bold text-xs sm:text-sm lg:text-lg">
-                            {sponsor.logo}
-                          </span>
-                        </div>
+<div className="group relative">
+                        <img 
+                          src={sponsor.logo} 
+                          alt={sponsor.name}
+                          className={`h-10 w-auto sm:h-12 lg:h-14 object-contain ${sponsor.name === 'Cozzon' ? 'brightness-0 invert' : ''}`}
+                        />
 
                         <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 
                           opacity-0 group-hover:opacity-100 transition-opacity duration-300
@@ -664,7 +663,6 @@ export function Home() {
               </Link>
             </motion.div>
           </motion.div>
-          */}
 
         </div>
       </section>
