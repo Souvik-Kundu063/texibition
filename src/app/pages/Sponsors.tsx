@@ -43,8 +43,8 @@ export function Sponsors() {
                 alt="Cozzon" 
                 className="h-24 sm:h-32 lg:h-40 w-auto object-contain brightness-0 invert"
               />
-              <span className="mt-4 text-lg sm:text-xl font-medium text-[#ff6b6b]">
-                Clothing Partner
+              <span className="mt-4 text-lg sm:text-xl font-medium text-[#ffffff]">
+                Style Catalyst
               </span>
             </motion.div>
 
