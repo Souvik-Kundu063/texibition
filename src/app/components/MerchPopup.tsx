@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingBag, ArrowRight, Gift, Github } from 'lucide-react';
 
 // Sponsor product page URL
-const SPONSOR_PRODUCT_URL = 'https://cozzon.in/shop/product/texibition-2k26-official-polo-tee';
+const SPONSOR_PRODUCT_URL = 'https://cozzon.in/shop/product/texibition-2k26-official-tee';
 
 // Constants for popup control
 const MAX_TRIGGERS = 5; // Total triggers capped at 3
