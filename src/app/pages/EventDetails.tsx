@@ -71,12 +71,23 @@ const eventData: Record<string, EventData> = {
     day: '11th March 2026',
     time: '9-4',
     rules: [
-      'Each squad must have exactly 5 members',
-      'All players must have their own accounts',
-      'Use of emulators is strictly prohibited',
-      'Custom headshots and character outfits are allowed',
-      'Lag-switching or any form of cheating results in disqualification',
-      'Teams must report 15 minutes before their match',
+      "1. Event Format",
+      "Team Structure: 4 Main Players + 1 Substitute (4+1).",
+      "Match Types: Battle Royale (BR) + Clash Squad (CS).",
+      "Qualification/Elimination based on overall match performance.",
+      "Official Custom Rooms will be used.",
+      "Room ID & Password shared before matches.",
+      "BR Mode: Limited Ammo enabled.",
+      "CS Mode: Skills & Loadouts OFF; Grenades & Smokes not allowed (Limited Ammo).",
+      "2. Rules & Regulations",
+      "Only Mobile Free Fire accounts allowed (No Emulator/PC).",
+      "VPN, hacks, scripts, macros, and third-party apps are strictly banned.",
+      "Cheating/unfair play leads to immediate team disqualification.",
+      "Late entry may result in walkover.",
+      "BR scoring based on placement + kills.",
+      "All maps must be downloaded beforehand.",
+      "Players must maintain sportsmanship.",
+      "Coordinators’ decisions are final and binding.",
     ],
     eligibility: [
       { time: '', activity: 'Team-based knockout rounds' },
@@ -100,12 +111,33 @@ const eventData: Record<string, EventData> = {
     day: '11th March 2026',
     time: '9-4',
     rules: [
-      'Each squad must have exactly 5 members',
-      'All players must have valid BGMI accounts',
-      'Official tournament mode will be used',
-      'Third-party applications or mods are prohibited',
-      'Disconnection during match results in immediate elimination',
-      'Teams must follow fair play guidelines',
+      "1. Event Format",
+      "Mode: Classic (TPP).",
+      "Map: Erangel Only.",
+      "Squad: 4 Main Players + 1 Optional Substitute.",
+      "Tournament Structure:",
+      "Qualifiers: 2 Matches",
+      "Semi-Finals: 3 Matches",
+      "Grand Finals: 2–3 Matches",
+      "Minimum 2 players required in lobby to start.",
+      "Substitution allowed only between matches.",
+      "Room ID/Password shared 10 minutes before match.",
+      "Reporting Time: 30 minutes before match.",
+      "Match Gap: 15 minutes between matches.",
+      "Scoring System:",
+      "1st: 15 points, 2nd: 10 points, 3rd: 5 points.",
+      "1 Kill = 1 Point.",
+      "Tie-Breaker: Total Chicken Dinners > Total Finishes > Last Match Placement.",
+      "2. Rules & Regulations",
+      "Account Level must be 30+.",
+      "Rank must be Gold I or above.",
+      "Mobile devices only (No tablets, iPads, emulators, triggers).",
+      "Registered IGN & Character ID must be used.",
+      "Zero tolerance for GFX tools, hacks, teaming, or exploits.",
+      "Screen recordings/screenshots may be requested.",
+      "Only admins allowed as spectators.",
+      "Late arrival → No slot reservation.",
+      "Organizers’ decisions are final and binding.",
     ],
     eligibility: [
       { time: '', activity: 'Team-based knockout rounds' },
@@ -129,12 +161,25 @@ const eventData: Record<string, EventData> = {
     day: '11th March 2026',
     time: '9-4',
     rules: [
-      'Each match is played in 1v1 format',
-      'Full match duration will be followed',
-      'Both players can select their preferred teams',
-      'Custom tactics and formations are allowed',
-      'Glitch exploits will result in disqualification',
-      'Winner is decided by goals scored or penalty shootout',
+      "1. Event Format",
+      "Mode: Offline / Local Multiplayer.",
+      "Format: Single Elimination (Knockout).",
+      "One-on-One matches.",
+      "Match Duration: 10 minutes (5 min each half).",
+      "Finals: 12 minutes (optional).",
+      "Extra Time & Penalties: From Quarter-Finals onwards (or Finals only).",
+      "Reporting Time: 10 minutes before match.",
+      "2. Rules & Regulations",
+      "Valid College ID mandatory.",
+      "One registration per participant.",
+      "No substitution after registration.",
+      "No custom patches, cheats, or mods allowed.",
+      "Pausing without permission may lead to disqualification.",
+      "Abusive language/misconduct not tolerated.",
+      "Disconnection: First half → Match restart; After halftime → Score continued.",
+      "Intentional disconnection → Disqualification.",
+      "Late reporting → Walkover.",
+      "Referee/Organizer decisions are final.",
     ],
     eligibility: [
       { time: '', activity: 'Team-based knockout rounds' },
@@ -157,12 +202,26 @@ const eventData: Record<string, EventData> = {
     day: '12th March 2026',
     time: '10-3',
     rules: [
-      'Individual participation only',
-      'Tournament follows knockout format',
-      'Each match has a strict time limit',
-      'No practice time during tournament',
-      'Decision of judges is final',
-      'Technical issues on player side result in loss',
+      "1. Event Format",
+      "Format: Knockout. Individual Event.",
+      "Time Control: 5 minutes per player (Blitz).",
+      "Chess clock mandatory.",
+      "Pairings announced before each round.",
+      "Colors (White/Black) allotted during event.",
+      "Winning: 1 point, Draw: 0.5 each, Loss: 0 points.",
+      "Tie-break: Blitz tie-breaker, Armageddon game.",
+      "2. Rules & Regulations",
+      "Standard FIDE Chess Rules will apply.",
+      "Touch-move rule strictly enforced.",
+      "Illegal Moves: First → Warning, Second → Loss of game.",
+      "Silence must be maintained.",
+      "No cheating or external assistance.",
+      "No arguments with arbiter/opponent. No distractions.",
+      "Must report 15 minutes before start.",
+      "Late arrival may result in forfeiture.",
+      "No food near boards (except water).",
+      "Players encouraged to bring own chessboard.",
+      "Arbiter/Organizing Committee decision is final.",
     ],
     eligibility: [
       { time: '', activity: 'Individual knockout rounds' },
@@ -185,12 +244,25 @@ const eventData: Record<string, EventData> = {
     day: '11th & 12th March 2026',
     time: '9-4',
     rules: [
-      'Each team must have minimum 5 players',
-      'Official competitive ruleset will be followed',
-      'Use of any third-party software is banned',
-      'Players must use their own accounts',
-      'Lag-switching or cheating results in team disqualification',
-      'Map veto system will be used',
+      "1. Event Format",
+      "Mode: Spike Rush.",
+      "Team Composition: 5 Main Players (No mid-match substitutions).",
+      "Format: Knockout (Single Elimination).",
+      "Matches played as per official Spike Rush settings.",
+      "Reporting Time: Teams must report before scheduled match time.",
+      "Match lobby created and managed by organizers.",
+      "Team must have full roster ready before match start.",
+      "Match start time is strict; no delay for late players.",
+      "2. Rules & Regulations",
+      "Only registered players are allowed to participate.",
+      "No account sharing allowed.",
+      "Use of cheats, scripts, third-party software strictly prohibited.",
+      "Glitch abuse results in disqualification.",
+      "Players must maintain sportsmanship and discipline.",
+      "Pausing without valid reason/admin approval is not allowed.",
+      "Disconnection: Short technical pause allowed (Organizer decision).",
+      "Repeated/intentional disconnection → Disqualification.",
+      "Organizer/Admin decisions are final.",
     ],
     eligibility: [
       { time: '', activity: 'Team-based knockout rounds' },
@@ -272,12 +344,23 @@ const eventData: Record<string, EventData> = {
     day: '12th March 2026',
     time: '11-2',
     rules: [
-      'Teams can have 1-2 members',
-      'Only provided AI tools can be used',
-      'Prompt engineering techniques encouraged',
-      'Creativity and optimization are key',
-      'Documentation of prompts required',
-      'Final output must be presented',
+      "1. Event Format",
+      "Team Size: 2 Participants.",
+      "Round 1: Search-Based Image Challenge (Non-qualifying elimination).",
+      "Round 2: Technical Search Challenge (Top players qualify).",
+      "Round 3: Creative AI-Based Challenge (Judges decide winners).",
+      "Sections compete separately. Strict time limits.",
+      "Late submissions not accepted.",
+      "2. Rules & Regulations",
+      "No official Wi-Fi provided (Use own internet).",
+      "Internet must be used strictly for competition.",
+      "Bring own devices (laptops/mobiles) with tools pre-installed.",
+      "Eliminated teams must leave auditorium.",
+      "Judges’ decisions are final.",
+      "Evaluation: Software tools + manual judging.",
+      "Plagiarism/unfair means → Immediate disqualification.",
+      "Silence and discipline must be maintained.",
+      "Anti-cheating policy strictly enforced.",
     ],
     eligibility: [
       { time: '', activity: 'Team-based AI prompting challenge' },
@@ -494,12 +577,19 @@ export function EventDetails() {
             >
               <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Rules & Guidelines</h2>
               <ul className="space-y-2 md:space-y-3">
-                {event.rules.map((rule: string, index: number) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="size-4 md:size-5 text-[#00d4ff] shrink-0 mt-0.5" />
-                    <span className="text-sm md:text-base text-white/70">{rule}</span>
-                  </li>
-                ))}
+                {event.rules.map((rule: string, index: number) => {
+                  const isHeader = /^\d+\./.test(rule);
+                  return isHeader ? (
+                    <li key={index} className="pt-4 first:pt-0 pb-2">
+                      <h3 className="text-lg font-bold text-[#00d4ff]">{rule}</h3>
+                    </li>
+                  ) : (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle2 className="size-4 md:size-5 text-[#00d4ff] shrink-0 mt-0.5" />
+                      <span className="text-sm md:text-base text-white/70">{rule}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </motion.section>
           </div>
