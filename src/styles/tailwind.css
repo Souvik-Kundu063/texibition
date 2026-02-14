@@ -27,11 +27,7 @@ html {
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
+  animation: marquee 60s linear infinite;
 }
 
 /* Slow down on mobile for better visibility */
@@ -41,12 +37,7 @@ html {
   }
 }
 
-/* Pause animation when user prefers reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
-  }
-}
+
 
 /* Event Card Flip Animation */
 .event-card-flipped {

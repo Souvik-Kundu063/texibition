@@ -621,26 +621,16 @@ export function Home() {
               <div className="flex items-center py-4 sm:py-6">
                 <div className="flex animate-marquee whitespace-nowrap">
                   {[...sponsors, ...sponsors, ...sponsors].map((sponsor, index) => (
-                    <motion.div
+                    <div
                       key={`sponsor-${index}`}
                       className="flex-shrink-0 mx-4 sm:mx-6 lg:mx-8"
-                      whileHover={{ scale: 1.05, y: -5 }}
                     >
-<div className="group relative">
-                        <img 
-                          src={sponsor.logo} 
-                          alt={sponsor.name}
-                          className={`h-10 w-auto sm:h-12 lg:h-14 object-contain ${sponsor.name === 'Cozzon' ? 'brightness-0 invert' : ''}`}
-                        />
-
-                        <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 
-                          opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                          px-2 py-1 bg-[#0a0a0f] border border-[#00d4ff]/30 rounded
-                          whitespace-nowrap z-20">
-                          <span className="text-white text-xs">{sponsor.name}</span>
-                        </div>
-                      </div>
-                    </motion.div>
+                      <img 
+                        src={sponsor.logo} 
+                        alt={sponsor.name}
+                        className={`h-10 w-auto sm:h-12 lg:h-14 object-contain ${sponsor.name === 'Cozzon' ? 'brightness-0 invert' : ''}`}
+                      />
+                    </div>
                   ))}
                 </div>
               </div>
