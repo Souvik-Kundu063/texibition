@@ -95,8 +95,8 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Room ID & password shared before matches' },
     ],
     coordinators: [
-      { name: 'Ankush Khan', email: 'khanankush483@gmail.com', phone: '+91 9064336298' },
       { name: 'PRABHAT KR ROUTH', email: 'prabhatkrrouth@gmail.com', phone: '+91 9332165957' },
+      { name: 'Ankush Khan', email: 'khanankush483@gmail.com', phone: '+91 9064336298' },
     ],
     imagePath: '/event/freefire.jpg',
     registerLink: 'https://forms.gle/7uAwujMWLzXVqX519'
