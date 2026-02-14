@@ -38,11 +38,15 @@ export function Sponsors() {
               transition={{ delay: 0.2 }}
               className="flex flex-col items-center"
             >
+              <a href="https://cozzon.in/" target="_blank" rel="noopener noreferrer">
               <img 
-                src="/sponsors/cozzon.png" 
-                alt="Cozzon" 
-                className="h-24 sm:h-32 lg:h-40 w-auto object-contain brightness-0 invert"
+              src="/sponsors/cozzon.png" 
+              alt="Cozzon" 
+              className="h-24 sm:h-32 lg:h-40 w-auto object-contain brightness-0 invert cursor-pointer"
               />
+              </a>
+
+
               <span className="mt-4 text-lg sm:text-xl font-medium text-[#ffffff]">
                 Style Catalyst
               </span>
@@ -60,7 +64,7 @@ export function Sponsors() {
                 alt="GeeksforGeeks" 
                 className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
               />
-              <span className="mt-4 text-lg sm:text-xl font-medium text-[#00d4ff]">
+              <span className="mt-4 text-lg sm:text-xl font-medium text-[#ffffff]">
                 Coding Competition Partner
               </span>
             </motion.div>
@@ -77,7 +81,7 @@ export function Sponsors() {
                 alt="GDG" 
                 className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
               />
-              <span className="mt-4 text-lg sm:text-xl font-medium text-[#4285f4]">
+              <span className="mt-4 text-lg sm:text-xl font-medium text-[#ffffff]">
                 Community & Technical Partner
               </span>
             </motion.div>
@@ -94,7 +98,7 @@ export function Sponsors() {
                 alt="Prepverse" 
                 className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
               />
-              <span className="mt-4 text-lg sm:text-xl font-medium text-[#a855f7]">
+              <span className="mt-4 text-lg sm:text-xl font-medium text-[#ffffff]">
                 Career Development Partner
               </span>
             </motion.div>
@@ -111,7 +115,7 @@ export function Sponsors() {
                 alt="Devfolio" 
                 className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
               />
-              <span className="mt-4 text-lg sm:text-xl font-medium text-[#00ff88]">
+              <span className="mt-4 text-lg sm:text-xl font-medium text-[#ffffff]">
                 Hackathon Platform Partner
               </span>
             </motion.div>

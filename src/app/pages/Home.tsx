@@ -686,7 +686,7 @@ export function Home() {
                 Initialize your potential. Register now to access the mainframe and compete in the ultimate tech odyssey.
               </p>
 
-              <Link to="/code-of-conduct">
+              <Link to="/events">
                 <motion.button
                   whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(168, 85, 247, 0.4)" }}
                   whileTap={{ scale: 0.95 }}
