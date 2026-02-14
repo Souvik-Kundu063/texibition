@@ -98,6 +98,23 @@ export function Sponsors() {
                 Career Development Partner
               </span>
             </motion.div>
+
+            {/* Devfolio - Hackathon Platform Partner */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="flex flex-col items-center"
+            >
+              <img 
+                src="/sponsors/Devfolio.png" 
+                alt="Devfolio" 
+                className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
+              />
+              <span className="mt-4 text-lg sm:text-xl font-medium text-[#00ff88]">
+                Hackathon Platform Partner
+              </span>
+            </motion.div>
           </div>
         </motion.div>
 
