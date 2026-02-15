@@ -109,8 +109,8 @@ export function MerchPopup({ delay = 5000, pageType = 'home' }: MerchPopupProps)
   // Merchandise images for slideshow
   const merchImages = [
     '/images/tshirt.jpg',
-    '/images/tshirt2.jpg',
-    '/images/tshirt3.jpg',
+    '/images/tshirt2.png',
+    '/images/tshirt3.png',
   ];
   
   // Use refs to track state across renders
