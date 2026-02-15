@@ -282,7 +282,7 @@ export function MerchPopup({ delay = 5000, pageType = 'home' }: MerchPopupProps)
                     transition={{ delay: 0.25 }}
                     className="text-center text-white/50 text-[10px] sm:text-xs mb-2 sm:mb-3"
                   >
-                    <span className="text-[#f97316] font-semibold">CoZzon × Texibition</span>
+                    <span className="text-[#f97316] font-semibold">Cozzon × Texibition</span>
                     <span className="mx-1.5">•</span>
                     <span className="text-white/60">Official Clothing Partner</span>
                   </motion.p>
