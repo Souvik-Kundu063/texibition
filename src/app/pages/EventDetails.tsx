@@ -158,7 +158,7 @@ const eventData: Record<string, EventData> = {
     teamSize: '1 person',
     fee: '₹50 per person',
     category: 'game',
-    day: '12th March 2026',
+    day: '11th March 2026',
     time: '9-4',
     rules: [
       "1. Event Format",
