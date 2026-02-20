@@ -1,7 +1,7 @@
-import { motion } from 'motion/react';
-import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
+import { motion } from "motion/react";
+import { useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import { ArrowLeft, ArrowRight, CheckCircle2, Mail, Phone } from "lucide-react";
 
 interface EventFlowItem {
   time: string;
@@ -32,44 +32,54 @@ interface EventData {
 }
 
 const eventData: Record<string, EventData> = {
-  'xibit': {
-    title: 'Xibit',
-    description: 'Xibit is a time-bound hackathon where teams are challenged with real-world problem statements revealed on the spot. Participants must brainstorm innovative ideas, plan their solution, and build a working prototype within the given time limit. The event focuses on creativity, problem-solving approach, feasibility, impact, and execution rather than pure coding complexity. Teams are free to choose their own tech stack and methodology, making Xibit ideal for developers, designers, and innovators who thrive under pressure and enjoy building practical solutions.',
-    duration: '8 hours',
-    teamSize: '4 members max',
-    fee: 'Free',
-    category: 'coding',
-    day: '11th March 2026',
-    time: '9-4',
+  xibit: {
+    title: "Xibit",
+    description:
+      "Xibit is a time-bound hackathon where teams are challenged with real-world problem statements revealed on the spot. Participants must brainstorm innovative ideas, plan their solution, and build a working prototype within the given time limit. The event focuses on creativity, problem-solving approach, feasibility, impact, and execution rather than pure coding complexity. Teams are free to choose their own tech stack and methodology, making Xibit ideal for developers, designers, and innovators who thrive under pressure and enjoy building practical solutions.",
+    duration: "8 hours",
+    teamSize: "4 members max",
+    fee: "Free",
+    category: "coding",
+    day: "11th March 2026",
+    time: "9-4",
     rules: [
-      'Teams must consist of 2-4 members',
-      'All team members must be college students',
-      'Solutions must be coded during the event period',
-      'Use of pre-existing code is not allowed',
-      'Submissions must be made before the deadline',
-      'All code submissions must include documentation',
+      "Teams must consist of 2-4 members",
+      "All team members must be college students",
+      "Solutions must be coded during the event period",
+      "Use of pre-existing code is not allowed",
+      "Submissions must be made before the deadline",
+      "All code submissions must include documentation",
     ],
     eligibility: [
-      { time: '', activity: 'Team-based coding challenge' },
-      { time: '', activity: 'Multiple algorithmic problems to solve' },
-      { time: '', activity: 'Time-based evaluation and judging' },
+      { time: "", activity: "Team-based coding challenge" },
+      { time: "", activity: "Multiple algorithmic problems to solve" },
+      { time: "", activity: "Time-based evaluation and judging" },
     ],
     coordinators: [
-      { name: 'SAYANTANI DUTTA', email: 'sayantanidutta.work@gmail.com', phone: '+91 9477518897' },
-      { name: 'DEBASIS KHAMARI', email: 'debasiskhamari7@gmail.com', phone: '+91 9064906396' },
+      {
+        name: "SAYANTANI DUTTA",
+        email: "sayantanidutta.work@gmail.com",
+        phone: "+91 9477518897",
+      },
+      {
+        name: "DEBASIS KHAMARI",
+        email: "debasiskhamari7@gmail.com",
+        phone: "+91 9064906396",
+      },
     ],
-    imagePath: '/event/xihibit.jpg',
-    registerLink: 'https://the-xibit.devfolio.co/'
+    imagePath: "/event/xihibit.jpg",
+    registerLink: "https://the-xibit.devfolio.co/",
   },
-  'free-fire': {
-    title: 'Free Fire',
-    description: 'Free Fire is an action-packed battle royale tournament where squads compete for survival and dominance. Teams will drop into the battlefield, loot resources, and engage in intense combat while coordinating strategies in real time. Smart positioning, teamwork, and quick decision-making are crucial to reaching the final zone. Only the most tactical and disciplined squads will emerge victorious in this high-adrenaline gaming showdown.',
-    duration: '7 hours',
-    teamSize: '5 members max',
-    fee: '₹300 per team',
-    category: 'game',
-    day: '11th March 2026',
-    time: '9-4',
+  "free-fire": {
+    title: "Free Fire",
+    description:
+      "Free Fire is an action-packed battle royale tournament where squads compete for survival and dominance. Teams will drop into the battlefield, loot resources, and engage in intense combat while coordinating strategies in real time. Smart positioning, teamwork, and quick decision-making are crucial to reaching the final zone. Only the most tactical and disciplined squads will emerge victorious in this high-adrenaline gaming showdown.",
+    duration: "7 hours",
+    teamSize: "5 members max",
+    fee: "₹300 per team",
+    category: "game",
+    day: "11th March 2026",
+    time: "9-4",
     rules: [
       "1. Event Format",
       "Team Structure: 4 Main Players + 1 Substitute (4+1).",
@@ -90,26 +100,35 @@ const eventData: Record<string, EventData> = {
       "Coordinators’ decisions are final and binding.",
     ],
     eligibility: [
-      { time: '', activity: 'Team-based knockout rounds' },
-      { time: '', activity: 'Multiple rounds to decide finalists' },
-      { time: '', activity: 'Room ID & password shared before matches' },
+      { time: "", activity: "Team-based knockout rounds" },
+      { time: "", activity: "Multiple rounds to decide finalists" },
+      { time: "", activity: "Room ID & password shared before matches" },
     ],
     coordinators: [
-      { name: 'PRABHAT KR ROUTH', email: 'prabhatkrrouth@gmail.com', phone: '+91 9332165957' },
-      { name: 'Ankush Khan', email: 'khanankush483@gmail.com', phone: '+91 9064336298' },
+      {
+        name: "PRABHAT KR ROUTH",
+        email: "prabhatkrrouth@gmail.com",
+        phone: "+91 9332165957",
+      },
+      {
+        name: "Ankush Khan",
+        email: "khanankush483@gmail.com",
+        phone: "+91 9064336298",
+      },
     ],
-    imagePath: '/event/freefire.jpg',
-    registerLink: 'https://forms.gle/7uAwujMWLzXVqX519'
+    imagePath: "/event/freefire.jpg",
+    registerLink: "https://forms.gle/7uAwujMWLzXVqX519",
   },
-  'bgmi': {
-    title: 'BGMI',
-    description: 'BGMI is a competitive battle royale gaming event where squads fight for the ultimate Chicken Dinner. Played on classic maps like Erangel, this event emphasizes team coordination, strategy, map awareness, and clutch gameplay. Every match demands smart rotations, effective communication, and calm execution under pressure, making it a must-participate event for serious mobile gamers.',
-    duration: '7 hours',
-    teamSize: '5 members max',
-    fee: '₹300 per team',
-    category: 'game',
-    day: '11th March 2026',
-    time: '9-4',
+  bgmi: {
+    title: "BGMI",
+    description:
+      "BGMI is a competitive battle royale gaming event where squads fight for the ultimate Chicken Dinner. Played on classic maps like Erangel, this event emphasizes team coordination, strategy, map awareness, and clutch gameplay. Every match demands smart rotations, effective communication, and calm execution under pressure, making it a must-participate event for serious mobile gamers.",
+    duration: "7 hours",
+    teamSize: "5 members max",
+    fee: "₹300 per team",
+    category: "game",
+    day: "11th March 2026",
+    time: "9-4",
     rules: [
       "1. Event Format",
       "Mode: Classic (TPP).",
@@ -140,26 +159,35 @@ const eventData: Record<string, EventData> = {
       "Organizers’ decisions are final and binding.",
     ],
     eligibility: [
-      { time: '', activity: 'Team-based knockout rounds' },
-      { time: '', activity: 'Multiple rounds to decide finalists' },
-      { time: '', activity: 'Room ID & password shared before matches' },
+      { time: "", activity: "Team-based knockout rounds" },
+      { time: "", activity: "Multiple rounds to decide finalists" },
+      { time: "", activity: "Room ID & password shared before matches" },
     ],
     coordinators: [
-      { name: 'ABHIK CHATTERJEE', email: 'abhikchatterjee879@gmail.com', phone: '+91 9733549955' },
-      { name: 'SAYAN ROY', email: 'roysamirroysamir9998@gmail.com', phone: '+91 9674363753' },
+      {
+        name: "ABHIK CHATTERJEE",
+        email: "abhikchatterjee879@gmail.com",
+        phone: "+91 9733549955",
+      },
+      {
+        name: "SAYAN ROY",
+        email: "roysamirroysamir9998@gmail.com",
+        phone: "+91 9674363753",
+      },
     ],
-    imagePath: '/event/pubg.jpg',
-    registerLink: 'https://forms.gle/LHJmfoF3U9LUmtwB6'
+    imagePath: "/event/pubg.jpg",
+    registerLink: "https://forms.gle/LHJmfoF3U9LUmtwB6",
   },
-  'pes': {
-    title: 'PES',
-    description: 'PES is a 1v1 football gaming championship designed for players who want to showcase their virtual football skills. Participants compete in fast-paced matches where tactical awareness, precise controls, and quick reactions determine the outcome. Each match tests a player\'s ability to adapt strategies on the fly, making the competition intense, exciting, and highly engaging.',
-    duration: '7 hours',
-    teamSize: '1 person',
-    fee: '₹50 per person',
-    category: 'game',
-    day: '11th March 2026',
-    time: '9-4',
+  pes: {
+    title: "PES",
+    description:
+      "PES is a 1v1 football gaming championship designed for players who want to showcase their virtual football skills. Participants compete in fast-paced matches where tactical awareness, precise controls, and quick reactions determine the outcome. Each match tests a player's ability to adapt strategies on the fly, making the competition intense, exciting, and highly engaging.",
+    duration: "7 hours",
+    teamSize: "1 person",
+    fee: "₹50 per person",
+    category: "game",
+    day: "11th March 2026",
+    time: "9-4",
     rules: [
       "1. Event Format",
       "Mode: Offline / Local Multiplayer.",
@@ -182,25 +210,30 @@ const eventData: Record<string, EventData> = {
       "Referee/Organizer decisions are final.",
     ],
     eligibility: [
-      { time: '', activity: 'Team-based knockout rounds' },
-      { time: '', activity: 'Multiple rounds to decide finalists' },
-      { time: '', activity: 'Room ID & password shared before matches' },
+      { time: "", activity: "Team-based knockout rounds" },
+      { time: "", activity: "Multiple rounds to decide finalists" },
+      { time: "", activity: "Room ID & password shared before matches" },
     ],
     coordinators: [
-      { name: 'AVIRUP GHOSH', email: 'avirupghosh751@gmail.com', phone: '+91 7003357906' },
+      {
+        name: "AVIRUP GHOSH",
+        email: "avirupghosh751@gmail.com",
+        phone: "+91 7003357906",
+      },
     ],
-    imagePath: '/event/pes.jpg',
-    registerLink: 'https://forms.gle/eAU9gmLh7xAWevQi8'
+    imagePath: "/event/pes.jpg",
+    registerLink: "https://forms.gle/eAU9gmLh7xAWevQi8",
   },
-  'the-blitz': {
-    title: 'The Blitz',
-    description: 'The Blitz is a fast-paced chess tournament where players compete under strict time constraints. With limited time on the clock, participants must rely on instinct, strategy, and sharp tactical awareness. This event tests both chess knowledge and mental agility, rewarding players who can think fast, stay focused, and capitalize on opponents\' mistakes.',
-    duration: '5 hours',
-    teamSize: '1 person',
-    fee: '₹50 per person',
-    category: 'game',
-    day: '12th March 2026',
-    time: '10-3',
+  "the-blitz": {
+    title: "The Blitz",
+    description:
+      "The Blitz is a fast-paced chess tournament where players compete under strict time constraints. With limited time on the clock, participants must rely on instinct, strategy, and sharp tactical awareness. This event tests both chess knowledge and mental agility, rewarding players who can think fast, stay focused, and capitalize on opponents' mistakes.",
+    duration: "5 hours",
+    teamSize: "1 person",
+    fee: "₹50 per person",
+    category: "game",
+    day: "12th March 2026",
+    time: "10-3",
     rules: [
       "1. Event Format",
       "Format: Knockout. Individual Event.",
@@ -224,25 +257,30 @@ const eventData: Record<string, EventData> = {
       "Arbiter/Organizing Committee decision is final.",
     ],
     eligibility: [
-      { time: '', activity: 'Individual knockout rounds' },
-      { time: '', activity: 'Multiple rounds to decide winner' },
-      { time: '', activity: 'Room ID & password shared before matches' },
+      { time: "", activity: "Individual knockout rounds" },
+      { time: "", activity: "Multiple rounds to decide winner" },
+      { time: "", activity: "Room ID & password shared before matches" },
     ],
     coordinators: [
-      { name: 'SOHAM GHOSH', email: 'sohamghosh1762@gmail.com', phone: '+91 6290187678' },
+      {
+        name: "SOHAM GHOSH",
+        email: "sohamghosh1762@gmail.com",
+        phone: "+91 6290187678",
+      },
     ],
-    imagePath: '/event/chess.jpg',
-    registerLink: 'https://forms.gle/Z9eGfvSSxYrKFVTC9'
+    imagePath: "/event/chess.jpg",
+    registerLink: "https://forms.gle/Z9eGfvSSxYrKFVTC9",
   },
-  'valorant': {
-    title: 'Valorant',
-    description: 'Valorant is a 5v5 tactical FPS tournament that blends precise gunplay with strategic agent abilities. Teams must coordinate attacks, defend sites, and execute well-planned strategies to outplay their opponents. Communication, map control, and teamwork are critical for success. From clutch rounds to coordinated team plays, this event delivers high-intensity competitive action.',
-    duration: '5 hours',
-    teamSize: '5 members max',
-    fee: '₹300 per team',
-    category: 'game',
-    day: '11th & 12th March 2026',
-    time: '9-4',
+  valorant: {
+    title: "Valorant",
+    description:
+      "Valorant is a 5v5 tactical FPS tournament that blends precise gunplay with strategic agent abilities. Teams must coordinate attacks, defend sites, and execute well-planned strategies to outplay their opponents. Communication, map control, and teamwork are critical for success. From clutch rounds to coordinated team plays, this event delivers high-intensity competitive action.",
+    duration: "5 hours",
+    teamSize: "5 members max",
+    fee: "₹300 per team",
+    category: "game",
+    day: "11th & 12th March 2026",
+    time: "9-4",
     rules: [
       "1. Event Format",
       "Mode: Spike Rush.",
@@ -265,26 +303,35 @@ const eventData: Record<string, EventData> = {
       "Organizer/Admin decisions are final.",
     ],
     eligibility: [
-      { time: '', activity: 'Team-based knockout rounds' },
-      { time: '', activity: 'Multiple rounds to decide finalists' },
-      { time: '', activity: 'Room ID & password shared before matches' },
+      { time: "", activity: "Team-based knockout rounds" },
+      { time: "", activity: "Multiple rounds to decide finalists" },
+      { time: "", activity: "Room ID & password shared before matches" },
     ],
     coordinators: [
-      { name: 'DEEP CHATTERJEE', email: 'deeparduino@gmail.com', phone: '+91 6291661608' },
-      { name: 'ABHISHEK BANERJEE', email: 'abhishekbaner5@gmail.com', phone: '+91 8642019746' },
+      {
+        name: "DEEP CHATTERJEE",
+        email: "deeparduino@gmail.com",
+        phone: "+91 6291661608",
+      },
+      {
+        name: "ABHISHEK BANERJEE",
+        email: "abhishekbaner5@gmail.com",
+        phone: "+91 8642019746",
+      },
     ],
-    imagePath: '/event/valorant.jpg',
-    registerLink: 'https://forms.gle/RzqZLTttyhC9xN3Z8'
+    imagePath: "/event/valorant.jpg",
+    registerLink: "https://forms.gle/RzqZLTttyhC9xN3Z8",
   },
-  'the-blusters': {
-    title: 'The Blusters',
-    description: 'The Blusters is an individual coding competition that focuses on logical thinking and programming fundamentals. Participants will solve a series of coding challenges within a fixed time frame using any programming language of their choice. The event rewards clarity of thought, accuracy, and efficient problem-solving, making it perfect for solo coders who want to test and prove their skills independently. The competition consists of two phases - an online qualifier round and offline on-campus rounds.',
-    duration: '2 Hours (Online Qualifier)',
-    teamSize: '1 person',
-    fee: 'Free',
-    category: 'coding',
-    day: '5th & 12th March 2026',
-    time: 'Online: 6:00 PM - 8:00 PM | Offline: 10:00 AM - 2:00 PM',
+  "the-blusters": {
+    title: "The Blusters",
+    description:
+      "The Blusters is an individual coding competition that focuses on logical thinking and programming fundamentals. Participants will solve a series of coding challenges within a fixed time frame using any programming language of their choice. The event rewards clarity of thought, accuracy, and efficient problem-solving, making it perfect for solo coders who want to test and prove their skills independently. The competition consists of two phases - an online qualifier round and offline on-campus rounds.",
+    duration: "2 Hours (Online Qualifier)",
+    teamSize: "1 person",
+    fee: "Free",
+    category: "coding",
+    day: "5th & 12th March 2026",
+    time: "Online: 6:00 PM - 8:00 PM | Offline: 10:00 AM - 2:00 PM",
     rules: [
       "Phase 1: Online Qualifier Round",
       "Date: 5th March 2026 | Time: 6:00 PM – 8:00 PM | Platform: GeeksforGeeks",
@@ -316,26 +363,44 @@ const eventData: Record<string, EventData> = {
       "Judges' decision will be final and binding.",
     ],
     eligibility: [
-      { time: '5th March 2026, 6:00 PM', activity: 'Phase 1: Online Qualifier Round on GeeksforGeeks' },
-      { time: '12th March 2026, 11:00 AM', activity: 'Phase 2: Offline Round 1 (Top 60 participants)' },
-      { time: '12th March 2026, 1:00 PM', activity: 'Phase 2: Final Round (Top 30 participants)' },
+      {
+        time: "5th March 2026, 6:00 PM",
+        activity: "Phase 1: Online Qualifier Round on GeeksforGeeks",
+      },
+      {
+        time: "12th March 2026, 11:00 AM",
+        activity: "Phase 2: Offline Round 1 (Top 60 participants)",
+      },
+      {
+        time: "12th March 2026, 1:00 PM",
+        activity: "Phase 2: Final Round (Top 30 participants)",
+      },
     ],
     coordinators: [
-      { name: 'SANCHITA KANDAR', email: 'sanchita.kandar1971@gmail.com', phone: '+91 9339483883' },
-      { name: 'RITESH SINGH', email: 'muqadarkasikandar03@gmail.com', phone: '+91 8905485844' },
+      {
+        name: "SANCHITA KANDAR",
+        email: "sanchita.kandar1971@gmail.com",
+        phone: "+91 9339483883",
+      },
+      {
+        name: "RITESH SINGH",
+        email: "muqadarkasikandar03@gmail.com",
+        phone: "+91 8905485844",
+      },
     ],
-    imagePath: '/event/bluster.jpg',
-    registerLink: 'https://forms.gle/CW46TPXuBZXPiwUy9'
+    imagePath: "/event/bluster.jpg",
+    registerLink: "https://forms.gle/CW46TPXuBZXPiwUy9",
   },
-  'the-architect': {
-    title: 'The Architect',
-    description: 'The Architect is an open-innovation hardware challenge where participants design and present their own hardware models or prototypes. There is no fixed problem statement, allowing complete creative freedom. Participants must explain the concept, working principle, and real-world application of their design. This event encourages hands-on engineering, innovation, and practical thinking. Teams build any hardware-based working model and demonstrate it live before judges.',
-    duration: '3 hours',
-    teamSize: '5 members max',
-    fee: '₹500 per team',
-    category: 'hardware',
-    day: '12th March 2026',
-    time: '10:00 AM - 2:00 PM',
+  "the-architect": {
+    title: "The Architect",
+    description:
+      "The Architect is an open-innovation hardware challenge where participants design and present their own hardware models or prototypes. There is no fixed problem statement, allowing complete creative freedom. Participants must explain the concept, working principle, and real-world application of their design. This event encourages hands-on engineering, innovation, and practical thinking. Teams build any hardware-based working model and demonstrate it live before judges.",
+    duration: "3 hours",
+    teamSize: "5 members max",
+    fee: "₹500 per team",
+    category: "hardware",
+    day: "12th March 2026",
+    time: "10:00 AM - 2:00 PM",
     rules: [
       "Open Innovation Hardware Challenge.",
       "Teams build any hardware-based working model.",
@@ -353,26 +418,44 @@ const eventData: Record<string, EventData> = {
       "Judges' decision will be final and binding.",
     ],
     eligibility: [
-      { time: '12th March 2026, 11:00 AM', activity: 'Hardware model building and design' },
-      { time: '12th March 2026, 12:00 PM', activity: 'Live demonstration before judges' },
-      { time: '12th March 2026, 1:00 PM', activity: 'Evaluation and result announcement' },
+      {
+        time: "12th March 2026, 11:00 AM",
+        activity: "Hardware model building and design",
+      },
+      {
+        time: "12th March 2026, 12:00 PM",
+        activity: "Live demonstration before judges",
+      },
+      {
+        time: "12th March 2026, 1:00 PM",
+        activity: "Evaluation and result announcement",
+      },
     ],
     coordinators: [
-      { name: 'MOUPRIYA KUNDU', email: 'moupriyakundu139@gmail.com', phone: '+91 9832986918' },
-      { name: 'ROUNAK BHANJA', email: 'rounak2002bhanja@gmail.com', phone: '+91 9830052068' },
+      {
+        name: "MOUPRIYA KUNDU",
+        email: "moupriyakundu139@gmail.com",
+        phone: "+91 9832986918",
+      },
+      {
+        name: "ROUNAK BHANJA",
+        email: "rounak2002bhanja@gmail.com",
+        phone: "+91 9830052068",
+      },
     ],
-    imagePath: '/event/architect.jpg',
-    registerLink: 'https://forms.gle/AVxpiBS2BYVh6bv96'
+    imagePath: "/event/architect.jpg",
+    registerLink: "https://forms.gle/AVxpiBS2BYVh6bv96",
   },
-  'the-prompters': {
-    title: 'The Prompters',
-    description: 'The Prompters is an AI prompt-engineering challenge where participants craft precise and creative prompts to guide AI models toward accurate outputs. Given a task or reference image, participants must design prompts that produce the closest possible result. This event tests creativity, clarity of instruction, and understanding of how AI systems interpret and respond to prompts.',
-    duration: '3 hours',
-    teamSize: '2 members max',
-    fee: '₹120 per team',
-    category: 'prompting',
-    day: '12th March 2026',
-    time: '9-2',
+  "the-prompters": {
+    title: "The Prompters",
+    description:
+      "The Prompters is an AI prompt-engineering challenge where participants craft precise and creative prompts to guide AI models toward accurate outputs. Given a task or reference image, participants must design prompts that produce the closest possible result. This event tests creativity, clarity of instruction, and understanding of how AI systems interpret and respond to prompts.",
+    duration: "3 hours",
+    teamSize: "2 members max",
+    fee: "₹120 per team",
+    category: "prompting",
+    day: "12th March 2026",
+    time: "9-2",
     rules: [
       "Sections compete separately. Strict time limits.",
       "Late submissions not accepted.",
@@ -387,51 +470,70 @@ const eventData: Record<string, EventData> = {
       "Anti-cheating policy strictly enforced.",
     ],
     eligibility: [
-      { time: '', activity: "Round 1: Search-Based Image Challenge (Non-qualifying elimination)." },
-      { time: '', activity: "Round 2: Technical Search Challenge (Top players qualify)." },
-      { time: '', activity: "Round 3: Creative AI-Based Challenge (Judges decide winners)." },
+      {
+        time: "",
+        activity:
+          "Round 1: Search-Based Image Challenge (Non-qualifying elimination).",
+      },
+      {
+        time: "",
+        activity: "Round 2: Technical Search Challenge (Top players qualify).",
+      },
+      {
+        time: "",
+        activity:
+          "Round 3: Creative AI-Based Challenge (Judges decide winners).",
+      },
     ],
     coordinators: [
-      { name: 'SENJUTI MONDAL', email: 'senjutim3@gmail.com', phone: '+91 7501558111' },
-      { name: 'NEEL DAS', email: 'neeldas0032@gmail.com', phone: '+91 7384007265' },
+      {
+        name: "SENJUTI MONDAL",
+        email: "senjutim3@gmail.com",
+        phone: "+91 7501558111",
+      },
+      {
+        name: "NEEL DAS",
+        email: "neeldas0032@gmail.com",
+        phone: "+91 7384007265",
+      },
     ],
-    imagePath: '/event/prompters.jpg',
-    registerLink: 'https://forms.gle/7zf3BnWwPMoNCiba8'
+    imagePath: "/event/prompters.jpg",
+    registerLink: "https://forms.gle/7zf3BnWwPMoNCiba8",
   },
 };
 
 export function EventDetails() {
   const { id } = useParams();
 
-  const isXibit = id === 'xibit';
+  const isXibit = id === "xibit";
 
   useEffect(() => {
     if (isXibit) {
-      const script = document.createElement('script');
-      script.src = 'https://apply.devfolio.co/v2/sdk.js';
+      const script = document.createElement("script");
+      script.src = "https://apply.devfolio.co/v2/sdk.js";
       script.async = true;
       script.defer = true;
       document.body.appendChild(script);
       return () => {
         document.body.removeChild(script);
-      }
+      };
     }
   }, [isXibit]);
 
   const event = eventData[id as string] || {
-    title: 'Event Not Found',
-    description: 'The requested event could not be found.',
-    duration: 'N/A',
-    teamSize: 'N/A',
-    fee: 'N/A',
-    category: 'unknown',
-    day: 'N/A',
-    time: 'N/A',
+    title: "Event Not Found",
+    description: "The requested event could not be found.",
+    duration: "N/A",
+    teamSize: "N/A",
+    fee: "N/A",
+    category: "unknown",
+    day: "N/A",
+    time: "N/A",
     rules: [],
     eligibility: [],
     flow: [],
     coordinators: [],
-    registerLink: 'https://forms.google.com',
+    registerLink: "https://forms.google.com",
   };
 
   return (
@@ -460,7 +562,7 @@ export function EventDetails() {
               <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-[#00d4ff]/30 shadow-lg shadow-[#00d4ff]/10 group">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 z-10" />
                 <img
-                  src={event.imagePath || '/event/EVENTPOSTER.jpeg'}
+                  src={event.imagePath || "/event/EVENTPOSTER.jpeg"}
                   alt={event.title}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
@@ -472,31 +574,60 @@ export function EventDetails() {
               <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent">
                 {event.title}
               </h1>
-              <p className="text-lg md:text-xl text-white/70 mb-6 md:mb-8">{event.description}</p>
+              <p className="text-lg md:text-xl text-white/70 mb-6 md:mb-8">
+                {event.description}
+              </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                {event.title === 'Xibit' && (
+                {event.title === "Xibit" && (
                   <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
                     <div className="text-sm text-white/60">Duration</div>
-                    <div className="text-lg md:text-xl font-bold">{event.duration}</div>
+                    <div className="text-lg md:text-xl font-bold">
+                      {event.duration}
+                    </div>
                   </div>
                 )}
                 <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
                   <div className="text-sm text-white/60">Date</div>
-                  <div className="text-lg md:text-xl font-bold">{event.day}</div>
+                  <div className="text-lg md:text-xl font-bold">
+                    {event.day}
+                  </div>
                 </div>
                 <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
                   <div className="text-sm text-white/60">Team Size</div>
-                  <div className="text-lg md:text-xl font-bold">{event.teamSize}</div>
+                  <div className="text-lg md:text-xl font-bold">
+                    {event.teamSize}
+                  </div>
                 </div>
                 <div className="p-4 md:p-6 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30">
                   <div className="text-sm text-white/60">Fee</div>
-                  <div className="text-lg md:text-xl font-bold">{event.fee}</div>
+                  <div className="text-lg md:text-xl font-bold">
+                    {event.fee}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </motion.div>
+
+        {/* YT video embed */}
+        <div className="w-full max-w-4xl mx-auto px-4 py-12 flex flex-col justify-center my-5">
+          <h2 className="text-lg md:text-xl text-white/70 font-bold mb-6 text-center">
+           Complete Registration Guide for Xibit
+          </h2>
+
+          <div className="w-full aspect-video">
+            <iframe
+              className="w-full h-full rounded-xl shadow-lg"
+              src="https://www.youtube.com/embed/Si2js_7otno?rel=0&modestbranding=1"
+              title="Xibit Hackathon Registration Guide"
+              loading="lazy"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
 
         <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
           <div className="lg:col-span-2 space-y-6 md:space-y-8">
@@ -507,7 +638,9 @@ export function EventDetails() {
               transition={{ delay: 0.1 }}
               className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 backdrop-blur-sm"
             >
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Ready to Participate?</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
+                Ready to Participate?
+              </h3>
               {/* {isXibit ? (
                 <div
                   className="apply-button w-full"
@@ -526,14 +659,16 @@ export function EventDetails() {
                   <button
                     className="relative w-full px-6 md:px-8 lg:px-10 py-3 md:py-4 bg-[#a855f7]/20 border border-[#a855f7] font-['Space_Grotesk'] font-bold text-[#a855f7] hover:bg-[#a855f7]/30 transition-colors duration-300 group inline-flex items-center justify-center gap-2 md:gap-3"
                     style={{
-                      clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
-                      transform: 'translateZ(0)',
-                      backfaceVisibility: 'hidden',
-                      WebkitBackfaceVisibility: 'hidden'
+                      clipPath:
+                        "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
+                      transform: "translateZ(0)",
+                      backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden",
                     }}
                   >
-
-                    <span className="text-sm md:text-base tracking-wider">REGISTER_NOW</span>
+                    <span className="text-sm md:text-base tracking-wider">
+                      REGISTER_NOW
+                    </span>
                     <ArrowRight className="size-4 md:size-5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </a>
@@ -548,29 +683,38 @@ export function EventDetails() {
               transition={{ delay: 0.4 }}
               className="lg:hidden p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
             >
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Event Coordinators</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
+                Event Coordinators
+              </h3>
               <div className="space-y-3 md:space-y-4">
-                {event.coordinators.map((coordinator: Coordinator, index: number) => (
-                  <div key={index} className="p-3 md:p-4 rounded-xl bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                    <div className="font-semibold text-sm md:text-base mb-2">{coordinator.name}</div>
-                    <div className="space-y-1">
-                      <a
-                        href={`mailto:${coordinator.email}`}
-                        className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
-                      >
-                        <Mail className="size-3 md:size-4" />
-                        {coordinator.email}
-                      </a>
-                      <a
-                        href={`tel:${coordinator.phone}`}
-                        className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
-                      >
-                        <Phone className="size-3 md:size-4" />
-                        {coordinator.phone}
-                      </a>
+                {event.coordinators.map(
+                  (coordinator: Coordinator, index: number) => (
+                    <div
+                      key={index}
+                      className="p-3 md:p-4 rounded-xl bg-[#00d4ff]/5 border border-[#00d4ff]/20"
+                    >
+                      <div className="font-semibold text-sm md:text-base mb-2">
+                        {coordinator.name}
+                      </div>
+                      <div className="space-y-1">
+                        <a
+                          href={`mailto:${coordinator.email}`}
+                          className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
+                        >
+                          <Mail className="size-3 md:size-4" />
+                          {coordinator.email}
+                        </a>
+                        <a
+                          href={`tel:${coordinator.phone}`}
+                          className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
+                        >
+                          <Phone className="size-3 md:size-4" />
+                          {coordinator.phone}
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ),
+                )}
               </div>
             </motion.div>
 
@@ -581,12 +725,16 @@ export function EventDetails() {
               transition={{ delay: 0.2 }}
               className="p-4 md:p-8 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
             >
-              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Event Format</h2>
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">
+                Event Format
+              </h2>
               <ul className="space-y-2 md:space-y-3">
                 {event.eligibility.map((item: EventFlowItem, index: number) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle2 className="size-4 md:size-5 text-[#00d4ff] shrink-0 mt-0.5" />
-                    <span className="text-sm md:text-base text-white/70">{item.activity}</span>
+                    <span className="text-sm md:text-base text-white/70">
+                      {item.activity}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -599,18 +747,24 @@ export function EventDetails() {
               transition={{ delay: 0.3 }}
               className="p-4 md:p-8 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
             >
-              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Rules & Guidelines</h2>
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">
+                Rules & Guidelines
+              </h2>
               <ul className="space-y-2 md:space-y-3">
                 {event.rules.map((rule: string, index: number) => {
                   const isHeader = /^\d+\./.test(rule);
                   return isHeader ? (
                     <li key={index} className="pt-4 first:pt-0 pb-2">
-                      <h3 className="text-lg font-bold text-[#00d4ff]">{rule}</h3>
+                      <h3 className="text-lg font-bold text-[#00d4ff]">
+                        {rule}
+                      </h3>
                     </li>
                   ) : (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle2 className="size-4 md:size-5 text-[#00d4ff] shrink-0 mt-0.5" />
-                      <span className="text-sm md:text-base text-white/70">{rule}</span>
+                      <span className="text-sm md:text-base text-white/70">
+                        {rule}
+                      </span>
                     </li>
                   );
                 })}
@@ -627,33 +781,41 @@ export function EventDetails() {
               transition={{ delay: 0.4 }}
               className="hidden lg:block p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 border border-[#00d4ff]/30 backdrop-blur-sm"
             >
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Event Coordinators</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
+                Event Coordinators
+              </h3>
               <div className="space-y-3 md:space-y-4">
-                {event.coordinators.map((coordinator: Coordinator, index: number) => (
-                  <div key={index} className="p-3 md:p-4 rounded-xl bg-[#00d4ff]/5 border border-[#00d4ff]/20">
-                    <div className="font-semibold text-sm md:text-base mb-2">{coordinator.name}</div>
-                    <div className="space-y-1">
-                      <a
-                        href={`mailto:${coordinator.email}`}
-                        className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
-                      >
-                        <Mail className="size-3 md:size-4" />
-                        {coordinator.email}
-                      </a>
-                      <a
-                        href={`tel:${coordinator.phone}`}
-                        className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
-                      >
-                        <Phone className="size-3 md:size-4" />
-                        {coordinator.phone}
-                      </a>
+                {event.coordinators.map(
+                  (coordinator: Coordinator, index: number) => (
+                    <div
+                      key={index}
+                      className="p-3 md:p-4 rounded-xl bg-[#00d4ff]/5 border border-[#00d4ff]/20"
+                    >
+                      <div className="font-semibold text-sm md:text-base mb-2">
+                        {coordinator.name}
+                      </div>
+                      <div className="space-y-1">
+                        <a
+                          href={`mailto:${coordinator.email}`}
+                          className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
+                        >
+                          <Mail className="size-3 md:size-4" />
+                          {coordinator.email}
+                        </a>
+                        <a
+                          href={`tel:${coordinator.phone}`}
+                          className="flex items-center gap-2 text-xs md:text-sm text-white/70 hover:text-[#00d4ff] transition-colors"
+                        >
+                          <Phone className="size-3 md:size-4" />
+                          {coordinator.phone}
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ),
+                )}
               </div>
             </motion.div>
           </div>
-
         </div>
       </div>
     </div>
