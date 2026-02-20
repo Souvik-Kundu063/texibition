@@ -72,7 +72,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="col-span-1 text-center sm:text-left">
+<div className="col-span-1 text-center sm:text-left">
             <div className="font-mono text-[#00d4ff] mb-2 sm:mb-3 text-xs">
               <span className="text-[#00ffff]">//</span> Contact
             </div>
@@ -82,14 +82,16 @@ export function Footer() {
                 <span className="hidden xs:inline">techclub@brainwareuniversity.ac.in</span>
                 <span className="xs:hidden">Tech Club</span>
               </a>
-              <a href="mailto:souvikkundu7718@gmail.com" className="flex items-center justify-center sm:justify-start gap-1 sm:gap-2 hover:text-[#00d4ff] transition-colors group">
-                <Mail className="size-3 sm:size-4 group-hover:animate-pulse" />
-                <span className="hidden sm:inline">souvikkundu7718@gmail.com</span>
-                <span className="sm:hidden">Contact</span>
-              </a>
-              <a href="tel:+917718427880" className="flex items-center justify-center sm:justify-start gap-1 sm:gap-2 hover:text-[#00d4ff] transition-colors group">
-                <span className="text-[#00d4ff] group-hover:text-white transition-colors">#</span>
-                <span>+91 7718427880</span>
+              <a 
+                href="#contact-us" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact-us')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="flex items-center justify-center sm:justify-start gap-1 sm:gap-2 hover:text-[#00d4ff] transition-colors group cursor-pointer"
+              >
+                <Users className="size-3 sm:size-4 group-hover:animate-pulse" />
+                <span>Contact Us</span>
               </a>
             </div>
           </div>
