@@ -296,7 +296,7 @@ export function Home() {
                     11-12 <span className="text-white/20 text-lg sm:text-2xl duration-300">|</span> MAR '26
                   </div>
                   <div className="text-white/40 font-['Rajdhani'] text-base sm:text-lg mt-1 tracking-widest uppercase">
-                    The Ultimate Tech Odyssey
+                    Innovating Intelligence: Building The Future With AI
                   </div>
                 </motion.div>
 
