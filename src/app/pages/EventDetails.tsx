@@ -497,6 +497,25 @@ export function EventDetails() {
             </div>
           </div>
         </motion.div>
+        
+        {/* YT video embed */}
+        <div className="w-full max-w-4xl mx-auto px-4 py-12 flex flex-col justify-center my-5">
+          <h2 className="text-lg md:text-xl text-white/70 font-bold mb-6 text-center">
+           Complete Registration Guide for Xibit
+          </h2>
+
+          <div className="w-full aspect-video">
+            <iframe
+              className="w-full h-full rounded-xl shadow-lg"
+              src="https://www.youtube.com/embed/Si2js_7otno?rel=0&modestbranding=1"
+              title="Xibit Hackathon Registration Guide"
+              loading="lazy"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
 
         <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
           <div className="lg:col-span-2 space-y-6 md:space-y-8">
