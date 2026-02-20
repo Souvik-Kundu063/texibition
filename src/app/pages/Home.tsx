@@ -268,6 +268,17 @@ export function Home() {
                 </motion.div>
 
                 <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.9 }}
+                    className="mt-3 text-center lg:text-left"
+                  >
+                    <div className="font-['Rajdhani'] text-lg sm:text-xl tracking-wider uppercase font-semibold text-[#FFD60A]">
+                      Innovating Intelligence: Building The Future With AI
+                    </div>
+                  </motion.div>
+
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
@@ -294,9 +305,6 @@ export function Home() {
                 >
                   <div className="font-['Orbitron'] font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#ff6b35] drop-shadow-lg">
                     11-12 <span className="text-white/20 text-lg sm:text-2xl duration-300">|</span> MAR '26
-                  </div>
-                  <div className="text-white/40 font-['Rajdhani'] text-base sm:text-lg mt-1 tracking-widest uppercase">
-                    Innovating Intelligence: Building The Future With AI
                   </div>
                 </motion.div>
 
