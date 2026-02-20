@@ -146,7 +146,7 @@ const eventData: Record<string, EventData> = {
     ],
     coordinators: [
       { name: 'ABHIK CHATTERJEE', email: 'abhikchatterjee879@gmail.com', phone: '+91 9733549955' },
-      { name: 'PRITAM GHORAI', email: 'pritamghorai2006@gmail.com', phone: '+91 9382932972' },
+      { name: 'SAYAN ROY', email: 'roysamirroysamir9998@gmail.com', phone: '+91 9674363753' },
     ],
     imagePath: '/event/pubg.jpg',
     registerLink: 'https://forms.gle/LHJmfoF3U9LUmtwB6'
