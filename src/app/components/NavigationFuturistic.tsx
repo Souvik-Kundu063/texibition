@@ -9,12 +9,13 @@ export function NavigationFuturistic() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const location = useLocation();
 
-  const navLinks = [
+const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Events', path: '/events' },
     // { name: 'Schedule', path: '/schedule' },
     { name: 'Sponsors', path: '/sponsors' },
     { name: 'Team', path: '/team' },
+    { name: 'Gallery', path: '/event-gallery' },
     { name: 'FAQ', path: '/faq' },
     { name: 'Merch', path: 'https://cozzon.in/shop/product/texibition-2k26-official-tee', isExternal: true },
     { name: 'Code of Conduct', path: '/code-of-conduct' },
