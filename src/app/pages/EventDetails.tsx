@@ -54,9 +54,9 @@ const eventData: Record<string, EventData> = {
       { time: '', activity: 'Multiple algorithmic problems to solve' },
       { time: '', activity: 'Time-based evaluation and judging' },
     ],
-    coordinators: [
-      { name: 'SAYANTANI DUTTA', email: 'sayantanidutta.work@gmail.com', phone: '+91 9477518897' },
+coordinators: [
       { name: 'DEBASIS KHAMARI', email: 'debasiskhamari7@gmail.com', phone: '+91 9064906396' },
+      { name: 'SAYANTANI DUTTA', email: 'sayantanidutta.work@gmail.com', phone: '+91 9477518897' },
     ],
     imagePath: '/event/xihibit.jpg',
     registerLink: 'https://the-xibit.devfolio.co/'
