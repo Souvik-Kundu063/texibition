@@ -125,6 +125,18 @@ const sponsors = [
   { name: 'Devfolio', logo: '/sponsors/Devfolio.png', color: 'from-[#00ff88] to-[#00d4ff]', category: 'Hackathon Platform' },
 ];
 
+// Gallery images for marquee
+const galleryImages = [
+  { id: 1, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620589/54491969277_047478720b_o_liehqe.jpg', alt: 'Event moment 1' },
+  { id: 2, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620672/54492836266_d67be3fe9d_o_qbnpyu.jpg', alt: 'Event moment 2' },
+  { id: 3, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620584/54503423770_e4a9e98fde_o_chh3hf.jpg', alt: 'Event moment 3' },
+  { id: 4, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620669/54492836741_b1ddd1eb23_o_d9lupr.jpg', alt: 'Event moment 4' },
+  { id: 5, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620770/54503251394_8fd5735628_o_x6e0rk.jpg', alt: 'Event moment 5' },
+  { id: 6, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620655/54503423745_29a46510ca_o_i8udlh.jpg', alt: 'Event moment 6' },
+  { id: 7, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620821/54493180685_ee5d1d4ac9_o_jeydoh.jpg', alt: 'Event moment 7' },
+  { id: 8, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620927/54492835961_0c1e52092f_o_meqvbl.jpg', alt: 'Event moment 8' },
+];
+
 // Event highlights data
 const highlightsData = [
   {
@@ -658,6 +670,101 @@ export function Home() {
               >
                 <span>VIEW_ALL_SPONSORS</span>
                 <ArrowRight className="size-3 sm:size-4" />
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          {/* Event Gallery Marquee */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="mt-16 sm:mt-20 lg:mt-24"
+          >
+            <div className="text-center mb-6 sm:mb-8">
+              <div className="font-mono text-[#a855f7] mb-2 sm:mb-3 text-xs sm:text-sm">
+                <span className="text-[#00ffff]">//</span> event_gallery.js
+              </div>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold font-['Orbitron'] text-white">
+                Event <span className="text-[#a855f7]">Gallery</span>
+              </h3>
+              <p className="text-white/60 text-xs sm:text-sm mt-2 font-['Rajdhani']">
+                Glimpses from TEXIBITION 2K25
+              </p>
+            </div>
+
+            {/* Two Row Marquee - Row 1 (Forward) */}
+            <div className="relative overflow-hidden mb-4">
+              <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-r from-[#0a0a0f] to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-l from-[#0a0a0f] to-transparent z-10" />
+              
+              <div className="flex items-center py-3">
+                <div className="flex animate-marquee whitespace-nowrap">
+                  {[...galleryImages, ...galleryImages, ...galleryImages].map((image, index) => (
+                    <div
+                      key={`gallery-row1-${index}`}
+                      className="flex-shrink-0 mx-4 sm:mx-5 lg:mx-6"
+                    >
+                      <div className="w-40 sm:w-52 lg:w-64 h-24 sm:h-32 lg:h-40 rounded-lg overflow-hidden border border-[#a855f7]/30">
+                        <img 
+                          src={image.src} 
+                          alt={image.alt}
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Two Row Marquee - Row 2 (Backward) */}
+            <div className="relative overflow-hidden mb-8">
+              <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-r from-[#0a0a0f] to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-l from-[#0a0a0f] to-transparent z-10" />
+              
+              <div className="flex items-center py-3">
+                <div className="flex animate-marquee-reverse whitespace-nowrap">
+                  {[...galleryImages.slice().reverse(), ...galleryImages.slice().reverse(), ...galleryImages.slice().reverse()].map((image, index) => (
+                    <div
+                      key={`gallery-row2-${index}`}
+                      className="flex-shrink-0 mx-4 sm:mx-5 lg:mx-6"
+                    >
+                      <div className="w-40 sm:w-52 lg:w-64 h-24 sm:h-32 lg:h-40 rounded-lg overflow-hidden border border-[#00d4ff]/30">
+                        <img 
+                          src={image.src} 
+                          alt={image.alt}
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* View Gallery Button */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="text-center"
+            >
+              <Link to="/event-gallery">
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(168, 85, 247, 0.35)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative px-8 sm:px-10 py-3 sm:py-4 bg-[#a855f7]/10 border border-[#a855f7] rounded-none skew-x-[-10deg] font-['Space_Grotesk'] font-bold text-[#a855f7] hover:bg-[#a855f7]/20 transition-all duration-300 flex items-center gap-3 mx-auto"
+                >
+                  <div className="skew-x-[10deg] flex items-center gap-3">
+                    <span className="text-[#c084fc] text-sm sm:text-base">$</span>
+                    <span className="text-sm sm:text-lg tracking-wide">VIEW_FULL_GALLERY</span>
+                    <ArrowRight className="size-5 sm:size-6 text-[#a855f7] group-hover:translate-x-2 transition-transform duration-300" />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#a855f7]/20 via-[#00d4ff]/10 to-[#a855f7]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
+                </motion.button>
               </Link>
             </motion.div>
           </motion.div>
