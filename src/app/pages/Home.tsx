@@ -1,7 +1,7 @@
 
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Heart, Lightbulb } from 'lucide-react';
+import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Heart, Lightbulb, Phone, Mail } from 'lucide-react';
 import { CountdownTimer } from '../components/CountdownTimer';
 import { InteractiveBackground } from '../components/InteractiveBackground';
 import Spline from '@splinetool/react-spline';
@@ -123,6 +123,18 @@ const sponsors = [
   { name: 'GDG', logo: '/sponsors/GDG.png', color: 'from-[#4285f4] to-[#34a853]', category: 'Community Partner' },
   { name: 'Prepverse', logo: '/sponsors/Prepverse.png', color: 'from-[#a855f7] to-[#ec4899]', category: 'Career Partner' },
   { name: 'Devfolio', logo: '/sponsors/Devfolio.png', color: 'from-[#00ff88] to-[#00d4ff]', category: 'Hackathon Platform' },
+];
+
+// Gallery images for marquee
+const galleryImages = [
+  { id: 1, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620589/54491969277_047478720b_o_liehqe.jpg', alt: 'Event moment 1' },
+  { id: 2, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620672/54492836266_d67be3fe9d_o_qbnpyu.jpg', alt: 'Event moment 2' },
+  { id: 3, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620584/54503423770_e4a9e98fde_o_chh3hf.jpg', alt: 'Event moment 3' },
+  { id: 4, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620669/54492836741_b1ddd1eb23_o_d9lupr.jpg', alt: 'Event moment 4' },
+  { id: 5, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620770/54503251394_8fd5735628_o_x6e0rk.jpg', alt: 'Event moment 5' },
+  { id: 6, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620655/54503423745_29a46510ca_o_i8udlh.jpg', alt: 'Event moment 6' },
+  { id: 7, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620821/54493180685_ee5d1d4ac9_o_jeydoh.jpg', alt: 'Event moment 7' },
+  { id: 8, src: 'https://res.cloudinary.com/dyeglgnfd/image/upload/f_auto,q_auto/v1771620927/54492835961_0c1e52092f_o_meqvbl.jpg', alt: 'Event moment 8' },
 ];
 
 // Event highlights data
@@ -662,56 +674,241 @@ export function Home() {
             </motion.div>
           </motion.div>
 
+          {/* Event Gallery Marquee */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="mt-16 sm:mt-20 lg:mt-24"
+          >
+            <div className="text-center mb-6 sm:mb-8">
+              <div className="font-mono text-[#a855f7] mb-2 sm:mb-3 text-xs sm:text-sm">
+                <span className="text-[#00ffff]">//</span> event_gallery.js
+              </div>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold font-['Orbitron'] text-white">
+                Event <span className="text-[#a855f7]">Gallery</span>
+              </h3>
+              <p className="text-white/60 text-xs sm:text-sm mt-2 font-['Rajdhani']">
+                Glimpses from TEXIBITION 2K25
+              </p>
+            </div>
+
+            {/* Two Row Marquee - Row 1 (Forward) */}
+            <div className="relative overflow-hidden mb-4">
+              <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-r from-[#0a0a0f] to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-l from-[#0a0a0f] to-transparent z-10" />
+              
+              <div className="flex items-center py-3">
+                <div className="flex animate-marquee whitespace-nowrap">
+                  {[...galleryImages, ...galleryImages, ...galleryImages].map((image, index) => (
+                    <div
+                      key={`gallery-row1-${index}`}
+                      className="flex-shrink-0 mx-4 sm:mx-5 lg:mx-6"
+                    >
+                      <div className="w-40 sm:w-52 lg:w-64 h-24 sm:h-32 lg:h-40 rounded-lg overflow-hidden border border-[#a855f7]/30">
+                        <img 
+                          src={image.src} 
+                          alt={image.alt}
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Two Row Marquee - Row 2 (Backward) */}
+            <div className="relative overflow-hidden mb-8">
+              <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-r from-[#0a0a0f] to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-l from-[#0a0a0f] to-transparent z-10" />
+              
+              <div className="flex items-center py-3">
+                <div className="flex animate-marquee-reverse whitespace-nowrap">
+                  {[...galleryImages.slice().reverse(), ...galleryImages.slice().reverse(), ...galleryImages.slice().reverse()].map((image, index) => (
+                    <div
+                      key={`gallery-row2-${index}`}
+                      className="flex-shrink-0 mx-4 sm:mx-5 lg:mx-6"
+                    >
+                      <div className="w-40 sm:w-52 lg:w-64 h-24 sm:h-32 lg:h-40 rounded-lg overflow-hidden border border-[#00d4ff]/30">
+                        <img 
+                          src={image.src} 
+                          alt={image.alt}
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* View Gallery Button */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="text-center"
+            >
+              <Link to="/event-gallery">
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(168, 85, 247, 0.35)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative px-8 sm:px-10 py-3 sm:py-4 bg-[#a855f7]/10 border border-[#a855f7] rounded-none skew-x-[-10deg] font-['Space_Grotesk'] font-bold text-[#a855f7] hover:bg-[#a855f7]/20 transition-all duration-300 flex items-center gap-3 mx-auto"
+                >
+                  <div className="skew-x-[10deg] flex items-center gap-3">
+                    <span className="text-[#c084fc] text-sm sm:text-base">$</span>
+                    <span className="text-sm sm:text-lg tracking-wide">VIEW_FULL_GALLERY</span>
+                    <ArrowRight className="size-5 sm:size-6 text-[#a855f7] group-hover:translate-x-2 transition-transform duration-300" />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#a855f7]/20 via-[#00d4ff]/10 to-[#a855f7]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
+                </motion.button>
+              </Link>
+            </motion.div>
+          </motion.div>
+
         </div>
       </section>
             {/* Gallery Section   Last Year Pictures Section * /}
         {/* <PreviousYearGallary/> */}
-      {/* CTA Section */}
-      <section className="py-10 sm:py-12 lg:py-10 relative">
+{/* CTA Section */}
+      <section id="contact-us" className="py-10 sm:py-12 lg:py-16 relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative p-1 rounded-xl sm:rounded-3xl bg-gradient-to-br from-[#00d4ff]/30 to-[#a855f7]/30 backdrop-blur-md overflow-hidden"
+            className="relative p-6 sm:p-8 md:p-10 rounded-2xl overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, rgba(10,10,15,0.9) 0%, rgba(20,20,40,0.8) 100%)',
+              backdropFilter: 'blur(18px)',
+              border: '1px solid rgba(0,255,255,0.3)',
+              boxShadow: '0 0 40px rgba(0,212,255,0.15), 0 0 80px rgba(168,85,247,0.1)'
+            }}
           >
-            <div className="absolute inset-0 bg-[#0a0a0f] m-[1px] rounded-[21px] sm:rounded-[22px] z-0" />
+            {/* Glow Effects */}
+            <div className="absolute top-0 left-1/4 w-32 sm:w-48 h-32 sm:h-48 bg-[#00d4ff]/20 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-1/4 w-32 sm:w-48 h-32 sm:h-48 bg-[#a855f7]/20 rounded-full blur-3xl" />
 
-            <div className="relative z-10 p-6 sm:p-10 md:p-12 lg:p-16 text-center">
-
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-[#00d4ff]/30 bg-[#00d4ff]/10 mb-4 sm:mb-6 lg:mb-8">
+            <div className="relative z-10 text-center mb-8 sm:mb-10 lg:mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-[#00d4ff]/30 bg-[#00d4ff]/10 mb-4 sm:mb-6">
                 <div className="w-2 h-2 bg-[#00ff9d] rounded-full animate-pulse" />
                 <span className="font-['Space_Grotesk'] text-[#00d4ff] text-xs tracking-widest uppercase">System Status: Online</span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 font-['Orbitron'] text-white">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 font-['Orbitron'] text-white">
                 <span className="text-[#00d4ff]">{"<"}</span>
-                READY_TO_JOIN?
+                CONTACT_US
                 <span className="text-[#00d4ff]">{"/>"}</span>
               </h2>
 
-              <p className="text-sm sm:text-base lg:text-xl text-white/70 mb-6 sm:mb-8 lg:mb-10 max-w-xl lg:max-w-2xl mx-auto font-['Rajdhani'] font-medium tracking-wide px-4">
-                Initialize your potential. Register now to access the mainframe and compete in the ultimate tech odyssey.
+              <p className="text-sm sm:text-base lg:text-lg text-white/60 max-w-xl mx-auto font-['Rajdhani'] font-medium tracking-wide">
+                Connect with the core team. For sponsorships, partnerships, or event-related queries, reach out directly.
               </p>
-
-              <Link to="/events">
-                <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(168, 85, 247, 0.4)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-[#a855f7]/20 border border-[#a855f7] rounded-none skew-x-[-10deg] font-['Space_Grotesk'] font-bold text-[#a855f7] hover:bg-[#a855f7]/30 transition-all duration-300 group inline-flex items-center gap-2 sm:gap-3"
-                >
-                  <div className="skew-x-[10deg] flex items-center gap-2">
-                    <Terminal className="size-4 sm:size-5" />
-                    <span className="text-sm sm:text-base">INITIATE_REGISTRATION</span>
-                    <ArrowRight className="size-4 sm:size-5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </motion.button>
-              </Link>
             </div>
 
-            {/* Decorative Corner Lines */}
-            <div className="absolute top-0 left-0 w-12 sm:w-16 lg:w-20 h-12 sm:h-16 lg:h-20 border-l-2 border-t-2 border-[#00d4ff]/50 rounded-tl-xl sm:rounded-tl-3xl" />
-            <div className="absolute bottom-0 right-0 w-12 sm:w-16 lg:w-20 h-12 sm:h-16 lg:h-20 border-r-2 border-b-2 border-[#a855f7]/50 rounded-br-xl sm:rounded-br-3xl" />
+{/* Contact Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
+              {[
+                {
+                  designation: 'Convenor',
+                  name: 'Mr. Partha Pratim Dasgupta',
+                  phone: '+91 89611 42172',
+                  email: 'techclub@brainwareuniversity.ac.in'
+                },
+                {
+                  designation: 'Treasurer',
+                  name: 'Dr. Arighna Basak',
+                  phone: '+91 94337 78573',
+                  email: 'techclub@brainwareuniversity.ac.in'
+                },
+                {
+                  designation: 'Lead Organizer',
+                  name: 'Madhusudan Mahatha',
+                  phone: '+91 6289600599',
+                  email: 'madhusudanmahatha14@gmail.com'
+                },
+                {
+                  designation: 'Lead Organizer',
+                  name: 'Tushar Daiya',
+                  phone: '+91 9123720395',
+                  email: 'tdaiya02@gmail.com'
+                },
+                {
+                  designation: 'Lead Organizer',
+                  name: 'Souvik Kundu',
+                  phone: '+91 7718427880',
+                  email: 'souvikkundu7718@gmail.com'
+                }
+              ].map((contact, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  whileHover={{ scale: 1.03 }}
+                  className="group relative p-4 sm:p-5 rounded-xl transition-all duration-300 cursor-pointer"
+                  style={{
+                    background: 'rgba(255,255,255,0.06)',
+                    backdropFilter: 'blur(18px)',
+                    border: '1px solid rgba(0,255,255,0.2)',
+                    boxShadow: '0 0 20px rgba(0,212,255,0.1)'
+                  }}
+                >
+                  {/* Hover Glow */}
+                  <div 
+                    className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(168,85,247,0.1) 100%)',
+                      boxShadow: '0 0 30px rgba(0,212,255,0.3), 0 0 60px rgba(168,85,247,0.2)'
+                    }}
+                  />
+
+                  <div className="relative z-10">
+                    {/* Designation Label */}
+                    <div className="inline-block px-2 py-0.5 mb-2 sm:mb-3 rounded text-[10px] sm:text-xs font-['Space_Grotesk'] font-semibold uppercase tracking-wider"
+                      style={{
+                        background: 'linear-gradient(90deg, rgba(0,212,255,0.2) 0%, rgba(168,85,247,0.2) 100%)',
+                        color: '#00d4ff',
+                        border: '1px solid rgba(0,212,255,0.3)'
+                      }}
+                    >
+                      {contact.designation}
+                    </div>
+
+                    {/* Name */}
+                    <h3 className="text-base sm:text-lg font-bold font-['Orbitron'] text-white mb-3 sm:mb-4 group-hover:text-[#00d4ff] transition-colors duration-300">
+                      {contact.name}
+                    </h3>
+
+                    {/* Phone */}
+                    <div className="flex items-center gap-2 sm:gap-3 mb-2">
+                      <Phone className="size-3 sm:size-4 text-[#a855f7] flex-shrink-0" />
+                      <a 
+                        href={`tel:${contact.phone.replace(/\s/g, '')}`}
+                        className="text-xs sm:text-sm text-white/70 hover:text-[#00d4ff] transition-colors duration-300 font-['Rajdhani']"
+                      >
+                        {contact.phone}
+                      </a>
+                    </div>
+
+                    {/* Email */}
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <Mail className="size-3 sm:size-4 text-[#a855f7] flex-shrink-0" />
+                      <a 
+                        href={`mailto:${contact.email}`}
+                        className="text-xs sm:text-sm text-white/70 hover:text-[#00d4ff] transition-colors duration-300 font-['Rajdhani'] truncate"
+                      >
+                        {contact.email}
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>

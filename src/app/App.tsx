@@ -11,6 +11,7 @@ import { CodeOfConduct } from './pages/CodeOfConduct';
 import { Sponsors } from './pages/Sponsors';
 import Team from './pages/Team'; 
 import { FAQ } from './pages/FAQ';
+import EventGallery from './pages/EventGallery';
 import { Footer } from './components/Footer';
 import { MerchPopup } from './components/MerchPopup';
 import { FloatingMerchButton } from './components/FloatingMerchButton';
@@ -60,6 +61,7 @@ export default function App() {
           <Route path="/code-of-conduct" element={<CodeOfConduct />} />
           <Route path="/sponsors" element={<Sponsors />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/event-gallery" element={<EventGallery />} />
           <Route path="/faq" element={<FAQ />} />
         </Routes>
         <Footer />
