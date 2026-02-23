@@ -11,8 +11,7 @@ interface TimeLeft {
 
 
 export function CountdownTimer() {
-  // Set registration deadline to February 28, 2026 12:00 PM
-  const registrationDeadline = new Date('2026-02-28T12:00:00').getTime();
+  const registrationDeadline = new Date('2026-02-28T23:59:59').getTime();
 
 
   const calculateTimeLeft = (): TimeLeft => {

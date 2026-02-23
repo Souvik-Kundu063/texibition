@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
+import { useRegistrationStatus } from '../hooks/useRegistrationStatus';
 
 interface EventFlowItem {
   time: string;
@@ -402,6 +403,7 @@ const eventData: Record<string, EventData> = {
 
 export function EventDetails() {
   const { id } = useParams();
+  const { isOpen: isRegistrationOpen } = useRegistrationStatus();
 
   const isXibit = id === 'xibit';
 
@@ -528,7 +530,9 @@ export function EventDetails() {
               transition={{ delay: 0.1 }}
               className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 backdrop-blur-sm"
             >
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Ready to Participate?</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
+                {isRegistrationOpen ? 'Ready to Participate?' : 'Registration Closed'}
+              </h3>
               {/* {isXibit ? (
                 <div
                   className="apply-button w-full"
@@ -538,14 +542,30 @@ export function EventDetails() {
                 ></div> 
               ) : ( */}
               <>
-                <a
-                  href={event.registerLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full"
-                >
+                {isRegistrationOpen ? (
+                  <a
+                    href={event.registerLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full"
+                  >
+                    <button
+                      className="relative w-full px-6 md:px-8 lg:px-10 py-3 md:py-4 bg-[#a855f7]/20 border border-[#a855f7] font-['Space_Grotesk'] font-bold text-[#a855f7] hover:bg-[#a855f7]/30 transition-colors duration-300 group inline-flex items-center justify-center gap-2 md:gap-3"
+                      style={{
+                        clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
+                        transform: 'translateZ(0)',
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden'
+                      }}
+                    >
+                      <span className="text-sm md:text-base tracking-wider">REGISTER_NOW</span>
+                      <ArrowRight className="size-4 md:size-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </a>
+                ) : (
                   <button
-                    className="relative w-full px-6 md:px-8 lg:px-10 py-3 md:py-4 bg-[#a855f7]/20 border border-[#a855f7] font-['Space_Grotesk'] font-bold text-[#a855f7] hover:bg-[#a855f7]/30 transition-colors duration-300 group inline-flex items-center justify-center gap-2 md:gap-3"
+                    disabled
+                    className="relative w-full px-6 md:px-8 lg:px-10 py-3 md:py-4 bg-gray-600/20 border border-gray-500 font-['Space_Grotesk'] font-bold text-gray-400 cursor-not-allowed inline-flex items-center justify-center gap-2 md:gap-3"
                     style={{
                       clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
                       transform: 'translateZ(0)',
@@ -553,11 +573,9 @@ export function EventDetails() {
                       WebkitBackfaceVisibility: 'hidden'
                     }}
                   >
-
-                    <span className="text-sm md:text-base tracking-wider">REGISTER_NOW</span>
-                    <ArrowRight className="size-4 md:size-5 group-hover:translate-x-1 transition-transform" />
+                    <span className="text-sm md:text-base tracking-wider">REGISTRATION_CLOSED</span>
                   </button>
-                </a>
+                )}
               </>
               {/* )} */}
             </motion.div>
