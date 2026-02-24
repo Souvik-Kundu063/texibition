@@ -60,7 +60,7 @@ const navLinks = [
       />
       
       {/* Mobile: Spacer for fixed nav */}
-      <div class="h-16 lg:hidden" />
+      <div className="h-16 lg:hidden" />
       
       {/* Mobile: Standalone hamburger button - round, right corner, no navbar box */}
       <motion.button
@@ -93,7 +93,7 @@ const navLinks = [
           <div className="flex items-center justify-between h-12 sm:h-14 lg:h-14 xl:h-16 2xl:h-16">
 
             {/* Desktop Navigation - Centered */}
-            <div className="flex items-center gap-1 sm:gap-1.5 lg:gap-1.5 xl:gap-2 overflow-x-auto no-scrollbar">
+            <div className="flex items-center gap-1 sm:gap-1.5 lg:gap-1.5 xl:gap-2 overflow-x-auto no-scrollbar px-5 py-2">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}
