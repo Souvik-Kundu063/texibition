@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 interface Particle {
   x: number;
@@ -24,6 +24,23 @@ export function InteractiveBackground() {
   const nodesRef = useRef<Node[]>([]);
   const mouseRef = useRef({ x: 0, y: 0 });
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [isVisible, setIsVisible] = useState(true);
+
+  // Check if component is visible using Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (canvasRef.current) {
+      observer.observe(canvasRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   // Initialize particles
   const initParticles = () => {
@@ -99,9 +116,15 @@ export function InteractiveBackground() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Animation loop
+  // Animation loop - optimized to pause when not visible
   useEffect(() => {
     const animate = () => {
+      // Skip animation if not visible to save resources
+      if (!isVisible) {
+        animationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+      
       const canvas = canvasRef.current;
       if (!canvas) return;
 

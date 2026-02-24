@@ -33,7 +33,7 @@ const navLinks = [
     };
 
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         setIsOpen(false);
       }
     };
@@ -51,49 +51,49 @@ const navLinks = [
 
   return (
     <>
-      {/* Glowing background effect */}
+      {/* Glowing background effect - Desktop only */}
       <motion.div
-        className="fixed inset-0 pointer-events-none z-30 hidden sm:block"
+        className="fixed inset-0 pointer-events-none z-30 hidden lg:block"
         style={{
           background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 212, 255, 0.08) 0%, rgba(168, 85, 247, 0.04) 30%, transparent 70%)`,
         }}
       />
       
-      {/* Spacer for fixed nav */}
-      <div className="h-16 sm:h-20" />
+      {/* Mobile: Spacer for fixed nav */}
+      <div class="h-16 lg:hidden" />
       
+      {/* Mobile: Standalone hamburger button - round, right corner, no navbar box */}
+      <motion.button
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => setIsOpen(!isOpen)}
+        className="lg:hidden fixed top-4 right-4 z-50 p-3 text-white hover:text-[#00d4ff] transition-colors bg-[#0a0a0f]/80 backdrop-blur-md rounded-full border border-white/20"
+      >
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+        </motion.div>
+      </motion.button>
+
+      {/* Desktop Navigation - Full navbar container */}
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 rounded-2xl hidden lg:block ${
           isScrolled
-            ? 'bg-[#0a0a0f]/95 backdrop-blur-xl border-b border-[#00d4ff]/30 shadow-2xl shadow-[#00d4ff]/10'
-            : 'bg-[#0a0a0f]/90 backdrop-blur-md'
+            ? 'bg-[#0a0a0f]/90 backdrop-blur-xl border border-white/20 shadow-lg shadow-black/20'
+            : 'bg-white/10 backdrop-blur-xl border border-white/20'
         }`}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="px-10">
+          <div className="flex items-center justify-between h-16">
 
-            {/* Logo and University Logo */}
-            <Link to="/" className="flex items-center gap-2 sm:gap-4 group">
-              {/* BWU Logo */}
-              <div className="relative">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  className="relative overflow-hidden"
-                >
-                  <img 
-                    src="/images/texibitionlogo.png" 
-                    alt="Brainware University" 
-                    className="h-10 sm:h-12 md:h-16 w-auto"
-                  />
-                </motion.div>
-              </div>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+            {/* Desktop Navigation - Centered */}
+            <div className="flex items-center gap-2">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}
@@ -102,31 +102,15 @@ const navLinks = [
                   transition={{ delay: index * 0.05 }}
                   className="relative"
                 >
-                  {link.isExternal ? (
+                {link.isExternal ? (
                     <a
                       href={link.path}
                       target="_self"
                       rel="noopener noreferrer"
-                      className="relative group px-2 xl:px-3 py-1.5 xl:py-2 rounded-lg overflow-hidden cursor-pointer"
+                      className="relative group px-3 py-2 rounded-lg overflow-hidden cursor-pointer"
                     >
-                      {/* Background glow effect */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-[#a855f7]/10 to-[#ec4899]/10"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                      
-                      {/* Border effect */}
-                      <motion.div
-                        className="absolute inset-0 border border-[#a855f7]/40 rounded-lg"
-                        whileHover={{ 
-                          borderColor: '#a855f7',
-                          boxShadow: '0 0 20px rgba(168, 85, 247, 0.4)'
-                        }}
-                      />
-                      
                       <span
-                        className={`relative z-10 text-xs xl:text-sm font-medium transition-colors text-[#a855f7] group-hover:text-[#ec4899]`}
+                        className={`relative z-10 text-sm font-medium transition-colors text-[#a855f7] group-hover:text-[#ec4899]`}
                       >
                         {link.name}
                       </span>
@@ -134,26 +118,10 @@ const navLinks = [
                   ) : (
                     <Link
                       to={link.path}
-                      className="relative group px-2 xl:px-3 py-1.5 xl:py-2 rounded-lg overflow-hidden"
+                      className="relative group px-3 py-2 rounded-lg overflow-hidden"
                     >
-                      {/* Background glow effect */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-[#00d4ff]/5 to-[#a855f7]/5"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                      
-                      {/* Border effect */}
-                      <motion.div
-                        className="absolute inset-0 border border-[#00d4ff]/20 rounded-lg"
-                        whileHover={{ 
-                          borderColor: '#00d4ff',
-                          boxShadow: '0 0 20px rgba(0, 212, 255, 0.4)'
-                        }}
-                      />
-                      
                       <span
-                        className={`relative z-10 text-xs xl:text-sm font-medium transition-colors ${
+                        className={`relative z-10 text-sm font-medium transition-colors ${
                           isActive(link.path)
                             ? 'text-[#00d4ff]'
                             : 'text-white/70 group-hover:text-white'
@@ -184,7 +152,7 @@ const navLinks = [
               >
                 <Link
                   to="/events"
-                  className="relative px-3 xl:px-4 py-1.5 border border-[#00d4ff] bg-[#00d4ff]/10 rounded-lg skew-x-[-10deg] overflow-hidden group block hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-shadow duration-300"
+                  className="relative px-4 py-1.5 border border-[#00d4ff] bg-[#00d4ff]/10 rounded-lg skew-x-[-10deg] overflow-hidden group block hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-shadow duration-300"
                 >
                   <span className="relative z-10 font-['Space_Grotesk'] font-bold text-[#00d4ff] block skew-x-[10deg] uppercase tracking-wider text-xs">
                     Register
@@ -192,47 +160,21 @@ const navLinks = [
                 </Link>
               </motion.div>
             </div>
-
-            {/* Mobile Menu Button */}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 sm:p-3 text-white hover:text-[#00d4ff] transition-colors relative"
-            >
-              {/* Animated background */}
-              <motion.div
-                className="absolute inset-0 bg-[#00d4ff]/10 rounded-lg"
-                animate={{
-                  opacity: isOpen ? 1 : 0,
-                  scale: isOpen ? 1 : 0.8,
-                }}
-                transition={{ duration: 0.3 }}
-              />
-              
-
-              <motion.div
-                animate={{ rotate: isOpen ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="relative"
-              >
-                {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
-              </motion.div>
-            </motion.button>
           </div>
         </div>
+      </motion.nav>
 
-        {/* Mobile Navigation */}
-        <motion.div
-          initial={false}
-          animate={{
-            height: isOpen ? 'auto' : 0,
-            opacity: isOpen ? 1 : 0,
-          }}
-          transition={{ duration: 0.3 }}
-          className="lg:hidden overflow-hidden bg-[#0a0a0f]/98 backdrop-blur-xl border-t border-[#00d4ff]/20"
-        >
-          <div className="px-4 py-4 space-y-2">
+      {/* Mobile Navigation - Full screen overlay menu */}
+      <motion.div
+        initial={false}
+        animate={{
+          height: isOpen ? 'auto' : 0,
+          opacity: isOpen ? 1 : 0,
+        }}
+        transition={{ duration: 0.3 }}
+        className="lg:hidden fixed top-16 left-0 right-0 z-40 overflow-hidden bg-[#0a0a0f]/98 backdrop-blur-xl border-t border-[#00d4ff]/20"
+      >
+        <div className="px-4 py-4 space-y-2">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.path}
@@ -286,8 +228,7 @@ const navLinks = [
               </Link>
             </motion.div>
           </div>
-        </motion.div>
-      </motion.nav>
+      </motion.div>
     </>
   );
 }

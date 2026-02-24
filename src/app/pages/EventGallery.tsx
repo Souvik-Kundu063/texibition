@@ -209,6 +209,8 @@ function GalleryCard({
       <img
         src={image.src}
         alt={image.alt}
+        loading="lazy"
+        decoding="async"
         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
       />
       
