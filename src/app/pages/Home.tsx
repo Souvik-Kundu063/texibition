@@ -1,13 +1,28 @@
 
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Heart, Lightbulb, Phone, Mail } from 'lucide-react';
+import { Calendar, Users, Trophy, ArrowRight, Sparkles, Code, Gamepad2, Cpu, Terminal, Database, Zap, Heart, Lightbulb, Phone, Mail, Instagram, Linkedin } from 'lucide-react';
+
+// Custom Discord Icon
+function DiscordIcon({ className }: { className?: string }) {
+  return (
+    <svg 
+      viewBox="0 0 24 24" 
+      fill="currentColor" 
+      className={className}
+    >
+      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+    </svg>
+  );
+}
 import { CountdownTimer } from '../components/CountdownTimer';
 import { InteractiveBackground } from '../components/InteractiveBackground';
-import Spline from '@splinetool/react-spline';
+import { LazySpline } from '../components/LazySpline';
 import useEmblaCarousel from 'embla-carousel-react';
-import { useEffect, useState, useCallback } from "react";
-import PreviousYearGallary from '../components/PreviousYearGallary';
+import { useEffect, useState, useCallback, Suspense, lazy } from "react";
+
+// Lazy load PreviousYearGallary
+const PreviousYearGallary = lazy(() => import('../components/PreviousYearGallary').then(module => ({ default: module.default })));
 
 // Optimized Embla Carousel Component - Performance Improved
 function EmblaCarousel({ highlights }: { highlights: typeof highlightsData }) {
@@ -123,6 +138,9 @@ const sponsors = [
   { name: 'GDG', logo: '/sponsors/GDG.png', color: 'from-[#4285f4] to-[#34a853]', category: 'Community Partner' },
   { name: 'Prepverse', logo: '/sponsors/Prepverse.png', color: 'from-[#a855f7] to-[#ec4899]', category: 'Career Partner' },
   { name: 'Devfolio', logo: '/sponsors/Devfolio.png', color: 'from-[#00ff88] to-[#00d4ff]', category: 'Hackathon Platform' },
+  { name: '.XYZ', logo: '/sponsors/xyz-logo.png', color: 'from-[#00d4ff] to-[#a855f7]', category: 'Domain Partner' },
+  { name: 'Chess.com', logo: '/sponsors/chess.com.png', color: 'from-[#769656] to-[#eee]', category: 'Gaming Partner' },
+  { name: 'ClickNBit', logo: '/sponsors/clicknbit.jpg', color: 'from-[#ff6b35] to-[#ff9f1c]', category: 'Media Partner' },
 ];
 
 // Gallery images for marquee
@@ -250,6 +268,10 @@ export function Home() {
                     src="/images/bwulogo.png"
                     alt="Brainware University"
                     className="h-10 sm:h-14 md:h-16 lg:h-20 w-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                    width="120"
+                    height="60"
                   />
                 </motion.div>
 
@@ -276,6 +298,10 @@ export function Home() {
                     src="/images/texibitionlogo.png"
                     alt="TEXIBITION"
                     className="h-28 sm:h-36 md:h-48 lg:h-64 w-auto object-contain drop-shadow-[0_0_15px_rgba(0,2,255,0.3)]"
+                    loading="lazy"
+                    decoding="async"
+                    width="400"
+                    height="200"
                   />
                 </motion.div>
 
@@ -305,6 +331,10 @@ export function Home() {
                       src="/images/techclub-iic.png"
                       alt="Tech Club IIC"
                       className="h-8 sm:h-10 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                      loading="lazy"
+                      decoding="async"
+                      width="100"
+                      height="40"
                     />
                   </div>
                 </motion.div>
@@ -362,7 +392,7 @@ export function Home() {
             >
               <div className="relative w-120 h-44 sm:h-80 md:h-96 lg:h-[500px] rounded-xl sm:rounded-2xl border border-transparent flex items-center justify-center">
                 <div className="absolute inset-0">
-                  <Spline scene="https://prod.spline.design/8waoK8Yzk7ZTbMiR/scene.splinecode" />
+                  <LazySpline scene="https://prod.spline.design/8waoK8Yzk7ZTbMiR/scene.splinecode" />
                 </div>
               </div>
             </motion.div>
@@ -648,6 +678,8 @@ export function Home() {
                       <img 
                         src={sponsor.logo} 
                         alt={sponsor.name}
+                        loading="lazy"
+                        decoding="async"
                         className={`h-10 w-auto sm:h-12 lg:h-14 object-contain ${sponsor.name === 'Cozzon' ? 'brightness-0 invert' : ''}`}
                       />
                     </div>
@@ -710,6 +742,8 @@ export function Home() {
                         <img 
                           src={image.src} 
                           alt={image.alt}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                         />
                       </div>
@@ -735,6 +769,8 @@ export function Home() {
                         <img 
                           src={image.src} 
                           alt={image.alt}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                         />
                       </div>
@@ -908,6 +944,132 @@ export function Home() {
                   </div>
                 </motion.div>
               ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Follow Us On Social Section */}
+      <section className="py-10 sm:py-12 lg:py-16 relative">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative p-6 sm:p-8 md:p-10 rounded-2xl overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, rgba(10,10,15,0.9) 0%, rgba(20,20,40,0.8) 100%)',
+              backdropFilter: 'blur(18px)',
+              border: '1px solid rgba(168,85,247,0.3)',
+              boxShadow: '0 0 40px rgba(168,85,247,0.15), 0 0 80px rgba(236,72,153,0.1)'
+            }}
+          >
+            {/* Glow Effects */}
+            <div className="absolute top-0 left-1/4 w-32 sm:w-48 h-32 sm:h-48 bg-[#a855f7]/20 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-1/4 w-32 sm:w-48 h-32 sm:h-48 bg-[#ec4899]/20 rounded-full blur-3xl" />
+
+            <div className="relative z-10 text-center">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-[#a855f7]/30 bg-[#a855f7]/10 mb-4 sm:mb-6">
+                <div className="w-2 h-2 bg-[#a855f7] rounded-full animate-pulse" />
+                <span className="font-['Space_Grotesk'] text-[#a855f7] text-xs tracking-widest uppercase">Stay Connected</span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 font-['Orbitron'] text-white">
+                <span className="text-[#a855f7]">{"<"}</span>
+                FOLLOW_US
+                <span className="text-[#a855f7]">{"/>"}</span>
+              </h2>
+
+              <p className="text-sm sm:text-base lg:text-lg text-white/60 max-w-xl mx-auto font-['Rajdhani'] font-medium tracking-wide mb-8 sm:mb-10">
+                Join our community and stay updated with the latest news, events, and announcements.
+              </p>
+
+              {/* Social Links */}
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+                {/* Instagram */}
+                <motion.a
+                  href="https://www.instagram.com/texibition2k26?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative p-4 sm:p-5 rounded-xl transition-all duration-300"
+                  style={{
+                    background: 'rgba(255,255,255,0.06)',
+                    backdropFilter: 'blur(18px)',
+                    border: '1px solid rgba(168,85,247,0.2)',
+                    boxShadow: '0 0 20px rgba(168,85,247,0.1)'
+                  }}
+                >
+                  <div 
+                    className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(168,85,247,0.2) 0%, rgba(236,72,153,0.2) 100%)',
+                      boxShadow: '0 0 30px rgba(168,85,247,0.4)'
+                    }}
+                  />
+                  <div className="relative z-10 flex flex-col items-center gap-2">
+                    <Instagram className="size-8 sm:size-10 text-[#ec4899] group-hover:text-[#ff6b9d] transition-colors" />
+                    <span className="text-xs sm:text-sm font-['Space_Grotesk'] text-white/80 group-hover:text-white transition-colors">Instagram</span>
+                  </div>
+                </motion.a>
+
+                {/* Discord */}
+                <motion.a
+                  href="https://discord.gg/Fga6sYVJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative p-4 sm:p-5 rounded-xl transition-all duration-300"
+                  style={{
+                    background: 'rgba(255,255,255,0.06)',
+                    backdropFilter: 'blur(18px)',
+                    border: '1px solid rgba(88,101,242,0.2)',
+                    boxShadow: '0 0 20px rgba(88,101,242,0.1)'
+                  }}
+                >
+                  <div 
+                    className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(88,101,242,0.2) 0%, rgba(136,151,255,0.2) 100%)',
+                      boxShadow: '0 0 30px rgba(88,101,242,0.4)'
+                    }}
+                  />
+                  <div className="relative z-10 flex flex-col items-center gap-2">
+                    <DiscordIcon className="size-8 sm:size-10 text-[#5865F2] group-hover:text-[#7289da] transition-colors" />
+                    <span className="text-xs sm:text-sm font-['Space_Grotesk'] text-white/80 group-hover:text-white transition-colors">Discord</span>
+                  </div>
+                </motion.a>
+
+                {/* LinkedIn */}
+                <motion.a
+                  href="https://www.linkedin.com/company/texibition/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn3CZkEEtKlXYF-huMY8l_jveUxWtG1nr25caOMkeWpwupKwXcwtc68WnN1BI_aem_R5Tmxuteijz1YsTMtmeNEg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative p-4 sm:p-5 rounded-xl transition-all duration-300"
+                  style={{
+                    background: 'rgba(255,255,255,0.06)',
+                    backdropFilter: 'blur(18px)',
+                    border: '1px solid rgba(0,119,181,0.2)',
+                    boxShadow: '0 0 20px rgba(0,119,181,0.1)'
+                  }}
+                >
+                  <div 
+                    className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(0,119,181,0.2) 0%, rgba(0,168,255,0.2) 100%)',
+                      boxShadow: '0 0 30px rgba(0,119,181,0.4)'
+                    }}
+                  />
+                  <div className="relative z-10 flex flex-col items-center gap-2">
+                    <Linkedin className="size-8 sm:size-10 text-[#0077b5] group-hover:text-[#00a0dc] transition-colors" />
+                    <span className="text-xs sm:text-sm font-['Space_Grotesk'] text-white/80 group-hover:text-white transition-colors">LinkedIn</span>
+                  </div>
+                </motion.a>
+              </div>
             </div>
           </motion.div>
         </div>
