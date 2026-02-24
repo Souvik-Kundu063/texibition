@@ -401,16 +401,16 @@ export function Home() {
       </section>
 
       {/* Countdown Section */}
-      <section className="py-10 relative">
+      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="text-center mb-4 sm:mb-6 lg:mb-8"
           >
-            <h2 className="text-4xl md:text-5xl pb-2 font-bold mb-4 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl pb-2 font-bold mb-2 sm:mb-4 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] bg-clip-text text-transparent">
               Registration Closes In
             </h2>
           </motion.div>

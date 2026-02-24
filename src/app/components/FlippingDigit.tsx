@@ -41,14 +41,18 @@ export class FlippingDigit extends React.Component<FlippingDigitProps> {
       <>
         <style>{`
           .tick-credits { display: none !important; }
-          .tick { font-size: 2.5rem; }
+          .tick { font-size: 2rem; }
+          @media (min-width: 480px) { .tick { font-size: 2.5rem; } }
           @media (min-width: 640px) { .tick { font-size: 3.5rem; } }
-          @media (min-width: 768px) { .tick { font-size: 5rem; } }
-          @media (min-width: 1024px) { .tick { font-size: 6rem; } }
-          .tick-flip { transform: scale(1.2); margin: 0 0.25rem; }
-          @media (min-width: 768px) { .tick-flip { transform: scale(1.5); margin: 0 0.5rem; } }
-          .tick-flip-card { width: 1em; height: 1.2em; }
-          @media (min-width: 768px) { .tick-flip-card { width: 1.2em; height: 1.5em; } }
+          @media (min-width: 768px) { .tick { font-size: 4.5rem; } }
+          @media (min-width: 1024px) { .tick { font-size: 5.5rem; } }
+          @media (min-width: 1280px) { .tick { font-size: 6rem; } }
+          .tick-flip { transform: scale(1.1); margin: 0 0.2rem; }
+          @media (min-width: 640px) { .tick-flip { transform: scale(1.2); margin: 0 0.25rem; } }
+          @media (min-width: 768px) { .tick-flip { transform: scale(1.4); margin: 0 0.35rem; } }
+          .tick-flip-card { width: 0.9em; height: 1.1em; }
+          @media (min-width: 640px) { .tick-flip-card { width: 1em; height: 1.2em; } }
+          @media (min-width: 768px) { .tick-flip-card { width: 1.1em; height: 1.4em; } }
         `}</style>
         <div ref={this._tickRef} className="tick">
           <div data-repeat="true" aria-hidden="true">

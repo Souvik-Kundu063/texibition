@@ -7,9 +7,9 @@ import { ShoppingBag, ArrowRight, Gift, Github } from 'lucide-react';
 const SPONSOR_PRODUCT_URL = 'https://cozzon.in/shop/product/texibition-2k26-official-tee';
 
 // Constants for popup control
-const MAX_TRIGGERS = 5; // Total triggers capped at 3
-const TIME_GAP_MS = 40000; // 30 seconds between shows
-const CLOSE_COOLDOWN_MS = 40000; // 30 seconds cooldown after close to prevent immediate re-trigger
+const MAX_TRIGGERS = 10; // Increased from 5
+const TIME_GAP_MS = 15000; // Reduced from 40000 to 15 seconds
+const CLOSE_COOLDOWN_MS = 15000; // Reduced from 40000 to 15 seconds
 
 interface MerchPopupProps {
   delay?: number; // Custom delay in milliseconds
@@ -105,6 +105,7 @@ export function MerchPopup({ delay = 5000, pageType = 'home' }: MerchPopupProps)
   const [isHoveringCTA, setIsHoveringCTA] = useState(false);
   const [exitIntentRemaining, setExitIntentRemaining] = useState(MAX_TRIGGERS);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [debugInfo, setDebugInfo] = useState<string>('');
   
   // Merchandise images for slideshow
   const merchImages = [
@@ -115,7 +116,25 @@ export function MerchPopup({ delay = 5000, pageType = 'home' }: MerchPopupProps)
   
   // Use refs to track state across renders
   const hasShownRef = useRef(false);
-  const hasUpdatedRef = useRef(false);
+
+  // Reset hasShownRef when component mounts (key changes)
+  useEffect(() => {
+    hasShownRef.current = false;
+    console.log('[MerchPopup] Component mounted, reset hasShownRef');
+  }, []);
+
+  // Debug: Log conditions on mount
+  useEffect(() => {
+    const count = getExitIntentCount();
+    const lastShown = getLastShownTime();
+    const lastClosed = getLastClosedTime();
+    const now = Date.now();
+    const shouldShow = shouldShowPopup(count, lastShown, lastClosed);
+    
+    const debug = `[MerchPopup Debug] count=${count}, lastShown=${now - lastShown}ms ago, lastClosed=${now - lastClosed}ms ago, shouldShow=${shouldShow}`;
+    console.log(debug);
+    setDebugInfo(debug);
+  }, []);
 
   const handleClose = useCallback(() => {
     setIsVisible(false);
@@ -129,9 +148,6 @@ export function MerchPopup({ delay = 5000, pageType = 'home' }: MerchPopupProps)
 
   // Update localStorage when popup is shown
   const updateStorageOnShow = useCallback(() => {
-    if (hasUpdatedRef.current) return;
-    hasUpdatedRef.current = true;
-
     const newCount = getExitIntentCount() + 1;
     localStorage.setItem('merchPopupExitCount', newCount.toString());
     localStorage.setItem('merchPopupLastShown', Date.now().toString());

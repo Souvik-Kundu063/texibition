@@ -59,7 +59,7 @@ const eventData: Record<string, EventData> = {
       { name: 'DEBASIS KHAMARI', email: 'debasiskhamari7@gmail.com', phone: '+91 9064906396' },
       { name: 'SAYANTANI DUTTA', email: 'sayantanidutta.work@gmail.com', phone: '+91 9477518897' },
     ],
-    imagePath: '/event/xihibit.jpg',
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917410/xihibit_zua9al.jpg',
     registerLink: 'https://the-xibit.devfolio.co/'
   },
   'free-fire': {
@@ -99,7 +99,7 @@ const eventData: Record<string, EventData> = {
       { name: 'PRABHAT KR ROUTH', email: 'prabhatkrrouth@gmail.com', phone: '+91 9332165957' },
       { name: 'Ankush Khan', email: 'khanankush483@gmail.com', phone: '+91 9064336298' },
     ],
-    imagePath: '/event/freefire.jpg',
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917408/freefire_owpfvh.jpg',
     registerLink: 'https://forms.gle/7uAwujMWLzXVqX519'
   },
   'bgmi': {
@@ -149,7 +149,7 @@ const eventData: Record<string, EventData> = {
       { name: 'ABHIK CHATTERJEE', email: 'abhikchatterjee879@gmail.com', phone: '+91 9733549955' },
       { name: 'SAYAN ROY', email: 'roysamirroysamir9998@gmail.com', phone: '+91 9674363753' },
     ],
-    imagePath: '/event/pubg.jpg',
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917411/pubg_mkwfl8.jpg',
     registerLink: 'https://forms.gle/LHJmfoF3U9LUmtwB6'
   },
   'pes': {
@@ -190,7 +190,7 @@ const eventData: Record<string, EventData> = {
     coordinators: [
       { name: 'AVIRUP GHOSH', email: 'avirupghosh751@gmail.com', phone: '+91 7003357906' },
     ],
-    imagePath: '/event/pes.jpg',
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917409/pes_mkz7xb.jpg',
     registerLink: 'https://forms.gle/eAU9gmLh7xAWevQi8'
   },
   'the-blitz': {
@@ -232,7 +232,7 @@ const eventData: Record<string, EventData> = {
     coordinators: [
       { name: 'SOHAM GHOSH', email: 'sohamghosh1762@gmail.com', phone: '+91 6290187678' },
     ],
-    imagePath: '/event/chess.jpg',
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917408/chess_gctpst.jpg',
     registerLink: 'https://forms.gle/Z9eGfvSSxYrKFVTC9'
   },
   'valorant': {
@@ -274,7 +274,7 @@ const eventData: Record<string, EventData> = {
       { name: 'DEEP CHATTERJEE', email: 'deeparduino@gmail.com', phone: '+91 6291661608' },
       { name: 'ABHISHEK BANERJEE', email: 'abhishekbaner5@gmail.com', phone: '+91 8642019746' },
     ],
-    imagePath: '/event/valorant.jpg',
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917410/valorant_heilzl.jpg',
     registerLink: 'https://forms.gle/RzqZLTttyhC9xN3Z8'
   },
   'the-blusters': {
@@ -325,7 +325,7 @@ const eventData: Record<string, EventData> = {
       { name: 'SANCHITA KANDAR', email: 'sanchita.kandar1971@gmail.com', phone: '+91 9339483883' },
       { name: 'RITESH SINGH', email: 'muqadarkasikandar03@gmail.com', phone: '+91 8905485844' },
     ],
-    imagePath: '/event/bluster.jpg',
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917409/bluster_k7v3qk.jpg',
     registerLink: 'https://forms.gle/CW46TPXuBZXPiwUy9'
   },
   'the-architect': {
@@ -362,7 +362,7 @@ const eventData: Record<string, EventData> = {
       { name: 'MOUPRIYA KUNDU', email: 'moupriyakundu139@gmail.com', phone: '+91 9832986918' },
       { name: 'ROUNAK BHANJA', email: 'rounak2002bhanja@gmail.com', phone: '+91 9830052068' },
     ],
-    imagePath: '/event/architect.jpg',
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917409/architect_glmi2q.jpg',
     registerLink: 'https://forms.gle/AVxpiBS2BYVh6bv96'
   },
   'the-prompters': {
@@ -396,7 +396,7 @@ const eventData: Record<string, EventData> = {
       { name: 'SENJUTI MONDAL', email: 'senjutim3@gmail.com', phone: '+91 7501558111' },
       { name: 'NEEL DAS', email: 'neeldas0032@gmail.com', phone: '+91 7384007265' },
     ],
-    imagePath: '/event/prompters.jpg',
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917410/prompters_fi5vy1.jpg',
     registerLink: 'https://forms.gle/7zf3BnWwPMoNCiba8'
   },
 };

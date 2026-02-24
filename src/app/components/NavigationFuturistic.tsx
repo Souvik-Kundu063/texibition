@@ -83,34 +83,34 @@ const navLinks = [
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 rounded-2xl hidden lg:block ${
+        className={`fixed top-2 sm:top-3 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 rounded-xl sm:rounded-2xl hidden lg:block ${
           isScrolled
             ? 'bg-[#0a0a0f]/90 backdrop-blur-xl border border-white/20 shadow-lg shadow-black/20'
             : 'bg-white/10 backdrop-blur-xl border border-white/20'
         }`}
       >
-        <div className="px-10">
-          <div className="flex items-center justify-between h-16">
+        <div className="px-2 sm:px-3 lg:px-3 xl:px-4 2xl:px-6">
+          <div className="flex items-center justify-between h-12 sm:h-14 lg:h-14 xl:h-16 2xl:h-16">
 
             {/* Desktop Navigation - Centered */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 sm:gap-1.5 lg:gap-1.5 xl:gap-2 overflow-x-auto no-scrollbar">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="relative"
+                  className="relative flex-shrink-0 flex items-center"
                 >
                 {link.isExternal ? (
                     <a
                       href={link.path}
                       target="_self"
                       rel="noopener noreferrer"
-                      className="relative group px-3 py-2 rounded-lg overflow-hidden cursor-pointer"
+                      className="relative group px-1 sm:px-1.5 lg:px-1.5 py-1 rounded-lg overflow-hidden cursor-pointer"
                     >
                       <span
-                        className={`relative z-10 text-sm font-medium transition-colors text-[#a855f7] group-hover:text-[#ec4899]`}
+                        className={`relative z-10 text-[10px] sm:text-xs lg:text-xs xl:text-sm font-medium transition-colors text-[#a855f7] group-hover:text-[#ec4899] whitespace-nowrap block uppercase`}
                       >
                         {link.name}
                       </span>
@@ -118,10 +118,10 @@ const navLinks = [
                   ) : (
                     <Link
                       to={link.path}
-                      className="relative group px-3 py-2 rounded-lg overflow-hidden"
+                      className="relative group px-1 sm:px-1.5 lg:px-1.5 py-1 rounded-lg overflow-hidden flex items-center"
                     >
                       <span
-                        className={`relative z-10 text-sm font-medium transition-colors ${
+                        className={`relative z-10 text-[10px] sm:text-xs lg:text-xs xl:text-sm font-medium transition-colors whitespace-nowrap block uppercase ${
                           isActive(link.path)
                             ? 'text-[#00d4ff]'
                             : 'text-white/70 group-hover:text-white'
@@ -130,13 +130,9 @@ const navLinks = [
                         {link.name}
                       </span>
                       
-                      {/* Active indicator */}
+                      {/* Active indicator - positioned after text, not affecting layout */}
                       {isActive(link.path) && (
-                        <motion.div
-                          layoutId="futuristicActive"
-                          className="absolute -bottom-1 left-1/2 w-1.5 h-1.5 bg-[#00d4ff] rounded-full transform -translate-x-1/2"
-                          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                        />
+                        <span className="ml-1 inline-block w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#00d4ff] rounded-full align-middle translate-y-0.5"></span>
                       )}
                     </Link>
                   )}
@@ -149,12 +145,13 @@ const navLinks = [
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navLinks.length * 0.05 }}
+                className="flex-shrink-0 flex items-center"
               >
                 <Link
                   to="/events"
-                  className="relative px-4 py-1.5 border border-[#00d4ff] bg-[#00d4ff]/10 rounded-lg skew-x-[-10deg] overflow-hidden group block hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-shadow duration-300"
+                  className="relative px-3 sm:px-4 py-1.5 border border-[#00d4ff] bg-[#00d4ff]/10 rounded-lg skew-x-[-10deg] overflow-hidden group block hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-shadow duration-300"
                 >
-                  <span className="relative z-10 font-['Space_Grotesk'] font-bold text-[#00d4ff] block skew-x-[10deg] uppercase tracking-wider text-xs">
+                  <span className="relative z-10 font-['Space_Grotesk'] font-bold text-[#00d4ff] block skew-x-[10deg] uppercase tracking-wider text-[10px] sm:text-xs whitespace-nowrap">
                     Register
                   </span>
                 </Link>
@@ -191,7 +188,7 @@ const navLinks = [
                     target="_self"
                     rel="noopener noreferrer"
                     onClick={() => setIsOpen(false)}
-                    className="block px-4 py-3 rounded-lg transition-colors text-base text-[#a855f7] hover:text-[#ec4899] hover:bg-[#a855f7]/10"
+                    className="block px-4 py-3 rounded-lg transition-colors text-base text-[#a855f7] hover:text-[#ec4899] hover:bg-[#a855f7]/10 uppercase"
                   >
                     {link.name}
                   </a>
@@ -199,7 +196,7 @@ const navLinks = [
                   <Link
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`block px-4 py-3 rounded-lg transition-colors text-base ${
+                    className={`block px-4 py-3 rounded-lg transition-colors text-base uppercase ${
                       isActive(link.path)
                         ? 'bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/30'
                         : 'text-white/70 hover:text-white hover:bg-white/5'

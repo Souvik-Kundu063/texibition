@@ -35,7 +35,7 @@ const events: Event[] = [
     icon: Code,
     gradient: 'from-[#00d4ff] to-[#00ffff]',
     featured: true,
-    imagePath: '/event/xihibit.jpg'
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917410/xihibit_zua9al.jpg'
   },
   {
     id: 'free-fire',
@@ -49,7 +49,7 @@ const events: Event[] = [
     time: '9-4',
     icon: Gamepad2,
     gradient: 'from-[#ec4899] to-[#f43f5e]',
-    imagePath: '/event/freefire.jpg'
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917408/freefire_owpfvh.jpg'
   },
   {
     id: 'bgmi',
@@ -63,7 +63,7 @@ const events: Event[] = [
     time: '9-4',
     icon: Gamepad2,
     gradient: 'from-[#ec4899] to-[#f43f5e]',
-    imagePath: '/event/pubg.jpg'
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917411/pubg_mkwfl8.jpg'
   },
   {
     id: 'pes',
@@ -77,7 +77,7 @@ const events: Event[] = [
     time: '9-4',
     icon: Gamepad2,
     gradient: 'from-[#fb923c] to-[#fbbf24]',
-    imagePath: '/event/pes.jpg'
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917409/pes_mkz7xb.jpg'
   },
   {
     id: 'the-blitz',
@@ -91,7 +91,7 @@ const events: Event[] = [
     time: '10-3',
     icon: Zap,
     gradient: 'from-[#f43f5e] to-[#fb923c]',
-    imagePath: '/event/chess.jpg'
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917408/chess_gctpst.jpg'
   },
   {
     id: 'valorant',
@@ -105,7 +105,7 @@ const events: Event[] = [
     time: '10-3',
     icon: Gamepad2,
     gradient: 'from-[#f43f5e] to-[#fb923c]',
-    imagePath: '/event/valorant.jpg'
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917410/valorant_heilzl.jpg'
   },
   // Coding Events
   {
@@ -120,7 +120,7 @@ const events: Event[] = [
     time: '11-1',
     icon: Code,
     gradient: 'from-[#00ffff] to-[#a855f7]',
-    imagePath: '/event/bluster.jpg'
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917409/bluster_k7v3qk.jpg'
   },
   // Hardware Events
   {
@@ -135,7 +135,7 @@ const events: Event[] = [
     time: '11-2',
     icon: Cpu,
     gradient: 'from-[#a855f7] to-[#ec4899]',
-    imagePath: '/event/architect.jpg'
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917409/architect_glmi2q.jpg'
   },
   // Prompting Event
   {
@@ -150,7 +150,7 @@ const events: Event[] = [
     time: '11-2',
     icon: Lightbulb,
     gradient: 'from-[#fbbf24] to-[#00d4ff]',
-    imagePath: '/event/prompters.jpg'
+    imagePath: 'https://res.cloudinary.com/dyeglgnfd/image/upload/v1771917410/prompters_fi5vy1.jpg'
   },
 ];
 
