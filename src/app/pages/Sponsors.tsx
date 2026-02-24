@@ -317,7 +317,7 @@ const sponsorsRow2 = [
   {
     name: 'Chess.com',
     logo: '/sponsors/chess.com.png',
-    category: 'Gaming Partner',
+    category: 'Chess Partner',
     link: 'https://www.chess.com/',
     invertLogo: false,
     hasBox: false,

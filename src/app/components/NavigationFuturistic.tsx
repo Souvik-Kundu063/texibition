@@ -60,7 +60,7 @@ const navLinks = [
       />
       
       {/* Mobile: Spacer for fixed nav */}
-      <div class="h-16 lg:hidden" />
+      <div className="h-16 lg:hidden" />
       
       {/* Mobile: Standalone hamburger button - round, right corner, no navbar box */}
       <motion.button
