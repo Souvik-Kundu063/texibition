@@ -47,7 +47,7 @@ export function CountdownTimer() {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-3 sm:gap-4 xl:gap-16">
+    <div className="flex flex-wrap justify-center items-start gap-1 sm:gap-2 lg:gap-3 xl:gap-4 px-1 sm:px-2 overflow-hidden">
       {timeUnits.map((unit, index) => (
         <motion.div
           key={unit.label}
@@ -56,11 +56,11 @@ export function CountdownTimer() {
           transition={{ delay: index * 0.1 }}
           className="relative group flex flex-col items-center"
         >
-          <div className="relative text-center">
-            <div className="mb-1 sm:mb-2 flex justify-center">
+          <div className="relative text-center w-full overflow-hidden bg-[#0a0a0f]/50 rounded-lg sm:rounded-xl p-1.5 sm:p-2 border border-white/10">
+            <div className="mb-0.5 flex justify-center items-center">
               <FlippingDigit value={unit.value} />
             </div>
-            <div className="text-xs sm:text-sm text-white/60 uppercase tracking-wider">
+            <div className="text-[8px] sm:text-[10px] text-white/60 uppercase tracking-wider">
               {unit.label}
             </div>
           </div>
