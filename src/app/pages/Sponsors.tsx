@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Mail, ArrowRight } from 'lucide-react';
+import { MapView } from '../components/MapView';
 
 // Floating particles component
 function FloatingParticles() {
@@ -510,6 +511,14 @@ export function Sponsors() {
             <div className="absolute top-0 left-0 w-10 h-10 border-l-2 border-t-2 border-[#00d4ff]/50 rounded-tl-xl" />
             <div className="absolute bottom-0 right-0 w-10 h-10 border-r-2 border-b-2 border-[#a855f7]/50 rounded-br-xl" />
           </motion.div>
+        </section>
+
+        {/* Map Section */}
+        <section className="py-6 sm:py-8">
+          <MapView 
+            title="Event Venue" 
+            subtitle="Brainware University, Barasat, Kolkata"
+          />
         </section>
 
         {/* Decorative Grid Pattern */}

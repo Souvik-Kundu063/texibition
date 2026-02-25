@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ZoomIn, Sparkles } from 'lucide-react';
+import { MapView } from '../components/MapView';
 
 // Floating particles component
 function FloatingParticles() {
@@ -404,6 +405,14 @@ export default function EventGallery() {
             </motion.button>
           </a>
         </motion.div>
+
+        {/* Map Section */}
+        <div className="mt-12 sm:mt-16">
+          <MapView 
+            title="Event Venue" 
+            subtitle="Brainware University, Barasat, Kolkata"
+          />
+        </div>
 
         {/* Decorative Grid Pattern */}
         <div className="absolute inset-0 opacity-[0.02] pointer-events-none">

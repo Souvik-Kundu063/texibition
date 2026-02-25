@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { ChevronDown, Mail, Instagram, MessageCircle } from 'lucide-react';
+import { MapView } from '../components/MapView';
 
 const faqs = [
   {
@@ -184,6 +185,14 @@ export function FAQ() {
               </div>
             </motion.div>
           </div>
+        </div>
+
+        {/* Map Section */}
+        <div className="mt-12 sm:mt-16">
+          <MapView 
+            title="Event Venue" 
+            subtitle="Brainware University, Barasat, Kolkata"
+          />
         </div>
       </div>
     </div>

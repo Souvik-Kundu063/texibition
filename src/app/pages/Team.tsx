@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Users, Clock, Sparkles, Phone, Mail, User, Gamepad2, Code, Cpu, Lightbulb, Github, Instagram, Linkedin } from 'lucide-react';
+import { MapView } from '../components/MapView';
 
 // Floating particles component
 function FloatingParticles() {
@@ -475,10 +476,8 @@ const leadOrganizers = [
 
 const coordinators = [
   // Xibit
-  { event: 'Xibit', name: 'Sayantani Dutta', phone: '+91 9477518897', email: 'sayantanidutta.work@gmail.com', linkedin: 'https://www.linkedin.com/in/sayantani-dutta-43612835a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', imageUrl: 'https://instagram.fccu5-1.fna.fbcdn.net/v/t51.82787-15/624725021_18165360874399732_7320024866604442269_n.webp?_nc_cat=103&ig_cache_key=MzM4MjUxMTQ3NzQxOTg2MjkyMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjc1OXg5NDkuc2RyLkMzIn0%3D%3D&_nc_ohc=QsyJb0y93I8Q7kNvwHtWflW&_nc_oc=Adk9zmxUYhNj2ib21yTTGvnT7osLKtyarDhkE2U53qQVEirDRuHJwT7SRhfcJPAoCjU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fccu5-1.fna&_nc_gid=wMfkdP601CUNi-R-2bdJUA&oh=00_AfsoDFxyJfsVOyneViTVJG6_UF2F3bwydA8SII68CRoLWA&oe=69A2558E', icon: Code },
   { event: 'Xibit', name: 'Debasis Khamari', phone: '+91 9064906396', email: 'debasiskhamari7@gmail.com', linkedin: 'https://www.linkedin.com/in/debasis-khamari-/', imageUrl: 'https://res.cloudinary.com/debasiskhamari/image/upload/v1771884306/Gemini_Generated_Image_final_q8ih0m.png', icon: Code },
-  { event: 'Xibit', name: 'Sayantani Dutta', phone: '+91 9477518897', email: 'sayantanidutta.work@gmail.com', instagram: '@_the._.silent._.eye_', imageUrl: 'https://instagram.fccu5-1.fna.fbcdn.net/v/t51.82787-15/624725021_18165360874399732_7320024866604442269_n.webp?_nc_cat=103&ig_cache_key=MzM4MjUxMTQ3NzQxOTg2MjkyMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjc1OXg5NDkuc2RyLkMzIn0%3D%3D&_nc_ohc=QsyJb0y93I8Q7kNvwHtWflW&_nc_oc=Adk9zmxUYhNj2ib21yTTGvnT7osLKtyarDhkE2U53qQVEirDRuHJwT7SRhfcJPAoCjU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fccu5-1.fna&_nc_gid=wMfkdP601CUNi-R-2bdJUA&oh=00_AfsoDFxyJfsVOyneViTVJG6_UF2F3bwydA8SII68CRoLWA&oe=69A2558E', icon: Code },
-
+  { event: 'Xibit', name: 'Sayantani Dutta', phone: '+91 9477518897', email: 'sayantanidutta.work@gmail.com', linkedin: 'https://www.linkedin.com/in/sayantani-dutta-43612835a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', imageUrl: 'https://instagram.fccu5-1.fna.fbcdn.net/v/t51.82787-15/624725021_18165360874399732_7320024866604442269_n.webp?_nc_cat=103&ig_cache_key=MzM4MjUxMTQ3NzQxOTg2MjkyMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjc1OXg5NDkuc2RyLkMzIn0%3D%3D&_nc_ohc=QsyJb0y93I8Q7kNvwHtWflW&_nc_oc=Adk9zmxUYhNj2ib21yTTGvnT7osLKtyarDhkE2U53qQVEirDRuHJwT7SRhfcJPAoCjU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fccu5-1.fna&_nc_gid=wMfkdP601CUNi-R-2bdJUA&oh=00_AfsoDFxyJfsVOyneViTVJG6_UF2F3bwydA8SII68CRoLWA&oe=69A2558E', icon: Code },
   // Blitz
   { event: 'Blitz', name: 'Soham Ghosh', phone: '+91 6290187678', email: 'sohamghosh1762@gmail.com', linkedin: 'https://www.linkedin.com/in/soham-ghosh-464b33253/', imageUrl: 'https://instagram.fccu5-1.fna.fbcdn.net/v/t51.82787-15/572887565_17903007393277369_1523609789060724585_n.webp?_nc_cat=108&ig_cache_key=Mzc1ODUwMjkyOTk2MDc4ODk2Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEzOTF4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=J-HzQegiYl4Q7kNvwFqC1Ef&_nc_oc=AdlC9-y4hW6svlCmVSFu_g5SPyTroECPWBGyog6VL1cEktSOcVGR92B2uVwXkalxuJ0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fccu5-1.fna&_nc_gid=Zvl7jLupG2afqcwfgIXopA&oh=00_AftkbGM_WMhz_uAn7yJXznSyaXk3RgcFBC7NJ07BIo2m6Q&oe=69A28673', icon: Lightbulb },
   // PES
@@ -787,6 +786,14 @@ export function Team() {
               delay={0.2}
             />
           </div>
+        </section>
+
+        {/* Map Section */}
+        <section className="mb-12 sm:mb-16">
+          <MapView 
+            title="Visit Us" 
+            subtitle="Brainware University, Barasat, Kolkata"
+          />
         </section>
 
         {/* Decorative Grid Pattern */}
