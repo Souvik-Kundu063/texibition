@@ -329,7 +329,7 @@ const sponsorsRow2 = [
     name: 'ClickNBit',
     logo: '/sponsors/clicknbit.jpg',
     category: 'Media Partner',
-    link: 'https://www.clicknbit.in/',
+    link: 'https://play.google.com/store/apps/details?id=com.digontom.clicknbit',
     invertLogo: false,
     hasBox: false,
     isGitHub: false
