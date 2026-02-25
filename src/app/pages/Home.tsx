@@ -18,6 +18,7 @@ function DiscordIcon({ className }: { className?: string }) {
 import { CountdownTimer } from '../components/CountdownTimer';
 import { InteractiveBackground } from '../components/InteractiveBackground';
 import { LazySpline } from '../components/LazySpline';
+import { MapView } from '../components/MapView';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useEffect, useState, useCallback, Suspense, lazy } from "react";
 
@@ -1072,6 +1073,17 @@ export function Home() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Map Section - Just before page ends (Footer is in App.tsx) */}
+      <section className="py-10 sm:py-12 lg:py-16 relative">
+        <div className="container mx-auto px-4">
+          <MapView 
+            title="Event Venue"
+            subtitle="Brainware University, Barasat, Kolkata"
+            showGetDirections={true}
+          />
         </div>
       </section>
     </div>
