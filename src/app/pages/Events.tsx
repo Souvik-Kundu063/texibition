@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Code, Gamepad2, Cpu, Users, Clock, Trophy, ChevronRight, Terminal, Database, Zap, Monitor, Settings, Lightbulb } from 'lucide-react';
+import { MapView } from '../components/MapView';
 
 interface Event {
   id: string;
@@ -321,6 +322,14 @@ export function Events() {
             );
           })}
         </motion.div>
+
+        {/* Map Section */}
+        <div className="mt-12 sm:mt-16">
+          <MapView 
+            title="Event Venue" 
+            subtitle="Brainware University, Barasat, Kolkata"
+          />
+        </div>
       </div>
     </div>
   );

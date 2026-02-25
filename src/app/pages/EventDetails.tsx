@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
 import { useRegistrationStatus } from '../hooks/useRegistrationStatus';
+import { MapView } from '../components/MapView';
 
 interface EventFlowItem {
   time: string;
@@ -693,6 +694,14 @@ export function EventDetails() {
             </motion.div>
           </div>
 
+        </div>
+
+        {/* Map Section */}
+        <div className="mt-12 sm:mt-16">
+          <MapView 
+            title="Event Venue" 
+            subtitle="Brainware University, Barasat, Kolkata"
+          />
         </div>
       </div>
     </div>
