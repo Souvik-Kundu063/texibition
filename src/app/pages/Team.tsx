@@ -657,7 +657,7 @@ export function Team() {
         {/* Convenor & Treasurer Section */}
         <section className="mb-12 sm:mb-16">
           <SectionHeader 
-            title="Convenor & Treasurer" 
+            title="Faculty Coordinators" 
             subtitle="strategic vision and operational backbone of Texibition 2K26"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
