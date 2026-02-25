@@ -80,6 +80,46 @@ export default function App() {
           </Routes>
         </Suspense>
         <Footer />
+        
+        {/* Google Maps Section - Under the footer */}
+        <div className="bg-[#0a0a0f] py-6 sm:py-8">
+          <div className="w-full">
+            <div className="font-mono text-[#00d4ff] mb-2 sm:mb-3 text-xs text-center">
+              <span className="text-[#00ffff]">//</span> Venue_Location
+            </div>
+            <div className="w-full h-48 sm:h-80 lg:h-96 px-2 sm:px-4">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.852044655517!2d88.4888183!3d22.7200285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8a3b53262d6fb%3A0x6de83f3e669205e0!2sBrainware%20University!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Brainware University Location"
+                className="rounded-xl lg:rounded-2xl"
+              />
+            </div>
+            <div className="mt-3 text-center">
+              <a
+                href="https://www.google.com/maps/dir//Brainware+University,+398,+Ramkrishnapur+Rd,+near+Jagadighata+Market,+Barasat,+Kolkata,+West+Bengal+700125/@22.7200285,88.4888183,4085m/data=!3m2!1e3!4b1!4m8!4m7!1m0!1m5!1m1!1s0x39f8a3b53262d6fb:0x6de83f3e669205e0!2m2!1d88.4998499!2d22.7320243?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-[#00d4ff] hover:text-[#a855f7] text-xs sm:text-sm transition-colors"
+              >
+                Get Directions →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright Notice */}
+        <div className="bg-[#0a0a0f] border-t border-[#00d4ff]/20 py-4 text-center">
+          <p className="text-white/60 text-xs sm:text-sm">
+            © 2026 Texibition. Built by the Tech Club Team
+          </p>
+        </div>
+        
         <MerchPopupManager />
         <FloatingMerchButton />
       </div>
