@@ -766,7 +766,7 @@ export function Team() {
             {/* Subhajit Pathak */}
             <LeadDeveloperCard
               name="Subhajit Pathak"
-              imageUrl="https://instagram.fccu5-1.fna.fbcdn.net/v/t51.82787-15/558975040_17902957881258753_7411388991064470049_n.webp?_nc_cat=109&ig_cache_key=MzczNTE3Mjg2NTY0NjQ2MDkzMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=PeOqFklb3FIQ7kNvwFP7j4i&_nc_oc=AdngKNZBWCREO0iERrT_WqqlNBufCOKlQ3ySyE50dwFChENLJHYlmYhSTJ8r5kY3Vis&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fccu5-1.fna&_nc_gid=YBZ4yILt-qDNry7ZOQ2ohg&oh=00_AfuRUimGePkJvC0RxmjyaD0OoDp9Ca1hAhZiU-pO0qmn3Q&oe=699FEA25"
+              imageUrl="https://res.cloudinary.com/dyeglgnfd/image/upload/v1772298946/Screenshot_2026-02-28_at_10.45.02_PM_zgt9jg.png"
               phone="+91 9531605804"
               email="subhajitpathak9900@gmail.com"
               github="@SUBHAZIT"
