@@ -415,7 +415,23 @@ export function Home() {
               Registration Closes In
             </h2>
           </motion.div>
-          <CountdownTimer />
+<CountdownTimer />
+          
+          {/* Extension Notice */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="mt-4 sm:mt-6 text-center px-4"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#00d4ff]/10 border border-[#00d4ff]/30 backdrop-blur-sm">
+              <span className="w-2 h-2 bg-[#00ff9d] rounded-full animate-pulse" />
+              <p className="text-sm sm:text-base text-white/80 font-['Rajdhani']">
+                <span className="text-[#00d4ff] font-semibold">Extended due to high request!</span> — Registration now open until March 5th, 2026 (11:59 PM)
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
