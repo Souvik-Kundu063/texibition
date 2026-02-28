@@ -417,19 +417,36 @@ export function Home() {
           </motion.div>
 <CountdownTimer />
           
-          {/* Extension Notice */}
+{/* Extension Notice - Enhanced with animations */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
             className="mt-4 sm:mt-6 text-center px-4"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#00d4ff]/10 border border-[#00d4ff]/30 backdrop-blur-sm">
-              <span className="w-2 h-2 bg-[#00ff9d] rounded-full animate-pulse" />
-              <p className="text-sm sm:text-base text-white/80 font-['Rajdhani']">
-                <span className="text-[#00d4ff] font-semibold">Extended due to high request!</span> — Registration now open until March 5th, 2026 (11:59 PM)
+            <div className="relative inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-[#00d4ff]/20 via-[#a855f7]/20 to-[#00d4ff]/20 border border-[#00d4ff]/50 backdrop-blur-md overflow-hidden group">
+              {/* Animated background glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00d4ff]/0 via-[#00d4ff]/10 to-[#00d4ff]/0 animate-shimmer" />
+              
+              {/* Pulsing dot */}
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00ff9d] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00ff9d]"></span>
+              </span>
+              
+              {/* Badge */}
+              <span className="relative px-2 py-0.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded bg-[#ff6b35] text-white animate-pulse">
+                Extended
+              </span>
+              
+              {/* Text */}
+              <p className="relative text-sm sm:text-base text-white font-['Rajdhani'] font-medium">
+Due to <span className="text-[#00ff9d] font-bold">huge demand</span> — Register now before March 5th, 2026!
               </p>
+              
+              {/* Hover glow effect */}
+              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-gradient-to-r from-[#00d4ff]/20 via-[#a855f7]/10 to-[#00d4ff]/20 blur-xl" />
             </div>
           </motion.div>
         </div>
