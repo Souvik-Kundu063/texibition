@@ -5,7 +5,7 @@ interface RegistrationStatus {
 }
 
 export function useRegistrationStatus(): RegistrationStatus {
-  const registrationDeadline = new Date('2026-02-28T23:59:59').getTime();
+  const registrationDeadline = new Date('2026-03-03T23:59:59').getTime();
 
   const [status, setStatus] = useState<RegistrationStatus>(() => {
     const difference = registrationDeadline - new Date().getTime();
