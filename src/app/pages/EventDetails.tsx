@@ -407,6 +407,7 @@ export function EventDetails() {
   const { isOpen: isRegistrationOpen } = useRegistrationStatus();
 
   const isXibit = id === 'xibit';
+  const isPrompters = id === 'the-prompters';
 
   useEffect(() => {
     if (isXibit) {
@@ -532,7 +533,7 @@ export function EventDetails() {
               className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 backdrop-blur-sm"
             >
               <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
-                {isRegistrationOpen ? 'Ready to Participate?' : 'Registration Closed'}
+                {isRegistrationOpen && !isPrompters ? 'Ready to Participate?' : 'Registration Closed'}
               </h3>
               {/* {isXibit ? (
                 <div
@@ -543,7 +544,7 @@ export function EventDetails() {
                 ></div> 
               ) : ( */}
               <>
-                {isRegistrationOpen ? (
+                {isRegistrationOpen && !isPrompters ? (
                   <a
                     href={event.registerLink}
                     target="_blank"
