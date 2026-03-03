@@ -533,7 +533,7 @@ export function EventDetails() {
               className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#00d4ff]/10 to-[#a855f7]/10 border border-[#00d4ff]/30 backdrop-blur-sm"
             >
               <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
-                {isRegistrationOpen && !isPrompters ? 'Ready to Participate?' : 'Registration Closed'}
+                {isRegistrationOpen && !isPrompters ? 'Ready to Participate?' : isPrompters ? 'Thank You for Your Interest' : 'Registration Closed'}
               </h3>
               {/* {isXibit ? (
                 <div
@@ -557,7 +557,7 @@ export function EventDetails() {
                         clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
                         transform: 'translateZ(0)',
                         backfaceVisibility: 'hidden',
-                        WebkitBackfaceVisibility: 'hidden'
+                        WebkitBackdropFilter: 'hidden'
                       }}
                     >
                       <span className="text-sm md:text-base tracking-wider">REGISTER_NOW</span>
@@ -572,10 +572,10 @@ export function EventDetails() {
                       clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
                       transform: 'translateZ(0)',
                       backfaceVisibility: 'hidden',
-                      WebkitBackfaceVisibility: 'hidden'
+                      WebkitBackdropFilter: 'hidden'
                     }}
                   >
-                    <span className="text-sm md:text-base tracking-wider">REGISTRATION_CLOSED</span>
+                    <span className="text-sm md:text-base tracking-wider">{isPrompters ? 'THANK YOU FOR YOUR INTEREST' : 'REGISTRATION_CLOSED'}</span>
                   </button>
                 )}
               </>

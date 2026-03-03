@@ -297,26 +297,45 @@ export function Events() {
                 </div>
 
                 {/* REGESTER Glassmorphism Button in Center */}
-                <Link
-                  to={`/events/${event.id}`}
-                  className="absolute inset-0 flex items-center justify-center z-20"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-6 py-2 sm:px-8 sm:py-3 rounded-lg sm:rounded-xl font-mono font-bold text-white text-xs sm:text-base"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.15)',
-                      backdropFilter: 'blur(12px)',
-                      WebkitBackdropFilter: 'blur(12px)',
-                      border: '1px solid rgba(255, 255, 255, 0.25)',
-                      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.1)',
-                    }}
+                {event.id === 'the-prompters' ? (
+                  <div className="absolute inset-0 flex items-center justify-center z-20">
+                    <motion.button
+                      disabled
+                      className="px-6 py-2 sm:px-8 sm:py-3 rounded-lg sm:rounded-xl font-mono font-bold text-white text-xs sm:text-base cursor-not-allowed"
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.15)',
+                        backdropFilter: 'blur(12px)',
+                        WebkitBackdropFilter: 'blur(12px)',
+                        border: '1px solid rgba(255, 255, 255, 0.25)',
+                        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.1)',
+                      }}
+                    >
+                      REGISTRATION CLOSED,THANK YOU
+                  
+                    </motion.button>
+                  </div>
+                ) : (
+                  <Link
+                    to={`/events/${event.id}`}
+                    className="absolute inset-0 flex items-center justify-center z-20"
+                    onClick={(e) => e.stopPropagation()}
                   >
-                    VIEW DETAILS
-                  </motion.button>
-                </Link>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-6 py-2 sm:px-8 sm:py-3 rounded-lg sm:rounded-xl font-mono font-bold text-white text-xs sm:text-base"
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.15)',
+                        backdropFilter: 'blur(12px)',
+                        WebkitBackdropFilter: 'blur(12px)',
+                        border: '1px solid rgba(255, 255, 255, 0.25)',
+                        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.1)',
+                      }}
+                    >
+                      VIEW DETAILS
+                    </motion.button>
+                  </Link>
+                )}
 
               </motion.div>
             );
