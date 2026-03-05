@@ -164,7 +164,7 @@ const highlightsData = [
     icon: Code,
     gradient: 'from-[#00d4ff] to-[#00ffff]',
     codeSnippet: `const xibit = {\n  type: 'coding',\n  team: '4 max',\n  duration: '7h'\n};`,
-    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844817/bw_xihibit_fucc1x.jpg'
+    image: '/event/xihibit.jpg'
   },
   {
     title: 'Free Fire',
@@ -172,7 +172,7 @@ const highlightsData = [
     icon: Gamepad2,
     gradient: 'from-[#ec4899] to-[#f43f5e]',
     codeSnippet: `const freeFire = {\n  type: 'battle-royale',\n  squad: 5,\n  mode: 'survival'\n};`,
-    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844800/free_fire_bw_v3pdyq.jpg'
+    image: '/event/freefire.jpg'
   },
   {
     title: 'BGMI',
@@ -180,7 +180,7 @@ const highlightsData = [
     icon: Gamepad2,
     gradient: 'from-[#ec4899] to-[#f43f5e]',
     codeSnippet: `const bgmi = {\n  map: 'Erangel',\n  squad: 5,\n  chicken_dinner: true\n};`,
-    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844623/bw_pubg_iuev64.jpg'
+    image: '/event/pubg.jpg'
   },
   {
     title: 'PES',
@@ -188,7 +188,7 @@ const highlightsData = [
     icon: Gamepad2,
     gradient: 'from-[#fb923c] to-[#fbbf24]',
     codeSnippet: `const pes = {\n  match: '1v1',\n  half_time: '5min',\n  controller: true\n};`,
-    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844799/pes_bw_w9ni0j.jpg'
+    image: '/event/pes.jpg'
   },
   {
     title: 'The Blitz',
@@ -196,7 +196,7 @@ const highlightsData = [
     icon: Zap,
     gradient: 'from-[#f43f5e] to-[#fb923c]',
     codeSnippet: `const blitz = {\n  speed: 'max',\n  reflexes: 'required',\n  win: 'fast'\n};`,
-    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844807/chess_bw_g8zmqd.jpg'
+    image: '/event/chess.jpg'
   },
   {
     title: 'Valorant',
@@ -204,7 +204,7 @@ const highlightsData = [
     icon: Gamepad2,
     gradient: 'from-[#f43f5e] to-[#fb923c]',
     codeSnippet: `const valorant = {\n  agent: 'Jett',\n  weapon: 'Vandal',\n  plant: 'Spike'\n};`,
-    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844689/bw_valorant_fbeamm.jpg'
+    image: '/event/valorant.jpg'
   },
   {
     title: 'The Blusters',
@@ -212,7 +212,7 @@ const highlightsData = [
     icon: Code,
     gradient: 'from-[#00ffff] to-[#a855f7]',
     codeSnippet: `const blusters = {\n  lang: 'any',\n  solo: true,\n  logic: '100%'\n};`,
-    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844546/bw_bluster_exkmrn.jpg'
+    image: '/event/bluster.jpg'
   },
   {
     title: 'The Architect',
@@ -220,7 +220,7 @@ const highlightsData = [
     icon: Cpu,
     gradient: 'from-[#a855f7] to-[#ec4899]',
     codeSnippet: `const architect = {\n  build: 'hardware',\n  components: 'provided',\n  innovate: true\n};`,
-    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844463/architect_bw_dqvjij.jpg'
+    image: '/event/architect.jpg'
   },
   {
     title: 'The Prompters',
@@ -228,7 +228,7 @@ const highlightsData = [
     icon: Lightbulb,
     gradient: 'from-[#fbbf24] to-[#00d4ff]',
     codeSnippet: `const prompters = {\n  model: 'GPT-4',\n  input: 'creative',\n  output: 'art'\n};`,
-    image: 'https://res.cloudinary.com/do8ufkhvn/image/upload/v1769844643/bw_prompters_daozhg.jpg'
+    image: '/event/prompters.jpg'
   },
 ];
 
