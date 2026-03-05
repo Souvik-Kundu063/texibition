@@ -80,16 +80,6 @@ export default function App() {
           </Routes>
         </Suspense>
         <Footer />
-        
-        {/* Copyright Notice */}
-        <div className="bg-[#0a0a0f] border-t border-[#00d4ff]/20 py-4 text-center">
-          <p className="text-white/60 text-xs sm:text-sm">
-            © 2026 Texibition. Built by the Tech Club Team
-          </p>
-        </div>
-        
-        <MerchPopupManager />
-        <FloatingMerchButton />
       </div>
     </BrowserRouter>
   );
