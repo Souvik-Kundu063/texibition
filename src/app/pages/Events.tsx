@@ -155,6 +155,21 @@ const events: Event[] = [
   },
 ];
 
+// Events that remain open until March 9th, 2026
+const eventsOpenUntilMarch9 = ['valorant', 'the-architect'];
+
+// Check if registration should be closed for an event
+const isRegistrationClosed = (eventId: string): boolean => {
+  // If it's a special event (Valorant or The Architect), check March 9th deadline
+  if (eventsOpenUntilMarch9.includes(eventId)) {
+    const deadline = new Date('2026-03-09T23:59:59').getTime();
+    return deadline - new Date().getTime() <= 0;
+  }
+  // All other events use March 5th deadline
+  const deadline = new Date('2026-03-05T23:59:59').getTime();
+  return deadline - new Date().getTime() <= 0;
+};
+
 export function Events() {
   const [activeTab, setActiveTab] = useState<'all' | 'game' | 'coding' | 'hardware' | 'prompting'>('all');
 
@@ -297,7 +312,7 @@ export function Events() {
                 </div>
 
                 {/* REGESTER Glassmorphism Button in Center */}
-                {event.id === 'the-prompters' ? (
+                {isRegistrationClosed(event.id) ? (
                   <div className="absolute inset-0 flex items-center justify-center z-20">
                     <motion.button
                       disabled
@@ -310,7 +325,7 @@ export function Events() {
                         boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.1)',
                       }}
                     >
-                      REGISTRATION CLOSED,THANK YOU
+                      REGISTRATION CLOSED
                   
                     </motion.button>
                   </div>
