@@ -404,7 +404,12 @@ const eventData: Record<string, EventData> = {
 
 export function EventDetails() {
   const { id } = useParams();
-  const { isOpen: isRegistrationOpen } = useRegistrationStatus();
+  const { isOpen: isRegistrationOpen, eventSpecificOpen } = useRegistrationStatus(id);
+  
+  // For special events (Valorant, The Architect), use eventSpecificOpen
+  // For other events, use isRegistrationOpen
+  const isSpecialEvent = id === 'valorant' || id === 'the-architect';
+  const isOpen = isSpecialEvent ? eventSpecificOpen : isRegistrationOpen;
 
   const isXibit = id === 'xibit';
   const isPrompters = id === 'the-prompters';
@@ -544,7 +549,7 @@ export function EventDetails() {
                 ></div> 
               ) : ( */}
               <>
-                {isRegistrationOpen && !isPrompters ? (
+                {isOpen ? (
                   <a
                     href={event.registerLink}
                     target="_blank"

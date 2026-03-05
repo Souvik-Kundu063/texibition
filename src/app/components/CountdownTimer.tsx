@@ -9,13 +9,24 @@ interface TimeLeft {
   seconds: number;
 }
 
+// Events that remain open until March 9th, 2026
+const eventsOpenUntilMarch9 = ['valorant', 'the-architect'];
 
-export function CountdownTimer() {
-const registrationDeadline = new Date('2026-03-05T23:59:59').getTime();
+interface CountdownTimerProps {
+  eventId?: string;
+}
+
+export function CountdownTimer({ eventId }: CountdownTimerProps) {
+  // If it's a special event (Valorant or The Architect), use March 9th deadline
+  // Otherwise use March 5th deadline
+  const isSpecialEvent = eventId && eventsOpenUntilMarch9.includes(eventId);
+  const deadline = isSpecialEvent 
+    ? new Date('2026-03-09T23:59:59').getTime()
+    : new Date('2026-03-05T23:59:59').getTime();
 
 
   const calculateTimeLeft = (): TimeLeft => {
-    const difference = registrationDeadline - new Date().getTime();
+    const difference = deadline - new Date().getTime();
 
     if (difference > 0) {
       return {
@@ -37,7 +48,7 @@ const registrationDeadline = new Date('2026-03-05T23:59:59').getTime();
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [eventId]);
 
   const timeUnits = [
     { label: 'Days', value: timeLeft.days },
