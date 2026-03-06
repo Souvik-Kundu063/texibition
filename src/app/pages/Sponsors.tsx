@@ -316,16 +316,6 @@ const sponsorsRow2 = [
     isText: false
   },
   {
-    name: 'Chess.com',
-    logo: '/sponsors/chess.com.png',
-    category: 'Chess Partner',
-    link: 'https://www.chess.com/',
-    invertLogo: false,
-    hasBox: false,
-    isGitHub: false,
-    isText: false
-  },
-  {
     name: 'ClickNBit',
     logo: '/sponsors/clicknbit.jpg',
     category: 'Media Partner',
