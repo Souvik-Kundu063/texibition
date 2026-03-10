@@ -43,7 +43,6 @@ export function Footer() {
             <ul className="space-y-1 sm:space-y-2">
               {[
                 { label: 'Events', path: '/events' },
-                { label: 'Schedule', path: '/schedule' },
                 { label: 'Team', path: '/team' },
                 { label: 'FAQ', path: '/faq' },
                 { label: 'Official Merch', path: 'https://cozzon.in/shop/product/texibition-2k26-official-tee', isExternal: true },
