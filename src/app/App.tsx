@@ -20,6 +20,8 @@ const EventGallery = lazy(() => import('./pages/EventGallery').then(module => ({
 const FAQ = lazy(() => import('./pages/FAQ').then(module => ({ default: module.FAQ })));
 
 const TempLanding = lazy(() => import('./pages/TempLanding').then(module => ({ default: module.default })));
+const CertificatePage = lazy(() => import('./pages/CertificatePage').then(module => ({ default: module.default })));
+
 
 // Loading skeleton component
 function PageLoader() {
@@ -63,10 +65,11 @@ function MerchPopupManager() {
 
 function AppContent() {
   const location = useLocation();
+  const isMinimalPage = location.pathname === '/' || location.pathname === '/certificate';
 
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
-      {location.pathname !== '/' && (
+      {!isMinimalPage && (
         <>
           <NavigationFuturistic />
           <MobileBackButton />
@@ -86,9 +89,10 @@ function AppContent() {
           <Route path="/team" element={<Team />} />
           <Route path="/event-gallery" element={<EventGallery />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/certificate" element={<CertificatePage />} />
         </Routes>
       </Suspense>
-      {location.pathname !== '/' && <Footer />}
+      {!isMinimalPage && <Footer />}
     </div>
   );
 }
