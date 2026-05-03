@@ -35,12 +35,12 @@ export default function CertificatePage() {
     // Rate Limiting
     const now = Date.now();
     const recentAttempts = searchAttempts.filter(timestamp => now - timestamp < 60000);
-    
+
     if (recentAttempts.length >= 5) {
       setSearchError('Too many search attempts. Please wait a minute and try again.');
       return;
     }
-    
+
     setSearchAttempts([...recentAttempts, now]);
 
     // Caching
@@ -68,7 +68,7 @@ export default function CertificatePage() {
       const response = await fetchWithRetry(url, 3, 1000);
       const data = await response.json();
       const files = data.files || [];
-      
+
       setSearchResults(files);
       setSearchCache(prev => ({ ...prev, [cacheKey]: files }));
 
@@ -98,13 +98,13 @@ export default function CertificatePage() {
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#00d4ff] rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#a855f7] rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
         <div className="absolute top-[40%] left-[60%] w-[30%] h-[30%] bg-[#ec4899] rounded-full mix-blend-screen filter blur-[120px] opacity-10 animate-pulse" style={{ animationDelay: '4s' }} />
-        
+
         {/* Grid Overlay */}
         <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10 bg-[length:50px_50px]" />
       </div>
 
       {/* Main Content Container */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -112,24 +112,24 @@ export default function CertificatePage() {
       >
         {/* Navigation & Logos Header */}
         <div className="flex flex-col sm:flex-row justify-between items-center w-full mb-12 sm:mb-16 gap-6 relative z-20">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="flex items-center gap-2 text-white/60 hover:text-[#00d4ff] transition-colors font-['Rajdhani'] font-bold text-lg group self-start sm:self-auto"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
             BACK TO HOME
           </Link>
-          
+
           <div className="flex items-center justify-center gap-3 sm:gap-10 w-full sm:w-auto overflow-hidden">
-            <img 
-              src="/images/bwulogo.png" 
-              alt="Brainware University" 
+            <img
+              src="/images/bwulogo.png"
+              alt="Brainware University"
               className="h-8 sm:h-16 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] shrink"
             />
             <div className="w-px h-6 sm:h-10 bg-white/20 shrink-0"></div>
-            <img 
-              src="/images/texibitionlogo.png" 
-              alt="Texibition" 
+            <img
+              src="/images/texibitionlogo.png"
+              alt="Texibition"
               className="h-10 sm:h-20 w-auto object-contain drop-shadow-[0_0_15px_rgba(0,212,255,0.3)] shrink"
             />
           </div>
@@ -137,7 +137,7 @@ export default function CertificatePage() {
 
         {/* Title Header */}
         <div className="text-center mb-12">
-          <motion.div 
+          <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
@@ -145,7 +145,7 @@ export default function CertificatePage() {
           >
             <Award className="w-10 h-10 sm:w-12 sm:h-12 text-[#00d4ff]" />
           </motion.div>
-          
+
           <h1 className="font-['Orbitron'] font-black text-4xl sm:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-[#00d4ff] via-[#a855f7] to-[#ec4899] mb-4 drop-shadow-lg tracking-wider">
             CERTIFICATE PORTAL
           </h1>
@@ -158,7 +158,7 @@ export default function CertificatePage() {
         <div className="relative group">
           {/* Glowing Border Frame */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00d4ff] via-[#a855f7] to-[#ec4899] rounded-3xl blur opacity-30 group-hover:opacity-70 transition duration-1000 group-hover:duration-200" />
-          
+
           <div className="relative bg-[#0a0a0f]/90 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl">
             <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-4">
               <div className="relative flex-1">
@@ -191,8 +191,8 @@ export default function CertificatePage() {
 
             {/* Error Message */}
             {searchError && (
-              <motion.div 
-                initial={{ opacity: 0, height: 0 }} 
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-400 font-['Rajdhani'] text-lg text-center flex items-center justify-center gap-2"
               >
@@ -203,7 +203,7 @@ export default function CertificatePage() {
 
             {/* Results */}
             {searchResults.length > 0 && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-8 space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar"
@@ -217,7 +217,7 @@ export default function CertificatePage() {
                     className="relative overflow-hidden group/cert bg-gradient-to-r from-white/5 to-white/0 border border-white/10 hover:border-[#00d4ff]/50 rounded-2xl transition-all duration-300"
                   >
                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#00d4ff] to-[#a855f7] transform scale-y-0 group-hover/cert:scale-y-100 transition-transform origin-top duration-300" />
-                    
+
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-5 sm:p-6 gap-6">
                       <div className="flex items-center gap-5 flex-1 min-w-0 w-full">
                         <div className="flex-shrink-0 p-4 bg-[#00d4ff]/10 rounded-xl text-[#00d4ff] group-hover/cert:bg-[#00d4ff]/20 transition-colors">
@@ -233,7 +233,7 @@ export default function CertificatePage() {
                           </div>
                         </div>
                       </div>
-                      
+
                       <a
                         href={cert.webContentLink || cert.webViewLink}
                         target="_blank"
@@ -259,7 +259,7 @@ export default function CertificatePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-2 flex-wrap">
             <a href="mailto:texibition@brainwareuniversity.ac.in" className="flex items-center gap-2 hover:text-[#00d4ff] transition-colors whitespace-nowrap">
               <Mail className="w-4 h-4 shrink-0" />
-              texibition@brainwareuniversity.ac.in
+              texibition@gmail.com
             </a>
             <a href="tel:+917718427880" className="flex items-center gap-2 hover:text-[#00d4ff] transition-colors whitespace-nowrap">
               <Phone className="w-4 h-4 shrink-0" />
@@ -271,7 +271,7 @@ export default function CertificatePage() {
             </a>
           </div>
         </div>
-        
+
         {/* Spacer to push footer to bottom */}
         <div className="flex-grow"></div>
       </motion.div>
