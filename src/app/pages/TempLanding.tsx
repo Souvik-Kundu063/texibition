@@ -12,6 +12,11 @@ export default function TempLanding() {
   const [searchError, setSearchError] = useState('');
   const [galleryImages, setGalleryImages] = useState<{ src: string, alt: string }[]>([]);
 
+  // Optimizations for heavy load
+  const [searchCache, setSearchCache] = useState<Record<string, any[]>>({});
+  const [searchAttempts, setSearchAttempts] = useState<number[]>([]);
+
+
   useEffect(() => {
     const fetchGallery = async () => {
       try {
@@ -41,9 +46,48 @@ export default function TempLanding() {
     fetchGallery();
   }, []);
 
+  const fetchWithRetry = async (url: string, retries = 3, delay = 1000): Promise<Response> => {
+    for (let i = 0; i < retries; i++) {
+      const response = await fetch(url);
+      if (response.ok) return response;
+      // If rate limited (429) or server error (5xx), wait and retry
+      if (response.status === 429 || response.status === 403 || response.status >= 500) {
+        if (i === retries - 1) throw response;
+        await new Promise(res => setTimeout(res, delay * Math.pow(2, i)));
+      } else {
+        throw response;
+      }
+    }
+    throw new Error('Max retries reached');
+  };
+
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!searchQuery.trim()) return;
+    const query = searchQuery.trim();
+    if (!query) return;
+
+    // 1. Client-Side Rate Limiting (prevent spamming)
+    const now = Date.now();
+    // Keep attempts from the last 60 seconds
+    const recentAttempts = searchAttempts.filter(timestamp => now - timestamp < 60000);
+    
+    if (recentAttempts.length >= 5) {
+      setSearchError('Too many search attempts. Please wait a minute and try again.');
+      return;
+    }
+    
+    setSearchAttempts([...recentAttempts, now]);
+
+    // 2. Caching (if previously searched, use cache)
+    const cacheKey = query.toLowerCase();
+    if (searchCache[cacheKey]) {
+      setSearchResults(searchCache[cacheKey]);
+      setSearchError('');
+      if (searchCache[cacheKey].length === 0) {
+        setSearchError('No certificates found for this name.');
+      }
+      return;
+    }
 
     setSearchLoading(true);
     setSearchError('');
@@ -52,21 +96,33 @@ export default function TempLanding() {
     try {
       const apiKey = 'AIzaSyC7JWzV0NV0_GkYi4QsY1-2kf3yPze36o8';
       const folderId = '1gHf22F9gjoC-iC72DeflD2wgFMwB1hnp';
-      const safeQuery = searchQuery.trim().replace(/'/g, "\\'");
+      const safeQuery = query.replace(/'/g, "\\'");
       const q = `name contains '${safeQuery}' and '${folderId}' in parents and trashed = false`;
       const url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&key=${apiKey}&fields=files(id,name,webViewLink,webContentLink)`;
 
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error('Failed to fetch certificates');
-      }
+      // 3. Exponential Backoff Retry mechanism
+      const response = await fetchWithRetry(url, 3, 1000);
+      
       const data = await response.json();
-      setSearchResults(data.files || []);
-      if (data.files && data.files.length === 0) {
+      const files = data.files || [];
+      
+      setSearchResults(files);
+      setSearchCache(prev => ({ ...prev, [cacheKey]: files }));
+
+      if (files.length === 0) {
         setSearchError('No certificates found for this name.');
       }
-    } catch (err) {
-      setSearchError('An error occurred. Please try again later.');
+    } catch (err: any) {
+      console.error('Search API error:', err);
+      if (err instanceof Response) {
+        if (err.status === 429 || err.status === 403) {
+          setSearchError('High traffic detected! The system is busy, please try again in a few minutes.');
+        } else {
+          setSearchError('An error occurred connecting to the server. Please try again later.');
+        }
+      } else {
+        setSearchError('An error occurred. Please check your connection and try again.');
+      }
     } finally {
       setSearchLoading(false);
     }
